@@ -160,18 +160,20 @@ def build_home():
         "Custom upholstery in Monroe, NC. Convertible tops, seats, headliners, carpet "
         "and marine canvas for automotive, marine, aviation and motorcycle interiors. "
         "Free estimates — call (980) 385-8101.", p,
-        preload=preload_image("hero-best-finished-vehicle-wide-full-color",
+        preload=preload_image("g16-cadillac-convertible-red-interior",
                               "(min-width:900px) 52vw, 100vw"))
     h += header(p)
 
-    # Hero slideshow. Deliberately NO per-slide captions: the inherited filenames
-    # are unreliable (see HANDOFF open item 2), so the imagery rotates without
-    # making any claim about what each individual photo shows.
+    # Hero slideshow. Still no per-slide captions — the slideshow makes no claim
+    # about any individual photo. The four basenames below are now the canonical
+    # copy of each image (see the verified-content map above GALLERY) and none of
+    # them is reused anywhere else on this page, so the home page never shows the
+    # same photograph twice.
     hero_slides = [
-        "hero-best-finished-vehicle-wide-full-color",
+        "g16-cadillac-convertible-red-interior",
         "g19-mercedes-gla-interior-work",
-        "marine-boat-cushions-canvas",
-        "custom-motorcycle-seat-upholstery-close-up",
+        "gallery-header-photo-wide",
+        "g18-camaro-ss-profile",
     ]
     n_slides = len(hero_slides)
     slides = "".join(
@@ -221,21 +223,21 @@ def build_home():
           <span class="go">See the work</span></div>
       </a>
       <a class="pcard" href="marine-upholstery.html">
-        {img('marine-boat-cushions-canvas', 'Marine upholstery and boat cushions', HALF)}
+        {img('marine-seating-and-interior-upholstery', 'Runabout cockpit seating and helm trim', HALF)}
         <span class="cat">Marine</span>
         <div class="pbody"><h3>Marine Upholstery</h3>
           <p>Boat canvas tops, cushions, helm trim and weather-resistant marine materials.</p>
           <span class="go">See the work</span></div>
       </a>
       <a class="pcard" href="motorcycle-seats.html">
-        {img('motorcycle-custom-seat', 'Custom motorcycle seat upholstery', HALF)}
+        {img('custom-motorcycle-seat-upholstery-close-up', 'Diamond-stitched custom motorcycle seat', HALF)}
         <span class="cat">Motorcycle</span>
         <div class="pbody"><h3>Motorcycle Upholstery</h3>
           <p>Custom seats designed for comfort, durability and performance.</p>
           <span class="go">See the work</span></div>
       </a>
       <a class="pcard" href="aviation-upholstery.html">
-        {img('aviation-cabin-seats', 'Aircraft cabin seat upholstery', HALF)}
+        {img('aircraft-interior-seat-upholstery', 'Aircraft cabin seat upholstery', HALF)}
         <span class="cat">Aviation</span>
         <div class="pbody"><h3>Aviation Upholstery</h3>
           <p>Cockpit and cabin interiors, seating, panels and carpet &mdash; a trade
@@ -251,17 +253,23 @@ def build_home():
     <div class="center stack">
       {shead("02", "Recent work", center=True)}
       <h2>The work speaks first</h2>
-      <p class="lead">A few pieces out of the Monroe shop &mdash; cars, trucks, boats and bikes.</p>
+      <p class="lead">A few recent jobs out of the Monroe shop.</p>
     </div>
+    <!-- Every tile here is automotive on purpose. Deduplication left exactly one
+         usable marine photo, one motorcycle photo and two aviation photos, and
+         all four are already on this page in the bento above — putting them here
+         too would show the same photograph twice under two captions, which is the
+         defect this pass exists to remove. The lead no longer promises boats and
+         bikes in this strip; the gallery link below carries them. -->
     <div class="masonry">{masonry_tiles([
         ('g01-camaro-ss-new-convertible-top', 'Camaro SS — new convertible top', 'Automotive'),
-        ('g16-cadillac-convertible-red-interior', 'Cadillac — red interior', 'Automotive'),
-        ('g22-marine-cushions-and-helm-trim', 'Marine cushions and helm trim', 'Marine'),
-        ('headliner-install', 'Headliner, fitted and finished', 'Automotive'),
-        ('g06-ford-f1-cab-seat-carpet-and-trim', 'Ford F1 — seat, carpet and trim', 'Automotive'),
-        ('custom-motorcycle-seat-upholstery-close-up', 'Stitched motorcycle seat', 'Motorcycle'),
+        ('convertible-top-replacement-and-finish', 'Corvette — new convertible top', 'Automotive'),
+        ('classic-interior-finished', 'Cadillac convertible — finished interior', 'Automotive'),
+        ('g13-sound-deadening-before-carpet', 'Ford F1 — headliner fitted and finished', 'Automotive'),
         ('g09-truck-cab-black-seat-red-stitch', 'Truck cab — black seat, red stitch', 'Automotive'),
-        ('aircraft-interior-seat-upholstery', 'Aircraft cabin seating', 'Aviation'),
+        ('g08-cushion-and-armrest-trimmed', 'Classic Chevrolet — bench seat and door panels', 'Automotive'),
+        ('seat-rebuild-after', 'Seat rebuild — finished', 'Automotive'),
+        ('g12-shift-boot-and-carpet-detail', 'Shift boot and carpet detail', 'Automotive'),
     ])}</div>
     <div class="btnrow" style="justify-content:center"><a class="btn btn-ghost" href="gallery.html">See the full gallery</a></div>
   </div>
@@ -379,7 +387,8 @@ def build_services():
         "Convertible tops", "Convertible top replacement in Monroe, NC",
         "A new top is really three jobs: the fabric, the window, and whatever needs "
         "repairing on the frame underneath. We quote all three.",
-        "convertible-top-after",
+        # was `convertible-top-after`, which is a truck cab interior, not a top
+        "convertible-top-replacement-and-finish",
         [("Materials", ["Quality vinyl — holds up well in Carolina sun",
                         "Canvas cloth — correct on a classic, ages gracefully",
                         "Samples shown in the shop before you decide"]),
@@ -389,8 +398,9 @@ def build_services():
          ("The frame underneath", ["Collapsed pad replacement",
                                    "Bent bow straightening",
                                    "Checked before we quote, not after"])],
-        ["g01-camaro-ss-new-convertible-top", "g05-burgundy-cloth-top-rear-window",
-         "g17-cadillac-top-and-interior-finished", "convertible-top-replacement-and-finish",
+        # Dropped g05 (it is a Cadillac front end, not a cloth top) and g17
+        # (a duplicate of g16, and the top is stowed in it anyway).
+        ["g01-camaro-ss-new-convertible-top", "automotive-interior-restoration-detail",
          "automotive-ford-galaxie-top-after", "g18-camaro-ss-profile"],
         [("How much does a convertible top replacement cost?",
           "It depends on three things: the material you choose, whether the rear window is "
@@ -409,7 +419,6 @@ def build_services():
           "Most tops are a few days once the material is in hand. Frame or pad repair adds time. "
           "We will give you a realistic window with the estimate.")],
         ["Camaro SS — new convertible top", "Burgundy cloth top — rear window",
-         "Cadillac — top and interior finished", "Convertible top replacement and finish",
          "Ford Galaxie — top fitted", "Camaro SS — profile"])
 
     service_page(
@@ -428,11 +437,14 @@ def build_services():
          ("Full restoration", ["Period-correct or upgraded builds",
                                "Sound deadening under the carpet",
                                "Materials specified with you first"])],
+        # Dropped headliner-install (a duplicate Cadillac exterior) and moved
+        # automotive-interior-restoration-detail to the convertible-tops page,
+        # which is what it actually shows.
         ["g06-ford-f1-cab-seat-carpet-and-trim", "g07-bench-seat-red-piping-in-the-shop",
-         "g09-truck-cab-black-seat-red-stitch", "headliner-install",
+         "g09-truck-cab-black-seat-red-stitch", "g13-sound-deadening-before-carpet",
          "g11-carpet-fitted-and-trimmed", "g19-mercedes-gla-interior-work",
-         "g12-shift-boot-and-carpet-detail", "g13-sound-deadening-before-carpet",
-         "automotive-interior-restoration-detail"],
+         "g12-shift-boot-and-carpet-detail", "g08-cushion-and-armrest-trimmed",
+         "g10-bel-air-new-carpet-going-in", "marine-canvas-cushions"],
         [("Do you repair a single seat, or only full interiors?",
           "Either. Plenty of our work is one torn driver's seat or a sagging headliner. "
           "You do not need a full restoration to come see us."),
@@ -446,11 +458,11 @@ def build_services():
          ("Can you match the original material?",
           "Usually. For a classic we chase correct grain, stitch spacing and carpet weave. "
           "Where an exact original is no longer made, we will show you the closest options.")],
-        ["Ford F1 — seat, carpet and trim", "Bench seat — red piping",
-         "Truck cab — black seat, red stitch", "Headliner install",
-         "Carpet fitted and trimmed", "Mercedes GLA — interior work",
-         "Shift boot and carpet detail", "Sound deadening before carpet",
-         "Interior restoration detail"])
+        ["Ford F1 cab — sound deadening down", "Cushion and armrest, trimmed on the bench",
+         "Truck cab — black seat, red stitch", "Ford F1 — headliner fitted and finished",
+         "Classic Chevrolet — carpet fitted", "Ford F1 cab — rebuilt seat and carpet",
+         "Shift boot and carpet detail", "Classic Chevrolet — bench seat and door panels",
+         "Classic Chevrolet — new carpet going in", "Classic coupe — rear bench seat"])
 
     service_page(
         "marine-upholstery.html",
@@ -469,8 +481,9 @@ def build_services():
                      "The difference shows in year three, not year one"]),
          ("Bring one piece", ["We will tell you honestly whether it needs recovering or replacing",
                               "No charge to look"])],
-        ["g22-marine-cushions-and-helm-trim", "marine-boat-cushions-canvas",
-         "marine-canvas-cushions", "boat-upholstery-projects-at-the-shop",
+        # This strip previously showed the hero photo twice more under two other
+        # filenames, plus `marine-canvas-cushions`, which is a car interior.
+        ["boat-upholstery-projects-at-the-shop",
          "upholstery-materials-and-marine-project-parts"],
         [("Why not leather on a boat?",
           "Leather is wonderful in a car interior. On the water it is a maintenance problem — "
@@ -484,8 +497,7 @@ def build_services():
          ("My canvas has gone chalky — recover or replace?",
           "Depends how far it has gone. Chalking is usually a sign of a cheaper coated fabric "
           "reaching the end of its life. We will give you an honest answer when we see it.")],
-        ["Marine cushions and helm trim", "Boat cushions and canvas", "Marine canvas and cushions",
-         "Boat upholstery at the shop", "Marine materials and project parts"])
+        ["Boat in for upholstery at the shop", "Project parts on the shop bench"])
 
     service_page(
         "aviation-upholstery.html",
@@ -503,8 +515,8 @@ def build_services():
          ("Working with you", ["Materials specified before any cutting starts",
                                "Bring the aircraft or the seats to the shop",
                                "Free, itemised estimate"])],
-        ["aircraft-cabin-upholstery-craftsmanship", "aviation-cabin-seats",
-         "aircraft-interior-seat-upholstery"],
+        # Both dropped entries were the hero photo again under other filenames.
+        ["aircraft-cabin-upholstery-craftsmanship"],
         [("Do you do full cabin interiors?",
           "Yes — seating, side panels, carpet and trim, finished consistently across the cabin."),
          ("Can I bring just the seats?",
@@ -513,7 +525,7 @@ def build_services():
          ("How is aviation work different from automotive?",
           "The standard of finish and the attention to weight and fit are higher, and the "
           "materials differ. It is the same craft, held to a tighter tolerance.")],
-        ["Aircraft cabin craftsmanship", "Aviation cabin seats", "Aircraft interior seating"])
+        ["Aircraft cabin — divan and club seat"])
 
     service_page(
         "motorcycle-seats.html",
@@ -530,8 +542,13 @@ def build_services():
                             "Contrast thread and piping", "Two-tone and custom material combinations"]),
          ("Turnaround", ["Bring the seat in on its own — no need for the bike",
                          "Free estimate, no obligation"])],
-        ["motorcycle-custom-seat", "custom-bike-seat",
-         "custom-motorcycle-seat-upholstery-close-up"],
+        # All three tiles were removed and the "Recent work" band drops out with
+        # them. Two were the hero photo again under other filenames, and
+        # `custom-bike-seat` is a burgundy convertible top on a white car — no
+        # motorcycle in the frame at all. The catalogue has exactly one bike
+        # photo, and it is already the hero. Restore this band when the shop
+        # supplies real motorcycle work.
+        [],
         [("Do I need to bring the whole bike?",
           "No — take the seat off and bring it in. That is how most of these jobs start."),
          ("Can you make the seat taller or lower?",
@@ -540,7 +557,7 @@ def build_services():
          ("Can you do a custom stitch pattern?",
           "Yes. Diamond, pleated, contrast thread, two-tone — bring a picture of what you want "
           "and we will tell you what is achievable on your pan.")],
-        ["Custom motorcycle seat", "Custom bike seat", "Stitched seat detail"])
+        [])
 
     # Two of the nine Google reviews are specifically about sunroof shade work.
     # Quoted verbatim — these are the only claims made about this service.
@@ -618,7 +635,7 @@ def build_services_index():
     h += header(p)
 
     cards = [
-        ("convertible-tops.html", "Convertible Tops", "convertible-top-after",
+        ("convertible-tops.html", "Convertible Tops", "g01-camaro-ss-new-convertible-top",
          "Vinyl and canvas tops, heated glass and plastic windows, plus the frame and pad "
          "work underneath that most quotes leave out.",
          ["Vinyl and canvas", "Heated glass windows", "Frame and pad repair"]),
@@ -630,7 +647,7 @@ def build_services_index():
          "Sagging, torn or stuck sliding sunshade? We recover the panel you already have "
          "instead of replacing the whole sunroof assembly.",
          ["Sagging and torn shades", "Matched to your headliner", "Recover, not replace"]),
-        ("marine-upholstery.html", "Marine Upholstery", "marine-canvas-cushions",
+        ("marine-upholstery.html", "Marine Upholstery", "marine-seating-and-interior-upholstery",
          "Boat seating, helm trim, cushions and canvas in materials built for sun, "
          "standing water and salt.",
          ["UV-stabilised marine vinyl", "Quick-dry foam", "Solution-dyed canvas"]),
@@ -638,7 +655,7 @@ def build_services_index():
          "Cockpit and cabin interiors, seating, panels and carpet. A trade almost nobody "
          "else in the region offers.",
          ["Cockpit and cabin seats", "Side panels and trim", "Cabin carpet"]),
-        ("motorcycle-seats.html", "Motorcycle Seats", "custom-bike-seat",
+        ("motorcycle-seats.html", "Motorcycle Seats", "custom-motorcycle-seat-upholstery-close-up",
          "Recovered, reshaped or built to your own pattern, with custom stitch work and "
          "contrast detail.",
          ["Recover and reshape", "Diamond and pleated stitch", "Pan repair"]),
@@ -680,40 +697,120 @@ def build_services_index():
     write(p, h)
 
 # ============================================================== GALLERY
+#
+# CAPTION RULE: the basenames below came out of the old bundle and DO NOT
+# describe their images. Every caption here was rewritten on 2026-08-05 by
+# opening each file and describing what is in the frame. Never caption one of
+# these from its filename, and never reuse a caption on a photo you have not
+# looked at. Nine filenames were flatly wrong — e.g. `headliner-install` is a
+# Cadillac convertible exterior with no headliner in it at all.
+#
+# VERIFIED CONTENT of every master in assets/originals/ (43 files, 33 distinct
+# images — 7 duplicate groups are marked DUP OF and are not used twice on any
+# one page):
+#
+#   g01-camaro-ss-new-convertible-top ... black/yellow Camaro convertible, black
+#       top up, parked at the shop
+#   g18-camaro-ss-profile ............... same Camaro, side profile by the fence
+#   convertible-top-replacement-and-finish  red C5 Corvette, new black top, at
+#       the shop (the OLD phone number is legible on the sign)
+#   automotive-ford-galaxie-top-after ... blue Ford Galaxie convertible, tan top
+#       up, NC plate
+#   services-strip-4 .................... same blue Galaxie, top down, black
+#       tonneau fitted over the top well
+#   automotive-interior-restoration-detail  burgundy cloth top + rear window on a
+#       white car, in a garage.  NOT an interior detail.
+#   custom-bike-seat .................... DUP OF automotive-interior-restoration-detail.
+#       NOT a bike seat.
+#   g16-cadillac-convertible-red-interior  grey '69 Cadillac convertible, top
+#       down, red interior, door open, at the shop
+#   headliner-install ................... DUP OF g16. NOT a headliner.
+#   g17-cadillac-top-and-interior-finished  DUP OF g16.
+#   hero-best-finished-vehicle-wide-full-color  DUP OF g16.
+#   classic-interior-finished ........... same Cadillac, DIFFERENT angle (front
+#       three-quarter, door open) — a genuinely separate photo
+#   g15-1969-cadillac-profile ........... same Cadillac low/side, pink underglow
+#   g05-burgundy-cloth-top-rear-window .. that Cadillac's FRONT END at dusk, pink
+#       underglow, halo headlights, "1969 Cadillac" plate.  NOT a cloth top.
+#   gallery-header-photo-wide ........... red Ford F1 pickup at the shop with the
+#       finished black bench seat on the driveway beside it
+#   g06-ford-f1-cab-seat-carpet-and-trim  that F1's cab with Siless sound
+#       deadening laid down — no seat and no carpet in it yet
+#   g13-sound-deadening-before-carpet ... that F1's finished black HEADLINER,
+#       visors and mirror.  The opposite of its filename.
+#   g19-mercedes-gla-interior-work ...... that F1's cab interior, rebuilt black
+#       seat with red stitch, concert posters in the back window.  NOT a Mercedes.
+#   g09-truck-cab-black-seat-red-stitch . that F1's dash, gauges and seat
+#   convertible-top-after ............... DUP OF g09. NOT a convertible top.
+#   g08-cushion-and-armrest-trimmed ..... mid-50s Chevrolet interior — black bench
+#       with red piping, red/black door panels, tools on the floor
+#   g10-bel-air-new-carpet-going-in ..... that Chevrolet's dash and new black
+#       carpet (badge reads Chevrolet; the Bel Air trim claim is unverifiable)
+#   g11-carpet-fitted-and-trimmed ....... that Chevrolet, door open, carpet down
+#   g12-shift-boot-and-carpet-detail .... shift boot with red stitching on black
+#       carpet — the one g-caption that was already correct
+#   marine-canvas-cushions .............. rear bench seat inside a classic red
+#       coupe, grey headliner.  A CAR. It was filed under Marine.
+#   g07-bench-seat-red-piping-in-the-shop  black cushion and armrest upside down
+#       on the shop bench, staples showing.  No red piping visible.
+#   services-strip-1 .................... black bench cushion WITH red piping and
+#       armrest on the shop table
+#   services-strip-3 .................... black bench seat with red piping, mid
+#       rebuild in the shop
+#   seat-rebuild-after .................. finished black bench seat with red
+#       stitching, outdoors by the wooden fence
+#   process-header-photo-wide ........... DUP OF seat-rebuild-after
+#   services-strip-2 .................... red C8 Corvette in a field
+#   services-strip-5 .................... night shot at the shop, Jeep with
+#       underglow (unused)
+#   owner-shop-leadership-grayscale ..... the shop building at dusk with cars out
+#       front.  IN COLOUR, and there is no person in it.
+#   boat-upholstery-projects-at-the-shop  the shop building with a boat on a
+#       trailer parked outside
+#   upholstery-materials-and-marine-project-parts  weathered outdoor table with
+#       trim panels and a spray can. Nothing identifies them as marine.
+#
+#   -- provenance unconfirmed, see HANDOFF: these four read as commercial
+#      photography and carry no cue tying them to the Monroe shop --
+#   marine-seating-and-interior-upholstery  varnished-wood runabout cockpit, tan
+#       leather, white wheel, orange life ring
+#   g22-marine-cushions-and-helm-trim ... DUP OF marine-seating-and-interior-upholstery
+#   marine-boat-cushions-canvas ......... DUP OF marine-seating-and-interior-upholstery
+#   aircraft-interior-seat-upholstery ... cream quilted aircraft cabin seats
+#   aviation-cabin-seats ................ DUP OF aircraft-interior-seat-upholstery
+#   aircraft-cabin-upholstery-craftsmanship  private-jet cabin, cream divan and
+#       club seat
+#   custom-motorcycle-seat-upholstery-close-up  diamond-quilted seat on a mint
+#       green cafe racer
+#   motorcycle-custom-seat .............. DUP OF custom-motorcycle-seat-upholstery-close-up
+#
 GALLERY = [
     ("g01-camaro-ss-new-convertible-top", "Camaro SS — new convertible top", "Automotive"),
     ("g18-camaro-ss-profile", "Camaro SS — profile", "Automotive"),
-    ("g16-cadillac-convertible-red-interior", "Cadillac convertible — red interior", "Automotive"),
-    ("g17-cadillac-top-and-interior-finished", "Cadillac — top and interior finished", "Automotive"),
-    ("g15-1969-cadillac-profile", "1969 Cadillac — profile", "Automotive"),
-    ("g05-burgundy-cloth-top-rear-window", "Burgundy cloth top — rear window", "Automotive"),
-    ("g06-ford-f1-cab-seat-carpet-and-trim", "Ford F1 cab — seat, carpet and trim", "Automotive"),
-    ("g07-bench-seat-red-piping-in-the-shop", "Bench seat — red piping", "Automotive"),
-    ("g08-cushion-and-armrest-trimmed", "Cushion and armrest — trimmed", "Automotive"),
-    ("g09-truck-cab-black-seat-red-stitch", "Truck cab — black seat, red stitch", "Automotive"),
-    ("g10-bel-air-new-carpet-going-in", "Bel Air — new carpet going in", "Automotive"),
-    ("g11-carpet-fitted-and-trimmed", "Carpet fitted and trimmed", "Automotive"),
-    ("g12-shift-boot-and-carpet-detail", "Shift boot and carpet detail", "Automotive"),
-    ("g13-sound-deadening-before-carpet", "Sound deadening before carpet", "Automotive"),
-    ("g19-mercedes-gla-interior-work", "Mercedes GLA — interior work", "Automotive"),
-    ("headliner-install", "Headliner install", "Automotive"),
-    ("classic-interior-finished", "Classic interior, finished", "Automotive"),
-    ("automotive-interior-restoration-detail", "Interior restoration detail", "Automotive"),
-    ("convertible-top-replacement-and-finish", "Convertible top replacement and finish", "Automotive"),
+    ("convertible-top-replacement-and-finish", "Corvette — new convertible top", "Automotive"),
     ("automotive-ford-galaxie-top-after", "Ford Galaxie — top fitted", "Automotive"),
+    ("automotive-interior-restoration-detail", "Burgundy cloth top — rear window", "Automotive"),
+    ("g16-cadillac-convertible-red-interior", "Cadillac convertible — red interior, top down", "Automotive"),
+    ("classic-interior-finished", "Cadillac convertible — finished interior", "Automotive"),
+    ("g15-1969-cadillac-profile", "1969 Cadillac — profile", "Automotive"),
+    ("g05-burgundy-cloth-top-rear-window", "1969 Cadillac — front end", "Automotive"),
+    ("gallery-header-photo-wide", "Ford F1 — finished bench seat, ready to fit", "Automotive"),
+    ("g06-ford-f1-cab-seat-carpet-and-trim", "Ford F1 cab — sound deadening down", "Automotive"),
+    ("g13-sound-deadening-before-carpet", "Ford F1 — headliner fitted and finished", "Automotive"),
+    ("g19-mercedes-gla-interior-work", "Ford F1 cab — rebuilt seat and carpet", "Automotive"),
+    ("g09-truck-cab-black-seat-red-stitch", "Truck cab — black seat, red stitch", "Automotive"),
+    ("g08-cushion-and-armrest-trimmed", "Classic Chevrolet — bench seat and door panels", "Automotive"),
+    ("g10-bel-air-new-carpet-going-in", "Classic Chevrolet — new carpet going in", "Automotive"),
+    ("g11-carpet-fitted-and-trimmed", "Classic Chevrolet — carpet fitted", "Automotive"),
+    ("g12-shift-boot-and-carpet-detail", "Shift boot and carpet detail", "Automotive"),
+    ("marine-canvas-cushions", "Classic coupe — rear bench seat", "Automotive"),
+    ("g07-bench-seat-red-piping-in-the-shop", "Cushion and armrest, trimmed on the bench", "Automotive"),
     ("seat-rebuild-after", "Seat rebuild — finished", "Automotive"),
-    ("g22-marine-cushions-and-helm-trim", "Marine cushions and helm trim", "Marine"),
-    ("marine-seating-and-interior-upholstery", "Marine seating and interior", "Marine"),
-    ("marine-boat-cushions-canvas", "Boat cushions and canvas", "Marine"),
-    ("marine-canvas-cushions", "Marine canvas and cushions", "Marine"),
-    ("boat-upholstery-projects-at-the-shop", "Boat upholstery at the shop", "Marine"),
-    ("upholstery-materials-and-marine-project-parts", "Materials and project parts", "Marine"),
-    ("aircraft-interior-seat-upholstery", "Aircraft interior seating", "Aviation"),
-    ("aircraft-cabin-upholstery-craftsmanship", "Aircraft cabin craftsmanship", "Aviation"),
-    ("aviation-cabin-seats", "Aviation cabin seats", "Aviation"),
-    ("motorcycle-custom-seat", "Custom motorcycle seat", "Motorcycle"),
-    ("custom-bike-seat", "Custom bike seat", "Motorcycle"),
-    ("custom-motorcycle-seat-upholstery-close-up", "Stitched seat detail", "Motorcycle"),
+    ("marine-seating-and-interior-upholstery", "Runabout — cockpit seating and helm trim", "Marine"),
+    ("boat-upholstery-projects-at-the-shop", "Boat in for upholstery at the shop", "Marine"),
+    ("aircraft-interior-seat-upholstery", "Aircraft cabin seating", "Aviation"),
+    ("aircraft-cabin-upholstery-craftsmanship", "Aircraft cabin — divan and club seat", "Aviation"),
+    ("custom-motorcycle-seat-upholstery-close-up", "Diamond-stitched motorcycle seat", "Motorcycle"),
 ]
 
 
@@ -760,7 +857,8 @@ def build_process():
         ("Free, and itemised", "We quote in person",
          "We check what is under the cover — foam, frames, pads, bows — because that is "
          "where surprises live. Then you get an itemised estimate at no charge.",
-         "process-header-photo-wide"),
+         # was process-header-photo-wide, which is this page's hero photo again
+         "boat-upholstery-projects-at-the-shop"),
         ("Samples in hand", "You pick the materials",
          "We keep samples in the shop. Vinyl or canvas, glass or plastic window, "
          "period-correct or upgraded — you see and feel the difference before deciding.",
@@ -802,7 +900,7 @@ def build_process():
         <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a>
         <a class="btn btn-ghost" href="contact.html">Request a quote</a>
       </div></div>
-    <div class="hero-media">{img('process-header-photo-wide', 'Upholstery work in progress at the shop', HALF, eager=True)}</div>
+    <div class="hero-media">{img('seat-rebuild-after', 'A rebuilt bench seat, finished and ready to fit', HALF, eager=True)}</div>
   </div>
 </section>
 
@@ -846,7 +944,7 @@ def build_about():
       <h1>Trimming interiors in Monroe since 1989</h1>
       <p class="lead">What began as a focused automotive upholstery shop grew into a
          multi-disciplinary interior restoration business — cars, boats, aircraft and bikes.</p></div>
-    <div class="hero-media">{img('owner-shop-leadership-grayscale', 'Auto Tops and Trim shop leadership', HALF, eager=True)}</div>
+    <div class="hero-media">{img('owner-shop-leadership-grayscale', 'The Auto Tops and Trim shop on West Highway 74 in Monroe', HALF, eager=True)}</div>
   </div>
 </section>
 
@@ -865,10 +963,10 @@ def build_about():
   <div class="wrap stack">
     <div class="stack">{shead("02","Inside the shop")}<h2>How the work gets done</h2></div>
     <div class="grid g4 swiperow">
-      <figure class="tile">{img('services-strip-1', 'Upholstery materials and tools', QUARTER)}</figure>
-      <figure class="tile">{img('services-strip-2', 'Door panel restoration in progress', QUARTER)}</figure>
-      <figure class="tile">{img('services-strip-3', 'Seat frame rebuild', QUARTER)}</figure>
-      <figure class="tile">{img('services-strip-4', 'Finished trim work', QUARTER)}</figure>
+      <figure class="tile">{img('services-strip-1', 'A bench seat cushion with red piping on the shop table', QUARTER)}</figure>
+      <figure class="tile">{img('services-strip-3', 'A bench seat part way through a rebuild in the shop', QUARTER)}</figure>
+      <figure class="tile">{img('services-strip-4', 'A Ford Galaxie with the tonneau cover fitted over the top well', QUARTER)}</figure>
+      <figure class="tile">{img('services-strip-2', 'A Corvette outside the shop', QUARTER)}</figure>
     </div>
   </div>
 </section>
