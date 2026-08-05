@@ -1044,6 +1044,22 @@ html{scroll-behavior:smooth}
 .revtrack{will-change:transform}
 .revmarquee{contain:paint}
 
+/* ---- photos a reviewer attached to their own Google review ---------------
+   Sits inside the review card, under the quote. Fixed square tiles with
+   object-fit:cover so two portrait phone photos and two landscape ones both
+   read as a deliberate pair rather than a ragged pasted-in row — the cards sit
+   side by side in a marquee, so uneven photo heights would stagger the whole
+   band. Renders nothing unless a review actually carries photos. */
+.rev-shots{display:grid;gap:8px;margin-top:14px;
+  grid-template-columns:repeat(auto-fit,minmax(0,1fr))}
+.rev-shots[data-n="1"]{grid-template-columns:minmax(0,62%)}
+.rev-shots a{display:block;border-radius:var(--r-ctl);overflow:hidden;
+  aspect-ratio:1/1;background:rgba(255,255,255,.06)}
+.rev-shots img{width:100%;height:100%;object-fit:cover;display:block;
+  border-radius:0;transition:transform .4s ease}
+.rev-shots a:hover img{transform:scale(1.05)}
+@media (max-width:899px){.rev-shots{gap:6px;margin-top:11px}}
+
 /* ---- comparison tables in articles --------------------------------------
    Wide spec tables scroll inside their OWN container. The page body must never
    scroll sideways, and overflow must never go on html/body — at viewport level

@@ -114,15 +114,35 @@ def stars(n=5):
             + "&#9733;" * n + f'<span>{n} out of 5</span></p>')
 
 
-def review_card(q, who, sub, when, colour):
+def review_card(q, who, sub, when, colour, photos=None):
+    """One Google review. `photos` is an optional list of image basenames that the
+    reviewer attached to their own review.
+
+    Only pass photos that came from THAT reviewer's Google review. Never put a
+    shop photo here — the card presents these as the customer's own, and dressing
+    a stock or shop image up as a customer upload is exactly the kind of invented
+    claim the review rules above exist to prevent. Files go through
+    make_responsive.py like any other image so they get srcset variants.
+
+    Anything up to three reads well; beyond that the card gets taller than its
+    neighbours in the marquee."""
     initial = who.strip()[0].upper()
+    shots = ""
+    if photos:
+        live = [p for p in photos if has(p)]
+        if live:
+            tiles = "".join(
+                f'<a class="lb-open" href="#{_lb_add(p, f"Photo from {who}s review")}">'
+                f'{img(p, f"Photo attached to {who}s Google review", "(min-width:900px) 200px, 44vw")}</a>'
+                for p in live)
+            shots = f'<div class="rev-shots" data-n="{len(live)}">{tiles}</div>'
     return (f'<div class="review">'
             f'<div class="rev-top">'
             f'<span class="avatar" style="background:{colour}" aria-hidden="true">{initial}</span>'
             f'<span class="rev-id"><span class="rev-name">{who}</span>'
             f'<span class="rev-sub">{sub}</span></span></div>'
             f'<div class="rev-line">{stars()}<span class="rev-date">{when}</span></div>'
-            f'<blockquote>{q}</blockquote></div>')
+            f'<blockquote>{q}</blockquote>{shots}</div>')
 
 
 def reviews_block(num="03", label="Testimonials",
