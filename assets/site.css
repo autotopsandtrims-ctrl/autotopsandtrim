@@ -44,11 +44,13 @@ body{
   font:400 17px/1.66 'Archivo',system-ui,-apple-system,sans-serif;
   -webkit-font-smoothing:antialiased;
 }
-/* Sideways drag on phones: overflow-x on <body> alone does not hold on iOS, and
-   `hidden` also kills the sticky header. `clip` stops the pan without creating a
-   scroll container; `hidden` stays as the fallback for older browsers. */
-html,body{overflow-x:hidden;max-width:100%}
-@supports (overflow:clip){html,body{overflow-x:clip}}
+/* Sideways drag on phones. Deliberately NOT on <html>: overflow on the
+   viewport, and that is what left the fixed call bar stranded mid-screen while
+   scrolling on iOS. Kept on <body> only, which still stops the sideways drag
+   without interfering with position:fixed. */
+body{overflow-x:hidden;max-width:100%}
+@supports (overflow:clip){body{overflow-x:clip}}
+html{overscroll-behavior-x:none}
 img{max-width:100%;height:auto;display:block;background:#EDF1F5}
 a{color:var(--blue)}
 p{margin:0}
@@ -901,7 +903,10 @@ html{scroll-behavior:smooth}
   .foot-acc .facc:checked ~ ul{padding-bottom:10px}
 }
 
-.formnote .fn-hrs{display:block;margin-top:3px}
+/* one line: prompt on the left, hours pushed to the right corner */
+.formnote{display:flex;align-items:baseline;justify-content:space-between;
+  gap:8px 14px;flex-wrap:wrap}
+.formnote .fn-hrs{margin-left:auto;white-space:nowrap;color:var(--ink-60)}
 
 /* ============================================================================
    MOBILE PASS 5. Still nothing applies at 900px and up.
@@ -955,3 +960,20 @@ html{scroll-behavior:smooth}
 /* ---- location pin before the footer address ---- */
 .foot-area{display:flex;align-items:flex-start;gap:7px}
 .foot-area svg{width:14px;height:14px;flex:none;fill:var(--blue-lt);margin-top:2px}
+
+/* ---- hero: deep blue rather than the same charcoal as the header ----------
+   The header is --dark #23282E. The hero used the identical value, so the two
+   read as one slab. This runs --blue-deep into --dark, which separates them,
+   adds depth, and stays entirely inside the locked palette. */
+.hero{background:linear-gradient(168deg,#16344F 0%,#1B3A52 38%,#23282E 100%)}
+.site-head{background:var(--dark)}
+
+/* ---- service page shots: masonry on mobile, grid on desktop ----------------
+   Desktop has the room for a clean 3-up grid; mobile does not, so it keeps the
+   compact masonry. Both keep click-to-enlarge. */
+@media (min-width:900px){
+  .svc-shots{columns:auto;display:grid;grid-template-columns:repeat(3,1fr);
+    gap:clamp(18px,2.4vw,30px)}
+  .svc-shots figure{margin:0;break-inside:auto}
+  .svc-shots figure img{aspect-ratio:4/3;object-fit:cover;width:100%}
+}

@@ -342,7 +342,7 @@ def service_page(slug, title, desc, eyebrow, h1, intro, hero_photo, sections,
         h += f"""<section class="band tint" id="recent-work">
   <div class="wrap stack">
     <div class="stack">{shead("02","Recent work")}<h2>Jobs out of this shop</h2></div>
-    <div class="masonry">{tiles}</div>
+    <div class="masonry svc-shots">{tiles}</div>
     <div class="btnrow" style="justify-content:center"><a class="btn btn-ghost" href="gallery.html">See the full gallery</a></div>
   </div>
 </section>
