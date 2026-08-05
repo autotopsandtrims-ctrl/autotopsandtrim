@@ -1,0 +1,755 @@
+{
+ "aircraft-cabin-upholstery-craftsmanship": {
+  "w": 396,
+  "h": 298,
+  "variants": [
+   {
+    "w": 396,
+    "h": 298,
+    "file": "aircraft-cabin-upholstery-craftsmanship-396.webp"
+   }
+  ]
+ },
+ "aircraft-interior-seat-upholstery": {
+  "w": 1800,
+  "h": 1201,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "aircraft-interior-seat-upholstery-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 534,
+    "file": "aircraft-interior-seat-upholstery-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 934,
+    "file": "aircraft-interior-seat-upholstery-1400.webp"
+   }
+  ]
+ },
+ "automotive-ford-galaxie-top-after": {
+  "w": 1200,
+  "h": 900,
+  "variants": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "automotive-ford-galaxie-top-after-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "automotive-ford-galaxie-top-after-800.webp"
+   }
+  ]
+ },
+ "automotive-interior-restoration-detail": {
+  "w": 720,
+  "h": 960,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "automotive-interior-restoration-detail-480.webp"
+   }
+  ]
+ },
+ "aviation-cabin-seats": {
+  "w": 1200,
+  "h": 801,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "aviation-cabin-seats-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 534,
+    "file": "aviation-cabin-seats-800.webp"
+   }
+  ]
+ },
+ "boat-upholstery-projects-at-the-shop": {
+  "w": 297,
+  "h": 396,
+  "variants": [
+   {
+    "w": 297,
+    "h": 396,
+    "file": "boat-upholstery-projects-at-the-shop-297.webp"
+   }
+  ]
+ },
+ "classic-interior-finished": {
+  "w": 1800,
+  "h": 1350,
+  "variants": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "classic-interior-finished-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "classic-interior-finished-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1050,
+    "file": "classic-interior-finished-1400.webp"
+   }
+  ]
+ },
+ "convertible-top-after": {
+  "w": 904,
+  "h": 1200,
+  "variants": [
+   {
+    "w": 480,
+    "h": 637,
+    "file": "convertible-top-after-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1062,
+    "file": "convertible-top-after-800.webp"
+   }
+  ]
+ },
+ "convertible-top-replacement-and-finish": {
+  "w": 297,
+  "h": 396,
+  "variants": [
+   {
+    "w": 297,
+    "h": 396,
+    "file": "convertible-top-replacement-and-finish-297.webp"
+   }
+  ]
+ },
+ "custom-bike-seat": {
+  "w": 720,
+  "h": 960,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "custom-bike-seat-480.webp"
+   }
+  ]
+ },
+ "custom-motorcycle-seat-upholstery-close-up": {
+  "w": 1601,
+  "h": 2400,
+  "variants": [
+   {
+    "w": 480,
+    "h": 720,
+    "file": "custom-motorcycle-seat-upholstery-close-up-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1199,
+    "file": "custom-motorcycle-seat-upholstery-close-up-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 2099,
+    "file": "custom-motorcycle-seat-upholstery-close-up-1400.webp"
+   }
+  ]
+ },
+ "g01-camaro-ss-new-convertible-top": {
+  "w": 1536,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "g01-camaro-ss-new-convertible-top-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "g01-camaro-ss-new-convertible-top-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "g01-camaro-ss-new-convertible-top-1400.webp"
+   }
+  ]
+ },
+ "g05-burgundy-cloth-top-rear-window": {
+  "w": 1600,
+  "h": 1200,
+  "variants": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "g05-burgundy-cloth-top-rear-window-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "g05-burgundy-cloth-top-rear-window-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1050,
+    "file": "g05-burgundy-cloth-top-rear-window-1400.webp"
+   }
+  ]
+ },
+ "g06-ford-f1-cab-seat-carpet-and-trim": {
+  "w": 1536,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "g06-ford-f1-cab-seat-carpet-and-trim-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "g06-ford-f1-cab-seat-carpet-and-trim-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "g06-ford-f1-cab-seat-carpet-and-trim-1400.webp"
+   }
+  ]
+ },
+ "g07-bench-seat-red-piping-in-the-shop": {
+  "w": 1536,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "g07-bench-seat-red-piping-in-the-shop-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "g07-bench-seat-red-piping-in-the-shop-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "g07-bench-seat-red-piping-in-the-shop-1400.webp"
+   }
+  ]
+ },
+ "g08-cushion-and-armrest-trimmed": {
+  "w": 1536,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "g08-cushion-and-armrest-trimmed-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "g08-cushion-and-armrest-trimmed-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "g08-cushion-and-armrest-trimmed-1400.webp"
+   }
+  ]
+ },
+ "g09-truck-cab-black-seat-red-stitch": {
+  "w": 1542,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 638,
+    "file": "g09-truck-cab-black-seat-red-stitch-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1063,
+    "file": "g09-truck-cab-black-seat-red-stitch-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1859,
+    "file": "g09-truck-cab-black-seat-red-stitch-1400.webp"
+   }
+  ]
+ },
+ "g10-bel-air-new-carpet-going-in": {
+  "w": 1536,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "g10-bel-air-new-carpet-going-in-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "g10-bel-air-new-carpet-going-in-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "g10-bel-air-new-carpet-going-in-1400.webp"
+   }
+  ]
+ },
+ "g11-carpet-fitted-and-trimmed": {
+  "w": 1536,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "g11-carpet-fitted-and-trimmed-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "g11-carpet-fitted-and-trimmed-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "g11-carpet-fitted-and-trimmed-1400.webp"
+   }
+  ]
+ },
+ "g12-shift-boot-and-carpet-detail": {
+  "w": 1542,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 638,
+    "file": "g12-shift-boot-and-carpet-detail-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1063,
+    "file": "g12-shift-boot-and-carpet-detail-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1859,
+    "file": "g12-shift-boot-and-carpet-detail-1400.webp"
+   }
+  ]
+ },
+ "g13-sound-deadening-before-carpet": {
+  "w": 1542,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 638,
+    "file": "g13-sound-deadening-before-carpet-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1063,
+    "file": "g13-sound-deadening-before-carpet-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1859,
+    "file": "g13-sound-deadening-before-carpet-1400.webp"
+   }
+  ]
+ },
+ "g15-1969-cadillac-profile": {
+  "w": 1800,
+  "h": 1350,
+  "variants": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "g15-1969-cadillac-profile-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "g15-1969-cadillac-profile-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1050,
+    "file": "g15-1969-cadillac-profile-1400.webp"
+   }
+  ]
+ },
+ "g16-cadillac-convertible-red-interior": {
+  "w": 2048,
+  "h": 1536,
+  "variants": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "g16-cadillac-convertible-red-interior-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "g16-cadillac-convertible-red-interior-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1050,
+    "file": "g16-cadillac-convertible-red-interior-1400.webp"
+   }
+  ]
+ },
+ "g17-cadillac-top-and-interior-finished": {
+  "w": 1600,
+  "h": 1200,
+  "variants": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "g17-cadillac-top-and-interior-finished-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "g17-cadillac-top-and-interior-finished-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1050,
+    "file": "g17-cadillac-top-and-interior-finished-1400.webp"
+   }
+  ]
+ },
+ "g18-camaro-ss-profile": {
+  "w": 1536,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "g18-camaro-ss-profile-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "g18-camaro-ss-profile-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "g18-camaro-ss-profile-1400.webp"
+   }
+  ]
+ },
+ "g19-mercedes-gla-interior-work": {
+  "w": 1542,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 638,
+    "file": "g19-mercedes-gla-interior-work-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1063,
+    "file": "g19-mercedes-gla-interior-work-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1859,
+    "file": "g19-mercedes-gla-interior-work-1400.webp"
+   }
+  ]
+ },
+ "g22-marine-cushions-and-helm-trim": {
+  "w": 1200,
+  "h": 2133,
+  "variants": [
+   {
+    "w": 480,
+    "h": 853,
+    "file": "g22-marine-cushions-and-helm-trim-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1422,
+    "file": "g22-marine-cushions-and-helm-trim-800.webp"
+   }
+  ]
+ },
+ "gallery-header-photo-wide": {
+  "w": 1600,
+  "h": 1200,
+  "variants": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "gallery-header-photo-wide-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "gallery-header-photo-wide-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1050,
+    "file": "gallery-header-photo-wide-1400.webp"
+   }
+  ]
+ },
+ "headliner-install": {
+  "w": 1200,
+  "h": 900,
+  "variants": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "headliner-install-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "headliner-install-800.webp"
+   }
+  ]
+ },
+ "hero-best-finished-vehicle-wide-full-color": {
+  "w": 1200,
+  "h": 900,
+  "variants": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "hero-best-finished-vehicle-wide-full-color-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "hero-best-finished-vehicle-wide-full-color-800.webp"
+   }
+  ]
+ },
+ "marine-boat-cushions-canvas": {
+  "w": 675,
+  "h": 1200,
+  "variants": [
+   {
+    "w": 480,
+    "h": 853,
+    "file": "marine-boat-cushions-canvas-480.webp"
+   }
+  ]
+ },
+ "marine-canvas-cushions": {
+  "w": 900,
+  "h": 1200,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "marine-canvas-cushions-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "marine-canvas-cushions-800.webp"
+   }
+  ]
+ },
+ "marine-seating-and-interior-upholstery": {
+  "w": 1350,
+  "h": 2400,
+  "variants": [
+   {
+    "w": 480,
+    "h": 853,
+    "file": "marine-seating-and-interior-upholstery-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1422,
+    "file": "marine-seating-and-interior-upholstery-800.webp"
+   }
+  ]
+ },
+ "motorcycle-custom-seat": {
+  "w": 801,
+  "h": 1200,
+  "variants": [
+   {
+    "w": 480,
+    "h": 719,
+    "file": "motorcycle-custom-seat-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1199,
+    "file": "motorcycle-custom-seat-800.webp"
+   }
+  ]
+ },
+ "owner-shop-leadership-grayscale": {
+  "w": 1536,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "owner-shop-leadership-grayscale-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "owner-shop-leadership-grayscale-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "owner-shop-leadership-grayscale-1400.webp"
+   }
+  ]
+ },
+ "process-header-photo-wide": {
+  "w": 1536,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "process-header-photo-wide-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "process-header-photo-wide-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "process-header-photo-wide-1400.webp"
+   }
+  ]
+ },
+ "seat-rebuild-after": {
+  "w": 900,
+  "h": 1200,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "seat-rebuild-after-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "seat-rebuild-after-800.webp"
+   }
+  ]
+ },
+ "services-strip-1": {
+  "w": 1536,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "services-strip-1-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "services-strip-1-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "services-strip-1-1400.webp"
+   }
+  ]
+ },
+ "services-strip-2": {
+  "w": 249,
+  "h": 332,
+  "variants": [
+   {
+    "w": 249,
+    "h": 332,
+    "file": "services-strip-2-249.webp"
+   }
+  ]
+ },
+ "services-strip-3": {
+  "w": 1536,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "services-strip-3-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "services-strip-3-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "services-strip-3-1400.webp"
+   }
+  ]
+ },
+ "services-strip-4": {
+  "w": 249,
+  "h": 332,
+  "variants": [
+   {
+    "w": 249,
+    "h": 332,
+    "file": "services-strip-4-249.webp"
+   }
+  ]
+ },
+ "services-strip-5": {
+  "w": 249,
+  "h": 332,
+  "variants": [
+   {
+    "w": 249,
+    "h": 332,
+    "file": "services-strip-5-249.webp"
+   }
+  ]
+ },
+ "upholstery-materials-and-marine-project-parts": {
+  "w": 297,
+  "h": 396,
+  "variants": [
+   {
+    "w": 297,
+    "h": 396,
+    "file": "upholstery-materials-and-marine-project-parts-297.webp"
+   }
+  ]
+ }
+}

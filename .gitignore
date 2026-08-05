@@ -12,3 +12,6 @@ Thumbs.db
 # Env files
 .env
 .env.local
+
+# generated preview artefact
+_build/preview.html
