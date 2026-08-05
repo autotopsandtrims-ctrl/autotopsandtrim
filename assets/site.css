@@ -589,11 +589,18 @@ html{scroll-behavior:smooth}
 /* ---- rounded corners -------------------------------------------------------
    Media reads softened rather than sharp-cornered. Grouped here at the end so
    the radii are a single, deliberate set instead of scattered magic numbers. */
-.hero-media img,.slideshow,.tile img,.masonry figure img,.svc-media img,
-.flow-media img,.article-figure img,.blogcard img,.mapwrap,.lb-inner img{
-  border-radius:var(--r-media)}
+/* Where a photo scales on hover, the radius MUST live on the clipping container,
+   not the image. Put it on the image and the scaled-up copy is clipped by the
+   still-square parent, so the corners snap sharp on hover. */
+.masonry figure,.tile,.card,.pcard{overflow:hidden}
+.masonry figure,.tile{border-radius:var(--r-media)}
 .card,.pcard,.formcard,.review{border-radius:var(--r-card)}
 /* a rounded child inside a rounded, clipped parent must not double up */
-.card img,.pcard img{border-radius:0}
-.btn,.quote input,.quote textarea,.consent{border-radius:var(--r-ctl)}
+.masonry figure img,.tile img,.card img,.pcard img{border-radius:0}
+
+/* images with no clipping parent carry the radius themselves */
+.hero-media img,.slideshow,.svc-media img,.flow-media img,
+.article-figure img,.blogcard img,.mapwrap,.lb-inner img{border-radius:var(--r-media)}
 .hero-media img,.slideshow{overflow:hidden}
+
+.btn,.quote input,.quote textarea,.consent,.head-call{border-radius:var(--r-ctl)}
