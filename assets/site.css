@@ -975,8 +975,15 @@ html{scroll-behavior:smooth}
    Deep blue running to charcoal, a faint diamond-quilt tufting pattern, and a
    stitched seam as the divider instead of a plain rule. Every value is from the
    locked palette; no images, no extra requests. To drop it, delete ::before and
-   ::after and set .site-head{background:var(--dark)}. */
-.site-head{position:relative;
+   ::after and set .site-head{background:var(--dark)}.
+
+   Do NOT add `position:relative` here. This rule sits after the sticky-header
+   declaration above and has the same specificity, so `relative` silently wins
+   and the header stops sticking — which is exactly what happened when this
+   block first shipped. The ::before and ::after below do not need it: the
+   `position:sticky` set earlier already establishes a containing block for
+   absolutely-positioned children. */
+.site-head{
   background:linear-gradient(168deg,#16344F 0%,#1B3A52 55%,#23282E 100%)}
 /* diamond quilt — deliberately near-invisible; it should register as texture,
    not as a pattern you can name */
