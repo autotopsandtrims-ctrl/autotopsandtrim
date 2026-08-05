@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import (  # noqa: E402
     IMAGES, SITE, PHONE_DISPLAY, PHONE_TEL, OUT,
     img, has, head, header, footer, cta, shead, quote_form, write, NAV, SERVICES, SCHEMA,
-    preload_image,
+    preload_image, public_path,
 )
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -1470,7 +1470,7 @@ def build_blog():
             "datePublished": po["publish"],
             "author": {"@type": "Organization", "name": "Auto Tops and Trim"},
             "publisher": {"@type": "Organization", "name": "Auto Tops and Trim"},
-            "mainEntityOfPage": f"{SITE}/{po['slug']}",
+            "mainEntityOfPage": SITE + public_path(po["slug"]),
         }
         # `seo_title` and `meta` let the search-result listing target its keyword
         # while the on-page H1 stays readable. Both fall back to the H1/excerpt.
@@ -1506,8 +1506,10 @@ def build_blog():
 # ============================================================== SITEMAP / ROBOTS
 def build_meta():
     _lb_reset()
+    # Clean URLs here too — a sitemap listing .html would hand Google a list of
+    # URLs that all redirect, and the canonicals point elsewhere.
     urls = "".join(
-        f"<url><loc>{SITE}/{'' if pg == 'index.html' else pg}</loc>"
+        f"<url><loc>{SITE}{public_path(pg)}</loc>"
         f"<changefreq>monthly</changefreq>"
         f"<priority>{'1.0' if pg == 'index.html' else '0.8'}</priority></url>"
         for pg in pages)

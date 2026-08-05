@@ -7,6 +7,7 @@ sticky tap-to-call bar, 44px touch targets.
 """
 import json
 import os
+import re
 import shutil
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -148,7 +149,9 @@ def faq_schema(faqs):
 
 
 def head(title, desc, path, extra_schema=None, faqs=None, preload=""):
-    canonical = f"{SITE}/{path}" if path != "index.html" else f"{SITE}/"
+    # Canonical must point at the clean URL Vercel actually serves, not the .html
+    # file, or every page would declare a canonical that immediately redirects.
+    canonical = SITE + public_path(path)
     base = extra_schema or SCHEMA
     if faqs:
         # both objects in one @graph so the page keeps its LocalBusiness markup
@@ -329,7 +332,37 @@ def quote_form(which="contact"):
 """
 
 
+# ---- clean URLs ------------------------------------------------------------
+# The pages are still written to disk as real .html files; vercel.json sets
+# cleanUrls, so Vercel serves gallery.html at /gallery and 308-redirects the .html
+# form to it. Internal links therefore have to be emitted extensionless, or every
+# in-site click would take a needless redirect hop.
+#
+# Rewriting at write() time rather than at each call site is deliberate: hrefs are
+# authored inline across hundreds of f-strings, and one post-process catches all
+# of them. It also keeps header()'s `href == active` comparison working, since
+# that runs on the pre-rewrite filename.
+_CLEAN_HREF = re.compile(r'href="([A-Za-z0-9\-_]+)\.html"')
+
+
+def public_path(filename):
+    """Public URL path for a generated page. index.html is the site root."""
+    if filename == "index.html":
+        return "/"
+    return "/" + filename[:-5] if filename.endswith(".html") else "/" + filename
+
+
+def _cleanify(html):
+    # The character class cannot match "https://..." (no ':' or '/'), so absolute
+    # URLs, tel:, mailto: and fragment links are all left alone.
+    return _CLEAN_HREF.sub(
+        lambda m: 'href="/"' if m.group(1) == "index" else f'href="/{m.group(1)}"',
+        html)
+
+
 def write(path, html):
+    if path.endswith(".html"):
+        html = _cleanify(html)
     with open(os.path.join(OUT, path), "w", encoding="utf-8") as fh:
         fh.write(html)
     return path

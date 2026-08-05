@@ -21,6 +21,11 @@ for name in htmls:
 
     refs = set()
     refs |= set(re.findall(r'href="([^"#:]+\.(?:html|css|xml|txt))"', src))
+    # Clean URLs: pages link to /gallery, not gallery.html. Map them back to the
+    # file that Vercel's cleanUrls will actually serve, so they still get checked
+    # rather than silently skipped.
+    for clean in re.findall(r'href="/([A-Za-z0-9\-_]*)"', src):
+        refs.add("index.html" if clean == "" else clean + ".html")
     refs |= set(re.findall(r'src="([^"]+)"', src))
     for ss in re.findall(r'srcset="([^"]+)"', src):
         for part in ss.split(","):
