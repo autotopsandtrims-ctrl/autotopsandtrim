@@ -59,6 +59,16 @@
   </div>
   <label>What do you need? <textarea name="Project description" rows="5" required
     placeholder="Convertible top, seats, headliner, boat cushions&hellip;"></textarea></label>
+  <!-- TCPA express written consent. Deliberately NOT `required` and NOT pre-checked:
+       consent to marketing texts cannot lawfully be a condition of getting a quote. -->
+  <label class="consent">
+    <input type="checkbox" name="SMS consent" value="Yes, agreed to receive text messages">
+    <span>Text me about my estimate. By checking this box you agree to receive text
+      messages from Auto Tops and Trim at the number provided, including messages
+      about your quote and your job. Consent is not a condition of any purchase.
+      Message and data rates may apply, and message frequency varies.
+      Reply STOP to opt out or HELP for help.</span>
+  </label>
   <button type="submit" class="btn btn-primary wide">Send my request</button>
   <p class="formnote">Prefer to talk? Call <a href="tel:+19803858101">(980) 385-8101</a>
      &mdash; Mon&ndash;Fri 9&ndash;5:30, Sat 11&ndash;5.</p>

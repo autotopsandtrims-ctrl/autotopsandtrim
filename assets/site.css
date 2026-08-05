@@ -407,6 +407,13 @@ html{scroll-behavior:smooth}
 .stat b{font-size:clamp(30px,3.4vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1;color:#fff}
 .stat span{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--pale)}
 
+/* ---- SMS consent (TCPA) ---- */
+.consent{display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:start;
+  padding:14px 15px;border:1px solid var(--rule);background:var(--band-2);
+  font-size:12.5px;line-height:1.55;color:var(--ink-70);cursor:pointer}
+.consent input{width:20px;height:20px;margin:1px 0 0;accent-color:var(--blue-btn);flex:none}
+.consent span{display:block}
+
 /* ---- map ---- */
 .mapwrap{position:relative;width:100%;aspect-ratio:4/3;background:#E4EAEF;overflow:hidden}
 @media (min-width:900px){.mapwrap{aspect-ratio:16/11}}

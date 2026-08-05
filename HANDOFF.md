@@ -190,30 +190,27 @@ The user rejected a redesign once already. The rebuild is about **structure, not
 5. **Photos for the sunroof page.** The page ships with no photography because
    the catalogue has none of that repair. A few before/after shots of a sagging
    shade would finish it.
-6. **Photos in Google Drive** — folder `1K6ndwfHhQg-N0GH1xWcbeceo9UjmETuA`
-   ("Hopeton images resaves"), 100+ files (the listing pages).
-   **The importer is written and waiting: `_build/import_photos.py`.** It dedupes
-   by SHA-256, groups near-identical bursts by average-hash, fixes EXIF rotation,
-   writes numbered review WebPs and a `contact-sheet.html` for the user to label.
+6. ~~**Photos in Google Drive**~~ — **DOWNLOADED 2026-08-04.** 105 files pulled,
+   10 byte-identical duplicates dropped, **95 unique photos** kept, 1 near-identical
+   group. Contact sheet at `_build/incoming/contact-sheet.html` (gitignored),
+   awaiting the user's labels.
 
-   ⚠️ **Blocked on getting the files onto disk.** The Drive MCP returns file
-   content as base64 through the conversation, so pulling 100 photos that way is
-   not viable. Ask the user to download the folder (Drive → right-click → Download
-   gives a zip), unzip it, then run:
-   `python _build/import_photos.py --src "C:/path/to/unzipped"`
+   ✅ **The HEIC premise was wrong, confirmed.** Every one of the 95 is a real
+   **JPEG** — files named `.HEIC` start with the JPEG magic number `FF D8 FF`.
+   Chrome displays them fine and no HEIC conversion is needed. `pillow-heif` is
+   not required.
 
-   📌 **The "HEIC" premise is probably wrong.** Drive reports `mimeType:
-   image/jpeg` for every file in that folder, including the ones named `.HEIC` —
-   Drive sniffs type from content, so these look like JPEG bytes carrying a stale
-   extension (the folder is named "resaves"). If so, Chrome can display them and
-   no HEIC conversion is needed. `import_photos.py` prints each file's **real**
-   format, which settles it in one run. It also registers `pillow-heif` if
-   installed, so genuine HEICs still work.
+   How the download worked, for next time: the folder's normal page is JS-rendered
+   and yields nothing to a scraper, but
+   `https://drive.google.com/embeddedfolderview?id=<FOLDER>#list` returns static
+   HTML with every file id, and `https://drive.google.com/uc?export=download&id=<ID>`
+   fetches the bytes. Script kept at `scratchpad/fetch_drive.py`. This avoids the
+   Drive MCP, which returns base64 through the conversation and cannot do 100 files.
 
-   Confirmed duplicates already visible in the listing: `957048668919016666.JPG`
-   appears 3×, and `3577465635962975728.JPG`, `1016386281106343502.HEIC`,
-   `4817363804744854242.HEIC`, `7048509423189683054.JPG` and
-   `7757101485305033643.HEIC` each appear 2× at identical byte sizes.
+   NEXT: user labels the numbers → adopt the keepers into `assets/` under real
+   names → `make_responsive.py` → add to `GALLERY`. **Label from the image, never
+   from the old filename** (see open item 2).
+
 7. **Merge `rebuild` → `main`** once approved. That is the go-live moment.
 8. Google Business Profile is locked out (forgotten login) — recovery is the
    highest-leverage marketing task; it drives the local map pack.
