@@ -286,7 +286,7 @@ def build_home():
 def service_page(slug, title, desc, eyebrow, h1, intro, hero_photo, sections,
                  photos, faqs, gallery_caps=None, extra_html=""):
     _lb_reset()
-    h = head(title, desc, slug)
+    h = head(title, desc, slug, faqs=faqs)
     h += header("services.html")
     h += f"""<section class="hero">
   <div class="wrap">
@@ -732,7 +732,7 @@ def build_process():
     h += header(p)
     # (tag, title, copy, photo) — tag is the one-line "what this costs you"
     steps = [
-        ("No appointment needed", "You bring it in",
+        ("Walk in or call ahead", "You bring it in",
          "Drive the vehicle over, trailer the boat, or carry in a single seat. "
          "We look at it with you and talk through what you want.",
          "services-strip-1"),
@@ -910,9 +910,39 @@ def build_about():
 def build_contact():
     _lb_reset()
     p = "contact.html"
+    # General questions — the ones that come before you have picked a service.
+    # Service-specific questions stay on their own pages.
+    general_faqs = [
+        ("Do I need an appointment?",
+         "You are welcome to bring it by during opening hours &mdash; Monday to Friday 9:00 to "
+         "5:30, and Saturday 11:00 to 5:00. Calling ahead on "
+         f"{PHONE_DISPLAY} is worth doing, because it means someone is free to come out and "
+         "look at the job properly rather than between other work."),
+        ("What does an estimate cost?",
+         "Nothing. Estimates are free and given in person, and they are itemised so you can see "
+         "what each part of the job costs rather than one number at the bottom."),
+        ("Why will you not quote from a photo?",
+         "Because a photo cannot show the things that decide the price. Collapsed pads, a bent "
+         "bow, a rusted seat frame, foam that has gone hard &mdash; none of that is visible in a "
+         "picture, and a number given without seeing it is not a real number. It protects you as "
+         "much as us."),
+        ("What do you actually work on?",
+         "Four trades under one roof: automotive, marine, aviation and motorcycle. Convertible "
+         "tops, seats, headliners, door panels, carpet, sunroof shades, boat cushions and canvas, "
+         "aircraft cabins and custom bike seats."),
+        ("Do I have to bring the whole vehicle?",
+         "Not always. If the job is a seat, a cushion or a motorcycle seat, take it off and bring "
+         "it in on its own &mdash; that is how a lot of these start. Tops, headliners and interiors "
+         "need the vehicle."),
+        ("Do you take work from outside Monroe?",
+         "Yes. We regularly see customers from Charlotte and across Union County, and people do "
+         "travel for the work &mdash; one of our Google reviews is from a customer who drove an "
+         "hour to get a sunroof fixed."),
+    ]
     h = head("Contact | Auto Tops and Trim, Monroe NC | (980) 385-8101",
              "Contact Auto Tops and Trim at 4209 W Hwy 74, Monroe, NC. Call (980) 385-8101 or "
-             "request a free upholstery estimate. Open Mon-Fri 9:00-5:30 and Saturday 11:00-5:00.", p)
+             "request a free upholstery estimate. Open Mon-Fri 9:00-5:30 and Saturday 11:00-5:00.",
+             p, faqs=general_faqs)
     h += header(p)
     h += f"""<section class="band compact">
   <div class="wrap">
@@ -952,6 +982,18 @@ def build_contact():
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="band tint">
+  <div class="wrap narrow stack">
+    <div class="stack">{shead("01", "Before you call")}
+      <h2>The questions we get most</h2>
+      <p class="lead">If yours is not here, ring the shop &mdash; we would rather talk it
+         through than have you guess.</p></div>
+    <div class="faq">{"".join(
+        f"<details><summary>{q}</summary><div class='ans'>{a}</div></details>"
+        for q, a in general_faqs)}</div>
   </div>
 </section>
 """

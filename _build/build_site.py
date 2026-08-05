@@ -108,9 +108,29 @@ SCHEMA = {
 }
 
 
-def head(title, desc, path, extra_schema=None):
+def faq_schema(faqs):
+    """FAQPage JSON-LD from the same (question, answer) pairs the page renders."""
+    return {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": q,
+             "acceptedAnswer": {"@type": "Answer", "text": a}}
+            for q, a in faqs
+        ],
+    }
+
+
+def head(title, desc, path, extra_schema=None, faqs=None):
     canonical = f"{SITE}/{path}" if path != "index.html" else f"{SITE}/"
-    schema = json.dumps(extra_schema or SCHEMA, separators=(",", ":"))
+    base = extra_schema or SCHEMA
+    if faqs:
+        # both objects in one @graph so the page keeps its LocalBusiness markup
+        # AND becomes eligible for FAQ rich results
+        node = {k: v for k, v in base.items() if k != "@context"}
+        doc = {"@context": "https://schema.org", "@graph": [node, faq_schema(faqs)]}
+    else:
+        doc = base
+    schema = json.dumps(doc, separators=(",", ":"))
     return f"""<!doctype html>
 <html lang="en">
 <head>
