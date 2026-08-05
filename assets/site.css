@@ -323,6 +323,26 @@ a.card:hover{border-color:var(--blue-lt);box-shadow:0 14px 34px rgba(22,52,79,.1
 .faq details[open] summary::after{content:"\2013"}
 .faq .ans{padding:0 0 20px;color:var(--ink-70);max-width:68ch;font-size:16px}
 
+/* ---- contact layout: form card + info column ---- */
+.contact-grid{display:grid;gap:clamp(26px,4vw,56px);grid-template-columns:1fr;align-items:start}
+@media (min-width:900px){.contact-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
+.formcard{background:#fff;box-shadow:0 20px 44px rgba(42,46,51,.09);
+  border:1px solid var(--rule);padding:clamp(22px,3vw,40px)}
+.tint .formcard,.tint2 .formcard{border-color:transparent}
+.banner img{width:100%;object-fit:cover;aspect-ratio:24/9}
+@media (min-width:900px){.banner img{aspect-ratio:24/7}}
+
+/* info column — blue square dots, the site's own device */
+.infolist{list-style:none;padding:0;display:flex;flex-direction:column;gap:22px}
+.infolist li{position:relative;padding-left:24px}
+.infolist li::before{content:"";position:absolute;left:0;top:.42em;width:8px;height:8px;background:var(--blue-lt)}
+.infolist .k{display:block;font-size:11px;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:5px}
+.infolist .v{font-size:16.5px;line-height:1.6;color:var(--ink-70)}
+.infolist .v strong{color:var(--ink);font-weight:700}
+.infolist a{text-decoration:none}
+.infolist .big{font-size:23px;font-weight:800;letter-spacing:-.02em;color:var(--ink);display:inline-block}
+
 /* ---- form ---- */
 .quote{display:flex;flex-direction:column;gap:16px}
 .quote label{display:flex;flex-direction:column;gap:7px;font-weight:600;font-size:13.5px;
@@ -374,8 +394,25 @@ a.card:hover{border-color:var(--blue-lt);box-shadow:0 14px 34px rgba(22,52,79,.1
   *{animation-duration:.01ms !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
 }
 
-/* rating line under the testimonials heading */
-.ratingline{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
-  font-size:15px;color:#B9C6D2}
-.ratingline b{color:#fff;font-weight:800;font-size:17px}
-.ratingline .stars{margin:0}
+/* rating badge under the testimonials heading */
+.ratingbadge{display:inline-flex;align-items:center;gap:18px;margin-inline:auto;
+  padding:15px 24px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.055)}
+.ratingbadge .score{font-size:clamp(34px,4vw,44px);font-weight:800;line-height:1;
+  letter-spacing:-.035em;color:#fff}
+.ratingbadge .rb-r{display:flex;flex-direction:column;gap:6px;text-align:left}
+.ratingbadge .stars{margin:0;font-size:17px}
+.ratingbadge .cnt{font-size:13px;color:#9FB0BF;letter-spacing:.02em}
+.ratingbadge .cnt b{color:#fff;font-weight:700}
+
+/* ---- services list: alternating photo + detail rows ---- */
+.svclist{display:flex;flex-direction:column;gap:clamp(34px,5vw,72px)}
+.svc{display:grid;gap:clamp(18px,3vw,44px);grid-template-columns:1fr;align-items:center}
+.svc-media img{width:100%;height:auto}
+.svc-body{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.svc-n{font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--blue)}
+.svc-body h2{font-size:clamp(24px,2.6vw,34px)}
+.svc-body .ticks{margin-bottom:4px}
+@media (min-width:860px){
+  .svc{grid-template-columns:1fr 1fr}
+  .svc:nth-child(even) .svc-media{order:2}
+}
