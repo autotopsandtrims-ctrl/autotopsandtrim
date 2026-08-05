@@ -31,6 +31,10 @@
   --wrap:1200px;
   --gut:clamp(20px,4vw,56px);
   --tap:46px;
+  /* corner radii — media reads softened, controls stay tighter */
+  --r-media:16px;
+  --r-card:14px;
+  --r-ctl:8px;
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -581,3 +585,15 @@ html{scroll-behavior:smooth}
   .svc{grid-template-columns:1fr 1fr}
   .svc:nth-child(even) .svc-media{order:2}
 }
+
+/* ---- rounded corners -------------------------------------------------------
+   Media reads softened rather than sharp-cornered. Grouped here at the end so
+   the radii are a single, deliberate set instead of scattered magic numbers. */
+.hero-media img,.slideshow,.tile img,.masonry figure img,.svc-media img,
+.flow-media img,.article-figure img,.blogcard img,.mapwrap,.lb-inner img{
+  border-radius:var(--r-media)}
+.card,.pcard,.formcard,.review{border-radius:var(--r-card)}
+/* a rounded child inside a rounded, clipped parent must not double up */
+.card img,.pcard img{border-radius:0}
+.btn,.quote input,.quote textarea,.consent{border-radius:var(--r-ctl)}
+.hero-media img,.slideshow{overflow:hidden}
