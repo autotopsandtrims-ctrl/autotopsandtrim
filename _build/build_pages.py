@@ -2176,6 +2176,359 @@ POSTS = [
             "quoting. More on our <a href=\"auto-upholstery.html\">automotive upholstery</a> page.",
         ],
     },
+
+    # ---- BATCH 3: marine ----------------------------------------------------
+    {
+        "slug": "blog-boat-canvas-materials-compared.html",
+        "cat": "Marine", "publish": "2026-08-10", "read": "7 min read",
+        "photo": "boat-upholstery-projects-at-the-shop",
+        "title": "Boat canvas compared: Sunbrella, Top Gun, Stamoid and Seamark",
+        "seo_title": "Boat Canvas Compared: Sunbrella vs Top Gun vs Stamoid vs Seamark",
+        "meta": "The four marine top fabrics compared on UV resistance, waterproofing, "
+                "breathability and lifespan — and which suits a slip, a lift or a trailer.",
+        "excerpt": "Waterproof and breathable pull against each other. Any shop telling you one "
+                   "fabric wins on both is selling you something.",
+        "body": [
+            "Marine canvas comes in four broad families, and they genuinely suit different boats "
+            "and different storage. The choice is not about which is best — it is about which "
+            "compromise you want.",
+            "<h2>The four families</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Fabric</th><th>Type</th><th>Strengths</th><th>Trade-off</th></tr>"
+            "</thead><tbody>"
+            "<tr><th>Sunbrella</th><td>Solution-dyed acrylic</td>"
+            "<td>Best-in-class UV resistance and colourfastness, breathable, carries a 10-year "
+            "warranty against fading</td>"
+            "<td>Water-resistant rather than waterproof; depends on good design and upkeep</td>"
+            "</tr>"
+            "<tr><th>Top Gun</th><td>Coated polyester</td>"
+            "<td>Excellent abrasion resistance and strength, solid UV performance, friendlier "
+            "price</td>"
+            "<td>Shorter service life in punishing sun, and coating quality varies widely by "
+            "grade</td></tr>"
+            "<tr><th>Stamoid</th><td>Vinyl-coated</td>"
+            "<td>Maximum waterproofing of the four</td>"
+            "<td>Does not breathe, so trapped moisture underneath becomes the new problem</td>"
+            "</tr>"
+            "<tr><th>Seamark</th><td>Sunbrella base with a vinyl backing</td>"
+            "<td>Fully waterproof while matching Sunbrella colours; a common OE choice for "
+            "bimini and camper tops</td>"
+            "<td>Costs more than either material it is made from</td></tr>"
+            "</tbody></table></div>",
+            "<h2>Why solution-dyed matters</h2>",
+            "In a solution-dyed acrylic the colour is added to the fibre while it is still "
+            "liquid, so it runs all the way through. In a coated or surface-dyed fabric the "
+            "colour sits on top.",
+            "The difference is invisible in year one. By year three the coated fabric has gone "
+            "chalky and faded while the acrylic still looks like itself. That is the entire "
+            "argument for paying more up front.",
+            "<h2>The trade nobody can escape</h2>",
+            "Read the table again and the pattern is clear: <strong>waterproof and breathable "
+            "work against each other.</strong> A fabric that lets no water in also lets no "
+            "moisture out, so condensation collects underneath — on cushions, on the deck, and "
+            "in any wood it can reach.",
+            "This is why the right answer depends far more on how the boat is stored than on the "
+            "boat itself.",
+            "<h2>Choosing by how the boat lives</h2>",
+            "<ul class=\"ticks\">"
+            "<li><strong>In a slip, uncovered, in full sun</strong> — UV is the enemy. Acrylic.</li>"
+            "<li><strong>On a lift or mooring, exposed to rain</strong> — waterproofing matters "
+            "more. Seamark or Stamoid, with ventilation designed in.</li>"
+            "<li><strong>On a trailer, stored dry</strong> — abrasion from towing is the biggest "
+            "load. Coated polyester earns its keep here.</li>"
+            "<li><strong>Bimini or camper top you want to match existing canvas</strong> — "
+            "Seamark exists precisely for this.</li>"
+            "</ul>",
+            "<h2>The parts that fail before the fabric</h2>",
+            "On most canvas we see, the fabric is not what failed. It is the thread, the zips or "
+            "the hardware. Thread that is not rot-proof gives out at the seams while the panels "
+            "are still sound, and it is the cheapest place for a shop to cut a corner because "
+            "nobody can see it.",
+            "Bring a piece of your canvas by the shop in Monroe and we will tell you honestly "
+            "whether it needs recovering, restitching, or replacing. See our "
+            "<a href=\"marine-upholstery.html\">marine upholstery</a> page.",
+        ],
+    },
+    {
+        "slug": "blog-boat-canvas-repair-or-replace.html",
+        "cat": "Marine", "publish": "2026-08-10", "read": "5 min read",
+        "photo": "upholstery-materials-and-marine-project-parts",
+        "title": "Boat canvas: repair or replace?",
+        "seo_title": "Boat Canvas Repair or Replace? How to Decide | Auto Tops and Trim",
+        "meta": "When boat canvas is worth repairing and when it has reached the end — chalking, "
+                "seam failure, zips and hardware explained by a marine trim shop.",
+        "excerpt": "A split seam is worth fixing. Chalky fabric is not. Here is how to tell "
+                   "which one you are looking at before you spend anything.",
+        "body": [
+            "Canvas rarely fails all at once. It fails in one specific way, and the way it failed "
+            "tells you whether repairing it is sensible or throwing good money after bad.",
+            "<h2>Worth repairing</h2>",
+            "<ul class=\"ticks\">"
+            "<li><strong>Seams opening while the panels are sound.</strong> The thread failed, "
+            "not the fabric. Restitching is a proper structural fix and the cheapest thing we "
+            "do to canvas.</li>"
+            "<li><strong>A tear from a snag or a branch.</strong> Clean damage in good material "
+            "patches or panels in well.</li>"
+            "<li><strong>Failed zips.</strong> Replaceable, and usually the first component to "
+            "go on an enclosure.</li>"
+            "<li><strong>Pulled or missing fasteners.</strong> Snaps and hardware are "
+            "consumables, not a reason to replace canvas.</li>"
+            "<li><strong>One bad panel in an otherwise good set.</strong> Panels can be replaced "
+            "individually.</li>"
+            "</ul>",
+            "<h2>Past repairing</h2>",
+            "<ul class=\"ticks\">"
+            "<li><strong>Chalking.</strong> A powdery residue on your hand means a coated fabric "
+            "has reached the end of its life. Nothing brings it back and stitching into it tends "
+            "to tear out.</li>"
+            "<li><strong>Stiff, brittle fabric.</strong> It should be supple. When it crackles, "
+            "it is done.</li>"
+            "<li><strong>Multiple seams failing at once.</strong> The thread has aged uniformly; "
+            "fixing one just moves the problem along.</li>"
+            "<li><strong>Fabric tearing beside an old repair.</strong> The repair is now stronger "
+            "than the material around it — a clear end-of-life signal.</li>"
+            "<li><strong>Widespread staining under the surface</strong> rather than on it.</li>"
+            "</ul>",
+            "<h2>The chalk test</h2>",
+            "Rub a dry hand firmly across a sun-exposed panel. If your palm comes away with a "
+            "fine coloured powder, that is the coating breaking down. It is the single most "
+            "reliable indicator that canvas is finished, and it takes five seconds.",
+            "<h2>The window panels are their own decision</h2>",
+            "Clear vinyl windows in an enclosure almost always fail before the canvas around "
+            "them — they cloud, yellow and craze. Replacing just the windows in otherwise sound "
+            "canvas is a common and worthwhile job, and much cheaper than a new enclosure.",
+            "As with convertible tops: never clean them with anything containing ammonia, and "
+            "never fold them cold.",
+            "<h2>Making the next set last</h2>",
+            "<ul class=\"ticks\">"
+            "<li>Specify rot-proof thread. It is the component that usually fails first.</li>"
+            "<li>Rinse salt off rather than letting it dry in the weave.</li>"
+            "<li>Never put canvas away wet.</li>"
+            "<li>Deal with a small tear immediately, before wind turns it into a large one.</li>"
+            "</ul>",
+            "Bring a piece to the shop in Monroe — you do not need to bring the boat. See our "
+            "<a href=\"marine-upholstery.html\">marine upholstery</a> page.",
+        ],
+    },
+    {
+        "slug": "blog-bimini-top-replacement.html",
+        "cat": "Marine", "publish": "2026-08-10", "read": "5 min read",
+        "photo": "marine-boat-cushions-canvas",
+        "title": "Bimini top replacement: measuring, bows and fabric choice",
+        "seo_title": "Bimini Top Replacement: Bows, Measuring and Fabric | Auto Tops and Trim",
+        "meta": "Replacing a bimini top — how bow count and frame width decide fit, which fabric "
+                "suits your storage, and why replacing canvas on a tired frame disappoints.",
+        "excerpt": "Most disappointing bimini replacements are not the fabric's fault. They are "
+                   "a new top fitted to a frame that had already moved.",
+        "body": [
+            "A bimini looks like a simple piece of canvas over a frame, and the replacement goes "
+            "wrong in the same two ways almost every time: the measurements were taken from the "
+            "old top, or the frame was never assessed.",
+            "<h2>Bow count is the first question</h2>",
+            "Biminis are described by how many bows the frame has — commonly three or four. A "
+            "four-bow frame supports a longer top with less sag between supports. The bow count "
+            "is not something you choose when replacing the canvas; it is determined by the "
+            "frame you already have.",
+            "<h2>Measure the frame, not the old top</h2>",
+            "This is the mistake that produces a top which never sits right. An old top has "
+            "stretched, shrunk, or been fitted to a frame that has since shifted. Copy those "
+            "dimensions and you reproduce the problem in new fabric.",
+            "The measurements that matter:",
+            "<ul class=\"ticks\">"
+            "<li><strong>Width</strong> — between the mounting points, not the fabric edges</li>"
+            "<li><strong>Length</strong> — front bow to rear bow along the frame</li>"
+            "<li><strong>Height</strong> — deck to the top of the frame when it is up</li>"
+            "<li><strong>Bow count</strong> and their spacing</li>"
+            "</ul>",
+            "<h2>The frame decides how the new top ages</h2>",
+            "Before spending on canvas, work the frame. Bent tubing, seized joints, worn hinge "
+            "pins and loose deck hinges all put uneven tension into the new fabric, and uneven "
+            "tension is what wears a top out early — always at the same tight spot.",
+            "It is the same principle as a convertible top over collapsed pads: the fabric gets "
+            "blamed for a structural problem.",
+            "<h2>Which fabric</h2>",
+            "The choice follows the same logic as any other marine canvas — see our "
+            "<a href=\"blog-boat-canvas-materials-compared.html\">comparison of Sunbrella, Top "
+            "Gun, Stamoid and Seamark</a> for the detail. In short:",
+            "<ul class=\"ticks\">"
+            "<li><strong>Full sun, want it to hold colour</strong> — solution-dyed acrylic</li>"
+            "<li><strong>Want genuinely waterproof and matching existing acrylic canvas</strong> "
+            "— Seamark, which is Sunbrella with a vinyl backing</li>"
+            "<li><strong>Trailered often, abrasion is the load</strong> — coated polyester</li>"
+            "</ul>",
+            "<h2>Do not skimp on thread and hardware</h2>",
+            "Rot-proof thread and decent fasteners cost very little against the fabric and they "
+            "are what actually determines whether you get a decade out of the top or four years. "
+            "Almost every failed bimini we see failed at a seam or a fitting, not in the middle "
+            "of a panel.",
+            "Bring the boat, or just the frame and old top, to the shop in Monroe. See our "
+            "<a href=\"marine-upholstery.html\">marine upholstery</a> page.",
+        ],
+    },
+    {
+        "slug": "blog-boat-seat-repair.html",
+        "cat": "Marine", "publish": "2026-08-11", "read": "5 min read",
+        "photo": "g22-marine-cushions-and-helm-trim",
+        "title": "Boat seat repair: tears, seams and the foam nobody checks",
+        "seo_title": "Boat Seat Repair: Vinyl Tears, Seams and Foam | Auto Tops and Trim",
+        "meta": "Repairing vinyl boat seats — which damage patches successfully, why seams fail "
+                "first, and how to tell when the foam is the actual problem.",
+        "excerpt": "Most boat seat failures start at a seam or in the foam. The vinyl itself is "
+                   "usually the last thing to go.",
+        "body": [
+            "Marine vinyl is engineered to survive a hard life, and in most cushions that come "
+            "through the shop the vinyl has done its job. What failed was the thread holding it "
+            "together or the foam inside it.",
+            "<h2>Start by identifying what actually failed</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead><tbody>"
+            "<tr><th>Seam opening, vinyl sound</th><td>Thread failed — often not rot-proof, or "
+            "degraded by harsh cleaning</td><td>Restitch. The cheapest and most durable "
+            "repair.</td></tr>"
+            "<tr><th>Clean tear or puncture</th><td>Mechanical damage</td>"
+            "<td>Patchable on a flat panel; better to replace the panel on an edge</td></tr>"
+            "<tr><th>Cracking along fold lines</th><td>Plasticisers gone, usually from solvents "
+            "or repeated bleach</td><td>Recover. The material is finished.</td></tr>"
+            "<tr><th>Cushion stays damp, smells</th><td>Water inside the foam</td>"
+            "<td>Open it and replace the foam</td></tr>"
+            "<tr><th>Seat feels flat or lopsided</th><td>Foam collapsed or waterlogged</td>"
+            "<td>New foam. Recovering alone will not fix the shape.</td></tr>"
+            "</tbody></table></div>",
+            "<h2>Why seams fail first on a boat</h2>",
+            "Thread is the cheapest component in a cushion and the easiest place to save money, "
+            "so it is frequently the weakest part of an otherwise well-made seat. On the water it "
+            "takes UV, salt and constant damp, and thread that is not rot-proof simply will not "
+            "last.",
+            "Harsh cleaning accelerates it dramatically. Repeated bleach attacks the thread long "
+            "before it visibly harms the vinyl, which is why so many seats fail at the seams "
+            "shortly after somebody started cleaning them properly for the first time.",
+            "<h2>The foam question</h2>",
+            "Press the cushion and hold. If water comes up, or it feels heavier than it should, "
+            "the foam is holding water against the cover and the deck.",
+            "Standard upholstery foam behaves like a sponge. Quick-dry reticulated foam has an "
+            "open cell structure that passes water straight through. If the cushion is being "
+            "opened anyway, this is the upgrade worth taking — it is the difference between a "
+            "cushion that dries in an afternoon and one that never truly does.",
+            "<h2>What a repair kit is good for</h2>",
+            "A vinyl repair kit is a fair answer to a small puncture on a flat panel of a boat "
+            "you are not precious about. It is not an answer to a seam split, a fold-line crack, "
+            "or anything on a cushion that flexes as you sit on it.",
+            "<h2>Bring one piece</h2>",
+            "You do not need to bring the boat. One cushion tells us what we need to know about "
+            "the thread, the vinyl and the foam. Free in-person assessment at the shop in Monroe "
+            "— see our <a href=\"marine-upholstery.html\">marine upholstery</a> page.",
+        ],
+    },
+    {
+        "slug": "blog-marine-vinyl-buying-guide.html",
+        "cat": "Marine", "publish": "2026-08-11", "read": "6 min read",
+        "photo": "marine-canvas-cushions",
+        "title": "Marine vinyl: what to look for and what the grades actually mean",
+        "seo_title": "Marine Grade Vinyl: What to Look For in Boat Upholstery Fabric",
+        "meta": "What makes a vinyl marine grade — UV stabilisation, mildew resistance, "
+                "cold-crack rating and backing — and why the thread matters as much as the cover.",
+        "excerpt": "Marine vinyl is not just thicker upholstery vinyl. Four specific properties "
+                   "separate it, and only one of them is visible in a sample.",
+        "body": [
+            "\"Marine grade\" is not a regulated term, which is exactly why it is worth knowing "
+            "what genuine marine vinyl has engineered into it. Four properties matter, and none "
+            "of them can be judged by feel alone.",
+            "<h2>1. UV stabilisation</h2>",
+            "The single biggest difference. Untreated vinyl in full sun goes chalky and stiff "
+            "within a season or two. Marine vinyl carries UV inhibitors in the topcoat that slow "
+            "that dramatically.",
+            "This is why a sample that feels identical to automotive vinyl in the shop behaves "
+            "completely differently after one summer on the water.",
+            "<h2>2. Mildew resistance</h2>",
+            "Marine upholstery spends its life damp. Genuine marine vinyl has antimicrobial "
+            "treatment in both the topcoat and the backing, because mildew attacks the backing "
+            "from underneath where you cannot see it.",
+            "<h2>3. Cold-crack rating</h2>",
+            "Rarely discussed and important if the boat is stored through winter. Vinyl stiffens "
+            "as it cools, and a low cold-crack rating means it splits at the folds when handled "
+            "cold. If your boat winters outside, ask about this specifically.",
+            "<h2>4. The backing</h2>",
+            "Under the vinyl is a knit or woven backing, and it determines how the material "
+            "stretches over a curved cushion. Too little stretch and it will not pull down over a "
+            "bolster without wrinkling. Too much and it distorts. This is the property that "
+            "decides whether a finished cushion looks factory or homemade.",
+            "<h2>The component that fails first is not the vinyl</h2>",
+            "It is the thread. A perfect cover stitched with the wrong thread fails at the seams "
+            "while every panel is still sound, and thread is invisible in a fabric sample.",
+            "Insist on rot-proof thread. It costs very little relative to the job and it is "
+            "routinely the difference between a cushion that lasts a decade and one that opens up "
+            "in year three.",
+            "<h2>Foam belongs in the same conversation</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Foam</th><th>Behaviour</th><th>Use</th></tr></thead><tbody>"
+            "<tr><th>Standard upholstery foam</th><td>Absorbs and holds water against the cover "
+            "and deck</td><td>Fine in a cabin that stays dry; wrong anywhere exposed</td></tr>"
+            "<tr><th>Quick-dry reticulated</th><td>Open cell structure passes water straight "
+            "through</td><td>Cockpit seating, anything that gets rained on or splashed</td></tr>"
+            "</tbody></table></div>",
+            "<h2>Leather is the wrong answer on the water</h2>",
+            "Leather is wonderful in a car. On a boat, standing water, UV and salt will dry it "
+            "out and crack it inside a season or two. We cover the full comparison in "
+            "<a href=\"blog-marine-vinyl-vs-leather.html\">marine vinyl vs automotive leather</a>.",
+            "Bring a cushion or a sample to the shop in Monroe and we will show you the "
+            "difference in hand. See our <a href=\"marine-upholstery.html\">marine upholstery</a> "
+            "page.",
+        ],
+    },
+    {
+        "slug": "blog-sunroof-shade-repair-cost.html",
+        "cat": "Sunroof Shades", "publish": "2026-08-11", "read": "4 min read",
+        "photo": "g13-sound-deadening-before-carpet",
+        "title": "Sunroof shade repair: why recovering beats replacing the assembly",
+        "seo_title": "Sunroof Shade Repair Cost: Recover, Don't Replace | Auto Tops and Trim",
+        "meta": "A sagging or torn sunroof sunshade rarely needs a new sunroof assembly. What "
+                "recovering the panel involves and what changes the cost.",
+        "excerpt": "Dealers often quote a whole sunroof assembly for a shade problem. The panel "
+                   "you already have can usually be recovered instead.",
+        "body": [
+            "A sunroof sunshade fails for exactly the same reason a headliner does: the fabric is "
+            "bonded to a thin layer of foam, the foam breaks down in heat, and the fabric lets "
+            "go. It is the same failure in a smaller panel.",
+            "<h2>Why the quote you were given may be for the wrong job</h2>",
+            "Because the shade runs in tracks inside the sunroof cassette, it is often treated as "
+            "part of the sunroof assembly rather than as a trim panel. That framing turns a "
+            "modest upholstery job into a large mechanical one.",
+            "In most cases the shade panel can be removed, stripped back and recovered — the "
+            "sunroof mechanism itself is untouched because there is nothing wrong with it.",
+            "<h2>What recovering involves</h2>",
+            "<ul class=\"ticks\">"
+            "<li>The shade panel comes out of its tracks</li>"
+            "<li>Old fabric and every trace of the failed foam are scraped back to clean panel</li>"
+            "<li>New foam-backed material is bonded down and trimmed to the exact edge profile</li>"
+            "<li>It goes back in and gets tested through its full travel</li>"
+            "</ul>",
+            "The edges matter more than people expect. The panel has to slide in its tracks, so "
+            "material thickness and how the edges are finished decide whether it moves properly "
+            "afterwards.",
+            "<h2>What changes the price</h2>",
+            "<ul class=\"ticks\">"
+            "<li><strong>How the panel is accessed.</strong> Some come out with the headliner in "
+            "place; others need the headliner dropped, which is most of the labour.</li>"
+            "<li><strong>Whether the headliner is going too.</strong> If both are failing, doing "
+            "them together is markedly cheaper than doing them separately, because the access "
+            "work happens once.</li>"
+            "<li><strong>Matching.</strong> A recovered shade should match the headliner around "
+            "it. Where the headliner has aged, we will tell you honestly how close a match "
+            "is achievable.</li>"
+            "<li><strong>Track condition.</strong> Occasionally the slides or guides are worn "
+            "and that is a separate repair.</li>"
+            "</ul>",
+            "<h2>Two of our Google reviews are about this exact repair</h2>",
+            "This is not a service we added recently. Two of the shop's reviews are specifically "
+            "about sunroof shade work, including one customer who was invited to watch the "
+            "process. The full text of both is quoted on our "
+            "<a href=\"sunroof-shade-repair.html\">sunroof shade repair</a> page.",
+            "<h2>Bring it by</h2>",
+            "If a dealer has quoted you for a sunroof assembly because the shade sags, it is "
+            "worth a second opinion before you spend that. Free in-person estimate at the shop in "
+            "Monroe.",
+        ],
+    },
 ]
 
 
