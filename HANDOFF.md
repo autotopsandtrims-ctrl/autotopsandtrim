@@ -2,7 +2,17 @@
 
 Read this first in a new chat. Everything needed to continue is in this repo.
 
-**Last updated:** 2026-08-04
+**Last updated:** 2026-08-05
+
+> 🚀 **THE REBUILD IS LIVE.** `rebuild` was fast-forwarded into `main` on 2026-08-05
+> and pushed. www.autotopsandtrim.com now serves the 16-page site, not the old
+> 13.7 MB bundle. Both branches are in sync — keep pushing to `rebuild`, then
+> fast-forward `main`.
+>
+> **ROLLBACK: `45046b7`** is the last commit of the old single-page site. To revert
+> production: `git push origin 45046b7:main --force`.
+>
+> ⚠️ **The apex domain is broken — see open item 1.**
 
 ---
 
@@ -29,7 +39,7 @@ Read this first in a new chat. Everything needed to continue is in this repo.
 |---|---|
 | Repo | `github.com/autotopsandtrims-ctrl/autotopsandtrim` |
 | Working branch | **`rebuild`** — all new work |
-| `main` | still the OLD 14 MB single-page bundle. **Untouched. Still what autotopsandtrim.com serves.** |
+| `main` | **PRODUCTION — now identical to `rebuild`.** Serves www.autotopsandtrim.com |
 | Public preview | **https://hopeton-website-git-rebuild-auto-top-and-trim.vercel.app** |
 | Vercel project | `hopeton-website`, scope `auto-top-and-trim` |
 | GitHub token | `c:\Claude Code\.env.autotopsandtrim` (repo-scoped, Contents read/write) |
@@ -94,8 +104,17 @@ The user rejected a redesign once already. The rebuild is about **structure, not
   block for `position:fixed` descendants — which made the overlay size itself to
   the height of `<main>` instead of the viewport, so photos opened far down the
   page. `footer(lightbox_markup())` emits it after `</main>`. Do not move it back.
-- **Images:** 480/800/1400px WebP variants served via `srcset`.
-  Mobile home page ≈ 430 KB across 11 images, versus 14 MB before.
+- **Images:** 480/800/1400px WebP variants served via `srcset`, plus the master's
+  native width when it exceeds the largest tier. Mobile home page ≈ 495 KB.
+  Masters live in `assets/originals/` — `make_responsive.py` reads from there,
+  **not** `assets/`, which now holds only generated variants.
+- **Never put `overflow` on `<html>` or `<body>`.** When `<html>` is `visible`,
+  `<body>`'s overflow propagates to the viewport, and at viewport level it breaks
+  `position:fixed` on iOS — it stranded the sticky call bar mid-screen. Sideways
+  drag is contained by clipping `main`, `.site-head` and `.site-foot` instead.
+- **Radius belongs on the clipping container, not the image.** Anything with
+  `overflow:hidden` and a hover `transform` on its child needs the radius on the
+  parent, or the corners snap square on hover.
 - `assets/originals/` holds the 43 recovered master photos — **the uncle lost
   most of his originals; these came out of the old bundle. Do not delete.**
 
@@ -151,14 +170,39 @@ The user rejected a redesign once already. The rebuild is about **structure, not
 
 ## Open — in priority order
 
-1. **BLOCKER — the contact form.** It posts to `https://formspree.io/f/mrpzzdgz`,
+1. **BLOCKER — the apex domain has no valid certificate.**
+   `https://autotopsandtrim.com` (no `www`) shows a browser security warning.
+   The Let's Encrypt cert's SAN list contains **only** `www.autotopsandtrim.com`.
+
+   Root cause found 2026-08-05: the apex has **three A records**, and only one is
+   Vercel's —
+   `3.33.130.190`, `15.197.148.33` (a registrar domain-forwarding service) and
+   `216.198.79.1` (Vercel). Traffic round-robins between them.
+
+   Fix, both halves required:
+   - Vercel → project `hopeton-website` → Settings → Domains → add
+     `autotopsandtrim.com`, configured to **redirect to www**. Read the A record
+     value Vercel then displays — do not assume an IP, Vercel has changed it.
+   - At the DNS host, **delete `3.33.130.190` and `15.197.148.33`** and leave a
+     single apex A record matching what Vercel asked for. Do not touch `www`,
+     MX or TXT.
+
+   The user was given a browser-agent prompt for this on 2026-08-05 and reported
+   removing the apex domain from Vercel, so it likely needs re-adding.
+
+2. **The contact form.** It posts to `https://formspree.io/f/mrpzzdgz`,
    an endpoint baked in by the original design tool that **neither the user nor I
    own or can verify.** The user reported a test lead reaching "my email" but has
    not confirmed which address. Until this is resolved, real customer names and
    phone numbers flow to an unverified destination. **Do not launch ads before fixing.**
    Fix: create a Formspree form on the user's own account pointed at
    contact@autotopsandtrim.com, swap `FORM_ENDPOINT` in `_build/build_site.py`.
-2. **BLOCKER-ISH — the photo captions are not trustworthy.** A perceptual-hash
+
+   **Note (2026-08-05):** verified the OLD live site posted to this same endpoint,
+   so going live did not create a new exposure — it inherited an existing one.
+   The user believes the form is already connected to their inbox but has not
+   confirmed which address. Still unresolved.
+3. **BLOCKER-ISH — the photo captions are not trustworthy.** A perceptual-hash
    scan (16×16 dhash) of the 43 site photos found **11 near-identical pairs** —
    the same photograph stored under two names and captioned differently. Verified
    by eye and by pixel RMS (~2 of 255, i.e. the same shot re-encoded):
@@ -182,15 +226,15 @@ The user rejected a redesign once already. The rebuild is about **structure, not
    stop. Fix: view all 43, rewrite `GALLERY` captions from what is actually in
    frame, and drop the duplicates. Reproduce the scan with the dhash in
    `_build/import_photos.py`.
-3. **Mobile pass.** Desktop is being signed off first, by the user's choice. Mobile
+4. **Mobile pass.** Desktop is being signed off first, by the user's choice. Mobile
    currently needs alignment work throughout.
-4. **Logo.** User is supplying an SVG or transparent PNG (~600px+). Goes where the
+5. **Logo.** User is supplying an SVG or transparent PNG (~600px+). Goes where the
    `AUTO TOPS & TRIM` text sits in the header. Also kills the "AT&T" loading
    placeholder in the old bundle.
-5. **Photos for the sunroof page.** The page ships with no photography because
+6. **Photos for the sunroof page.** The page ships with no photography because
    the catalogue has none of that repair. A few before/after shots of a sagging
    shade would finish it.
-6. ~~**Photos in Google Drive**~~ — **DOWNLOADED 2026-08-04.** 105 files pulled,
+7. ~~**Photos in Google Drive**~~ — **DOWNLOADED 2026-08-04.** 105 files pulled,
    10 byte-identical duplicates dropped, **95 unique photos** kept, 1 near-identical
    group. Contact sheet at `_build/incoming/contact-sheet.html` (gitignored),
    awaiting the user's labels.
@@ -211,12 +255,12 @@ The user rejected a redesign once already. The rebuild is about **structure, not
    names → `make_responsive.py` → add to `GALLERY`. **Label from the image, never
    from the old filename** (see open item 2).
 
-7. **Merge `rebuild` → `main`** once approved. That is the go-live moment.
-8. Google Business Profile is locked out (forgotten login) — recovery is the
+8. ~~**Merge `rebuild` → `main`** once approved. That is the go-live moment.
+9. Google Business Profile is locked out (forgotten login) — recovery is the
    highest-leverage marketing task; it drives the local map pack.
-9. Square recommended for card payments and invoices (NOT Shopify — wrong shape
+10. Square recommended for card payments and invoices (NOT Shopify — wrong shape
    for in-person custom quoting).
-10. Terms/privacy — user parked this. A short privacy note is the useful one,
+11. Terms/privacy — user parked this. A short privacy note is the useful one,
    since the form collects names and numbers.
 
 ---
@@ -232,3 +276,38 @@ The user rejected a redesign once already. The rebuild is about **structure, not
 - **Never push to `main`** without explicit approval — that is production.
 - Verify live state before claiming anything works. Check the deployed URL,
   not just local output.
+
+**2026-08-05 — GO LIVE + mobile + polish**
+
+- **MERGED `rebuild` → `main` and pushed.** Clean fast-forward, 39 commits, 211
+  files, zero conflicts. www.autotopsandtrim.com now serves the new site
+  (36 KB HTML vs the old 13.7 MB bundle). All 7 key URLs verified 200.
+- **Mobile pass, five rounds**, all inside `@media (max-width:899px)` — nothing in
+  it applies at 900px and up, so desktop was never touched:
+  - sideways drag fixed (see architecture note), sticky call bar fixed
+  - buttons side by side; a lone button no longer stretches full width
+  - recent work capped at 6 tiles; About photos and blog cards became swipe rows
+  - footer rebuilt as tap-to-open dropdowns (hidden-checkbox, still zero JS)
+  - scroll-reveals disabled below 900px — they were the "choppy" feel
+  - body copy stepped down repeatedly; section intros centred
+- **Rounded corners** as three tokens: `--r-media` 16px, `--r-card` 14px,
+  `--r-ctl` 8px, matching the reference site's Tailwind radii.
+- **Header + dark surfaces got the shop's own craft in CSS** — a blue-to-charcoal
+  gradient, a faint diamond-quilt tufting texture, and a stitched seam as the
+  header's divider. Quilting also on the hero, dark bands and footer at ~half
+  opacity. All palette colours, no images. Review cards were made opaque
+  (`#2F343A`) so the quilting stops at the card edge.
+- **Hero slideshow** — 4 photos, 5s crossfade, timer bars, zero JS, holds slide 1
+  under reduced-motion. No per-slide captions, deliberately: the filenames are
+  untrustworthy (open item 3).
+- **TCPA SMS consent** on the quote form — not required, not pre-checked,
+  carrying every required disclosure.
+- **Contrast fix:** the 01–04 feature numerals were `--rule` on a tint band =
+  **1.12:1**, effectively invisible. Now `--blue`: 4.47:1 on tint, 5.22:1 on white.
+- **Performance:** font preload sitewide, srcset-aware LCP image preload on home,
+  `fetchpriority="high"` on the hero, `content-visibility:auto` on bands.
+- **All 105 Drive photos pulled** — 95 unique, every one a real JPEG. Contact
+  sheet at `_build/incoming/contact-sheet.html`, awaiting the user's labels.
+- **Logo direction agreed** — combine the stitch-outline (their ref #1) with the
+  quilted seats (ref #2); a prompt was supplied 2026-08-05. Still open.
+
