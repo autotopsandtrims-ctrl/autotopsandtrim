@@ -128,6 +128,20 @@ The user rejected a redesign once already. The rebuild is about **structure, not
 - **Gallery simplified** at the user's request — fanned photo stack removed
   entirely (markup, `FAN_PHOTOS`, `fan_stack()` and the `.fan` CSS are all gone),
   and the "21 automotive · 6 marine · …" count line dropped.
+- **About page bottom rebuilt** — it ended on a naked stats row with no heading,
+  then the generic CTA. Now: stats with a header and lead → a four-card trades
+  grid linking into the service pages → real testimonials → CTA. Sections run 01–06.
+- **Motion pass** — scroll-driven reveals via `animation-timeline: view()`, so the
+  zero-JavaScript guarantee holds. Gated behind `@supports` and
+  `prefers-reduced-motion`, so unsupported browsers show the final state and
+  nothing can get stuck invisible. Containers whose children animate are excluded.
+- **FAQ + schema** — the 23 service-page questions had **no `FAQPage` markup**, so
+  none could win a rich result. `head()` now takes `faqs=` and emits LocalBusiness
+  + FAQPage in one `@graph`. Added 6 general questions to the contact page
+  (29 questions in schema total). Note: the FAQs were never on the home page —
+  git history confirms it — they have always lived on the service pages.
+- Softened a "No appointment needed" line on the process page: nothing verified
+  supported it, so it now reads "Walk in or call ahead".
 - Two latent bugs fixed on the way past: the gallery CTA passed its heading and
   subcopy positionally into `cta()`'s `num`/`label` slots, so the heading rendered
   as the tiny numeral; and `make_responsive.py` referenced an undefined `OUT_JSON`
