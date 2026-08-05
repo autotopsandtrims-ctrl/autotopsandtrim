@@ -968,9 +968,26 @@ html{scroll-behavior:smooth}
    The header is --dark #23282E. The hero used the identical value, so the two
    read as one slab. This runs --blue-deep into --dark, which separates them,
    adds depth, and stays entirely inside the locked palette. */
-/* The gradient reads better as the very top of the page: the header carries it,
-   the hero goes back to flat charcoal, and the two no longer match exactly. */
-.site-head{background:linear-gradient(168deg,#16344F 0%,#1B3A52 55%,#23282E 100%)}
+/* ---- header: the shop's own craft, rendered in CSS -----------------------
+   Deep blue running to charcoal, a faint diamond-quilt tufting pattern, and a
+   stitched seam as the divider instead of a plain rule. Every value is from the
+   locked palette; no images, no extra requests. To drop it, delete ::before and
+   ::after and set .site-head{background:var(--dark)}. */
+.site-head{position:relative;
+  background:linear-gradient(168deg,#16344F 0%,#1B3A52 55%,#23282E 100%)}
+/* diamond quilt — deliberately near-invisible; it should register as texture,
+   not as a pattern you can name */
+.site-head::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:
+    repeating-linear-gradient(45deg,rgba(255,255,255,.030) 0 1px,transparent 1px 27px),
+    repeating-linear-gradient(-45deg,rgba(255,255,255,.030) 0 1px,transparent 1px 27px)}
+/* stitched seam */
+.site-head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+  pointer-events:none;
+  background:repeating-linear-gradient(90deg,
+    var(--blue-lt) 0 13px,rgba(94,155,217,.20) 13px 22px)}
+.head-in{position:relative;z-index:1}
+
 .hero{background:var(--dark)}
 
 /* ---- service page shots: masonry on mobile, grid on desktop ----------------
