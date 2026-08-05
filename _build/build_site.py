@@ -196,17 +196,22 @@ def header(active):
          lockup too tall and too busy. Both facts still appear in the footer, the
          home hero eyebrow, the About page and the LocalBusiness schema, so
          nothing is lost for SEO or for a reader. -->
-    <!-- The mark comes in two colourways, both generated from one supplied PNG:
-           logo-light  — white linework + #5E9BD9 accents, for the dark header
-                         and footer. This is the one in use.
-           logo-dark   — the artwork as supplied, charcoal + #2F6FB0, for white
-                         backgrounds. Not used on the site yet; it is here for
-                         invoices, signage and social.
-         Both had the original drop shadow stripped — recolouring it turned a
-         grey shadow into a white glow on dark surfaces.
-         TO REVERT: put the <span class="brand-name"> back. -->
-    <a class="brand" href="index.html" aria-label="Auto Tops and Trim, home">
-      {img('logo-light', 'Auto Tops and Trim', '210px', eager=True)}
+    <!-- Text wordmark, not the logo. The logo trial was reverted 2026-08-05: the
+         supplied artwork reads well on white but its linework is charcoal, which
+         sinks into this header's navy, and recolouring a raster never comes out
+         as crisp as type does.
+
+         The prepared artwork is kept in assets/originals/ for when we return to
+         it — logo-light.png (AUTO TOPS whitened) and logo-dark.png (as supplied,
+         for white backgrounds). Both already have their drop shadow stripped and
+         both generate srcset variants through make_responsive.py.
+
+         TO PUT IT BACK: swap the span below for
+           {{img('logo-light', 'Auto Tops and Trim', '210px', eager=True)}}
+         The .brand img sizing rules are still in site.css and are inert until
+         an <img> exists here again. -->
+    <a class="brand" href="index.html">
+      <span class="brand-name">AUTO TOPS <em>&amp;</em> TRIM</span>
     </a>
     <input type="checkbox" id="navtoggle" class="navtoggle" aria-hidden="true">
     <label for="navtoggle" class="burger" aria-label="Menu"><span></span><span></span><span></span></label>
@@ -236,7 +241,7 @@ def footer(lightbox=""):
 <footer class="site-foot">
   <div class="foot-in">
     <div class="foot-col">
-      <p class="foot-brand">{img('logo-light', 'Auto Tops and Trim', '230px')}</p>
+      <p class="foot-brand">AUTO TOPS <em>&amp;</em> TRIM</p>
       <p>Custom upholstery in Monroe, North Carolina since 1989. Automotive, marine,
          aviation and motorcycle interiors.</p>
       <p><a class="foot-phone" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></p>
