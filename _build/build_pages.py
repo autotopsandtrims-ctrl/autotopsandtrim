@@ -1,4 +1,5 @@
 """Page content for autotopsandtrim.com. Run this to emit the whole site."""
+import datetime
 import json
 import os
 import sys
@@ -1121,10 +1122,29 @@ def build_contact():
     write(p, h)
 
 # ============================================================== BLOG
+#
+# SCHEDULED PUBLISHING
+# --------------------
+# Every post carries `publish`, an ISO date. A post is built only when that date
+# has arrived (UTC); until then it emits no page, stays off blog.html, and stays
+# out of sitemap.xml — the sitemap is generated from `pages`, which only collects
+# what was actually written, so the gate covers it for free.
+#
+# Nothing here publishes itself. The article text is written, reviewed and merged
+# ahead of time with a future date; the daily job in .github/workflows/publish.yml
+# only re-runs this build and pushes when the output actually changes. No robot
+# ever authors content — it only flips the gate on work you already approved.
+#
+# `publish` is also the single source of truth for the displayed date and for
+# schema.org datePublished. Do not add a separate `date` key: the two drifted
+# apart before, and datePublished was hardcoded per category, so the May post
+# claimed to be published in June.
+#
+# To schedule a post: add it with a future `publish` date and merge. That is all.
 POSTS = [
     {
         "slug": "blog-convertible-top-cost-monroe-nc.html",
-        "cat": "Convertible Tops", "date": "July 2026", "read": "4 min read",
+        "cat": "Convertible Tops", "publish": "2026-07-01", "read": "4 min read",
         "photo": "g01-camaro-ss-new-convertible-top",
         "title": "How much does a convertible top replacement cost in Monroe, NC?",
         "excerpt": "What drives the price of a new top — material, window type, and the "
@@ -1148,7 +1168,7 @@ POSTS = [
     },
     {
         "slug": "blog-marine-vinyl-vs-leather.html",
-        "cat": "Marine", "date": "June 2026", "read": "3 min read",
+        "cat": "Marine", "publish": "2026-06-01", "read": "3 min read",
         "photo": "marine-seating-and-interior-upholstery",
         "title": "Marine vinyl vs. automotive leather: what belongs on a boat",
         "excerpt": "Why the material that looks best in your car is the wrong choice on the water, "
@@ -1169,7 +1189,7 @@ POSTS = [
     },
     {
         "slug": "blog-period-correct-or-upgraded-classic-interior.html",
-        "cat": "Restoration", "date": "May 2026", "read": "5 min read",
+        "cat": "Restoration", "publish": "2026-05-01", "read": "5 min read",
         "photo": "classic-interior-finished",
         "title": "Period-correct or upgraded? Choosing an interior for a classic",
         "excerpt": "Restoring a classic interior means deciding how faithful to be. Here is how we "
@@ -1190,8 +1210,60 @@ POSTS = [
 ]
 
 
+def _today():
+    """Build date in UTC, overridable with BUILD_DATE=YYYY-MM-DD for previewing.
+
+    Set BUILD_DATE to a future date to see exactly what the site will look like
+    when a scheduled post goes out, without touching any publish date.
+    """
+    override = os.environ.get("BUILD_DATE", "").strip()
+    if override:
+        return datetime.date.fromisoformat(override)
+    return datetime.datetime.now(datetime.timezone.utc).date()
+
+
+def visible_posts():
+    """Posts whose publish date has arrived, newest first.
+
+    Raises on a missing or malformed `publish` rather than guessing — a post that
+    silently defaults to "now" would go live the moment it is merged, which is
+    the exact failure this gate exists to prevent.
+    """
+    today = _today()
+    out = []
+    for po in POSTS:
+        if "publish" not in po:
+            raise KeyError(f"post {po['slug']} has no `publish` date")
+        when = datetime.date.fromisoformat(po["publish"])
+        if when <= today:
+            out.append((when, po))
+    out.sort(key=lambda pair: pair[0], reverse=True)
+    return [po for _, po in out]
+
+
+def post_date_label(po):
+    """Displayed date, always derived from `publish` so the two cannot drift."""
+    return datetime.date.fromisoformat(po["publish"]).strftime("%B %Y")
+
+
 def build_blog():
     _lb_reset()
+    live = visible_posts()
+    scheduled = len(POSTS) - len(live)
+    if scheduled:
+        nxt = min(p["publish"] for p in POSTS if p not in live)
+        print(f"   blog: {len(live)} live, {scheduled} scheduled (next {nxt})")
+
+    # Remove output for any post that is no longer live. The gate keeps unpublished
+    # posts out of blog.html and sitemap.xml, but a file already on disk would stay
+    # reachable by direct URL if a publish date were ever pushed back. Scoped to
+    # slugs declared in POSTS so it can never touch a hand-managed page.
+    for po in POSTS:
+        if po not in live:
+            stale = os.path.join(OUT, po["slug"])
+            if os.path.exists(stale):
+                os.remove(stale)
+                print(f"   blog: withdrew {po['slug']} (publishes {po['publish']})")
     p = "blog.html"
     h = head("Blog | Auto Tops and Trim, Monroe NC",
              "Advice on convertible tops, marine upholstery and classic interiors from a "
@@ -1199,9 +1271,9 @@ def build_blog():
     h += header(p)
     cards = "".join(f"""<a class="card" href="{po['slug']}">
       {img(po['photo'], po['title'], THIRD, ratio='16/10')}
-      <div class="card-body"><span class="meta">{po['cat']} &middot; {po['date']} &middot; {po['read']}</span>
+      <div class="card-body"><span class="meta">{po['cat']} &middot; {post_date_label(po)} &middot; {po['read']}</span>
       <h3>{po['title']}</h3><p>{po['excerpt']}</p>
-      <span class="card-link">Read the article</span></div></a>""" for po in POSTS)
+      <span class="card-link">Read the article</span></div></a>""" for po in live)
     h += f"""<section class="band">
   <div class="wrap stack">
     <div class="stack">{shead("01","Blog")}<h1>Notes from the shop</h1>
@@ -1215,11 +1287,11 @@ def build_blog():
     pages.append(p)
     write(p, h)
 
-    for po in POSTS:
+    for po in live:
         schema = {
             "@context": "https://schema.org", "@type": "Article",
             "headline": po["title"], "description": po["excerpt"],
-            "datePublished": "2026-07-01" if po["cat"] == "Convertible Tops" else "2026-06-01",
+            "datePublished": po["publish"],
             "author": {"@type": "Organization", "name": "Auto Tops and Trim"},
             "publisher": {"@type": "Organization", "name": "Auto Tops and Trim"},
             "mainEntityOfPage": f"{SITE}/{po['slug']}",
@@ -1230,7 +1302,7 @@ def build_blog():
         ph += f"""<section class="band">
   <div class="wrap">
     <div class="article-head">
-      <span class="meta">{po['cat']} &middot; {po['date']} &middot; {po['read']}</span>
+      <span class="meta">{po['cat']} &middot; {post_date_label(po)} &middot; {po['read']}</span>
       <h1>{po['title']}</h1>
       <p class="lead">{po['excerpt']}</p>
     </div>
