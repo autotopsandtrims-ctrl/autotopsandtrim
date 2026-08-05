@@ -815,6 +815,58 @@
    }
   ]
  },
+ "review-charles-monk-headliner-after": {
+  "w": 2765,
+  "h": 2074,
+  "variants": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "review-charles-monk-headliner-after-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "review-charles-monk-headliner-after-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1050,
+    "file": "review-charles-monk-headliner-after-1400.webp"
+   },
+   {
+    "w": 2765,
+    "h": 2074,
+    "file": "review-charles-monk-headliner-after-2765.webp"
+   }
+  ]
+ },
+ "review-charles-monk-headliner-before": {
+  "w": 1555,
+  "h": 2074,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "review-charles-monk-headliner-before-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "review-charles-monk-headliner-before-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "review-charles-monk-headliner-before-1400.webp"
+   },
+   {
+    "w": 1555,
+    "h": 2074,
+    "file": "review-charles-monk-headliner-before-1555.webp"
+   }
+  ]
+ },
  "seat-rebuild-after": {
   "w": 900,
   "h": 1200,
