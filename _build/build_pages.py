@@ -243,7 +243,7 @@ def build_home():
   </div>
 </section>
 
-<section class="band tint">
+<section class="band tint" id="recent-work">
   <div class="wrap stack">
     <div class="center stack">
       {shead("02", "Recent work", center=True)}
@@ -862,7 +862,7 @@ def build_about():
 <section class="band tint">
   <div class="wrap stack">
     <div class="stack">{shead("02","Inside the shop")}<h2>How the work gets done</h2></div>
-    <div class="grid g4">
+    <div class="grid g4 swiperow">
       <figure class="tile">{img('services-strip-1', 'Upholstery materials and tools', QUARTER)}</figure>
       <figure class="tile">{img('services-strip-2', 'Door panel restoration in progress', QUARTER)}</figure>
       <figure class="tile">{img('services-strip-3', 'Seat frame rebuild', QUARTER)}</figure>
@@ -1106,7 +1106,7 @@ def build_blog():
   <div class="wrap stack">
     <div class="stack">{shead("01","Blog")}<h1>Notes from the shop</h1>
       <p class="lead">Straight answers to the questions we get asked most often.</p></div>
-    <div class="grid g3">{cards}</div>
+    <div class="grid g3 swiperow">{cards}</div>
   </div>
 </section>
 """

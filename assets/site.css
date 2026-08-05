@@ -42,8 +42,13 @@ html{-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--white);color:var(--ink);
   font:400 17px/1.66 'Archivo',system-ui,-apple-system,sans-serif;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
 }
+/* Sideways drag on phones: overflow-x on <body> alone does not hold on iOS, and
+   `hidden` also kills the sticky header. `clip` stops the pan without creating a
+   scroll container; `hidden` stays as the fallback for older browsers. */
+html,body{overflow-x:hidden;max-width:100%}
+@supports (overflow:clip){html,body{overflow-x:clip}}
 img{max-width:100%;height:auto;display:block;background:#EDF1F5}
 a{color:var(--blue)}
 p{margin:0}
@@ -604,3 +609,102 @@ html{scroll-behavior:smooth}
 .hero-media img,.slideshow{overflow:hidden}
 
 .btn,.quote input,.quote textarea,.consent,.head-call{border-radius:var(--r-ctl)}
+
+/* ============================================================================
+   MOBILE PASS — everything below 900px. Desktop is deliberately untouched:
+   no rule in here applies at 900px and up.
+   ========================================================================== */
+@media (max-width:899px){
+
+  /* --- tighter vertical rhythm: same content, far less scrolling --- */
+  .band{padding:34px 0}
+  .stack{gap:13px}
+  .lead{font-size:15.5px;line-height:1.55;max-width:none}
+  h1{font-size:clamp(26px,7.2vw,33px)}
+  h2{font-size:clamp(22px,6vw,28px)}
+  h3{font-size:16.5px}
+  .shead{margin-bottom:9px;gap:10px}
+  .microline{font-size:10.5px}
+
+  /* --- buttons sit side by side, never stacked --- */
+  .btnrow{flex-wrap:nowrap;gap:9px}
+  .btnrow .btn{flex:1 1 0;min-width:0;padding:13px 8px;font-size:14.5px;
+    text-align:center;line-height:1.2}
+  .btn.wide{flex:none;width:100%}
+
+  /* --- hero: compact, and the photo actually visible above the fold --- */
+  .hero{padding:22px 0 26px}
+  .hero .wrap{gap:16px}
+  .slideshow{aspect-ratio:16/10}
+  .dots{bottom:9px}
+  .dots span{width:20px}
+
+  /* --- recent work: 6 tiles, then send them to the gallery --- */
+  #recent-work .masonry{columns:2;column-gap:9px}
+  #recent-work .masonry figure{margin-bottom:9px}
+  #recent-work .masonry figure:nth-child(n+7){display:none}
+  .masonry figcaption{padding:18px 9px 8px;font-size:10.5px}
+
+  /* --- swipe rows: photos and blog cards run left-to-right, not down --- */
+  .swiperow{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;
+    margin-inline:calc(var(--gut) * -1);padding-inline:var(--gut);
+    scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .swiperow::-webkit-scrollbar{display:none}
+  .swiperow > *{flex:0 0 76%;scroll-snap-align:start}
+  .swiperow .tile img{aspect-ratio:4/3}
+
+  /* --- testimonials --- */
+  .revtrack .review{width:82vw}
+  .review{padding:17px 17px 19px;gap:11px}
+  .review blockquote{font-size:14.5px;line-height:1.55}
+  .ratingbadge{transform:scale(.92)}
+
+  /* --- numbered feature columns --- */
+  .feats{gap:15px}
+  .feat{padding-left:15px}
+  .feat .big{font-size:29px}
+  .feat p{font-size:14.5px;line-height:1.5}
+
+  /* --- process timeline --- */
+  .flow-step{--node:44px;padding-bottom:22px;row-gap:11px;column-gap:13px}
+  .flow-body{padding-top:2px;gap:6px}
+  .flow-body h3{font-size:17px}
+  .flow-body p{font-size:14.5px}
+  .flow-tag{font-size:10px}
+
+  /* --- service rows and cards --- */
+  .svclist{gap:26px}
+  .svc{gap:14px}
+  .svc-body{gap:10px}
+  .card-body{padding:15px;gap:7px}
+  .card p{font-size:14.5px}
+  .ticks li{font-size:14.5px;margin-bottom:6px}
+
+  /* --- contact page --- */
+  .contact-grid{gap:18px}
+  .formcard{padding:18px 16px}
+  .formcard-h{font-size:18px;margin-bottom:12px}
+  .quote{gap:11px}
+  .quote label{font-size:12.5px;gap:5px}
+  .quote input,.quote textarea{padding:10px 11px;font-size:16px}
+  .quote textarea{min-height:92px}
+  .infolist li{padding:11px 0}
+  .infolist .k{font-size:10.5px}
+  .mapwrap{aspect-ratio:4/3}
+  .faq summary{padding:14px 32px 14px 0;font-size:15.5px}
+  .faq .ans{font-size:14.5px;padding-bottom:15px}
+
+  /* --- footer: was the longest thing on the site --- */
+  .foot-in{padding:24px var(--gut) 20px;gap:16px 18px;
+    grid-template-columns:repeat(2,1fr)}
+  .foot-col:first-child{grid-column:1 / -1}
+  .site-foot{font-size:13.5px}
+  .foot-brand{font-size:15px}
+  .foot-col:first-child p{font-size:13.5px}
+  .foot-h{font-size:10px;margin-bottom:5px}
+  .foot-col ul{display:flex;flex-direction:column;gap:1px}
+  .site-foot li a{min-height:26px;font-size:13.5px}
+  .site-foot .hours th,.site-foot .hours td{font-size:12.5px;padding:1px 0}
+  .foot-area{font-size:12.5px;margin-top:6px}
+  .foot-bar{padding:11px var(--gut);font-size:11.5px}
+}
