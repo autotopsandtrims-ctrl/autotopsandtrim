@@ -845,3 +845,58 @@ html{scroll-behavior:smooth}
   .site-foot .hours{margin-inline:0}
   .foot-phone{font-size:19px}
 }
+
+/* ---- footer accordions: same checkbox pattern as the nav, so still no JS ---- */
+.foot-acc .facc{position:absolute;opacity:0;pointer-events:none}
+.foot-acc > ul{max-height:none;overflow:visible}
+.foot-acc label.foot-h{display:block;margin-bottom:9px}
+
+/* ============================================================================
+   MOBILE PASS 4. Still nothing applies at 900px and up.
+   ========================================================================== */
+@media (max-width:899px){
+
+  /* --- a lone button should not stretch the full width --- */
+  .btnrow .btn:only-child{flex:0 1 auto;padding-inline:20px}
+  .btnrow:has(.btn:only-child){justify-content:center}
+
+  /* --- buttons: smaller overall, not just smaller text --- */
+  .btn{min-height:42px;padding:10px 12px;font-size:14px}
+  .btnrow{gap:8px}
+
+  /* --- breathing room between an intro and the block it introduces --- */
+  .band .wrap > .stack:first-child{margin-bottom:8px}
+  .feats{gap:15px;margin-top:4px}
+
+  /* --- the CTA band was the last thing still shouting --- */
+  .band.tint2 h2{font-size:clamp(18px,4.8vw,22px)}
+  .band.tint2 .lead{font-size:13px;line-height:1.5}
+  .band.tint2 .stack{gap:9px}
+  .band.tint2 .btnrow{margin-top:10px}
+
+  /* --- contact tiles: keep the value inside its box --- */
+  .infolist li{padding:10px 11px;min-width:0}
+  .infolist .v{font-size:12.5px;line-height:1.35;overflow-wrap:anywhere;hyphens:auto}
+  .infolist .big{font-size:15px;letter-spacing:-.01em}
+  .infolist .hours{font-size:11px;width:100%}
+  .infolist .hours th{text-align:left;white-space:nowrap}
+  .infolist .hours td{text-align:right}
+
+  /* --- FAQ --- */
+  .faq{margin-top:6px}
+  .faq summary{padding:12px 30px 12px 0;font-size:14.5px;min-height:0}
+  .faq summary::after{font-size:19px}
+  .faq .ans{font-size:13.5px;line-height:1.5;padding-bottom:13px}
+
+  /* --- footer dropdowns --- */
+  .foot-acc > ul{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .foot-acc .facc:checked ~ ul{max-height:420px}
+  .foot-acc label.foot-h{display:flex;align-items:center;justify-content:space-between;
+    min-height:42px;margin:0;cursor:pointer;font-size:12px}
+  .foot-acc label.foot-h::after{content:"+";font-size:17px;font-weight:400;
+    color:#fff;line-height:1}
+  .foot-acc .facc:checked ~ label.foot-h::after{content:"\2013"}
+  .foot-acc{padding:0;border-top:1px solid rgba(255,255,255,.11)}
+  .foot-acc > ul{grid-template-columns:1fr;padding-bottom:8px}
+  .foot-acc .facc:checked ~ ul{padding-bottom:10px}
+}

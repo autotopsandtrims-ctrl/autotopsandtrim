@@ -197,12 +197,14 @@ def footer(lightbox=""):
       <p><a class="foot-phone" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></p>
       <p><a href="mailto:{EMAIL}">{EMAIL}</a></p>
     </div>
-    <div class="foot-col">
-      <p class="foot-h">Services</p>
+    <div class="foot-col foot-acc">
+      <input type="checkbox" id="fa-svc" class="facc" aria-hidden="true">
+      <label for="fa-svc" class="foot-h">Services</label>
       <ul>{svc}</ul>
     </div>
-    <div class="foot-col">
-      <p class="foot-h">Pages</p>
+    <div class="foot-col foot-acc">
+      <input type="checkbox" id="fa-nav" class="facc" aria-hidden="true">
+      <label for="fa-nav" class="foot-h">Pages</label>
       <ul>{nav}</ul>
     </div>
     <div class="foot-col">
