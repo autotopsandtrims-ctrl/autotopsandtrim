@@ -202,7 +202,52 @@ The user rejected a redesign once already. The rebuild is about **structure, not
    so going live did not create a new exposure — it inherited an existing one.
    The user believes the form is already connected to their inbox but has not
    confirmed which address. Still unresolved.
-3. **BLOCKER-ISH — the photo captions are not trustworthy.** A perceptual-hash
+3. ~~**BLOCKER-ISH — the photo captions are not trustworthy.**~~ **FIXED 2026-08-05,
+   commit `411b109`, on `rebuild` and verified on the preview. Not yet on `main`.**
+
+   All 43 masters were opened and described from the image. The dhash scan had
+   **undercounted**: 17 files are only **7 distinct photographs**, and **nine**
+   captions contradicted their photo, not two.
+
+   Beyond the two already known: `convertible-top-after` is a truck cab interior
+   and was the **hero of convertible-tops.html**; `marine-canvas-cushions` is a
+   car rear bench seat filed under **Marine**; `custom-bike-seat` is a burgundy
+   convertible top filed under **Motorcycle**; `g13-sound-deadening-before-carpet`
+   is a finished **headliner**; `g05-burgundy-cloth-top-rear-window` is a Cadillac
+   **front end**; `g07`/`g08` were effectively swapped; the About hero alt said
+   "shop leadership" for a photo of the building with nobody in it.
+
+   **5 of 16 pages showed the same photograph more than once** under different
+   captions (the gallery repeated five separate photos, the home page four).
+   That is now **0**, enforced by one canonical basename per image. Regression
+   check: `scratchpad/dupcheck.py` groups the duplicates and fails any page that
+   repeats one — rerun it after touching photography.
+
+   Two deliberate consequences: home recent-work is **automotive only** (dedupe
+   left 1 usable marine, 1 motorcycle, 2 aviation photos, all already in the
+   bento above it) and its lead no longer promises boats and bikes;
+   **motorcycle-seats.html lost its "Recent work" band entirely.** Both come back
+   as soon as real photography lands.
+
+   **The verified content of all 43 masters is now recorded in a comment above
+   `GALLERY` in `_build/build_pages.py`.** Read it before touching any photo.
+   Do not re-derive it, and never caption from a filename.
+
+12. **Provenance of the marine, aviation and motorcycle photos is unconfirmed.**
+    Every marine, aviation and motorcycle image on the site is one of just **four**
+    photographs (a varnished-wood runabout cockpit, cream quilted aircraft seats,
+    a private-jet cabin, a diamond-quilted seat on a mint café racer). All four
+    read as commercial photography — even lighting, styled composition, shallow
+    depth of field — and none carries any cue tying it to the Monroe shop. Every
+    photo positively identifiable as the shop's own work is a phone photo taken at
+    the shop or by the wooden fence. **gallery.html states "Every piece here was
+    cut, stitched and fitted in house."** The user is checking provenance with his
+    uncle; on his instruction the four were left in place for now. If they are not
+    his, they must come out and that line has to change.
+
+   <details><summary>Original finding, kept for reference</summary>
+
+   A perceptual-hash
    scan (16×16 dhash) of the 43 site photos found **11 near-identical pairs** —
    the same photograph stored under two names and captioned differently. Verified
    by eye and by pixel RMS (~2 of 255, i.e. the same shot re-encoded):
@@ -226,6 +271,8 @@ The user rejected a redesign once already. The rebuild is about **structure, not
    stop. Fix: view all 43, rewrite `GALLERY` captions from what is actually in
    frame, and drop the duplicates. Reproduce the scan with the dhash in
    `_build/import_photos.py`.
+
+   </details>
 4. **Mobile pass.** Desktop is being signed off first, by the user's choice. Mobile
    currently needs alignment work throughout.
 5. **Logo.** User is supplying an SVG or transparent PNG (~600px+). Goes where the
