@@ -7,6 +7,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import (  # noqa: E402
     IMAGES, SITE, PHONE_DISPLAY, PHONE_TEL, OUT,
     img, has, head, header, footer, cta, shead, quote_form, write, NAV, SERVICES, SCHEMA,
+    preload_image,
 )
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -158,7 +159,9 @@ def build_home():
         "Auto Tops and Trim | Custom Upholstery in Monroe, NC Since 1989",
         "Custom upholstery in Monroe, NC. Convertible tops, seats, headliners, carpet "
         "and marine canvas for automotive, marine, aviation and motorcycle interiors. "
-        "Free estimates — call (980) 385-8101.", p)
+        "Free estimates — call (980) 385-8101.", p,
+        preload=preload_image("hero-best-finished-vehicle-wide-full-color",
+                              "(min-width:900px) 52vw, 100vw"))
     h += header(p)
 
     # Hero slideshow. Deliberately NO per-slide captions: the inherited filenames
@@ -173,7 +176,7 @@ def build_home():
     n_slides = len(hero_slides)
     slides = "".join(
         f'<figure style="animation-delay:{i * (20 / n_slides):.1f}s">'
-        f'{img(b, "Upholstery work by Auto Tops and Trim in Monroe, NC", "(min-width:900px) 52vw, 100vw", eager=(i == 0))}'
+        f'{img(b, "Upholstery work by Auto Tops and Trim in Monroe, NC", "(min-width:900px) 52vw, 100vw", eager=(i == 0), priority=(i == 0))}'
         f"</figure>"
         for i, b in enumerate(hero_slides)
     )

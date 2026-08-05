@@ -26,7 +26,7 @@ with open(os.path.join(HERE, "images.json"), encoding="utf-8") as fh:
 
 
 # ---------------------------------------------------------------- images
-def img(base, alt, sizes="100vw", cls="", eager=False, ratio=None):
+def img(base, alt, sizes="100vw", cls="", eager=False, ratio=None, priority=False):
     """Render a responsive <img> from the catalog. Raises if base is unknown."""
     if base not in IMAGES:
         raise KeyError(f"unknown photo: {base}")
@@ -36,11 +36,21 @@ def img(base, alt, sizes="100vw", cls="", eager=False, ratio=None):
     largest = variants[-1]
     style = f' style="aspect-ratio:{meta["w"]}/{meta["h"]}"' if ratio is None else f' style="aspect-ratio:{ratio}"'
     loading = "" if eager else ' loading="lazy" decoding="async"'
+    # the LCP image should not queue behind a dozen other requests
+    prio = ' fetchpriority="high" decoding="async"' if priority else ""
     c = f' class="{cls}"' if cls else ""
     return (
         f'<img src="assets/{largest["file"]}" srcset="{srcset}" sizes="{sizes}" '
-        f'width="{meta["w"]}" height="{meta["h"]}" alt="{alt}"{c}{loading}{style}>'
+        f'width="{meta["w"]}" height="{meta["h"]}" alt="{alt}"{c}{loading}{prio}{style}>'
     )
+
+
+def preload_image(base, sizes):
+    """<link rel=preload> for the LCP image, matching the <img>'s own srcset."""
+    meta = IMAGES[base]
+    srcset = ", ".join(f"assets/{v['file']} {v['w']}w" for v in meta["variants"])
+    return (f'<link rel="preload" as="image" href="assets/{meta["variants"][-1]["file"]}" '
+            f'imagesrcset="{srcset}" imagesizes="{sizes}" fetchpriority="high">\n')
 
 
 def has(base):
@@ -120,7 +130,7 @@ def faq_schema(faqs):
     }
 
 
-def head(title, desc, path, extra_schema=None, faqs=None):
+def head(title, desc, path, extra_schema=None, faqs=None, preload=""):
     canonical = f"{SITE}/{path}" if path != "index.html" else f"{SITE}/"
     base = extra_schema or SCHEMA
     if faqs:
@@ -144,7 +154,8 @@ def head(title, desc, path, extra_schema=None, faqs=None):
 <meta property="og:type" content="website">
 <meta property="og:url" content="{canonical}">
 <meta name="theme-color" content="#12354F">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/font-327592e7.woff2" crossorigin>
+{preload}<link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">{schema}</script>
 </head>
 <body>

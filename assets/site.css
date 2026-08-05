@@ -1014,3 +1014,13 @@ html{scroll-behavior:smooth}
   .svc-shots figure{margin:0;break-inside:auto}
   .svc-shots figure img{aspect-ratio:4/3;object-fit:cover;width:100%}
 }
+
+/* ---- render performance ----------------------------------------------------
+   Skip layout and paint for bands that are still off-screen. contain-intrinsic-size
+   keeps the scrollbar honest so nothing jumps as they come into view. The call bar
+   and the lightbox both sit outside .band, so neither is affected by the
+   containment this introduces. */
+.band{content-visibility:auto;contain-intrinsic-size:auto 640px}
+/* the marquee animates forever; hint the compositor and stop it off-screen */
+.revtrack{will-change:transform}
+.revmarquee{contain:paint}
