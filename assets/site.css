@@ -323,25 +323,36 @@ a.card:hover{border-color:var(--blue-lt);box-shadow:0 14px 34px rgba(22,52,79,.1
 .faq details[open] summary::after{content:"\2013"}
 .faq .ans{padding:0 0 20px;color:var(--ink-70);max-width:68ch;font-size:16px}
 
-/* ---- contact layout: form card + info column ---- */
-.contact-grid{display:grid;gap:clamp(26px,4vw,56px);grid-template-columns:1fr;align-items:start}
+/* ---- contact layout: compact, form card + info column ---- */
+.band.compact{padding:clamp(30px,4vw,56px) 0 clamp(38px,5vw,72px)}
+.contact-head{max-width:60ch;margin-bottom:clamp(24px,3vw,38px)}
+.contact-head h1{font-size:clamp(29px,3.6vw,44px);margin-bottom:12px}
+.contact-head .lead{font-size:16.5px}
+.contact-grid{display:grid;gap:clamp(22px,2.6vw,38px);grid-template-columns:1fr;align-items:start}
 @media (min-width:900px){.contact-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
 .formcard{background:#fff;box-shadow:0 20px 44px rgba(42,46,51,.09);
-  border:1px solid var(--rule);padding:clamp(22px,3vw,40px)}
-.tint .formcard,.tint2 .formcard{border-color:transparent}
-.banner img{width:100%;object-fit:cover;aspect-ratio:24/9}
-@media (min-width:900px){.banner img{aspect-ratio:24/7}}
+  border:1px solid var(--rule);padding:clamp(20px,2.4vw,30px)}
+.formcard-h{font-size:clamp(19px,1.8vw,23px);margin-bottom:16px}
+.infocol{display:flex;flex-direction:column;gap:clamp(18px,2vw,26px)}
 
 /* info column — blue square dots, the site's own device */
-.infolist{list-style:none;padding:0;display:flex;flex-direction:column;gap:22px}
-.infolist li{position:relative;padding-left:24px}
-.infolist li::before{content:"";position:absolute;left:0;top:.42em;width:8px;height:8px;background:var(--blue-lt)}
-.infolist .k{display:block;font-size:11px;font-weight:700;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--blue);margin-bottom:5px}
-.infolist .v{font-size:16.5px;line-height:1.6;color:var(--ink-70)}
+.infolist{list-style:none;padding:0;display:flex;flex-direction:column;gap:15px}
+.infolist li{position:relative;padding-left:22px}
+.infolist li::before{content:"";position:absolute;left:0;top:.46em;width:8px;height:8px;background:var(--blue-lt)}
+.infolist .k{display:block;font-size:10.5px;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:3px}
+.infolist .v{font-size:15.5px;line-height:1.5;color:var(--ink-70)}
 .infolist .v strong{color:var(--ink);font-weight:700}
 .infolist a{text-decoration:none}
-.infolist .big{font-size:23px;font-weight:800;letter-spacing:-.02em;color:var(--ink);display:inline-block}
+.infolist .big{font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--ink);display:inline-block}
+.infolist .hours{font-size:15px}
+.infolist .hours th,.infolist .hours td{padding:2px 0}
+.infocol .mapwrap{aspect-ratio:4/3}
+@media (min-width:900px){.infocol .mapwrap{aspect-ratio:1/1}}
+
+/* tighter form inside the compact card */
+.formcard .quote{gap:13px}
+.formcard .f2,.formcard .f3{gap:13px}
 
 /* ---- form ---- */
 .quote{display:flex;flex-direction:column;gap:16px}
@@ -394,14 +405,15 @@ a.card:hover{border-color:var(--blue-lt);box-shadow:0 14px 34px rgba(22,52,79,.1
   *{animation-duration:.01ms !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
 }
 
-/* rating badge under the testimonials heading */
-.ratingbadge{display:inline-flex;align-items:center;gap:18px;margin-inline:auto;
-  padding:15px 24px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.055)}
-.ratingbadge .score{font-size:clamp(34px,4vw,44px);font-weight:800;line-height:1;
+/* rating: typographic, deliberately NOT a bordered box so it doesn't read
+   as another review card sitting above the real ones */
+.ratingbadge{display:flex;flex-direction:column;align-items:center;gap:9px;
+  margin:4px auto 0;padding:0;border:0;background:none}
+.ratingbadge .stars{margin:0;font-size:20px;letter-spacing:.22em}
+.ratingbadge .line{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;justify-content:center}
+.ratingbadge .score{font-size:clamp(30px,3.4vw,40px);font-weight:800;line-height:1;
   letter-spacing:-.035em;color:#fff}
-.ratingbadge .rb-r{display:flex;flex-direction:column;gap:6px;text-align:left}
-.ratingbadge .stars{margin:0;font-size:17px}
-.ratingbadge .cnt{font-size:13px;color:#9FB0BF;letter-spacing:.02em}
+.ratingbadge .cnt{font-size:14px;color:#9FB0BF}
 .ratingbadge .cnt b{color:#fff;font-weight:700}
 
 /* ---- services list: alternating photo + detail rows ---- */
