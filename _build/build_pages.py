@@ -33,26 +33,29 @@ REVIEWS = [
     ("I had Auto Tops and Trim replace the headliner and center console leather in my 2008 "
      "Honda Accord. I was very happy with the quality of the work and would recommend using them.",
      "Robert Danneman", "2 reviews", "5 days ago", "#3E7D5A"),
-    ("Mr. Hopton restored my sunroof shade back to new condition. He even allowed me to watch "
-     "the process. I recommend him 100% for all of your reupholstery needs. Thank you!",
-     "Ozzie Pagan", "Local Guide &middot; 15 reviews", "8 months ago", "#2F6FB0"),
-    ("Excellent work. We drove an hour to get our sunroof fixed and we were very happy with "
-     "the service. Highly recommend!",
-     "Lauren Corgan", "15 reviews", "11 months ago", "#8A5FA6"),
+    # SECOND ON PURPOSE. This is the only review carrying photos, and they are a
+    # headliner before/after — the strongest evidence on the site. Placing it
+    # second means it slides into view almost immediately in the marquee and is
+    # one swipe away on the mobile rail. Do not bury it further down the list.
+    #
     # Charles Monk's review is truncated by Google's "More" link; only the complete
     # sentences visible on the profile are quoted here. The profile shows one
     # further sentence beginning "He made sure to do it right and took the time to
     # redo some of it when he didn't like the way it turned…" — still cut off, so
     # it stays out until someone expands "More" and transcribes it in full.
     #
-    # He attached two photos to his review: a sagging headliner and the finished
-    # one. Both basenames are declared here and render ONLY once the real files
-    # exist in assets/ (review_card checks has()). They are his photos, not shop
-    # photos — do not substitute anything from assets/originals/.
+    # The two photos are HIS, attached to his own review — not shop photos. Never
+    # substitute anything from assets/originals/ here.
     ("Fantastic service. The job was done quickly, while I waited. The price was cheaper than "
      "what most people were charging here locally.",
      "Charles Monk", "Local Guide &middot; 8 reviews", "a month ago", "#B5732E",
      ["review-charles-monk-headliner-before", "review-charles-monk-headliner-after"]),
+    ("Mr. Hopton restored my sunroof shade back to new condition. He even allowed me to watch "
+     "the process. I recommend him 100% for all of your reupholstery needs. Thank you!",
+     "Ozzie Pagan", "Local Guide &middot; 15 reviews", "8 months ago", "#2F6FB0"),
+    ("Excellent work. We drove an hour to get our sunroof fixed and we were very happy with "
+     "the service. Highly recommend!",
+     "Lauren Corgan", "15 reviews", "11 months ago", "#8A5FA6"),
     ("Excellent service and great prices I'll take back my car all the time",
      "charmaine sealey", "3 reviews", "a month ago", "#8C6B63"),
     ("Great auto shop", "Tj L", "2 reviews", "6 months ago", "#4A6B8A"),
