@@ -286,7 +286,7 @@ def quote_form(which="contact"):
   </label>
   <button type="submit" class="btn btn-primary wide">Send my request</button>
   <p class="formnote">Prefer to talk? Call <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
-     <span class="fn-hrs">Mon&ndash;Fri 9&ndash;5:30 &middot; Sat 11&ndash;5</span></p>
+     <span class="fn-hrs">Mon&ndash;Fri 9:00&nbsp;AM&ndash;5:30&nbsp;PM &middot; Sat 11:00&nbsp;AM&ndash;5:00&nbsp;PM</span></p>
 </form>
 """
 
