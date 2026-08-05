@@ -1158,12 +1158,35 @@ POSTS = [
             "underneath. Most quotes people bring us from elsewhere only cover the first one, "
             "which is why two estimates for the same car can look so far apart.",
             "<h2>The three things that set the price</h2>",
-            "<h3>1. Material: vinyl or canvas</h3>",
-            "Material is the first fork in the road. A quality vinyl top costs less up front and "
-            "holds up very well in the Carolina sun. Canvas cloth costs more, looks correct on a "
-            "classic, and ages more gracefully rather than simply wearing out. Neither is the "
-            "right answer for every car — it depends on whether you are keeping the vehicle "
-            "original, and how much of its life is spent parked outside.",
+            "<h3>1. Material: vinyl, Stayfast or Twillfast</h3>",
+            "Material is the first fork in the road, and it is worth knowing that almost every "
+            "quality replacement top in the US is made by one company — the Haartz Corporation — "
+            "in a handful of distinct grades. When a shop says \"vinyl or cloth\", these are "
+            "usually the actual materials being discussed.",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Material</th><th>Construction</th><th>Typically OE on</th>"
+            "<th>Trade-off</th></tr></thead>"
+            "<tbody>"
+            "<tr><th>Pinpoint vinyl</th>"
+            "<td>Grained vinyl face, cloth backing</td>"
+            "<td>Most American cars, 1950s&ndash;1990s</td>"
+            "<td>Lowest cost, handles sun well, correct on a great many domestic classics</td></tr>"
+            "<tr><th>Stayfast cloth</th>"
+            "<td>Solution-dyed acrylic face, butyl rubber inner layer, cotton backing "
+            "(about 1.0&nbsp;mm)</td>"
+            "<td>Long-running OE specification across many makes</td>"
+            "<td>Richer look and a higher wear rating than vinyl; less durable and less "
+            "sound-deadening than Twillfast</td></tr>"
+            "<tr><th>Twillfast RPC</th>"
+            "<td>Twill-weave acrylic face with a dobby backing</td>"
+            "<td>Later and higher-end European applications</td>"
+            "<td>The most durable and the quietest of the three, and the most expensive</td></tr>"
+            "</tbody></table></div>",
+            "The honest summary: vinyl is not a downgrade on a car that came with vinyl — it is "
+            "the correct answer, and it holds up very well in the Carolina sun. Cloth is worth "
+            "paying for when the car came with cloth, when you want the richer look, or when you "
+            "care about how quiet the car is at highway speed. We keep samples of each in the "
+            "shop so you can feel the difference before you commit to it.",
             "<h3>2. The rear window</h3>",
             "A top with a heated glass rear window is a different job from one with a plastic "
             "curtain, and the two are priced differently. On older cars the window is very often "
@@ -1247,6 +1270,33 @@ POSTS = [
             "fabrics, because the colour goes through the fibre rather than sitting on top of it. "
             "The difference does not show in year one. It shows in year three, when the coated "
             "fabric has gone chalky and faded and the acrylic still looks like itself.",
+            "There are four families of marine top fabric in common use, and they genuinely suit "
+            "different jobs:",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Fabric</th><th>Type</th><th>Strengths</th><th>Watch for</th></tr>"
+            "</thead><tbody>"
+            "<tr><th>Sunbrella</th><td>Solution-dyed acrylic</td>"
+            "<td>Best-in-class UV and colourfastness, breathable, carries a 10-year warranty "
+            "against fading</td>"
+            "<td>Water-resistant rather than fully waterproof &mdash; it relies on good design "
+            "and upkeep</td></tr>"
+            "<tr><th>Top Gun</th><td>Coated polyester</td>"
+            "<td>Excellent abrasion resistance and strength, lower cost</td>"
+            "<td>Shorter service life in punishing sun; coating quality varies a lot by "
+            "grade</td></tr>"
+            "<tr><th>Stamoid</th><td>Vinyl-coated</td>"
+            "<td>Maximum waterproofing of the four</td>"
+            "<td>Does not breathe, so trapped moisture underneath becomes the problem "
+            "instead</td></tr>"
+            "<tr><th>Seamark</th><td>Sunbrella with a vinyl backing</td>"
+            "<td>Fully waterproof while matching Sunbrella colours &mdash; a common OE bimini "
+            "and camper-top choice</td>"
+            "<td>Costs more than either parent material</td></tr>"
+            "</tbody></table></div>",
+            "Notice the trade running through that table: <strong>waterproof and breathable pull "
+            "against each other.</strong> Anyone who tells you one fabric wins on both is selling "
+            "you something. The right choice depends on whether the boat lives on a lift, on a "
+            "trailer, or in a slip.",
             "<h2>Recover or replace?</h2>",
             "Not everything needs replacing. A single split seam can often be restitched, and a "
             "cover in good condition over dead foam only needs the foam changed. Chalking on "
@@ -1291,6 +1341,29 @@ POSTS = [
             "</ul>",
             "From two feet away it reads as original. From the driver's seat it is a much better "
             "car to spend time in.",
+            "<h2>Component by component: where to be faithful, where to improve</h2>",
+            "The decision is rarely all-or-nothing. Most good interiors are original where it "
+            "shows and modern where it does not:",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Component</th><th>Period-correct</th><th>Upgraded</th>"
+            "<th>Our usual advice</th></tr></thead><tbody>"
+            "<tr><th>Seat covers</th><td>Correct grain, stitch spacing and pattern</td>"
+            "<td>Modern hide or vinyl, custom stitch</td>"
+            "<td>Stay correct &mdash; this is the part everyone actually looks at</td></tr>"
+            "<tr><th>Foam</th><td>Original densities, which were often poor when new</td>"
+            "<td>Modern multi-density foam</td>"
+            "<td>Upgrade almost always. Invisible, and it is the difference between a car you "
+            "enjoy for an hour and one you do not</td></tr>"
+            "<tr><th>Carpet</th><td>Correct weave and binding</td>"
+            "<td>Modern loop or cut pile</td>"
+            "<td>Stay correct on a show car; either is defensible on a driver</td></tr>"
+            "<tr><th>Sound deadening</th><td>Little or none from the factory</td>"
+            "<td>Full modern barrier under the carpet</td>"
+            "<td>Upgrade. Nobody has ever regretted a quieter old car</td></tr>"
+            "<tr><th>Seat frames</th><td>Repair to original structure</td>"
+            "<td>Reinforced or rebuilt</td>"
+            "<td>Repair properly either way &mdash; never shim a cracked frame</td></tr>"
+            "</tbody></table></div>",
             "<h2>What this does to resale</h2>",
             "There is a real trade-off here and it is worth being clear about. A documented, "
             "period-correct interior protects value on a car whose buyers care about matching "

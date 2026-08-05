@@ -1025,6 +1025,24 @@ html{scroll-behavior:smooth}
 .revtrack{will-change:transform}
 .revmarquee{contain:paint}
 
+/* ---- comparison tables in articles --------------------------------------
+   Wide spec tables scroll inside their OWN container. The page body must never
+   scroll sideways, and overflow must never go on html/body — at viewport level
+   that breaks position:fixed on iOS and strands the sticky call bar. */
+.tablewrap{overflow-x:auto;margin:1.5em 0;
+  border:1px solid var(--rule);border-radius:var(--r-card)}
+.spectable{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+.spectable th,.spectable td{text-align:left;padding:11px 14px;
+  border-bottom:1px solid var(--rule);vertical-align:top}
+.spectable thead th{background:var(--tint);font-weight:800;font-size:13px;
+  letter-spacing:.04em;text-transform:uppercase;color:var(--blue-deep);
+  white-space:nowrap}
+.spectable tbody tr:last-child th,.spectable tbody tr:last-child td{border-bottom:0}
+.spectable tbody th{font-weight:700;white-space:nowrap}
+.spectable .yes{color:var(--blue);font-weight:700}
+@media (max-width:899px){.spectable{font-size:14px}
+  .spectable th,.spectable td{padding:9px 11px}}
+
 /* ================= TRIAL: stitched mobile call bar =======================
    The sticky "Call ... · Free Estimate" bar, given the same craft treatment the
    header already carries. Mobile only — .callbar is display:none from 1000px up,
