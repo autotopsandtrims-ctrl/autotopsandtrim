@@ -40,10 +40,19 @@ REVIEWS = [
      "the service. Highly recommend!",
      "Lauren Corgan", "15 reviews", "11 months ago", "#8A5FA6"),
     # Charles Monk's review is truncated by Google's "More" link; only the complete
-    # sentences visible on the profile are quoted here.
+    # sentences visible on the profile are quoted here. The profile shows one
+    # further sentence beginning "He made sure to do it right and took the time to
+    # redo some of it when he didn't like the way it turned…" — still cut off, so
+    # it stays out until someone expands "More" and transcribes it in full.
+    #
+    # He attached two photos to his review: a sagging headliner and the finished
+    # one. Both basenames are declared here and render ONLY once the real files
+    # exist in assets/ (review_card checks has()). They are his photos, not shop
+    # photos — do not substitute anything from assets/originals/.
     ("Fantastic service. The job was done quickly, while I waited. The price was cheaper than "
      "what most people were charging here locally.",
-     "Charles Monk", "Local Guide &middot; 8 reviews", "a month ago", "#B5732E"),
+     "Charles Monk", "Local Guide &middot; 8 reviews", "a month ago", "#B5732E",
+     ["review-charles-monk-headliner-before", "review-charles-monk-headliner-after"]),
     ("Excellent service and great prices I'll take back my car all the time",
      "charmaine sealey", "3 reviews", "a month ago", "#8C6B63"),
     ("Great auto shop", "Tj L", "2 reviews", "6 months ago", "#4A6B8A"),
