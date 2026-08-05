@@ -1066,21 +1066,23 @@ html{scroll-behavior:smooth}
    drawn through that strip looks like a rendering fault rather than a detail.
 
    TO REVERT: delete this entire block. Nothing else references it. */
-.callbar{position:fixed}   /* already fixed; restated so ::before anchors to it */
-/* 1. the seam along the top edge — same pattern as the header's, dialled back.
-      The header seam sits at full strength because it divides two surfaces; this
-      one only needs to imply an edge, so it runs faded. */
-.callbar::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;
-  pointer-events:none;
-  background:repeating-linear-gradient(90deg,
-    rgba(94,155,217,.75) 0 13px,rgba(94,155,217,.15) 13px 22px)}
-/* 2. the topstitch — a single faded line running PARALLEL to that seam, which is
-      how a trimmed panel is actually stitched. It is deliberately not a box:
-      an outline around the number reads as a focus ring, not as upholstery.
-      Drawn with a gradient rather than `border:dashed` so the stitch and gap
-      lengths are ours to set instead of the browser's. */
-.callbar::after{content:"";position:absolute;pointer-events:none;
-  left:0;right:0;top:6px;height:1px;
-  background:repeating-linear-gradient(90deg,
-    rgba(255,255,255,.20) 0 5px,transparent 5px 11px)}
+/* No stitch lines here — just the diamond quilt, the same device the header and
+   the dark bands already carry.
+
+   Applied as a background-image on .callbar itself rather than as a pseudo
+   element. A ::before with inset:0 paints above the anchor's text, and the bar's
+   label is a bare text node that cannot be lifted back with z-index. A
+   background layer always sits under content, so this cannot ever wash over the
+   phone number.
+
+   Diamond is 22px, tighter than the header's 27px, because the bar is only 56px
+   tall and a larger grid would show barely one row. Opacity is .038 — a shade
+   above the header's .030, since this sits on the mid-blue button colour rather
+   than the dark header and needs marginally more to register at all.
+
+   TO REVERT: delete this rule. */
+.callbar{
+  background-image:
+    repeating-linear-gradient(45deg,rgba(255,255,255,.038) 0 1px,transparent 1px 22px),
+    repeating-linear-gradient(-45deg,rgba(255,255,255,.038) 0 1px,transparent 1px 22px)}
 /* ========================= end TRIAL block ============================== */
