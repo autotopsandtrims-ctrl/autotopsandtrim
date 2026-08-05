@@ -138,18 +138,20 @@ def stars(n=5):
             + "&#9733;" * n + f'<span>{n} out of 5</span></p>')
 
 
+def review_card(q, who, sub, when, colour):
+    initial = who.strip()[0].upper()
+    return (f'<div class="review">'
+            f'<div class="rev-top">'
+            f'<span class="avatar" style="background:{colour}" aria-hidden="true">{initial}</span>'
+            f'<span class="rev-id"><span class="rev-name">{who}</span>'
+            f'<span class="rev-sub">{sub}</span></span></div>'
+            f'<div class="rev-line">{stars()}<span class="rev-date">{when}</span></div>'
+            f'<blockquote>{q}</blockquote></div>')
+
+
 def reviews_block(num="03", label="Testimonials",
                   heading="Trusted by customers for craftsmanship that lasts"):
-    def card(q, who, sub, when, colour):
-        initial = who.strip()[0].upper()
-        return (f'<div class="review">'
-                f'<div class="rev-top">'
-                f'<span class="avatar" style="background:{colour}" aria-hidden="true">{initial}</span>'
-                f'<span class="rev-id"><span class="rev-name">{who}</span>'
-                f'<span class="rev-sub">{sub}</span></span></div>'
-                f'<div class="rev-line">{stars()}<span class="rev-date">{when}</span></div>'
-                f'<blockquote>{q}</blockquote></div>')
-
+    card = review_card
     cards = "".join(card(*r) for r in REVIEWS)
     # duplicated once, hidden from screen readers, so the loop is seamless
     dupe = f'<div class="revtrack">{cards}{cards}</div>'
@@ -301,15 +303,14 @@ def build_home():
 </section>
 """
     h += cta()
-    h += lightbox_markup()
-    h += footer()
+    h += footer(lightbox_markup())
     pages.append(p)
     return write(p, h)
 
 
 # ============================================================== SERVICE PAGES
 def service_page(slug, title, desc, eyebrow, h1, intro, hero_photo, sections,
-                 photos, faqs, gallery_caps=None):
+                 photos, faqs, gallery_caps=None, extra_html=""):
     _lb_reset()
     h = head(title, desc, slug)
     h += header("services.html")
@@ -366,9 +367,9 @@ def service_page(slug, title, desc, eyebrow, h1, intro, hero_photo, sections,
   </div>
 </section>
 """
+    h += extra_html
     h += cta()
-    h += lightbox_markup()
-    h += footer()
+    h += footer(lightbox_markup())
     pages.append(slug)
     return write(slug, h)
 
@@ -546,6 +547,71 @@ def build_services():
           "and we will tell you what is achievable on your pan.")],
         ["Custom motorcycle seat", "Custom bike seat", "Stitched seat detail"])
 
+    # Two of the nine Google reviews are specifically about sunroof shade work.
+    # Quoted verbatim — these are the only claims made about this service.
+    sunroof_reviews = [r for r in REVIEWS
+                       if r[1] in ("Ozzie Pagan", "Lauren Corgan")]
+    sunroof_voices = f"""<section class="band dark">
+  <div class="wrap stack">
+    <div class="center stack">
+      {shead("03", "In their words", center=True)}
+      <h2>Two of our Google reviews are about this exact repair</h2>
+    </div>
+    <div class="grid g2" style="margin-top:clamp(30px,4vw,52px)">
+      {"".join(review_card(*r) for r in sunroof_reviews)}
+    </div>
+    <p style="text-align:center"><a class="googlelink" href="{GOOGLE_REVIEWS_URL}"
+       target="_blank" rel="noopener">Read all {REVIEW_COUNT} reviews on Google</a></p>
+  </div>
+</section>
+"""
+
+    service_page(
+        "sunroof-shade-repair.html",
+        "Sunroof Shade Repair in Monroe, NC | Auto Tops and Trim",
+        "Sagging or torn sunroof shade? We recover the sliding sunshade panel in Monroe, NC "
+        "instead of replacing the whole assembly. Free estimates — (980) 385-8101.",
+        "Sunroof shades", "Sunroof shade repair in Monroe, NC",
+        "When the sliding shade over your sunroof sags, tears or stops retracting, the fabric "
+        "is usually the only thing that has failed. We recover the panel you already have.",
+        "headliner-install",
+        [("What we repair", ["Sagging or drooping shade fabric",
+                             "Torn, split or stained shade panels",
+                             "Fabric that has come unbonded from the slider",
+                             "Shades that no longer slide or retract cleanly"]),
+         ("How we approach it", ["The existing panel is recovered where it is sound",
+                                 "Material matched to your headliner in the shop",
+                                 "You are welcome to watch the work",
+                                 "Quoted in person, free of charge"]),
+         ("Worth knowing", ["A dealer often quotes the whole sunroof cassette",
+                            "The shade is trim work — it is what this shop does",
+                            "Bring the vehicle by; we will tell you what it needs",
+                            "Customers drive in from Charlotte and Union County"])],
+        [],   # no sunroof photos exist in the catalogue yet — none invented
+        [("My sunroof shade is sagging. Can it be fixed, or do I need a whole new sunroof?",
+          "In most cases the sunroof itself is fine and only the shade fabric has failed. The "
+          "fabric is bonded to a thin sliding panel, and over years of Carolina heat that bond "
+          "lets go and the material droops or tears. Recovering that panel is upholstery work. "
+          "Bring it by and we will tell you honestly which one you are looking at."),
+         ("The dealer quoted me for the entire sunroof assembly. Why is your quote different?",
+          "Because they are usually quoting a different job. Replacing the whole cassette means "
+          "new hardware, glass mechanism and labour. If the mechanism still works and only the "
+          "shade has failed, that is a trim repair, not an assembly replacement. We will look at "
+          "it and tell you which is actually needed."),
+         ("Can you match the material to the rest of my headliner?",
+          "That is the goal, and we keep material in the shop so you can see and feel it against "
+          "your own headliner before deciding. On an older interior that has faded, an exact match "
+          "is not always possible — we will show you the closest options rather than promise one."),
+         ("How long does it take, and do I need an appointment?",
+          "It depends on the vehicle and how the shade is mounted, so we will give you a realistic "
+          "window with the free estimate. Calling ahead on "
+          f"{PHONE_DISPLAY} is the surest way to catch us with time to look at it."),
+         ("Can you quote it from a photo?",
+          "We would rather see it. A photo will not show whether the slider and the mechanism are "
+          "still sound, and that is the part that decides whether this is a simple recover or a "
+          "bigger job. The estimate is free either way.")],
+        extra_html=sunroof_voices)
+
 
 # ============================================================== SERVICES INDEX
 def build_services_index():
@@ -565,6 +631,10 @@ def build_services_index():
          "Seats, headliners, door panels and carpet, from one torn seat to a complete "
          "classic interior built to your spec.",
          ["Seat repair and rebuilds", "Headliners and door panels", "Carpet and sound deadening"]),
+        ("sunroof-shade-repair.html", "Sunroof Shade Repair", "headliner-install",
+         "Sagging, torn or stuck sliding sunshade? We recover the panel you already have "
+         "instead of replacing the whole sunroof assembly.",
+         ["Sagging and torn shades", "Matched to your headliner", "Recover, not replace"]),
         ("marine-upholstery.html", "Marine Upholstery", "marine-canvas-cushions",
          "Boat seating, helm trim, cushions and canvas in materials built for sun, "
          "standing water and salt.",
@@ -610,8 +680,7 @@ def build_services_index():
 </section>
 """
     h += cta()
-    h += lightbox_markup()
-    h += footer()
+    h += footer(lightbox_markup())
     pages.append(p)
     write(p, h)
 
@@ -675,11 +744,11 @@ def build_gallery():
   </div>
 </section>
 """
-    h += cta("See something close to your project?",
-             "Bring the vehicle, the boat, or just the seat by the shop and we will "
-             "give you an itemised estimate at no cost.")
-    h += lightbox_markup()
-    h += footer()
+    h += cta(num="02", label="Your project next",
+             heading="See something close to your project?",
+             sub="Bring the vehicle, the boat, or just the seat by the shop and we will "
+                 "give you an itemised estimate at no cost.")
+    h += footer(lightbox_markup())
     pages.append(p)
     write(p, h)
 
@@ -692,39 +761,84 @@ def build_process():
              "How a job runs at Auto Tops and Trim in Monroe, NC — from free in-person "
              "estimate through material selection, the work itself, and fitting.", p)
     h += header(p)
+    # (tag, title, copy, photo) — tag is the one-line "what this costs you"
     steps = [
-        ("You bring it in", "Drive the vehicle over, trailer the boat, or carry in a single seat. "
-         "We look at it with you and talk through what you want."),
-        ("We quote in person, free", "We check what is under the cover — foam, frames, pads, bows "
-         "— because that is where surprises live. Then you get an itemised estimate at no charge."),
-        ("You pick the materials", "We keep samples in the shop. Vinyl or canvas, glass or plastic "
-         "window, period-correct or upgraded — you see and feel the difference before deciding."),
-        ("We do the work", "Disassembly, repair of what is underneath, then cutting and stitching. "
-         "The same hands that quoted the job do the work."),
-        ("Fitting and finish", "Nothing leaves until it fits properly. Weather sealing on marine "
-         "and convertible work, and a final check with you at pickup."),
+        ("No appointment needed", "You bring it in",
+         "Drive the vehicle over, trailer the boat, or carry in a single seat. "
+         "We look at it with you and talk through what you want.",
+         "services-strip-1"),
+        ("Free, and itemised", "We quote in person",
+         "We check what is under the cover — foam, frames, pads, bows — because that is "
+         "where surprises live. Then you get an itemised estimate at no charge.",
+         "process-header-photo-wide"),
+        ("Samples in hand", "You pick the materials",
+         "We keep samples in the shop. Vinyl or canvas, glass or plastic window, "
+         "period-correct or upgraded — you see and feel the difference before deciding.",
+         "services-strip-3"),
+        ("Same hands throughout", "We do the work",
+         "Disassembly, repair of what is underneath, then cutting and stitching. "
+         "The same hands that quoted the job do the work.",
+         "services-strip-2"),
+        ("Checked with you", "Fitting and finish",
+         "Nothing leaves until it fits properly. Weather sealing on marine and "
+         "convertible work, and a final check with you at pickup.",
+         "services-strip-4"),
     ]
-    step_photos = ["services-strip-1", "process-header-photo-wide", "services-strip-3",
-                   "services-strip-2", "services-strip-4"]
-    cards = "".join(
-        f'<div class="step"><span class="step-n">0{i}</span>'
-        f'<div class="step-body"><h3>{t}</h3><p>{d}</p></div>'
-        f'<div class="step-media">{img(step_photos[i-1], t, HALF)}</div></div>'
-        for i, (t, d) in enumerate(steps, 1))
+    flow = "".join(
+        f'<div class="flow-step"><span class="flow-n">{i:02d}</span>'
+        f'<div class="flow-body"><span class="flow-tag">{tag}</span><h3>{t}</h3><p>{d}</p></div>'
+        f'<div class="flow-media">{img(photo, t, HALF)}</div></div>'
+        for i, (tag, t, d, photo) in enumerate(steps, 1))
+
+    # What the free estimate actually covers — the differentiator, in the
+    # signature outlined-numeral columns.
+    covers = [
+        ("The cover itself", "Material, colour and stitch — the part every quote includes."),
+        ("What is underneath", "Foam, frames, pads and bows. This is the part most quotes leave out."),
+        ("The windows and seals", "Rear windows, weather sealing and anything that will let water in."),
+        ("The realistic timing", "How long it will actually take, told to you before you commit."),
+    ]
+    covercols = "".join(
+        f'<div class="feat"><span class="big">{i:02d}</span><h3>{t}</h3><p>{d}</p></div>'
+        for i, (t, d) in enumerate(covers, 1))
+
     h += f"""<section class="hero">
   <div class="wrap">
     <div class="stack">{shead("","How it works")}
       <h1>What happens after you call</h1>
       <p class="lead">No mystery and no deposit to find out what a job costs.
-         Here is the whole sequence.</p></div>
+         Here is the whole sequence, start to finish.</p>
+      <div class="btnrow">
+        <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a>
+        <a class="btn btn-ghost" href="contact.html">Request a quote</a>
+      </div></div>
     <div class="hero-media">{img('process-header-photo-wide', 'Upholstery work in progress at the shop', HALF, eager=True)}</div>
   </div>
 </section>
-<section class="band"><div class="wrap"><div class="steps">{cards}</div></div></section>
+
+<section class="band">
+  <div class="wrap stack">
+    <div class="stack">{shead("01", "Step by step")}
+      <h2>Five steps, and you are told the price before step three</h2></div>
+    <div class="flow">{flow}</div>
+  </div>
+</section>
+
+<section class="band tint">
+  <div class="wrap stack">
+    <div class="stack">{shead("02", "The estimate")}
+      <h2>What the free estimate actually covers</h2>
+      <p class="lead">An estimate that only prices the fabric is not an estimate.
+         Here is everything we look at before we give you a number.</p></div>
+    <div class="feats">{covercols}</div>
+  </div>
+</section>
+
+{reviews_block(num="03", label="Testimonials",
+               heading="What it is like to actually work with us")}
 """
-    h += cta()
-    h += lightbox_markup()
-    h += footer()
+    h += cta(num="04")
+    h += footer(lightbox_markup())
     pages.append(p)
     write(p, h)
 
@@ -781,8 +895,7 @@ def build_about():
 </section>
 """
     h += cta()
-    h += lightbox_markup()
-    h += footer()
+    h += footer(lightbox_markup())
     pages.append(p)
     write(p, h)
 
@@ -835,8 +948,7 @@ def build_contact():
   </div>
 </section>
 """
-    h += lightbox_markup()
-    h += footer()
+    h += footer(lightbox_markup())
     pages.append(p)
     write(p, h)
 
@@ -931,8 +1043,7 @@ def build_blog():
 </section>
 """
     h += cta()
-    h += lightbox_markup()
-    h += footer()
+    h += footer(lightbox_markup())
     pages.append(p)
     write(p, h)
 

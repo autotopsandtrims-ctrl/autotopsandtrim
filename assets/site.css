@@ -208,8 +208,12 @@ main{animation:pagein .38s cubic-bezier(.22,.61,.36,1) both}
 }
 
 /* ---- lightbox (CSS only, :target — back button closes it) ---- */
-.lb-open{display:block;cursor:zoom-in;position:relative}
-.lb{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;
+.lb-open{display:block;cursor:pointer;position:relative}
+/* .lb MUST stay outside <main>. <main> runs the `pagein` transform animation, and a
+   transform-animated ancestor becomes the containing block for position:fixed — which
+   made this size to the height of <main>, opening photos far down the page. */
+.lb{position:fixed;top:0;left:0;width:100%;height:100vh;height:100dvh;z-index:200;
+  display:none;align-items:center;justify-content:center;overscroll-behavior:contain;
   background:rgba(14,20,26,.94);padding:clamp(14px,3vw,44px)}
 .lb:target{display:flex;animation:lbin .26s ease both}
 @keyframes lbin{from{opacity:0}to{opacity:1}}
@@ -220,7 +224,7 @@ main{animation:pagein .38s cubic-bezier(.22,.61,.36,1) both}
 .lb-cap{color:#D6DEE6;font-size:14px;text-align:center;max-width:60ch}
 .lb-cap .cat{color:#8FA1B0;font-size:11px;letter-spacing:.13em;text-transform:uppercase;
   display:block;margin-top:4px;font-weight:600}
-.lb-close{position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;cursor:zoom-out;
+.lb-close{position:absolute;top:0;left:0;right:0;bottom:0;z-index:1;cursor:default;
   font-size:0;text-decoration:none}
 .lb-x{position:absolute;top:clamp(10px,2vw,22px);right:clamp(10px,2vw,22px);z-index:3;
   width:46px;height:46px;display:grid;place-items:center;color:#fff;font-size:26px;
@@ -338,21 +342,37 @@ main{animation:pagein .38s cubic-bezier(.22,.61,.36,1) both}
   font-weight:700;font-size:15px;text-decoration:none;color:var(--blue)}
 .googlelink::after{content:" \2192"}
 
-/* ---- process: alternating step timeline ---- */
-.steps{display:flex;flex-direction:column}
-.step{display:grid;gap:16px;grid-template-columns:1fr;padding:clamp(26px,3.4vw,46px) 0;
-  border-top:1px solid var(--rule)}
-.step:last-child{border-bottom:1px solid var(--rule)}
-.step-n{font-size:clamp(34px,3.6vw,54px);font-weight:800;color:var(--rule);line-height:1;
-  letter-spacing:-.04em}
-.step-body{display:flex;flex-direction:column;gap:10px}
-.step-body p{color:var(--ink-70)}
-.step-media img{width:100%;height:auto}
-@media (min-width:860px){
-  .step{grid-template-columns:90px 1.05fr 1fr;align-items:center;gap:clamp(24px,3vw,44px)}
-  .step:nth-child(even) .step-media{order:-1}
-  .step:nth-child(even) .step-n{order:-2}
+/* ---- process flow: connected numbered timeline ---- */
+.flow{display:flex;flex-direction:column}
+.flow-step{--node:clamp(50px,5.4vw,66px);position:relative;display:grid;
+  grid-template-columns:var(--node) minmax(0,1fr);
+  column-gap:clamp(15px,2.2vw,26px);row-gap:clamp(14px,2vw,20px);
+  padding-bottom:clamp(32px,4.2vw,60px)}
+.flow-step:last-child{padding-bottom:0}
+/* the rail linking one node to the next */
+.flow-step::before{content:"";position:absolute;left:calc(var(--node) / 2 - 1px);
+  top:var(--node);bottom:0;width:2px;background:var(--rule)}
+.flow-step:last-child::before{content:none}
+.flow-n{width:var(--node);height:var(--node);border-radius:50%;
+  border:2px solid var(--blue-lt);color:var(--blue);background:var(--white);
+  display:grid;place-items:center;font-weight:800;letter-spacing:-.03em;
+  font-size:clamp(16px,1.6vw,21px);position:relative;z-index:1;
+  transition:background .25s ease,color .25s ease,border-color .25s ease}
+.flow-step:hover .flow-n{background:var(--blue);border-color:var(--blue);color:#fff}
+.flow-body{display:flex;flex-direction:column;gap:9px;min-width:0;
+  padding-top:clamp(4px,1vw,12px)}
+.flow-body h3{font-size:clamp(19px,1.9vw,25px);letter-spacing:-.022em}
+.flow-body p{color:var(--ink-70);max-width:60ch}
+.flow-tag{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue)}
+.flow-media{grid-column:2;min-width:0}
+.flow-media img{width:100%;height:auto}
+@media (min-width:900px){
+  .flow-step{grid-template-columns:var(--node) minmax(0,1.04fr) minmax(0,1fr);
+    align-items:start;column-gap:clamp(22px,2.8vw,40px)}
+  .flow-media{grid-column:3;grid-row:1}
 }
+@media (prefers-reduced-motion:reduce){.flow-n{transition:none}}
 
 /* ---- stat band ---- */
 .stats{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:repeat(2,1fr);text-align:center}

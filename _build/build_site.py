@@ -61,6 +61,7 @@ NAV = [
 SERVICES = [
     ("convertible-tops.html", "Convertible Tops"),
     ("auto-upholstery.html", "Auto Upholstery"),
+    ("sunroof-shade-repair.html", "Sunroof Shade Repair"),
     ("marine-upholstery.html", "Marine Upholstery"),
     ("aviation-upholstery.html", "Aviation Upholstery"),
     ("motorcycle-seats.html", "Motorcycle Seats"),
@@ -71,7 +72,8 @@ SCHEMA = {
     "@type": "AutoRepair",
     "name": "Auto Tops and Trim",
     "description": ("Custom automotive, marine, aviation and motorcycle upholstery in "
-                    "Monroe, NC. Convertible tops, seats, headliners, carpet and marine canvas."),
+                    "Monroe, NC. Convertible tops, seats, headliners, sunroof shades, "
+                    "carpet and marine canvas."),
     "url": SITE,
     "telephone": PHONE_DISPLAY,
     "email": EMAIL,
@@ -100,8 +102,8 @@ SCHEMA = {
     ],
     "makesOffer": [
         {"@type": "Offer", "itemOffered": {"@type": "Service", "name": n}}
-        for n in ["Automotive Upholstery", "Convertible Tops", "Marine Upholstery",
-                  "Aviation Upholstery", "Motorcycle Upholstery"]
+        for n in ["Automotive Upholstery", "Convertible Tops", "Sunroof Shade Repair",
+                  "Marine Upholstery", "Aviation Upholstery", "Motorcycle Upholstery"]
     ],
 }
 
@@ -153,10 +155,19 @@ def header(active):
 """
 
 
-def footer():
+def footer(lightbox=""):
+    """Closes <main>, then the footer.
+
+    `lightbox` is emitted AFTER </main> on purpose. <main> carries the `pagein`
+    animation, and an ancestor running a transform-affecting animation becomes the
+    containing block for position:fixed descendants — which made the fixed overlay
+    size itself to the full height of <main> instead of the viewport, so photos
+    opened far down the page. Kept outside <main>, `.lb` centres on the viewport.
+    """
     svc = "".join(f'<li><a href="{h}">{l}</a></li>' for h, l in SERVICES)
     nav = "".join(f'<li><a href="{h}">{l}</a></li>' for h, l in NAV)
     return f"""</main>
+{lightbox}
 <footer class="site-foot">
   <div class="foot-in">
     <div class="foot-col">
