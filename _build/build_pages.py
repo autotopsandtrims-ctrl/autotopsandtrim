@@ -262,15 +262,27 @@ def build_home():
          too would show the same photograph twice under two captions, which is the
          defect this pass exists to remove. The lead no longer promises boats and
          bikes in this strip; the gallery link below carries them. -->
+    <!-- ORDER IS LOad-BEARING. The masonry is CSS multi-column, which balances by
+         HEIGHT, so a run of same-shape photos sends one column far past the other
+         and opens a large gap. Nearly every shop photo is 1.33 portrait; only a
+         handful are 0.75 landscape.
+
+         The first six (all that show below 1100px) alternate tall/wide/tall so
+         each column totals the same: 1.33 + 0.75 + 1.33 = 3.41 on both sides.
+         Before this, five of the six were portrait and column two ran out after
+         one tile.
+
+         If you swap a photo here, check its ratio in _build/images.json first and
+         keep the tall/wide rhythm, or the gap comes straight back. -->
     <div class="masonry">{masonry_tiles([
         ('g01-camaro-ss-new-convertible-top', 'Camaro SS — new convertible top', 'Automotive'),
-        ('convertible-top-replacement-and-finish', 'Corvette — new convertible top', 'Automotive'),
         ('classic-interior-finished', 'Cadillac convertible — finished interior', 'Automotive'),
-        ('g13-sound-deadening-before-carpet', 'Ford F1 — headliner fitted and finished', 'Automotive'),
         ('g09-truck-cab-black-seat-red-stitch', 'Truck cab — black seat, red stitch', 'Automotive'),
         ('g08-cushion-and-armrest-trimmed', 'Classic Chevrolet — bench seat and door panels', 'Automotive'),
-        ('seat-rebuild-after', 'Seat rebuild — finished', 'Automotive'),
+        ('g15-1969-cadillac-profile', '1969 Cadillac — profile', 'Automotive'),
         ('g12-shift-boot-and-carpet-detail', 'Shift boot and carpet detail', 'Automotive'),
+        ('convertible-top-replacement-and-finish', 'Corvette — new convertible top', 'Automotive'),
+        ('g13-sound-deadening-before-carpet', 'Ford F1 — headliner fitted and finished', 'Automotive'),
     ])}</div>
     <div class="btnrow" style="justify-content:center"><a class="btn btn-ghost" href="gallery.html">See the full gallery</a></div>
   </div>
