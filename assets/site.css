@@ -237,20 +237,29 @@ a.card:hover{border-color:var(--blue-lt);box-shadow:0 14px 34px rgba(22,52,79,.1
   margin-inline:calc(var(--gut) * -1);
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
           mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.revtrack{display:flex;gap:clamp(26px,3vw,54px);width:max-content;padding-block:4px;
+.revtrack{display:flex;align-items:stretch;gap:clamp(26px,3vw,54px);width:max-content;padding-block:4px;
   padding-inline:clamp(13px,2vw,27px);animation:revscroll 46s linear infinite}
 .revmarquee:hover .revtrack,.revmarquee:focus-within .revtrack{animation-play-state:paused}
-.revtrack .review{width:min(78vw,380px);flex:none;padding-top:22px}
+.revtrack .review{width:min(80vw,390px);flex:none}
 @keyframes revscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){
   .revmarquee{overflow-x:auto;mask-image:none;-webkit-mask-image:none}
   .revtrack{animation:none}
 }
-.review{padding-top:22px;display:flex;flex-direction:column;gap:16px;max-width:44ch;position:relative}
-.review::before{content:"";position:absolute;top:0;left:0;width:44px;height:3px;background:var(--blue-lt)}
-.review blockquote{margin:0;font-size:17px;line-height:1.68}
-.review .who{font-size:13.5px;font-weight:700;letter-spacing:.04em;margin-top:auto}
-.review .who span{font-weight:500;color:var(--ink-60)}
+/* natural review card: avatar, name, stars + date, then the quote */
+.review{display:flex;flex-direction:column;gap:14px;max-width:44ch;text-align:left;
+  background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.11);
+  padding:22px 22px 24px}
+.rev-top{display:flex;align-items:center;gap:12px}
+.avatar{width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;
+  font-weight:800;font-size:16px;color:#fff;line-height:1;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.rev-id{display:flex;flex-direction:column;gap:3px;min-width:0}
+.rev-name{font-weight:700;font-size:15px;color:#fff;letter-spacing:-.01em}
+.rev-sub{font-size:12.5px;color:#93A5B4}
+.rev-line{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.rev-date{font-size:12.5px;color:#93A5B4}
+.review blockquote{margin:0;font-size:16px;line-height:1.65;color:#DCE4EB}
 .stars{color:#E8A33D;font-size:15px;letter-spacing:.16em;line-height:1}
 .stars span{position:absolute;left:-9999px}
 .dark .review blockquote{color:#E6ECF2}
@@ -259,8 +268,7 @@ a.card:hover{border-color:var(--blue-lt);box-shadow:0 14px 34px rgba(22,52,79,.1
 .dark .googlelink{color:var(--pale)}
 .dark .rev-hint{color:#8FA1B0}
 /* centred variant */
-.revrail.mid .review{text-align:center;align-items:center;margin-inline:auto}
-.revrail.mid .review::before{left:50%;transform:translateX(-50%)}
+
 /* slider affordance */
 .rev-hint{display:flex;align-items:center;justify-content:center;gap:9px;font-size:12px;
   font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-60)}
