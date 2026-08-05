@@ -1067,13 +1067,20 @@ html{scroll-behavior:smooth}
 
    TO REVERT: delete this entire block. Nothing else references it. */
 .callbar{position:fixed}   /* already fixed; restated so ::before anchors to it */
-/* 1. the seam — identical pattern and colours to the header's */
+/* 1. the seam along the top edge — same pattern as the header's, dialled back.
+      The header seam sits at full strength because it divides two surfaces; this
+      one only needs to imply an edge, so it runs faded. */
 .callbar::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;
   pointer-events:none;
   background:repeating-linear-gradient(90deg,
-    var(--blue-lt) 0 13px,rgba(94,155,217,.20) 13px 22px)}
-/* 2. the topstitch — very light, and clear of the home indicator */
+    rgba(94,155,217,.75) 0 13px,rgba(94,155,217,.15) 13px 22px)}
+/* 2. the topstitch — a single faded line running PARALLEL to that seam, which is
+      how a trimmed panel is actually stitched. It is deliberately not a box:
+      an outline around the number reads as a focus ring, not as upholstery.
+      Drawn with a gradient rather than `border:dashed` so the stitch and gap
+      lengths are ours to set instead of the browser's. */
 .callbar::after{content:"";position:absolute;pointer-events:none;
-  left:8px;right:8px;top:7px;bottom:calc(7px + env(safe-area-inset-bottom));
-  border:1px dashed rgba(255,255,255,.26);border-radius:5px}
+  left:0;right:0;top:6px;height:1px;
+  background:repeating-linear-gradient(90deg,
+    rgba(255,255,255,.20) 0 5px,transparent 5px 11px)}
 /* ========================= end TRIAL block ============================== */
