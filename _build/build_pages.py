@@ -180,9 +180,9 @@ def build_home():
     dots = "".join(f'<span style="animation-delay:{i * (20 / n_slides):.1f}s"></span>'
                    for i in range(n_slides))
 
-    h += f"""<section class="hero hero-full">
+    h += f"""<section class="hero">
   <div class="wrap">
-    <div class="stack hero-copy">
+    <div class="stack">
       {shead("", "Monroe, NC &middot; Since 1989")}
       <h1>Custom upholstery, expertly crafted</h1>
       <p class="lead">Convertible tops, seats, headliners and marine canvas for
@@ -194,16 +194,8 @@ def build_home():
       </div>
       <p class="microline">Free estimates &nbsp;&middot;&nbsp; In-person quotes &nbsp;&middot;&nbsp; Union County</p>
     </div>
-    <div class="hero-show">
+    <div class="hero-media">
       <div class="slideshow">{slides}<div class="dots" aria-hidden="true">{dots}</div></div>
-      <div class="hero-chips">
-        <a href="convertible-tops.html">Convertible Tops</a>
-        <a href="auto-upholstery.html">Auto Upholstery</a>
-        <a href="sunroof-shade-repair.html">Sunroof Shades</a>
-        <a href="marine-upholstery.html">Marine</a>
-        <a href="aviation-upholstery.html">Aviation</a>
-        <a href="motorcycle-seats.html">Motorcycle</a>
-      </div>
     </div>
   </div>
 </section>
