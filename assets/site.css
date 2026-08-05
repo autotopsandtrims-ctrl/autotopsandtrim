@@ -1069,9 +1069,14 @@ html{scroll-behavior:smooth}
    loading placeholder so photos do not flash empty. The logo is transparent, so
    that placeholder shows straight through it as a pale box on the dark header. */
 .brand img,.foot-brand img{background:none}
-.brand img{height:40px;width:auto;max-width:60vw;display:block}
-@media (max-width:899px){.brand img{height:33px}}
-@media (max-width:380px){.brand img{height:28px}}
+/* drop-shadow, not box-shadow: it follows the artwork's alpha outline rather
+   than drawing a rectangle, so it separates the white linework from the header's
+   quilted gradient without putting a plate behind the logo. Kept dark and tight
+   — a light shadow would halo, which is the problem we just removed. */
+.brand img{height:50px;width:auto;max-width:62vw;display:block;
+  filter:drop-shadow(0 1px 2px rgba(0,0,0,.55))}
+@media (max-width:899px){.brand img{height:42px}}
+@media (max-width:380px){.brand img{height:35px}}
 .foot-brand img{height:62px;width:auto;max-width:100%;display:block;margin-bottom:2px}
 @media (max-width:899px){.foot-brand img{height:52px}}
 
