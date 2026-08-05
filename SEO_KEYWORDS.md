@@ -163,6 +163,120 @@ Ranked by actual expected leads:
 
 ---
 
+## The full content inventory (national scope, no local cap)
+
+Second Ahrefs sweep 2026-08-05, deliberately **not** limited to the service area
+— specialty upholstery draws travel, and the informational terms are national.
+
+**Headline: ~32 articles with real demand, or up to ~44 if the
+convertible-top-cost-by-model series is split into one post per model.**
+Three already exist (`blog-convertible-top-cost-monroe-nc`,
+`blog-marine-vinyl-vs-leather`, `blog-period-correct-or-upgraded-classic-interior`)
+— check against those before writing, two of them overlap cluster A and D.
+
+### A. Convertible tops — 7 posts + a 12-model series. Strongest cluster.
+
+| Keyword | Vol | KD | CPC |
+|---|---|---|---|
+| **convertible top repair near me** | **1,400** | 2 | $1.40 |
+| convertible top cleaner | 900 | 1 | $0.40 |
+| convertible top replacement near me | 600 | 1 | $1.00 |
+| convertible top replacement | 600 | **0** | $0.40 |
+| convertible top repair | 450 | **0** | $1.20 |
+| convertible top protectant | 350 | **0** | $0.30 |
+| convertible soft top | 200 | **0** | $0.20 |
+| convertible top conditioner | 200 | **0** | $0.40 |
+| jeep soft top replacement | 200 | **0** | $0.40 |
+| how to clean a convertible top | 100 | **0** | $0.15 |
+| convertible top installation near me | 100 | **0** | $0.90 |
+| miata soft top replacement | 100 | **0** | $0.30 |
+| convertible top switch | 100 | **0** | $0.30 |
+
+The **care/cleaning sub-cluster alone is ~1,550/mo at KD 0–1** and nobody in this
+trade writes it well. Plus the 12-model cost series (~420/mo, all KD 0) from the
+earlier pull — and we own real Camaro and C5 Corvette top photography.
+
+### B. Headliners — 3 posts
+
+`how to fix a sagging car headliner` 900 (KD 2) · `how to fix sagging headliner`
+350 (KD 0) · `headliner replacement cost` 600 (KD 0) · plus ~400 more across
+long-tail variants. **~1,500/mo DIY + ~900/mo cost.**
+
+### C. Seats, leather, carpet, classic interiors — 9 posts
+
+| Keyword | Vol | KD | CPC |
+|---|---|---|---|
+| **leather car seat repair** | **1,800** | 2 | $0.30 |
+| how to repair a torn car seat | 1,100 | **0** | $0.20 |
+| car seat repair | 1,000 | **0** | $0.70 |
+| car leather seat repair | 900 | 1 | $0.30 |
+| reupholster car seats | 900 | **0** | $0.60 |
+| repair leather car seat | 600 | 2 | $0.30 |
+| car carpet replacement | 600 | **0** | $0.35 |
+| cost to reupholster car seats | 450 | **0** | $0.60 |
+| how to reupholster car seats | 450 | **0** | $0.20 |
+| how much to reupholster car seats | 400 | **0** | $0.40 |
+| car seat upholstery repair | 200 | **0** | $0.80 |
+| hot rod interior ideas | 150 | **0** | $0.25 |
+| how to repair cigarette burns in car seat | 100 | 4 | $0.25 |
+| classic car interior restoration | 100 | **0** | $0.60 |
+| cracked leather car seat repair | 90 | **0** | $0.20 |
+| car carpet replacement cost | 70 | **0** | $0.20 |
+| classic car interior restoration cost | 70 | **0** | – |
+
+### D. Marine — 8 posts, biggest raw volume, but READ THE INTENT WARNING
+
+| Keyword | Vol | KD | CPC |
+|---|---|---|---|
+| **marine vinyl** | **3,600** | 2 | $0.70 |
+| **marine vinyl fabric** | **2,700** | 2 | $0.80 |
+| marine grade vinyl | 1,200 | 1 | – |
+| marine upholstery | 900 | 2 | $0.60 |
+| boat canvas | 800 | 11 | $0.50 |
+| boat canvas repair near me | 450 | **0** | $1.40 |
+| marine vinyl cleaner | 400 | **0** | $0.25 |
+| marine vinyl upholstery | 350 | **0** | $0.50 |
+| boat seat repair | 300 | 1 | $0.45 |
+| boat canvas repair | 300 | **0** | $0.50 |
+| bimini top replacement (cluster) | ~1,000 | **0** | ~$0.50 |
+| vinyl boat seat repair | 200 | **0** | $0.25 |
+| marine upholstery repair | 200 | **0** | $0.60 |
+
+> ⚠ **Intent warning.** Most `marine vinyl` / `marine vinyl fabric` volume is
+> people buying **material**, not booking a shop. Ranking there brings traffic
+> that does not convert into upholstery jobs unless the shop sells material.
+> The service-intent terms are the ones to prioritise: `boat canvas repair`,
+> `boat seat repair`, `marine upholstery repair`, `bimini top replacement`.
+
+### E. Motorcycle — 2 posts
+`motorcycle seat upholstery` 400 (KD 0) · `how to reupholster a motorcycle seat`
+/ diamond-stitch long tail (~80 combined, KD 0).
+
+### F. Aviation — 2 posts, thin but it is the differentiator
+`aircraft interior refurbishment` 100 (KD 10) · `aircraft interior materials` 70
+(KD 0, $1.10 CPC) · `aircraft interior repairs` 200. Most other "aircraft
+interior" volume is B2B market-research noise (`aircraft cabin interior market`,
+`blended wing body aircraft interior`) — ignore it.
+
+### G. Sunroof shades — 1 post
+`sunroof shade repair cost` 30 (KD 0, **$1.30 CPC**) · `sunroof shade repair near
+me` 30 (KD 0, $1.00). Tiny volume, near-zero competition, and we already have the
+service page — this is the cheapest #1 ranking on the list.
+
+### Suggested order
+
+1. **C + A cost posts** (buyer intent, KD 0): reupholster cost, headliner cost,
+   convertible top cost hub.
+2. **A care cluster** (~1,550/mo, KD 0–1, nobody covers it well).
+3. **B DIY headliner** (~1,500/mo) — written honestly, not as a pitch.
+4. **C leather seat repair** (~4,000/mo across the cluster, KD 0–2).
+5. **D service-intent marine only** (skip the fabric-buyer terms).
+6. **G sunroof**, then **E**, then **F**.
+
+Cost of both sweeps: ~9,400 API units of the 100,000/month allowance.
+
+---
+
 ## Reproducing this
 
 ```
