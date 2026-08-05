@@ -1024,3 +1024,25 @@ html{scroll-behavior:smooth}
 /* the marquee animates forever; hint the compositor and stop it off-screen */
 .revtrack{will-change:transform}
 .revmarquee{contain:paint}
+
+/* ======================= TRIAL: stitched CTA buttons =======================
+   Extends the header's existing stitched seam onto the two main call-to-action
+   buttons ("Call ..." / "Free estimate"). A single hairline dashed inset, held
+   deliberately faint so it reads as topstitching on a trimmed panel rather than
+   as a second border.
+
+   Scoped to .btnrow so it only touches the paired CTAs — the header call button,
+   form submit and .btn.wide are untouched.
+
+   TO REVERT: delete this entire block. Nothing else references it. */
+.btnrow .btn{position:relative}
+.btnrow .btn::after{content:"";position:absolute;
+  /* inset far enough to read as stitching set in from a seam edge */
+  inset:4px;border:1px dashed rgba(255,255,255,.30);
+  border-radius:calc(var(--r-ctl) - 3px);pointer-events:none}
+/* on light backgrounds the thread is ink, not white, and lighter still */
+.btnrow .btn-ghost::after{border-color:rgba(42,46,51,.20)}
+/* ...but a ghost button on a dark band goes back to white thread */
+.dark .btnrow .btn-ghost::after,.hero .btnrow .btn-ghost::after{
+  border-color:rgba(255,255,255,.26)}
+/* ========================= end TRIAL block ============================== */
