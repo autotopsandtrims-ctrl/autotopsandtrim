@@ -44,12 +44,15 @@ body{
   font:400 17px/1.66 'Archivo',system-ui,-apple-system,sans-serif;
   -webkit-font-smoothing:antialiased;
 }
-/* Sideways drag on phones. Deliberately NOT on <html>: overflow on the
-   viewport, and that is what left the fixed call bar stranded mid-screen while
-   scrolling on iOS. Kept on <body> only, which still stops the sideways drag
-   without interfering with position:fixed. */
-body{overflow-x:hidden;max-width:100%}
-@supports (overflow:clip){body{overflow-x:clip}}
+/* Sideways drag on phones — do NOT put overflow on <html> or <body>.
+   When <html> is `visible`, <body>'s overflow PROPAGATES to the viewport, so
+   setting it on either one is the same thing, and at viewport level it breaks
+   position:fixed on iOS — that is what stranded the call bar mid-screen.
+   Clipping the individual landmarks contains any stray width without
+   propagating. `clip` not `hidden`, so no scroll container is created, and the
+   fixed call bar and lightbox both live outside these elements. */
+main,.site-foot,.site-head{max-width:100%}
+@supports (overflow:clip){main,.site-foot,.site-head{overflow-x:clip}}
 html{overscroll-behavior-x:none}
 img{max-width:100%;height:auto;display:block;background:#EDF1F5}
 a{color:var(--blue)}
@@ -965,8 +968,10 @@ html{scroll-behavior:smooth}
    The header is --dark #23282E. The hero used the identical value, so the two
    read as one slab. This runs --blue-deep into --dark, which separates them,
    adds depth, and stays entirely inside the locked palette. */
-.hero{background:linear-gradient(168deg,#16344F 0%,#1B3A52 38%,#23282E 100%)}
-.site-head{background:var(--dark)}
+/* The gradient reads better as the very top of the page: the header carries it,
+   the hero goes back to flat charcoal, and the two no longer match exactly. */
+.site-head{background:linear-gradient(168deg,#16344F 0%,#1B3A52 55%,#23282E 100%)}
+.hero{background:var(--dark)}
 
 /* ---- service page shots: masonry on mobile, grid on desktop ----------------
    Desktop has the room for a clean 3-up grid; mobile does not, so it keeps the
