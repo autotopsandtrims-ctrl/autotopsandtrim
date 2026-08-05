@@ -1808,6 +1808,374 @@ POSTS = [
             "upholstery</a> page.",
         ],
     },
+
+    # ---- BATCH 2 ------------------------------------------------------------
+    {
+        "slug": "blog-convertible-top-materials-compared.html",
+        "cat": "Convertible Tops", "publish": "2026-08-08", "read": "7 min read",
+        "photo": "automotive-interior-restoration-detail",
+        "title": "Convertible top materials compared: vinyl, Stayfast and Twillfast",
+        "seo_title": "Convertible Top Materials Compared: Vinyl vs Stayfast vs Twillfast",
+        "meta": "Pinpoint vinyl, Stayfast cloth and Twillfast RPC compared on construction, "
+                "durability, sound and correctness — and which belongs on your car.",
+        "excerpt": "Nearly every quality replacement top in the US comes from one manufacturer "
+                   "in a handful of grades. Here is what actually separates them.",
+        "body": [
+            "When a shop asks whether you want \"vinyl or cloth\", the conversation is usually "
+            "about three specific materials. Almost every quality replacement top sold in the "
+            "United States is made by the Haartz Corporation, and the grade you choose changes "
+            "the look, the noise level, the lifespan and the price.",
+            "<h2>The three grades</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Material</th><th>Construction</th><th>Typically OE on</th>"
+            "<th>Relative cost</th></tr></thead><tbody>"
+            "<tr><th>Pinpoint vinyl</th><td>Grained vinyl face over a cloth backing</td>"
+            "<td>Most American cars, 1950s&ndash;1990s</td><td>Lowest</td></tr>"
+            "<tr><th>Stayfast cloth</th>"
+            "<td>Solution-dyed acrylic square-weave face, butyl rubber inner layer, cotton "
+            "backing. Roughly 1.0&nbsp;mm thick, 60&nbsp;inch width.</td>"
+            "<td>A long-running OE specification across many makes</td><td>Middle</td></tr>"
+            "<tr><th>Twillfast RPC</th>"
+            "<td>Twill-weave acrylic face with a dobby backing</td>"
+            "<td>Later and higher-end applications, commonly European</td><td>Highest</td></tr>"
+            "</tbody></table></div>",
+            "<h2>Where each one genuinely wins</h2>",
+            "<h3>Pinpoint vinyl</h3>",
+            "It is not the budget option so much as the <em>correct</em> option on a great many "
+            "domestic classics — the distinctive pinpoint grain is what left the factory. It "
+            "handles sun well, cleans easily because the surface is sealed, and costs the least.",
+            "Where it loses: it is the noisiest of the three at highway speed, and it looks like "
+            "vinyl. On a car that originally wore cloth, it reads as wrong to anyone who knows.",
+            "<h3>Stayfast cloth</h3>",
+            "The middle ground, and the one most people upgrade to. The acrylic face is "
+            "solution-dyed, meaning colour runs through the fibre rather than sitting on it, so "
+            "it holds its appearance far better than a coated fabric. The butyl rubber inner "
+            "layer is what makes it waterproof despite being woven.",
+            "It carries a higher wear rating than vinyl and looks considerably richer. It is "
+            "less durable and less sound-deadening than Twillfast, and it lacks the dobby "
+            "backing found on that grade.",
+            "<h3>Twillfast RPC</h3>",
+            "The most durable and the quietest, with a twill weave that reads as a more expensive "
+            "material because it is one. If the car came with it, replacing it with anything else "
+            "is a downgrade you will hear as well as see.",
+            "<h2>How we would choose</h2>",
+            "<ul class=\"ticks\">"
+            "<li><strong>Original American classic</strong> — pinpoint vinyl, if that is what it "
+            "wore. Correctness beats upgrading on a car being judged.</li>"
+            "<li><strong>Daily-driven convertible</strong> — Stayfast. The best balance of "
+            "appearance, longevity and cost.</li>"
+            "<li><strong>The car came with Twillfast</strong> — stay with Twillfast.</li>"
+            "<li><strong>Highway miles, top up</strong> — pay for the cloth. The noise difference "
+            "is real and you notice it every drive.</li>"
+            "</ul>",
+            "<h2>The part the material does not fix</h2>",
+            "None of this matters if the frame underneath is wrong. A top of any grade fitted "
+            "over collapsed pads or bent bows will sit badly and wear through early at every high "
+            "spot. We check that before quoting, not after.",
+            "We keep samples of each in the shop. Bring the car to Monroe, feel the difference "
+            "between them in your hand, and get an itemised estimate at no cost. More on our "
+            "<a href=\"convertible-tops.html\">convertible top replacement</a> page.",
+        ],
+    },
+    {
+        "slug": "blog-convertible-top-rear-window.html",
+        "cat": "Convertible Tops", "publish": "2026-08-08", "read": "5 min read",
+        "photo": "g05-burgundy-cloth-top-rear-window",
+        "title": "Glass or plastic rear window? The choice that decides when your top fails",
+        "seo_title": "Convertible Top Rear Window: Glass vs Plastic | Auto Tops and Trim",
+        "meta": "Heated glass versus plastic curtain rear windows — cost, lifespan, visibility "
+                "and why the window is usually what kills a convertible top first.",
+        "excerpt": "On most older convertibles the fabric outlives the window. Here is how the "
+                   "two options differ and when replacing just the window is the right call.",
+        "body": [
+            "People think of a convertible top as fabric. In practice the rear window is very "
+            "often the part that fails first, and on a lot of cars it is the reason the whole top "
+            "gets replaced.",
+            "<h2>The two options</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th></th><th>Plastic curtain</th><th>Heated glass</th></tr></thead>"
+            "<tbody>"
+            "<tr><th>Clarity over time</th><td>Clouds and yellows with UV exposure</td>"
+            "<td>Stays clear indefinitely</td></tr>"
+            "<tr><th>Folding</th><td>Creases, and cracks along the fold line &mdash; the usual "
+            "failure</td><td>Does not fold; the top is designed around it</td></tr>"
+            "<tr><th>Cold weather</th><td>Becomes brittle; folding it cold is how most of them "
+            "split</td><td>Unaffected</td></tr>"
+            "<tr><th>Defrosting</th><td>None</td><td>Heated element clears it</td></tr>"
+            "<tr><th>Weight and stack height</th><td>Lighter, folds flatter</td>"
+            "<td>Heavier, needs the right frame and well</td></tr>"
+            "<tr><th>Cost</th><td>Lower</td><td>Higher</td></tr>"
+            "</tbody></table></div>",
+            "<h2>Why the window usually goes first</h2>",
+            "A plastic curtain is a sheet of flexible vinyl stitched into the fabric. Every time "
+            "the top drops, it folds. Every fold works the same crease. Add Carolina summers "
+            "clouding it from above and the occasional cold morning making it brittle, and the "
+            "outcome is predictable: it hazes, then it cracks at the fold, then water gets in.",
+            "By the time water is getting in, the fabric around the window is often still "
+            "perfectly serviceable — which is exactly why it is worth asking whether you need a "
+            "whole new top at all.",
+            "<h2>Can you replace just the window?</h2>",
+            "Frequently, yes. If the fabric is sound, the seams are intact and only the curtain "
+            "has failed, replacing the window alone is a real option and costs considerably less "
+            "than a full top.",
+            "It stops being an option when the surrounding fabric has gone stiff and chalky, "
+            "because new stitching through tired material tends to tear out, or when the seams "
+            "either side of the window are already opening.",
+            "<h2>Can you switch from plastic to glass?</h2>",
+            "Sometimes, and it depends on the car. Glass is heavier and does not fold, so the "
+            "frame, the well and the way the top stacks all have to accommodate it. On cars that "
+            "were offered both ways from the factory it is usually straightforward. On cars that "
+            "never were, it may not be possible at all.",
+            "This is a question to ask with the car in front of us rather than over the phone.",
+            "<h2>Making a plastic window last</h2>",
+            "<ul class=\"ticks\">"
+            "<li>Never fold the top in cold weather if you can avoid it</li>"
+            "<li>Never clean it with anything containing ammonia &mdash; glass cleaner clouds "
+            "plastic</li>"
+            "<li>Use a plastic-specific polish, not a glass one</li>"
+            "<li>Never put the top away damp</li>"
+            "</ul>",
+            "Bring the car to the shop in Monroe and we will tell you honestly whether you are "
+            "looking at a window, a repair, or a new top. See our "
+            "<a href=\"convertible-tops.html\">convertible top replacement</a> page.",
+        ],
+    },
+    {
+        "slug": "blog-why-convertible-tops-fail.html",
+        "cat": "Convertible Tops", "publish": "2026-08-08", "read": "5 min read",
+        "photo": "convertible-top-replacement-and-finish",
+        "title": "Why convertible tops fail: it is usually the frame, not the fabric",
+        "seo_title": "Why Convertible Tops Fail — Frame, Pads and Bows | Auto Tops and Trim",
+        "meta": "Collapsed pads, bent bows and worn seals are why most convertible tops wear out "
+                "early. What to check, and why a new top over a bad frame never sits right.",
+        "excerpt": "A top that wore out in five years was almost never a bad top. It was a good "
+                   "top fitted over a frame nobody looked at.",
+        "body": [
+            "When a top wears through early, the fabric usually gets the blame. In our experience "
+            "the fabric is rarely the culprit — it is the structure underneath deciding where the "
+            "fabric gets worn.",
+            "<h2>The three things under the fabric</h2>",
+            "<h3>Pads</h3>",
+            "Pads sit over the bows and stop the metal telegraphing through the fabric. When they "
+            "collapse, the fabric rests directly on the bows. Every bow becomes a hard line, and "
+            "the top wears through along those lines while the panels between them are still "
+            "fine. If you can see the bow lines through a raised top, the pads are gone.",
+            "<h3>Bows</h3>",
+            "The bows are the frame the top is stretched over. Bend one — usually by forcing a "
+            "top that was frozen, jammed, or fighting a failed mechanism — and the fabric can "
+            "never sit evenly again. You get a top that looks slack in one place and drum-tight "
+            "in another, and it wears at the tight spot.",
+            "<h3>Seals and drains</h3>",
+            "Water is supposed to run off the top, down channels, and out through drains. When "
+            "those drains block, water backs up and sits against the fabric and the frame, "
+            "rotting stitching and rusting bows.",
+            "<h2>What early failure actually looks like</h2>",
+            "<ul class=\"ticks\">"
+            "<li>Wear appearing in straight lines across the roof &mdash; collapsed pads</li>"
+            "<li>The top sitting slack on one side and tight on the other &mdash; a bent bow or a "
+            "twisted frame</li>"
+            "<li>Stitching rotting while the fabric is still good &mdash; standing water, usually "
+            "a blocked drain</li>"
+            "<li>Rear window splitting well before the fabric ages &mdash; folding it cold</li>"
+            "<li>Fabric wearing at one specific corner &mdash; something is catching it as it "
+            "stacks</li>"
+            "</ul>",
+            "<h2>Why we insist on seeing the car</h2>",
+            "Most quotes people bring us from elsewhere cover the fabric and nothing else. That "
+            "is a cheaper number on paper, and it is why the same customer is back in a few "
+            "years with the same problem.",
+            "A photo cannot show a collapsed pad or a bent bow. Neither can a phone call. The "
+            "only way to quote all three parts of the job honestly is to put the top up and down "
+            "with the car in front of us — which is what the free in-person estimate is for.",
+            "<h2>Getting the most out of a new top</h2>",
+            "<ul class=\"ticks\">"
+            "<li>Replace collapsed pads at the same time as the fabric, not later</li>"
+            "<li>Keep the drains clear &mdash; it is a five-minute job that prevents a large one</li>"
+            "<li>Do not fold a top that is wet or cold</li>"
+            "<li>Fix a stiff or slow mechanism before it bends something</li>"
+            "</ul>",
+            "Bring the car to Monroe and we will walk the whole assembly with you. See our "
+            "<a href=\"convertible-tops.html\">convertible top replacement</a> page.",
+        ],
+    },
+    {
+        "slug": "blog-leather-car-seat-repair.html",
+        "cat": "Seats", "publish": "2026-08-09", "read": "6 min read",
+        "photo": "g08-cushion-and-armrest-trimmed",
+        "title": "Leather car seat repair: what can be saved and what cannot",
+        "seo_title": "Leather Car Seat Repair: Repair, Recolour or Recover? | Auto Tops and Trim",
+        "meta": "Cuts, cracks, wear and colour loss on leather car seats — which are genuinely "
+                "repairable, which need a panel replaced, and why cracked leather rarely responds.",
+        "excerpt": "A clean cut in good leather repairs beautifully. Cracking across a worn "
+                   "bolster does not. The difference is whether the leather itself is still sound.",
+        "body": [
+            "Leather repair covers several very different jobs, and the results range from "
+            "invisible to obviously patched. Which one you get depends less on the damage than on "
+            "the condition of the leather surrounding it.",
+            "<h2>The four kinds of damage</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Damage</th><th>Realistic outcome</th></tr></thead><tbody>"
+            "<tr><th>Clean cut or puncture</th>"
+            "<td>Repairs well. Backed, filled and grained, then colour-matched. On sound leather "
+            "this can be genuinely hard to find afterwards.</td></tr>"
+            "<tr><th>Seam split</th>"
+            "<td>Not a leather problem at all &mdash; the thread failed. Restitching is the "
+            "correct fix and usually the cheapest thing on this list.</td></tr>"
+            "<tr><th>Colour loss and scuffing</th>"
+            "<td>Responds well to cleaning and recolouring, provided the surface is still intact "
+            "underneath.</td></tr>"
+            "<tr><th>Cracking</th>"
+            "<td>The hard one. Cracking means the leather has dried out and the surface is "
+            "failing across the whole panel. Filling individual cracks leaves you with a repaired "
+            "panel that cracks again beside the repair.</td></tr>"
+            "</tbody></table></div>",
+            "<h2>The test worth doing before you spend anything</h2>",
+            "Press the leather next to the damage and flex it gently.",
+            "<ul class=\"ticks\">"
+            "<li>Supple, springs back, no fine lines appearing &mdash; the leather is sound and a "
+            "repair has a real chance</li>"
+            "<li>Stiff, or a web of fine cracks appears as you flex it &mdash; the panel is at "
+            "the end of its life and a repair will be temporary</li>"
+            "<li>The surface feels like plastic and is lifting &mdash; this is likely a coated "
+            "or bonded material rather than full leather, and it does not repair well</li>"
+            "</ul>",
+            "<h2>Why bolsters fail first</h2>",
+            "The outer bolster on the driver's seat takes the entire load of somebody sliding "
+            "across it several times a day, plus the most sun. It is almost always the first "
+            "thing to go, and it is the worst place for a surface repair because it flexes "
+            "constantly and is under tension.",
+            "On a bolster we would generally rather replace the panel than fill it. A new panel "
+            "stitched in is a permanent answer; a filled bolster is a repair with a countdown.",
+            "<h2>Colour matching, honestly</h2>",
+            "Matching an aged interior is harder than matching a new one, because the leather you "
+            "are matching to has faded unevenly. A repair matched perfectly to the panel it sits "
+            "in can still stand out against the seat next to it.",
+            "This is why recolouring a whole panel, or a whole seat, often looks better than "
+            "spot-matching &mdash; consistency reads as correct even when the shade has moved.",
+            "<h2>When recovering is the cheaper answer</h2>",
+            "If several panels are cracking, if the foam underneath has collapsed, or if the "
+            "leather has hardened across the seat, repairs stop being economical. You end up "
+            "paying repeatedly for work that keeps moving to the next panel.",
+            "Bring the vehicle, or just the seat, to the shop in Monroe. We will tell you plainly "
+            "which of these you are looking at before you commit to anything. More on our "
+            "<a href=\"auto-upholstery.html\">automotive upholstery</a> page.",
+        ],
+    },
+    {
+        "slug": "blog-cost-to-reupholster-car-seats.html",
+        "cat": "Seats", "publish": "2026-08-09", "read": "5 min read",
+        "photo": "g07-bench-seat-red-piping-in-the-shop",
+        "title": "What changes the cost of reupholstering car seats",
+        "seo_title": "Cost to Reupholster Car Seats: What Drives the Price | Auto Tops and Trim",
+        "meta": "The variables behind a seat reupholstery quote — material, number of panels, "
+                "stitch pattern, foam and frame condition — and why quotes differ so much.",
+        "excerpt": "Two shops can quote the same seats very differently. Almost all of the gap "
+                   "comes from four things, and only one of them is the material.",
+        "body": [
+            "Reupholstery quotes vary widely, and the variation is rarely about the fabric. It is "
+            "about how many pieces the seat breaks into, what is found underneath, and how much "
+            "of the original construction is being reproduced.",
+            "<h2>1. How many panels the seat has</h2>",
+            "A flat bench with three panels is a fundamentally different job from a modern "
+            "sports seat with contoured bolsters, separate side panels, a map pocket and a "
+            "headrest. Every panel is a piece to pattern, cut, sew and fit. Panel count is the "
+            "single biggest driver of labour on a seat.",
+            "<h2>2. The stitch work</h2>",
+            "<ul class=\"ticks\">"
+            "<li>Plain panels with a single seam &mdash; fastest</li>"
+            "<li>French seams, piping or welting &mdash; more time per seam, and the reason a "
+            "seat looks finished rather than assembled</li>"
+            "<li>Contrast thread &mdash; adds little cost but leaves no room for error, because "
+            "every stitch is now visible</li>"
+            "<li>Diamond, pleated or biscuit patterns &mdash; the most labour-intensive work we "
+            "do, and priced accordingly</li>"
+            "</ul>",
+            "<h2>3. The material</h2>",
+            "Cloth, vinyl and leather sit at different price points, but on most seats the "
+            "material is a smaller share of the total than people expect. A seat that takes eight "
+            "hours to trim takes eight hours regardless of what it is trimmed in.",
+            "Where material really moves the number is on a classic, where matching a "
+            "discontinued grain or weave may mean a specialist supplier.",
+            "<h2>4. What is underneath</h2>",
+            "This is the one that separates a real quote from an optimistic one.",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Found underneath</th><th>Effect on the job</th></tr></thead><tbody>"
+            "<tr><th>Sound foam and frame</th><td>Recover and go. Best case.</td></tr>"
+            "<tr><th>Collapsed or crumbling foam</th>"
+            "<td>Foam replaced or rebuilt. Skipping this means the new cover sits on the wrong "
+            "shape and wears early in the same place as the old one.</td></tr>"
+            "<tr><th>Broken or cracked frame</th>"
+            "<td>Repaired properly. Never shimmed &mdash; a shimmed frame keeps moving and takes "
+            "the new cover with it.</td></tr>"
+            "<tr><th>Failed springs or webbing</th>"
+            "<td>Replaced. Common on older bench seats and the reason they sit low.</td></tr>"
+            "</tbody></table></div>",
+            "<h2>Why we quote in person</h2>",
+            "Three of the four factors above are invisible in a photograph. You cannot see foam "
+            "condition, a cracked frame or failed webbing until the cover comes off, and quoting "
+            "without knowing means either padding the number to stay safe or revising it later.",
+            "We take the seat apart far enough to see what we are dealing with, then give you an "
+            "itemised estimate at no cost, with the cover, the foam and any frame work priced "
+            "separately.",
+            "You do not need a full interior. Bring one seat to the shop in Monroe. More on our "
+            "<a href=\"auto-upholstery.html\">automotive upholstery</a> page.",
+        ],
+    },
+    {
+        "slug": "blog-car-carpet-replacement.html",
+        "cat": "Interiors", "publish": "2026-08-09", "read": "5 min read",
+        "photo": "g10-bel-air-new-carpet-going-in",
+        "title": "Car carpet replacement: moulded, cut-pile and what goes underneath",
+        "seo_title": "Car Carpet Replacement: Moulded vs Cut Pile | Auto Tops and Trim",
+        "meta": "Replacing car carpet — moulded versus cut-and-bound, why sound deadening goes "
+                "in at the same time, and what wet carpet is usually telling you.",
+        "excerpt": "New carpet is the cheapest interior change that makes an old car feel "
+                   "different — provided you deal with what is under it at the same time.",
+        "body": [
+            "Carpet is the largest single surface in most interiors and the one that shows age "
+            "fastest. It is also the only interior job where the thing underneath matters more "
+            "than the thing you can see.",
+            "<h2>Moulded or cut and bound?</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th></th><th>Moulded</th><th>Cut and bound</th></tr></thead><tbody>"
+            "<tr><th>How it is made</th>"
+            "<td>Heat-formed to the exact shape of that model's floor pan</td>"
+            "<td>Cut from flat carpet to a pattern and bound at the edges</td></tr>"
+            "<tr><th>Fit</th><td>Follows every contour with no bunching</td>"
+            "<td>Depends entirely on the pattern and the fitter</td></tr>"
+            "<tr><th>Availability</th>"
+            "<td>Only for vehicles someone makes a mould for</td>"
+            "<td>Any vehicle, any material</td></tr>"
+            "<tr><th>Best for</th><td>Common models with good aftermarket support</td>"
+            "<td>Anything unusual, modified, or where you want a specific material</td></tr>"
+            "</tbody></table></div>",
+            "<h2>What goes underneath is the real upgrade</h2>",
+            "With the carpet out, the floor is bare and accessible &mdash; and it is the only "
+            "time it will be. This is the moment for sound deadening, and it is the single "
+            "biggest change you can make to how an older car feels to drive.",
+            "Road noise, exhaust drone and the general tinniness of an old floor pan all drop "
+            "noticeably. It costs relatively little on top of a job already being done, and "
+            "doing it later means paying to pull the carpet a second time.",
+            "<h2>Wet carpet is a symptom, not a problem</h2>",
+            "If the carpet is damp, replacing it without finding the water is money thrown away. "
+            "Common sources:",
+            "<ul class=\"ticks\">"
+            "<li>Blocked sunroof drains &mdash; water runs down the pillars and appears in the "
+            "footwell nowhere near the roof</li>"
+            "<li>Failed windscreen or door seals</li>"
+            "<li>Heater matrix leaks, which usually smell sweet and fog the windscreen</li>"
+            "<li>Body plugs and seam sealer that have let go underneath</li>"
+            "</ul>",
+            "Wet carpet also hides floor-pan rust, and that is worth knowing about before it "
+            "becomes structural rather than cosmetic.",
+            "<h2>Do not forget the pieces around it</h2>",
+            "New carpet next to a sun-bleached kick panel or a worn shift boot draws attention to "
+            "both. Carpet, boot and trim panels are usually best done together, which is why a "
+            "carpet job on a classic often turns into a broader interior conversation.",
+            "Bring the car to the shop in Monroe and we will look at the floor with you before "
+            "quoting. More on our <a href=\"auto-upholstery.html\">automotive upholstery</a> page.",
+        ],
+    },
 ]
 
 
