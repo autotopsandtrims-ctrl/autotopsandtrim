@@ -1144,67 +1144,170 @@ def build_contact():
 POSTS = [
     {
         "slug": "blog-convertible-top-cost-monroe-nc.html",
-        "cat": "Convertible Tops", "publish": "2026-07-01", "read": "4 min read",
+        "cat": "Convertible Tops", "publish": "2026-08-04", "read": "5 min read",
         "photo": "g01-camaro-ss-new-convertible-top",
-        "title": "How much does a convertible top replacement cost in Monroe, NC?",
+        "title": "What does a convertible top replacement actually cost?",
+        "seo_title": "Convertible Top Replacement Cost: What Drives the Price | Auto Tops and Trim",
+        "meta": "What a convertible top replacement really costs — material, rear window type "
+                "and the frame underneath. From an upholstery shop trimming tops since 1989.",
         "excerpt": "What drives the price of a new top — material, window type, and the "
                    "condition of the frame underneath — plus what a fair quote looks like.",
         "body": [
             "A convertible top replacement is really three jobs in one: the fabric or vinyl top "
-            "itself, the window, and whatever needs repairing on the frame and pads underneath. "
-            "Most quotes people bring us from elsewhere only cover the first one.",
+            "itself, the rear window, and whatever needs repairing on the frame and pads "
+            "underneath. Most quotes people bring us from elsewhere only cover the first one, "
+            "which is why two estimates for the same car can look so far apart.",
+            "<h2>The three things that set the price</h2>",
+            "<h3>1. Material: vinyl or canvas</h3>",
             "Material is the first fork in the road. A quality vinyl top costs less up front and "
-            "holds up well in the Carolina sun. Canvas cloth costs more, looks correct on a "
-            "classic, and ages more gracefully. We will show you both in person before you decide.",
-            "The second factor is the rear window. A top with a heated glass window is a different "
-            "job from one with a plastic curtain, and on older cars the window is often the reason "
-            "the top failed in the first place.",
-            "Third, the frame. If the pads are collapsed or the bows are bent, a new top will fit "
-            "badly no matter how good the fabric is. We check that before quoting, which is why we "
-            "ask you to bring the car in rather than quote from a photo.",
-            "Bring your car by the shop in Monroe and we will walk it with you, show you material "
-            "samples, and give you an itemized estimate at no cost.",
+            "holds up very well in the Carolina sun. Canvas cloth costs more, looks correct on a "
+            "classic, and ages more gracefully rather than simply wearing out. Neither is the "
+            "right answer for every car — it depends on whether you are keeping the vehicle "
+            "original, and how much of its life is spent parked outside.",
+            "<h3>2. The rear window</h3>",
+            "A top with a heated glass rear window is a different job from one with a plastic "
+            "curtain, and the two are priced differently. On older cars the window is very often "
+            "the reason the top failed in the first place — a plastic curtain clouds, cracks at "
+            "the fold line, then lets water in. If you are replacing the top anyway, this is the "
+            "moment to decide whether glass is worth it.",
+            "<h3>3. The frame, pads and bows underneath</h3>",
+            "This is the part that separates a real quote from a cheap one. If the pads are "
+            "collapsed or the bows are bent, a new top fitted over them will sit badly no matter "
+            "how good the fabric is — and it will wear through early at every high spot. We check "
+            "the frame before quoting rather than after.",
+            "<h2>Why we will not quote a convertible top from a photo</h2>",
+            "A photograph cannot show a collapsed pad or a bent bow. It cannot show you where the "
+            "old top was stretched to cover a frame problem someone chose not to fix. Quoting from "
+            "a picture means either guessing high to stay safe, or guessing low and revising the "
+            "number once the car is apart. Neither is fair to you.",
+            "That is why every estimate here is done in person, in the shop, with the car in front "
+            "of us — and why it is free and itemised, so you can see which of the three jobs above "
+            "each line belongs to.",
+            "<h2>Signs your top needs replacing rather than repairing</h2>",
+            "<ul class=\"ticks\">"
+            "<li>The rear window has clouded, yellowed or split along a fold</li>"
+            "<li>Seams are opening, or stitching has rotted through</li>"
+            "<li>The fabric has gone chalky and stiff rather than supple</li>"
+            "<li>Water is getting in even though the top latches properly</li>"
+            "<li>The top no longer sits tight when raised, or bunches when lowered</li>"
+            "</ul>",
+            "Not all of these mean a full replacement. A seam can often be restitched and a window "
+            "can sometimes be replaced on its own. Bring it by and we will tell you honestly which "
+            "one you are looking at.",
+            "<h2>Get an itemised estimate</h2>",
+            "We have been replacing convertible tops in Monroe since 1989, on everything from "
+            "daily drivers to show cars. Bring the car to the shop and we will walk it with you, "
+            "show you vinyl and canvas samples side by side, and give you an itemised estimate at "
+            "no cost. See more on our "
+            "<a href=\"convertible-tops.html\">convertible top replacement</a> page, or look "
+            "through recent work in the <a href=\"gallery.html\">gallery</a>.",
         ],
     },
     {
         "slug": "blog-marine-vinyl-vs-leather.html",
-        "cat": "Marine", "publish": "2026-06-01", "read": "3 min read",
+        "cat": "Marine", "publish": "2026-08-04", "read": "4 min read",
         "photo": "marine-seating-and-interior-upholstery",
         "title": "Marine vinyl vs. automotive leather: what belongs on a boat",
+        "seo_title": "Marine Vinyl vs Leather: What Belongs on a Boat | Auto Tops and Trim",
+        "meta": "Why marine grade vinyl outlasts leather on the water — UV, mildew and "
+                "quick-dry foam explained by an upholstery shop doing boat work since 1989.",
         "excerpt": "Why the material that looks best in your car is the wrong choice on the water, "
                    "and what we specify for boat cushions and canvas instead.",
         "body": [
             "Leather is a wonderful material in a car interior. On a boat it is a maintenance "
-            "problem: standing water, UV, and salt will dry it out and crack it in a season or two.",
-            "For marine work we specify vinyl built for the water — UV-stabilized, "
-            "mildew-resistant, and stitched with thread that will not rot. The foam matters just as "
-            "much: quick-dry, reticulated foam lets water pass through instead of holding it "
-            "against the cushion.",
-            "Canvas tops follow the same logic. Solution-dyed acrylic holds color in full sun far "
-            "longer than cheaper coated fabrics, and the difference shows up in year three, not "
-            "year one.",
-            "If your cushions are staying damp or your canvas has gone chalky, bring one piece by "
-            "the shop and we will tell you honestly whether it needs recovering or replacing.",
+            "problem: standing water, UV and salt will dry it out and crack it inside a season or "
+            "two. This is the single most common mistake we see on boats that come in for "
+            "reupholstery — a beautiful automotive material specified for an environment that "
+            "will destroy it.",
+            "<h2>What makes a vinyl marine grade</h2>",
+            "Marine vinyl is not simply thicker upholstery vinyl. The differences that matter are "
+            "in what has been engineered into it:",
+            "<ul class=\"ticks\">"
+            "<li><strong>UV stabilisation</strong> — so it does not go chalky and stiff in a "
+            "season of full sun</li>"
+            "<li><strong>Mildew resistance</strong> — the backing and topcoat are treated, "
+            "because marine upholstery spends its life damp</li>"
+            "<li><strong>Cold-crack resistance</strong> — it stays flexible through winter "
+            "storage instead of splitting at the folds</li>"
+            "<li><strong>Rot-proof thread</strong> — a perfect cover stitched with the wrong "
+            "thread fails at the seams first</li>"
+            "</ul>",
+            "That last point gets overlooked constantly. Thread is cheap and invisible, so it is "
+            "the easiest place for a shop to save money — and it is the first thing to let go.",
+            "<h2>The foam matters as much as the cover</h2>",
+            "If your boat cushions stay damp, the cover is usually not the culprit. Standard "
+            "upholstery foam is a sponge: it holds water against the cushion and against the "
+            "deck, which is how you end up with mildew and a smell that never fully leaves.",
+            "Quick-dry reticulated foam has an open cell structure that lets water pass straight "
+            "through instead of trapping it. It is more expensive per cushion and it is almost "
+            "always the right call — it is the difference between a cushion that dries in an "
+            "afternoon and one that never really does.",
+            "<h2>Canvas follows the same logic</h2>",
+            "Solution-dyed acrylic holds colour in full sun far longer than cheaper coated "
+            "fabrics, because the colour goes through the fibre rather than sitting on top of it. "
+            "The difference does not show in year one. It shows in year three, when the coated "
+            "fabric has gone chalky and faded and the acrylic still looks like itself.",
+            "<h2>Recover or replace?</h2>",
+            "Not everything needs replacing. A single split seam can often be restitched, and a "
+            "cover in good condition over dead foam only needs the foam changed. Chalking on "
+            "canvas, though, usually means a cheaper coated fabric has reached the end of its "
+            "life, and no amount of cleaning brings it back.",
+            "Bring one cushion or one piece of canvas by the shop — you do not need to bring the "
+            "whole boat — and we will tell you honestly which one you are looking at. More on our "
+            "<a href=\"marine-upholstery.html\">marine upholstery</a> page.",
         ],
     },
     {
         "slug": "blog-period-correct-or-upgraded-classic-interior.html",
-        "cat": "Restoration", "publish": "2026-05-01", "read": "5 min read",
+        "cat": "Restoration", "publish": "2026-08-04", "read": "5 min read",
         "photo": "classic-interior-finished",
         "title": "Period-correct or upgraded? Choosing an interior for a classic",
+        "seo_title": "Classic Car Interior Restoration: Period-Correct or Upgraded? | Auto Tops and Trim",
+        "meta": "How to choose between an original and an upgraded classic car interior "
+                "restoration — originality, comfort and resale, from a shop trimming since 1989.",
         "excerpt": "Restoring a classic interior means deciding how faithful to be. Here is how we "
                    "think about originality, comfort, and resale.",
         "body": [
-            "Every classic interior project starts with one question: is this car going to shows, "
-            "or is it going to be driven? The answer changes the material list.",
+            "Every classic car interior restoration starts with one question, and it is not about "
+            "colour or material. It is this: <strong>is this car going to shows, or is it going "
+            "to be driven?</strong> The honest answer changes the entire material list, and it "
+            "changes what the job costs.",
+            "<h2>Building for originality</h2>",
             "For a show car we chase originality — correct grain patterns, correct stitch "
-            "spacing, correct carpet weave. Judges notice, and so do buyers.",
-            "For a driver we keep the look and quietly improve the comfort: modern foam densities, "
-            "better sound deadening under the carpet, and seat frames repaired properly instead of "
-            "shimmed.",
-            "You do not have to choose blind. We keep samples in the shop and can show you what "
-            "period-correct and upgraded actually look like side by side.",
-            "Bring the car to Monroe and we will build the spec with you before any cutting starts.",
+            "spacing, correct carpet weave, correct materials even where a modern equivalent "
+            "would be easier to work with. Judges notice all of it, and so do serious buyers.",
+            "The constraint is that some original materials are simply no longer made. Where that "
+            "happens we will show you the closest available option and tell you plainly where it "
+            "differs, rather than quietly substituting something and hoping nobody looks.",
+            "<h2>Building for driving</h2>",
+            "For a car that gets used, we keep the period look and quietly improve everything you "
+            "cannot see:",
+            "<ul class=\"ticks\">"
+            "<li>Modern foam densities, so the seat still supports you after an hour</li>"
+            "<li>Sound deadening under the carpet — the single biggest change to how an old car "
+            "feels to drive</li>"
+            "<li>Seat frames repaired properly rather than shimmed to hide a crack</li>"
+            "<li>Better thread and stitch density at the wear points</li>"
+            "</ul>",
+            "From two feet away it reads as original. From the driver's seat it is a much better "
+            "car to spend time in.",
+            "<h2>What this does to resale</h2>",
+            "There is a real trade-off here and it is worth being clear about. A documented, "
+            "period-correct interior protects value on a car whose buyers care about matching "
+            "numbers and correct trim. On a driver, a tasteful upgraded interior usually widens "
+            "the pool of people who want it, because most buyers want to enjoy the car rather "
+            "than preserve it.",
+            "Neither is the right answer universally. It depends on the car, and on what you "
+            "intend to do with it.",
+            "<h2>You do not have to choose blind</h2>",
+            "We keep samples in the shop and can show you what period-correct and upgraded "
+            "actually look and feel like side by side, on the bench, before anything is cut. Most "
+            "people change their mind at least once at that table — which is exactly why we do it "
+            "that way round.",
+            "Bring the car to Monroe and we will build the spec with you before any cutting "
+            "starts. See our <a href=\"auto-upholstery.html\">automotive upholstery</a> page for "
+            "the full range of interior work, or browse finished projects in the "
+            "<a href=\"gallery.html\">gallery</a>.",
         ],
     },
 ]
@@ -1296,9 +1399,16 @@ def build_blog():
             "publisher": {"@type": "Organization", "name": "Auto Tops and Trim"},
             "mainEntityOfPage": f"{SITE}/{po['slug']}",
         }
-        ph = head(f"{po['title']} | Auto Tops and Trim", po["excerpt"], po["slug"], schema)
+        # `seo_title` and `meta` let the search-result listing target its keyword
+        # while the on-page H1 stays readable. Both fall back to the H1/excerpt.
+        ph = head(po.get("seo_title") or f"{po['title']} | Auto Tops and Trim",
+                  po.get("meta") or po["excerpt"], po["slug"], schema)
         ph += header("blog.html")
-        body = "".join(f"<p>{t}</p>" for t in po["body"])
+        # A body entry starting with "<" is emitted as-is, so posts can carry
+        # H2s, lists and internal links instead of an undifferentiated wall of
+        # paragraphs. Anything else is treated as prose and wrapped.
+        body = "".join(t if t.lstrip().startswith("<") else f"<p>{t}</p>"
+                       for t in po["body"])
         ph += f"""<section class="band">
   <div class="wrap">
     <div class="article-head">
