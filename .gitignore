@@ -15,3 +15,7 @@ Thumbs.db
 
 # generated preview artefact
 _build/preview.html
+
+# python bytecode
+__pycache__/
+*.pyc
