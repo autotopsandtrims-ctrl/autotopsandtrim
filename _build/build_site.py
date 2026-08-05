@@ -196,6 +196,7 @@ def footer(lightbox=""):
          aviation and motorcycle interiors.</p>
       <p><a class="foot-phone" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></p>
       <p><a href="mailto:{EMAIL}">{EMAIL}</a></p>
+      <p class="foot-area">4209 W Hwy 74, Monroe, NC 28110</p>
     </div>
     <div class="foot-col foot-acc">
       <input type="checkbox" id="fa-svc" class="facc" aria-hidden="true">
@@ -214,7 +215,6 @@ def footer(lightbox=""):
         <tr><th>Saturday</th><td>11:00 AM &ndash; 5:00 PM</td></tr>
         <tr><th>Sunday</th><td>Closed</td></tr>
       </table>
-      <p class="foot-area">4209 W Hwy 74, Monroe, NC 28110</p>
     </div>
   </div>
   <div class="foot-bar">
@@ -278,14 +278,13 @@ def quote_form(which="contact"):
        consent to marketing texts cannot lawfully be a condition of getting a quote. -->
   <label class="consent">
     <input type="checkbox" name="SMS consent" value="Yes, agreed to receive text messages">
-    <span>By checking this box and submitting your phone number, you agree to receive
-      text messages from Auto Tops and Trim about your estimate, your job, and
-      scheduling. Message frequency varies. Message and data rates may apply.
-      Reply STOP to unsubscribe or HELP for help.</span>
+    <span>By checking this box you agree to receive text messages from Auto Tops and
+      Trim about your estimate and job. Message frequency varies. Message and data
+      rates may apply. Reply STOP to opt out, HELP for help.</span>
   </label>
   <button type="submit" class="btn btn-primary wide">Send my request</button>
   <p class="formnote">Prefer to talk? Call <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
-     &mdash; Mon&ndash;Fri 9&ndash;5:30, Sat 11&ndash;5.</p>
+     <span class="fn-hrs">Mon&ndash;Fri 9&ndash;5:30 &middot; Sat 11&ndash;5</span></p>
 </form>
 """
 
