@@ -335,16 +335,15 @@ def service_page(slug, title, desc, eyebrow, h1, intro, hero_photo, sections,
 """
     if photos:
         caps = gallery_caps or [""] * len(photos)
-        tiles = "".join(
-            f'<figure class="tile">{img(ph, cap or h1, THIRD)}'
-            + (f"<figcaption>{cap}</figcaption>" if cap else "")
-            + "</figure>"
-            for ph, cap in zip(photos, caps)
-        )
-        h += f"""<section class="band tint">
+        # Same masonry + click-to-enlarge treatment as the home page recent-work
+        # block, so photo sections read consistently across the site.
+        tiles = masonry_tiles([(ph, cap or h1, eyebrow)
+                               for ph, cap in zip(photos, caps)])
+        h += f"""<section class="band tint" id="recent-work">
   <div class="wrap stack">
     <div class="stack">{shead("02","Recent work")}<h2>Jobs out of this shop</h2></div>
-    <div class="grid g3">{tiles}</div>
+    <div class="masonry">{tiles}</div>
+    <div class="btnrow" style="justify-content:center"><a class="btn btn-ghost" href="gallery.html">See the full gallery</a></div>
   </div>
 </section>
 """
