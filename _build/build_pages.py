@@ -262,7 +262,7 @@ def build_home():
          too would show the same photograph twice under two captions, which is the
          defect this pass exists to remove. The lead no longer promises boats and
          bikes in this strip; the gallery link below carries them. -->
-    <div class="masonry workgrid">{masonry_tiles([
+    <div class="masonry">{masonry_tiles([
         ('g01-camaro-ss-new-convertible-top', 'Camaro SS — new convertible top', 'Automotive'),
         ('convertible-top-replacement-and-finish', 'Corvette — new convertible top', 'Automotive'),
         ('classic-interior-finished', 'Cadillac convertible — finished interior', 'Automotive'),

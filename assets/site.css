@@ -547,7 +547,10 @@ html{scroll-behavior:smooth}
 
 /* ---- footer ---- */
 /* a step lighter than --dark so the footer does not land as a heavy black slab */
-.site-foot{background:#2A2F36;color:#B4C2CE;padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+/* padding-bottom clears the fixed .callbar: its 46px min-height plus 8px gap.
+   Keep these two in step — shrink the bar without shrinking this and the footer
+   ends with dead space; shrink this too far and the bar covers the last line. */
+.site-foot{background:#2A2F36;color:#B4C2CE;padding-bottom:calc(54px + env(safe-area-inset-bottom))}
 .foot-in{max-width:var(--wrap);margin-inline:auto;padding:clamp(38px,5vw,68px) var(--gut);
   display:grid;gap:32px;grid-template-columns:1fr}
 @media (min-width:640px){.foot-in{grid-template-columns:repeat(2,1fr)}}
@@ -567,8 +570,8 @@ html{scroll-behavior:smooth}
 /* ---- sticky mobile call bar ---- */
 .callbar{position:fixed;left:0;right:0;bottom:0;z-index:120;display:flex;align-items:center;
   justify-content:center;gap:9px;background:var(--blue-btn);color:#fff;text-decoration:none;
-  font-weight:700;min-height:56px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
-  font-size:16px;box-shadow:0 -4px 18px rgba(0,0,0,.20)}
+  font-weight:700;min-height:46px;padding:6px 16px calc(6px + env(safe-area-inset-bottom));
+  font-size:15.5px;box-shadow:0 -4px 18px rgba(0,0,0,.20)}
 @media (min-width:1000px){.callbar{display:none}.site-foot{padding-bottom:0}}
 
 @media (prefers-reduced-motion:reduce){
@@ -1031,35 +1034,6 @@ html{scroll-behavior:smooth}
 /* the marquee animates forever; hint the compositor and stop it off-screen */
 .revtrack{will-change:transform}
 .revmarquee{contain:paint}
-
-/* ---- home "Recent work": a uniform grid, not masonry ---------------------
-   Masonry is right for the gallery, where photos must never be cropped. It is
-   wrong here for two reasons:
-
-   1. `columns` is CSS multi-column, which fills DOWN column one and then down
-      column two. Six tiles therefore read 1-4 / 2-5 / 3-6 across the page
-      instead of 1-2 / 3-4 / 5-6 — the source order and the visual order differ.
-   2. Columns end wherever their contents end, so the shorter column leaves a
-      ragged gap at the bottom.
-
-   A grid with a fixed tile ratio fixes both: real left-to-right order, equal
-   heights, no gap. Tile counts are chosen so every breakpoint fills its rows
-   exactly — 6 at two columns (3 rows), 6 at three (2 rows), 8 at four (2 rows).
-
-   Scoped to .workgrid so neither the gallery nor the service-page strips (which
-   share #recent-work) are affected. */
-#recent-work .masonry.workgrid{columns:auto;column-gap:normal;
-  display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
-#recent-work .masonry.workgrid figure{margin:0;break-inside:auto;aspect-ratio:4/5}
-#recent-work .masonry.workgrid figure img{width:100%;height:100%;object-fit:cover}
-#recent-work .masonry.workgrid figure:nth-child(n+7){display:none}
-@media (min-width:760px){
-  #recent-work .masonry.workgrid{grid-template-columns:repeat(3,1fr);gap:16px}
-}
-@media (min-width:1100px){
-  #recent-work .masonry.workgrid{grid-template-columns:repeat(4,1fr)}
-  #recent-work .masonry.workgrid figure:nth-child(n+7){display:block}
-}
 
 /* ---- comparison tables in articles --------------------------------------
    Wide spec tables scroll inside their OWN container. The page body must never
