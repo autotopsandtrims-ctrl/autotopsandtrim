@@ -1065,11 +1065,11 @@ html{scroll-behavior:smooth}
    width:auto lets the intrinsic ratio drive the width, and max-width stops a
    wide mark shoving the nav off the header on a narrow phone.
    TO REVERT: delete this block. */
-.brand img{height:34px;width:auto;max-width:58vw;display:block}
-@media (max-width:899px){.brand img{height:28px}}
-@media (max-width:380px){.brand img{height:24px}}
-.foot-brand img{height:56px;width:auto;max-width:100%;display:block;margin-bottom:2px}
-@media (max-width:899px){.foot-brand img{height:46px}}
+.brand img{height:40px;width:auto;max-width:60vw;display:block}
+@media (max-width:899px){.brand img{height:33px}}
+@media (max-width:380px){.brand img{height:28px}}
+.foot-brand img{height:62px;width:auto;max-width:100%;display:block;margin-bottom:2px}
+@media (max-width:899px){.foot-brand img{height:52px}}
 
 /* ---- comparison tables in articles --------------------------------------
    Wide spec tables scroll inside their OWN container. The page body must never
