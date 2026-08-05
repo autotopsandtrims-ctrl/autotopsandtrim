@@ -706,23 +706,23 @@
   ]
  },
  "logo-light": {
-  "w": 909,
-  "h": 403,
+  "w": 961,
+  "h": 424,
   "variants": [
    {
     "w": 480,
-    "h": 213,
+    "h": 212,
     "file": "logo-light-480.webp"
    },
    {
     "w": 800,
-    "h": 355,
+    "h": 353,
     "file": "logo-light-800.webp"
    },
    {
-    "w": 909,
-    "h": 403,
-    "file": "logo-light-909.webp"
+    "w": 961,
+    "h": 424,
+    "file": "logo-light-961.webp"
    }
   ]
  },
