@@ -161,7 +161,10 @@ def build_home():
         "Free estimates — call (980) 385-8101.", p)
     h += header(p)
 
-    h += f"""<section class="hero">
+    h += f"""<section class="hero hero-full">
+  <div class="hero-bg">{img('hero-best-finished-vehicle-wide-full-color',
+      'Finished convertible top and interior by Auto Tops and Trim in Monroe, NC',
+      '100vw', eager=True)}</div>
   <div class="wrap">
     <div class="stack">
       {shead("", "Monroe, NC &middot; Since 1989")}
@@ -175,13 +178,11 @@ def build_home():
       </div>
       <p class="microline">Free estimates &nbsp;&middot;&nbsp; In-person quotes &nbsp;&middot;&nbsp; Union County</p>
     </div>
-    <div class="hero-media">{img('hero-best-finished-vehicle-wide-full-color',
-        'Finished convertible top and interior by Auto Tops and Trim in Monroe, NC',
-        HALF, eager=True)}</div>
   </div>
+  <a class="hero-scroll" href="#what-we-do" aria-label="Scroll to what we do"><span></span></a>
 </section>
 
-<section class="band">
+<section class="band" id="what-we-do">
   <div class="wrap stack">
     <div class="center stack">
       {shead("01", "What we do", center=True)}
