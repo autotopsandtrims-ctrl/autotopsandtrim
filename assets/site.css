@@ -385,7 +385,9 @@ html{scroll-behavior:smooth}
 }
 /* natural review card: avatar, name, stars + date, then the quote */
 .review{display:flex;flex-direction:column;gap:14px;max-width:44ch;text-align:left;
-  background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.11);
+  /* opaque, not rgba: a translucent card lets the quilting read straight through
+     the review text. This is the same colour the old 5.5% white overlay produced. */
+  background:#2F343A;border:1px solid rgba(255,255,255,.11);
   padding:22px 22px 24px}
 .rev-top{display:flex;align-items:center;gap:12px}
 .avatar{width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;
@@ -544,7 +546,8 @@ html{scroll-behavior:smooth}
 .hours th{font-weight:700;padding-right:18px;white-space:nowrap}
 
 /* ---- footer ---- */
-.site-foot{background:var(--dark);color:#B4C2CE;padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+/* a step lighter than --dark so the footer does not land as a heavy black slab */
+.site-foot{background:#2A2F36;color:#B4C2CE;padding-bottom:calc(64px + env(safe-area-inset-bottom))}
 .foot-in{max-width:var(--wrap);margin-inline:auto;padding:clamp(38px,5vw,68px) var(--gut);
   display:grid;gap:32px;grid-template-columns:1fr}
 @media (min-width:640px){.foot-in{grid-template-columns:repeat(2,1fr)}}
