@@ -988,15 +988,19 @@ html{scroll-behavior:smooth}
     var(--blue-lt) 0 13px,rgba(94,155,217,.20) 13px 22px)}
 .head-in{position:relative;z-index:1}
 
-/* Hero gets the same quilting, dialled right down: roughly half the header's
-   opacity and a larger diamond, because it covers far more area. Enough to stop
-   the panel reading as flat, not enough to notice as a pattern. */
-.hero{position:relative;background:var(--dark)}
-.hero::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+/* Every large dark surface gets the same quilting, dialled right down: roughly
+   half the header's opacity and a larger diamond, because these cover far more
+   area. Enough to stop the panels reading as flat, not enough to notice as a
+   pattern. To undo, delete this block and the three position:relative rules. */
+.hero{background:var(--dark)}
+.hero,.band.dark,.site-foot{position:relative}
+.hero::before,.band.dark::before,.site-foot::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
   background-image:
     repeating-linear-gradient(45deg,rgba(255,255,255,.016) 0 1px,transparent 1px 36px),
     repeating-linear-gradient(-45deg,rgba(255,255,255,.016) 0 1px,transparent 1px 36px)}
-.hero .wrap{position:relative;z-index:1}
+/* keep content above the overlay so it never intercepts a tap */
+.hero > *,.band.dark > *,.site-foot > *{position:relative;z-index:1}
 
 /* ---- service page shots: masonry on mobile, grid on desktop ----------------
    Desktop has the room for a clean 3-up grid; mobile does not, so it keeps the
