@@ -144,15 +144,39 @@ The user rejected a redesign once already. The rebuild is about **structure, not
    phone numbers flow to an unverified destination. **Do not launch ads before fixing.**
    Fix: create a Formspree form on the user's own account pointed at
    contact@autotopsandtrim.com, swap `FORM_ENDPOINT` in `_build/build_site.py`.
-2. **Mobile pass.** Desktop is being signed off first, by the user's choice. Mobile
+2. **BLOCKER-ISH — the photo captions are not trustworthy.** A perceptual-hash
+   scan (16×16 dhash) of the 43 site photos found **11 near-identical pairs** —
+   the same photograph stored under two names and captioned differently. Verified
+   by eye and by pixel RMS (~2 of 255, i.e. the same shot re-encoded):
+
+   - `headliner-install` **is not a headliner install.** It is the same image as
+     `g16-cadillac-convertible-red-interior` — a grey Cadillac convertible
+     exterior. It was the sunroof page's hero until this was caught.
+   - `g19-mercedes-gla-interior-work` **is not a Mercedes GLA.** It is a vintage
+     red pickup interior with a rebuilt seat and carpet.
+   - `hero-best-finished-vehicle-wide-full-color` == `g17-cadillac-top-and-interior-finished` (distance 0)
+   - `g22-marine-cushions-and-helm-trim` == `marine-seating-and-interior-upholstery` (distance 0)
+   - `aircraft-interior-seat-upholstery` == `aviation-cabin-seats`, and
+     `custom-motorcycle-seat-upholstery-close-up` == `motorcycle-custom-seat` (distance 1)
+   - also flagged: `convertible-top-after` == `g09-truck-cab-black-seat-red-stitch`,
+     `process-header-photo-wide` == `seat-rebuild-after`
+
+   These names came out of the old bundle and were never verified against the
+   images. **The gallery therefore shows the same photo more than once under
+   different captions, and at least two captions state something the photo does
+   not show.** That is exactly what the project's never-invent rule exists to
+   stop. Fix: view all 43, rewrite `GALLERY` captions from what is actually in
+   frame, and drop the duplicates. Reproduce the scan with the dhash in
+   `_build/import_photos.py`.
+3. **Mobile pass.** Desktop is being signed off first, by the user's choice. Mobile
    currently needs alignment work throughout.
-3. **Logo.** User is supplying an SVG or transparent PNG (~600px+). Goes where the
+4. **Logo.** User is supplying an SVG or transparent PNG (~600px+). Goes where the
    `AUTO TOPS & TRIM` text sits in the header. Also kills the "AT&T" loading
    placeholder in the old bundle.
-4. **Photos for the sunroof page.** The page ships with no photography because
+5. **Photos for the sunroof page.** The page ships with no photography because
    the catalogue has none of that repair. A few before/after shots of a sagging
    shade would finish it.
-5. **Photos in Google Drive** — folder `1K6ndwfHhQg-N0GH1xWcbeceo9UjmETuA`
+6. **Photos in Google Drive** — folder `1K6ndwfHhQg-N0GH1xWcbeceo9UjmETuA`
    ("Hopeton images resaves"), 100+ files (the listing pages).
    **The importer is written and waiting: `_build/import_photos.py`.** It dedupes
    by SHA-256, groups near-identical bursts by average-hash, fixes EXIF rotation,
@@ -176,12 +200,12 @@ The user rejected a redesign once already. The rebuild is about **structure, not
    appears 3×, and `3577465635962975728.JPG`, `1016386281106343502.HEIC`,
    `4817363804744854242.HEIC`, `7048509423189683054.JPG` and
    `7757101485305033643.HEIC` each appear 2× at identical byte sizes.
-6. **Merge `rebuild` → `main`** once approved. That is the go-live moment.
-7. Google Business Profile is locked out (forgotten login) — recovery is the
+7. **Merge `rebuild` → `main`** once approved. That is the go-live moment.
+8. Google Business Profile is locked out (forgotten login) — recovery is the
    highest-leverage marketing task; it drives the local map pack.
-8. Square recommended for card payments and invoices (NOT Shopify — wrong shape
+9. Square recommended for card payments and invoices (NOT Shopify — wrong shape
    for in-person custom quoting).
-9. Terms/privacy — user parked this. A short privacy note is the useful one,
+10. Terms/privacy — user parked this. A short privacy note is the useful one,
    since the form collects names and numbers.
 
 ---

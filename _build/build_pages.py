@@ -831,7 +831,7 @@ def build_about():
 
 <section class="band">
   <div class="wrap narrow stack">
-    <h2>A trade you learn by doing</h2>
+    <div class="stack">{shead("01", "The craft")}<h2>A trade you learn by doing</h2></div>
     <p class="lead">Upholstery is not a job you can rush or fake. A top fitted over collapsed
        pads will never sit right. Foam that is wrong for a boat will hold water against the
        cushion. Knowing the difference is what over three decades buys you.</p>
@@ -854,7 +854,13 @@ def build_about():
 
 <section class="band dark">
   <div class="wrap stack">
-    <div class="stats">
+    <div class="center stack">
+      {shead("03", "By the numbers", center=True)}
+      <h2>Four trades, one roof, since 1989</h2>
+      <p class="lead">Cars, boats, aircraft and bikes are four different crafts.
+         Most shops pick one. We kept all four in the same building in Monroe.</p>
+    </div>
+    <div class="stats" style="margin-top:clamp(30px,4vw,52px)">
       <div class="stat"><b>1989</b><span>Trimming since</span></div>
       <div class="stat"><b>4</b><span>Trades under one roof</span></div>
       <div class="stat"><b>35+</b><span>Years in Union County</span></div>
@@ -862,8 +868,40 @@ def build_about():
     </div>
   </div>
 </section>
+
+<section class="band">
+  <div class="wrap stack">
+    <div class="stack">{shead("04", "What we take in")}
+      <h2>If it has a seat, a top or a panel, bring it</h2></div>
+    <div class="grid g2">
+      <a class="card" href="convertible-tops.html"><div class="card-body">
+        <h3>Convertible tops</h3>
+        <p>Vinyl and canvas, heated glass and plastic windows, and the frame and
+           pad work underneath that most quotes leave out.</p>
+        <span class="card-link">Convertible tops</span></div></a>
+      <a class="card" href="auto-upholstery.html"><div class="card-body">
+        <h3>Seats, headliners and interiors</h3>
+        <p>One torn seat or a complete classic interior built to your spec, for
+           daily drivers, trucks and show cars alike.</p>
+        <span class="card-link">Auto upholstery</span></div></a>
+      <a class="card" href="marine-upholstery.html"><div class="card-body">
+        <h3>Boats</h3>
+        <p>Seating, helm trim, cushions and canvas in materials chosen for sun,
+           standing water and salt.</p>
+        <span class="card-link">Marine upholstery</span></div></a>
+      <a class="card" href="aviation-upholstery.html"><div class="card-body">
+        <h3>Aircraft</h3>
+        <p>Cockpit and cabin interiors, seating, side panels and carpet &mdash; a
+           trade almost nobody else in the region offers.</p>
+        <span class="card-link">Aviation upholstery</span></div></a>
+    </div>
+  </div>
+</section>
+
+{reviews_block(num="05", label="Testimonials",
+               heading="Thirty-seven years of this, in their words")}
 """
-    h += cta()
+    h += cta(num="06")
     h += footer(lightbox_markup())
     pages.append(p)
     write(p, h)
