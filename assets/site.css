@@ -1025,24 +1025,30 @@ html{scroll-behavior:smooth}
 .revtrack{will-change:transform}
 .revmarquee{contain:paint}
 
-/* ======================= TRIAL: stitched CTA buttons =======================
-   Extends the header's existing stitched seam onto the two main call-to-action
-   buttons ("Call ..." / "Free estimate"). A single hairline dashed inset, held
-   deliberately faint so it reads as topstitching on a trimmed panel rather than
-   as a second border.
+/* ================= TRIAL: stitched mobile call bar =======================
+   The sticky "Call ... · Free Estimate" bar, given the same craft treatment the
+   header already carries. Mobile only — .callbar is display:none from 1000px up,
+   so nothing on desktop is touched.
 
-   Scoped to .btnrow so it only touches the paired CTAs — the header call button,
-   form submit and .btn.wide are untouched.
+   Two parts, both from the locked palette, no images:
+   1. a stitched seam along the TOP edge, using the exact same repeating gradient
+      as .site-head::after — so the header is seamed at its bottom edge and the
+      call bar at its top, and the page reads as one trimmed panel.
+   2. a faint dashed topstitch set in from the edge.
+
+   The topstitch deliberately stops above env(safe-area-inset-bottom): on a
+   notched iPhone the bar extends into the home-indicator area, and stitching
+   drawn through that strip looks like a rendering fault rather than a detail.
 
    TO REVERT: delete this entire block. Nothing else references it. */
-.btnrow .btn{position:relative}
-.btnrow .btn::after{content:"";position:absolute;
-  /* inset far enough to read as stitching set in from a seam edge */
-  inset:4px;border:1px dashed rgba(255,255,255,.30);
-  border-radius:calc(var(--r-ctl) - 3px);pointer-events:none}
-/* on light backgrounds the thread is ink, not white, and lighter still */
-.btnrow .btn-ghost::after{border-color:rgba(42,46,51,.20)}
-/* ...but a ghost button on a dark band goes back to white thread */
-.dark .btnrow .btn-ghost::after,.hero .btnrow .btn-ghost::after{
-  border-color:rgba(255,255,255,.26)}
+.callbar{position:fixed}   /* already fixed; restated so ::before anchors to it */
+/* 1. the seam — identical pattern and colours to the header's */
+.callbar::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+  pointer-events:none;
+  background:repeating-linear-gradient(90deg,
+    var(--blue-lt) 0 13px,rgba(94,155,217,.20) 13px 22px)}
+/* 2. the topstitch — very light, and clear of the home indicator */
+.callbar::after{content:"";position:absolute;pointer-events:none;
+  left:8px;right:8px;top:7px;bottom:calc(7px + env(safe-area-inset-bottom));
+  border:1px dashed rgba(255,255,255,.26);border-radius:5px}
 /* ========================= end TRIAL block ============================== */
