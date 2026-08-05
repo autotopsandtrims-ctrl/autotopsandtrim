@@ -263,15 +263,63 @@ interior" volume is B2B market-research noise (`aircraft cabin interior market`,
 me` 30 (KD 0, $1.00). Tiny volume, near-zero competition, and we already have the
 service page — this is the cheapest #1 ranking on the list.
 
+### H. QUESTION-LED CONTENT — the cluster to lead with
+
+Third sweep 2026-08-05. Two things came out of it:
+
+**Cost/lifespan questions are empty.** `how long does a convertible top last` 20 ·
+`why is my headliner sagging` 10 · `can you repair a convertible top` 0. Do not
+build posts around these phrasings.
+
+**Cleaning and care questions are a real, uncontested cluster:**
+
+| Keyword | Vol | KD | CPC |
+|---|---|---|---|
+| how to clean boat seats | 300 | **0** | $0.03 |
+| best way to clean car upholstery | 200 | 2 | $0.06 |
+| how to clean vinyl seats in boat | 150 | **0** | – |
+| how to clean a convertible top | 100 | **0** | $0.15 |
+| how to clean boat seats mildew | 100 | **0** | $0.35 |
+| how to clean convertible top | 80 | **0** | $0.15 |
+| how to clean vinyl boat seats | 80 | **0** | $0.06 |
+| how to clean mold off boat seats | 60 | **0** | $0.50 |
+| how to clean mildew off boat seats | 60 | **0** | $0.30 |
+| how to clean pontoon boat seats | 50 | **0** | $0.07 |
+| how to clean white vinyl boat seats | 40 | **0** | $0.05 |
+| how to clean convertible soft top | 40 | **0** | $0.20 |
+| + ~15 further mildew/mold/soft-top variants | ~250 | **0** | – |
+
+**≈1,500/mo, almost entirely KD 0.**
+
+**Why this leads the plan:** these need *no* proprietary information — no prices,
+no invented specs. They are materials-and-technique questions a shop that
+specifies marine vinyl and reticulated foam genuinely knows the answer to, which
+means they can be written without waiting on the owner. That was the blocker on
+the cost cluster.
+
+**The honest trade:** cleaning searchers are DIY and convert worse than price
+searchers. The bridge is the mildew angle — how to clean it, then how to tell
+when it is past cleaning and needs recovering. Write the bridge, not a pitch.
+
+Combined with the sagging-headliner cluster (~1,500/mo) and the torn/leather seat
+cluster (~1,500/mo, incl. `how to repair a torn car seat` 1,100 at KD 0),
+question-led content is **~4,500/mo of winnable search at KD 0–2.**
+
 ### Suggested order
 
-1. **C + A cost posts** (buyer intent, KD 0): reupholster cost, headliner cost,
-   convertible top cost hub.
-2. **A care cluster** (~1,550/mo, KD 0–1, nobody covers it well).
-3. **B DIY headliner** (~1,500/mo) — written honestly, not as a pitch.
-4. **C leather seat repair** (~4,000/mo across the cluster, KD 0–2).
-5. **D service-intent marine only** (skip the fabric-buyer terms).
-6. **G sunroof**, then **E**, then **F**.
+Revised 2026-08-05 to lead with questions (cluster H) rather than costs — the
+question posts need no pricing input from the owner, so they unblock immediately.
+
+1. **H cleaning and care** (~1,500/mo, KD 0) — boat seats, mildew and mould,
+   convertible tops, car upholstery.
+2. **B sagging headliner** (~1,500/mo, KD 0–2) — written honestly, not as a pitch.
+3. **C torn and leather seat repair** (~1,500/mo, KD 0–2).
+4. **A convertible top care** (~1,550/mo, KD 0–1, nobody covers it well).
+5. **D service-intent marine only** — skip the fabric-buyer terms, see the intent
+   warning above.
+6. **C + A cost posts** — highest buyer intent on the list, but they are weak
+   without real price ranges from the shop. Write these once those exist.
+7. **G sunroof**, then **E**, then **F**.
 
 Cost of both sweeps: ~9,400 API units of the 100,000/month allowance.
 
