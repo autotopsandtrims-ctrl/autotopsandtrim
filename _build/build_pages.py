@@ -1430,6 +1430,384 @@ POSTS = [
             "<a href=\"gallery.html\">gallery</a>.",
         ],
     },
+
+    # ---- BATCH 1: question-led cluster, all KD 0-2. See SEO_KEYWORDS.md ------
+    # No prices anywhere in these. Every material claim is from a manufacturer or
+    # supplier source, not from memory. Where a number would help and we do not
+    # have one, the article says what drives the number instead of inventing it.
+    {
+        "slug": "blog-how-to-fix-a-sagging-headliner.html",
+        "cat": "Headliners", "publish": "2026-08-06", "read": "6 min read",
+        "photo": "g13-sound-deadening-before-carpet",
+        "title": "How to fix a sagging headliner (and when the quick fix will not hold)",
+        "seo_title": "How to Fix a Sagging Car Headliner — Honest Guide | Auto Tops and Trim",
+        "meta": "Why headliners sag, which DIY fixes actually work, and how to tell when the "
+                "foam has gone and the panel needs recovering. From a trim shop since 1989.",
+        "excerpt": "Pins, adhesive and steam all have their place — and all of them fail on a "
+                   "headliner whose foam has broken down. Here is how to tell which one you have.",
+        "body": [
+            "A sagging headliner is one of the most common jobs that walks into an upholstery "
+            "shop, and it is also one of the most commonly mis-diagnosed. Almost everyone assumes "
+            "the glue has failed. Usually it has not.",
+            "<h2>What is actually happening above your head</h2>",
+            "A headliner is not one layer. It is a rigid backing board, a thin layer of foam "
+            "bonded to it, and the fabric bonded to the foam. The fabric is not glued to the "
+            "board at all — it is glued to the foam.",
+            "That foam is polyurethane, and heat and time break it down. Once it crumbles, "
+            "nothing is holding the fabric up, because the thing it was attached to has turned to "
+            "orange-brown dust. If you press a sagging headliner and your fingers come away with "
+            "a fine powder, that is the foam, and it is the whole story.",
+            "This is why headliners fail in the middle of the roof first, and why they fail on "
+            "cars that live outside in the Carolina sun far sooner than on garaged ones.",
+            "<h2>The DIY fixes, honestly rated</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Fix</th><th>What it does</th><th>Honest verdict</th></tr></thead>"
+            "<tbody>"
+            "<tr><th>Twist pins</th>"
+            "<td>Pins the fabric back to the board mechanically</td>"
+            "<td>Genuinely works as a holding measure, and it is reversible. It looks like what "
+            "it is, and it does not stop the foam breaking down further.</td></tr>"
+            "<tr><th>Spray adhesive through the fabric</th>"
+            "<td>Attempts to re-bond fabric to board in place</td>"
+            "<td>Almost always disappointing. There is still dead foam between the two surfaces, "
+            "so you are gluing fabric to powder. It also stains the face of the fabric.</td></tr>"
+            "<tr><th>Steam and roller</th>"
+            "<td>Softens and re-lays the fabric</td>"
+            "<td>Can buy time on a liner that is only just starting to lift at an edge. Useless "
+            "once the foam is gone.</td></tr>"
+            "<tr><th>Removing the board and recovering it</th>"
+            "<td>Old fabric and all remaining foam scraped off, new foam-backed material bonded "
+            "to the bare board</td>"
+            "<td>The only fix that actually lasts, because it replaces the layer that failed.</td>"
+            "</tr></tbody></table></div>",
+            "<h2>The test that tells you which one you need</h2>",
+            "Push up gently on the sagging area with a flat palm.",
+            "<ul class=\"ticks\">"
+            "<li>If it springs back and stays for a while, the bond has released at an edge and "
+            "the foam is probably still intact. A careful re-lay may hold.</li>"
+            "<li>If it feels soft and grainy, or your hand comes away dusty, the foam has "
+            "disintegrated. No adhesive will fix that — there is nothing left to bond to.</li>"
+            "<li>If the fabric has separated across most of the roof, the decision is already "
+            "made for you.</li>"
+            "</ul>",
+            "<h2>Why we recover the board rather than glue the fabric back</h2>",
+            "When we recover a headliner, the board comes out of the car, every trace of the old "
+            "foam is scraped back to clean board, and new foam-backed headliner material is "
+            "bonded to it. That is more work than spraying adhesive through the old fabric, and "
+            "it is the reason the repair does not come back in a year.",
+            "It is also the moment to deal with anything else the board has been hiding — sunroof "
+            "shade tracks, wiring for interior lights, and trim clips that have gone brittle.",
+            "<h2>Bring it by</h2>",
+            "We have been recovering headliners in Monroe since 1989, on daily drivers and show "
+            "cars alike. Bring the vehicle to the shop and we will tell you honestly whether you "
+            "are looking at a re-lay or a recover, and quote it in person at no charge. More on "
+            "our <a href=\"auto-upholstery.html\">automotive upholstery</a> page.",
+        ],
+    },
+    {
+        "slug": "blog-headliner-replacement-cost.html",
+        "cat": "Headliners", "publish": "2026-08-06", "read": "5 min read",
+        "photo": "g19-mercedes-gla-interior-work",
+        "title": "What actually drives the cost of a headliner replacement",
+        "seo_title": "Headliner Replacement Cost: What Changes the Price | Auto Tops and Trim",
+        "meta": "The five things that move the price of a headliner replacement — roof size, "
+                "sunroof, trim removal, material and hidden damage. Free in-person estimates.",
+        "excerpt": "Two quotes for the same car can look very different. Here are the five "
+                   "variables that explain the gap, and the ones a cheap quote usually leaves out.",
+        "body": [
+            "Headliner quotes vary more than most people expect, and the difference is rarely "
+            "the fabric. It is almost always about how much has to come out of the car to get "
+            "the board out, and what is found once it is out.",
+            "<h2>1. How big the roof is, and what shape it is</h2>",
+            "A two-door coupe headliner is a smaller, simpler panel than a long-wheelbase SUV "
+            "with a third row. Curves matter too — a heavily contoured board takes more time to "
+            "get material to lie down on without wrinkles at the corners.",
+            "<h2>2. Whether there is a sunroof</h2>",
+            "A sunroof turns one panel into a panel with a large opening, a surround, and often a "
+            "sliding shade running in tracks. All of it has to come apart and go back together "
+            "correctly, and the shade itself is frequently in the same condition as the headliner "
+            "for the same reason. We cover that specific repair on our "
+            "<a href=\"sunroof-shade-repair.html\">sunroof shade repair</a> page.",
+            "<h2>3. How much trim has to come out</h2>",
+            "The board cannot leave the car until the pillars, grab handles, visors, dome lights "
+            "and seals are out of the way. On some vehicles that is quick. On others the seats "
+            "come out first. This is usually the single biggest driver of labour, and it is "
+            "entirely determined by the vehicle rather than by anything you choose.",
+            "<h2>4. The material</h2>",
+            "Standard replacement headliner material is a knit or suede-look fabric already "
+            "bonded to a thin foam backing — the foam is what the adhesive grips. Upgrades exist, "
+            "including suede-look and perforated materials, and they cost more per yard. On most "
+            "jobs this is a smaller part of the total than people assume.",
+            "<h2>5. What is found once the board is out</h2>",
+            "<ul class=\"ticks\">"
+            "<li>Boards that have absorbed water and gone soft, usually from a leaking sunroof "
+            "drain or a windscreen seal</li>"
+            "<li>Brittle trim clips that break on removal and have to be replaced</li>"
+            "<li>Sunroof shades in the same failed state as the liner</li>"
+            "<li>Wiring or dome-light housings that were previously bodged</li>"
+            "</ul>",
+            "A water-damaged board is the one that changes a quote materially, because a soft "
+            "board will not hold new material and has to be repaired or replaced.",
+            "<h2>Why we will not quote this from a photo</h2>",
+            "A photo of a sagging headliner tells us the fabric has let go. It cannot tell us "
+            "whether the board is sound, whether there is a sunroof shade behind it, or how much "
+            "trim has to come out on your particular vehicle — and those are the three things "
+            "that set the price.",
+            "Bring the vehicle to the shop in Monroe and you will get an itemised estimate, in "
+            "person, at no cost, with each of the five items above priced separately so you can "
+            "see what you are paying for.",
+        ],
+    },
+    {
+        "slug": "blog-how-to-clean-boat-seats.html",
+        "cat": "Marine", "publish": "2026-08-06", "read": "5 min read",
+        "photo": "boat-upholstery-projects-at-the-shop",
+        "title": "How to clean boat seats without wrecking them",
+        "seo_title": "How to Clean Boat Seats (Vinyl) the Right Way | Auto Tops and Trim",
+        "meta": "How to clean vinyl boat seats safely — what to use, what quietly destroys the "
+                "seams and topcoat, and how to tell when a cushion is past cleaning.",
+        "excerpt": "Most damaged boat seats we see were not worn out by the sun. They were "
+                   "cleaned to death. Here is the method that works and the shortcuts that cost you.",
+        "body": [
+            "Marine vinyl is built to survive standing water, UV and salt. What it does not "
+            "survive is aggressive cleaning, and a surprising share of the ruined cushions that "
+            "come through the shop were damaged by the owner trying to look after them.",
+            "<h2>Start with the gentlest thing that works</h2>",
+            "<ul class=\"ticks\">"
+            "<li>Warm water and a mild soap, applied with a soft brush or a microfibre cloth</li>"
+            "<li>Work in sections and rinse before anything dries on the surface</li>"
+            "<li>Get into the seams and welts, where dirt and moisture actually collect</li>"
+            "<li>Dry with a towel rather than leaving it to sit wet in the sun</li>"
+            "</ul>",
+            "That handles the large majority of ordinary grime. Escalate only if it does not, and "
+            "escalate one step at a time.",
+            "<h2>What quietly destroys marine vinyl</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Avoid</th><th>Why</th></tr></thead><tbody>"
+            "<tr><th>Bleach, undiluted or repeated</th>"
+            "<td>Attacks the stitching thread and can strip the topcoat that gives the vinyl its "
+            "UV resistance. The cover often outlives the seams — until bleach reverses that.</td>"
+            "</tr>"
+            "<tr><th>Stiff brushes and abrasive pads</th>"
+            "<td>Scratch the topcoat. Once the surface is microscopically rough it holds dirt "
+            "harder, so cleaning gets more aggressive each time — a loop that ends in "
+            "replacement.</td></tr>"
+            "<tr><th>Solvents, acetone, petrol</th>"
+            "<td>Dissolve plasticisers. The vinyl looks clean, then goes hard and cracks at the "
+            "folds a season later.</td></tr>"
+            "<tr><th>Pressure washers</th>"
+            "<td>Drive water straight through the seams into the foam, which is exactly the "
+            "problem you were trying to avoid.</td></tr>"
+            "</tbody></table></div>",
+            "<h2>If the seat stays damp, the cover is not the problem</h2>",
+            "A cushion that never really dries usually has standard upholstery foam inside it. "
+            "That foam behaves like a sponge — it holds water against the cover and against the "
+            "deck, and no amount of surface cleaning changes that.",
+            "Quick-dry reticulated foam has an open cell structure that lets water pass straight "
+            "through instead of trapping it. If you are having a cushion rebuilt anyway, this is "
+            "the upgrade worth paying for.",
+            "<h2>When cleaning is no longer the answer</h2>",
+            "<ul class=\"ticks\">"
+            "<li>The vinyl has gone hard and chalky rather than staying supple</li>"
+            "<li>Seams are opening, or stitching pulls through when you press on it</li>"
+            "<li>Cracks have appeared along the fold lines</li>"
+            "<li>Staining sits under the surface rather than on it</li>"
+            "</ul>",
+            "At that point you are looking at recovering rather than cleaning. Bring one cushion "
+            "by the shop — you do not need to bring the boat — and we will tell you honestly "
+            "which one it is. More on our <a href=\"marine-upholstery.html\">marine upholstery</a> "
+            "page.",
+        ],
+    },
+    {
+        "slug": "blog-mildew-on-boat-seats.html",
+        "cat": "Marine", "publish": "2026-08-07", "read": "5 min read",
+        "photo": "marine-seating-and-interior-upholstery",
+        "title": "Mildew and mould on boat seats: what comes off and what does not",
+        "seo_title": "How to Get Mildew and Mould Off Vinyl Boat Seats | Auto Tops and Trim",
+        "meta": "Black spots on vinyl boat seats explained — surface mildew versus mould rooted "
+                "in the foam, what removes each, and why bleach often makes it worse.",
+        "excerpt": "Black spots on white vinyl are two completely different problems with the "
+                   "same appearance. One wipes off. The other is growing inside the cushion.",
+        "body": [
+            "Black speckling on marine vinyl is the single most common complaint we hear about "
+            "boat seating, and the reason it frustrates people is that half the time it comes "
+            "off easily and half the time nothing touches it. Those are two different problems.",
+            "<h2>Surface mildew versus mould in the foam</h2>",
+            "<strong>Surface mildew</strong> grows on the dirt and body oils sitting on top of "
+            "the vinyl, not on the vinyl itself. Marine vinyl is treated to resist it, so what "
+            "you are usually looking at is mildew on the film of grime above the topcoat. It "
+            "responds to ordinary cleaning.",
+            "<strong>Mould rooted in the foam</strong> is a different matter. Once water has gone "
+            "through a seam and the foam inside has stayed wet, growth happens inside the "
+            "cushion and pushes staining outward. You are seeing the shadow of something you "
+            "cannot reach.",
+            "<h2>Which one do you have?</h2>",
+            "<ul class=\"ticks\">"
+            "<li>Wipe a small patch with warm soapy water. If the spots lift or fade noticeably, "
+            "it is on the surface.</li>"
+            "<li>Press the cushion. If it feels damp, or you smell it before you see it, the foam "
+            "is holding water.</li>"
+            "<li>Look at where the staining is worst. Along seams and at the base points to water "
+            "getting in rather than dirt sitting on top.</li>"
+            "</ul>",
+            "<h2>Why reaching for bleach usually backfires</h2>",
+            "Bleach does kill surface growth, which is why it feels like it works. The problems "
+            "come afterwards: it attacks the stitching thread holding the cushion together, and "
+            "repeated use strips the topcoat that gives marine vinyl its UV resistance.",
+            "The common result is a cushion that looks better for one season and then fails at "
+            "the seams — the covering outlived the thread. If mould is inside the foam, bleach "
+            "on the outside never reaches it anyway.",
+            "<h2>What actually fixes foam-rooted mould</h2>",
+            "The cushion has to be opened. The foam is replaced — ideally with quick-dry "
+            "reticulated foam that lets water pass through rather than holding it — and the cover "
+            "is either cleaned properly off the cushion or replaced if the staining has gone into "
+            "the material.",
+            "It is worth finding out how the water got in at the same time, because a new cushion "
+            "under a failed seam or a leaking canvas will do exactly the same thing again.",
+            "<h2>Prevention, briefly</h2>",
+            "<ul class=\"ticks\">"
+            "<li>Dry cushions with a towel rather than leaving them to evaporate</li>"
+            "<li>Let air move under and around them where you can</li>"
+            "<li>Deal with a split seam immediately — it is the doorway</li>"
+            "<li>Clean regularly and gently rather than occasionally and harshly</li>"
+            "</ul>",
+            "Bring one cushion by the shop in Monroe and we will tell you which of the two "
+            "problems you have before you spend money on either. See our "
+            "<a href=\"marine-upholstery.html\">marine upholstery</a> page for the full range of "
+            "boat work.",
+        ],
+    },
+    {
+        "slug": "blog-how-to-clean-a-convertible-top.html",
+        "cat": "Convertible Tops", "publish": "2026-08-07", "read": "5 min read",
+        "photo": "automotive-ford-galaxie-top-after",
+        "title": "How to clean a convertible top without shortening its life",
+        "seo_title": "How to Clean a Convertible Top (Vinyl and Canvas) | Auto Tops and Trim",
+        "meta": "Cleaning a convertible top safely — why vinyl and canvas need different "
+                "treatment, what ruins the rear window, and when to re-proof the fabric.",
+        "excerpt": "Vinyl and cloth tops are different materials with different failure modes, "
+                   "and the cleaning that suits one will shorten the life of the other.",
+        "body": [
+            "The single most useful thing to know before cleaning a convertible top is which kind "
+            "you have, because vinyl and cloth are not the same material and do not want the same "
+            "treatment.",
+            "<h2>Work out what your top is made of</h2>",
+            "<strong>Vinyl</strong> has a smooth or lightly grained plastic surface — the "
+            "pinpoint grain was original on most American cars from the 1950s through the 1990s. "
+            "It is a sealed surface, so dirt sits on top of it.",
+            "<strong>Cloth</strong> tops are woven. Haartz Stayfast, for example, is a "
+            "solution-dyed acrylic face over a butyl rubber inner layer with a cotton backing, "
+            "and it was specified as original equipment for decades. Because the face is woven, "
+            "it holds dirt in the weave rather than on the surface, and it depends on a factory "
+            "water-repellent finish that cleaning gradually removes.",
+            "That last point is the one people miss: <strong>cleaning a cloth top removes its "
+            "proofing, so it needs re-proofing afterwards.</strong> A vinyl top does not.",
+            "<h2>The method</h2>",
+            "<ul class=\"ticks\">"
+            "<li>Rinse loose grit off first. Grinding sand into either material with a brush does "
+            "more damage than the dirt ever would.</li>"
+            "<li>Use a dedicated convertible top cleaner appropriate to your material, or a mild "
+            "soap. Work in shade, never in direct sun on a hot panel.</li>"
+            "<li>Use a soft brush on cloth, working with the weave. Use a cloth or sponge on "
+            "vinyl.</li>"
+            "<li>Rinse thoroughly. Residue left in a woven top attracts dirt and holds moisture "
+            "against the fabric.</li>"
+            "<li>Let it dry fully raised, then re-proof cloth with a fabric protectant.</li>"
+            "</ul>",
+            "<h2>Things that quietly cause damage</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Avoid</th><th>Why</th></tr></thead><tbody>"
+            "<tr><th>Automatic car washes</th><td>Brushes catch seams and the rear-window "
+            "surround, and high-pressure jets drive water past seals</td></tr>"
+            "<tr><th>Bleach or strong household cleaners</th><td>Attack stitching thread and "
+            "strip the water-repellent finish from cloth</td></tr>"
+            "<tr><th>Glass cleaner on a plastic rear window</th><td>Ammonia clouds and "
+            "yellows plastic curtains. Plastic is not glass and wants a plastic-specific "
+            "polish</td></tr>"
+            "<tr><th>Folding a damp top away</th><td>Creates mildew and sets creases along the "
+            "fold lines, which is where tops split first</td></tr>"
+            "<tr><th>Cleaning in direct sun</th><td>Product dries before it can be rinsed, "
+            "leaving residue bonded into the weave</td></tr>"
+            "</tbody></table></div>",
+            "<h2>The rear window deserves its own attention</h2>",
+            "On older cars the rear window is frequently the reason the top failed in the first "
+            "place. A plastic curtain clouds, then cracks at the fold line, then lets water in. "
+            "Never fold a top with a plastic window in cold weather if you can avoid it, and "
+            "never clean it with anything containing ammonia.",
+            "<h2>When cleaning has run out of road</h2>",
+            "If seams are opening, the fabric has gone stiff and chalky rather than supple, or "
+            "water is getting in even though the top latches properly, you are past maintenance. "
+            "Bring the car to the shop in Monroe and we will tell you honestly whether it needs a "
+            "repair, a new window, or a new top. See our "
+            "<a href=\"convertible-tops.html\">convertible top replacement</a> page.",
+        ],
+    },
+    {
+        "slug": "blog-torn-car-seat-repair.html",
+        "cat": "Seats", "publish": "2026-08-07", "read": "6 min read",
+        "photo": "seat-rebuild-after",
+        "title": "How to repair a torn car seat, and when a repair is the wrong answer",
+        "seo_title": "How to Repair a Torn Car Seat — Repair or Recover? | Auto Tops and Trim",
+        "meta": "Whether a torn car seat can be repaired or needs recovering — how the material, "
+                "the location of the tear and the foam underneath decide it.",
+        "excerpt": "A repair kit can be the right call or a waste of an afternoon. It depends on "
+                   "three things, and the tear itself is only one of them.",
+        "body": [
+            "Whether a torn seat can be repaired depends on three things: what it is made of, "
+            "where the damage is, and what condition the foam underneath is in. Most advice "
+            "online only addresses the first.",
+            "<h2>1. The material decides your options</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Material</th><th>Repairable?</th><th>Reality</th></tr></thead>"
+            "<tbody>"
+            "<tr><th>Cloth</th><td>Sometimes</td>"
+            "<td>Small tears in a flat area can be backed and closed. Colour and weave matching "
+            "on a faded seat is the hard part, and it is usually visible.</td></tr>"
+            "<tr><th>Vinyl</th><td>Often</td>"
+            "<td>Takes filler-and-grain repairs better than most materials. Works well on burns "
+            "and small punctures, less well on long seam splits.</td></tr>"
+            "<tr><th>Leather</th><td>Depends</td>"
+            "<td>A clean cut can be repaired convincingly. Cracked, dried leather cannot — the "
+            "surface around any repair is already failing.</td></tr>"
+            "<tr><th>Seam split</th><td>Usually restitch</td>"
+            "<td>This is not a tear in the material at all. The thread failed. Restitching is "
+            "the correct fix and is generally the cheapest thing a trim shop does.</td></tr>"
+            "</tbody></table></div>",
+            "<h2>2. Where the tear is matters more than its size</h2>",
+            "<ul class=\"ticks\">"
+            "<li><strong>On a flat panel</strong> — the best case. There is material around it to "
+            "work with and little flex.</li>"
+            "<li><strong>On a bolster or edge</strong> — the hardest. This is where you slide in "
+            "and out, so the repair is loaded every time the seat is used.</li>"
+            "<li><strong>On a seam</strong> — usually good news. Restitching is a proper "
+            "structural fix rather than a cosmetic one.</li>"
+            "<li><strong>Over a broken frame or collapsed foam</strong> — the material did not "
+            "fail on its own. Fixing the cover alone guarantees a repeat.</li>"
+            "</ul>",
+            "<h2>3. The foam underneath is the part nobody checks</h2>",
+            "Press either side of the tear. If one side sinks noticeably further, the foam has "
+            "collapsed, and the cover tore because it was being stretched over a shape that no "
+            "longer supports it.",
+            "Repair the cover and leave the foam, and the same seat tears again in the same place "
+            "— usually within a season. Foam replacement is not glamorous, but on a worn driver's "
+            "seat it is frequently the actual repair.",
+            "<h2>What a DIY kit is genuinely good for</h2>",
+            "A vinyl or leather repair kit is a reasonable answer to a cigarette burn, a small "
+            "puncture, or a clean cut on a flat panel of a car you are not precious about. It is "
+            "not a good answer to a split bolster, a long tear, or anything on a vehicle whose "
+            "interior you care about — the repair will be visible and it will move.",
+            "<h2>What we do instead</h2>",
+            "In the shop the seat comes apart. We look at the frame, the foam and the cover as "
+            "three separate questions, restitch what can be restitched, replace foam that has "
+            "collapsed, and recover panels rather than patch them where the finish matters. On a "
+            "classic we chase correct grain, stitch spacing and thread.",
+            "You do not need a full interior to come see us — plenty of our work is one torn "
+            "driver's seat. Bring the vehicle, or just the seat, to the shop in Monroe for a free "
+            "in-person estimate. More on our <a href=\"auto-upholstery.html\">automotive "
+            "upholstery</a> page.",
+        ],
+    },
 ]
 
 
