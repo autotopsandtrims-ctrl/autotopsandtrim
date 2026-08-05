@@ -16,12 +16,14 @@ domain without "www" gets a browser security warning.
 
 VERIFIED CURRENT STATE (checked 2026-08-05, do not assume it has changed)
 - autotopsandtrim.com resolves to THREE A records:
-    3.33.130.190     <- GoDaddy domain forwarding, must go
-    15.197.148.33    <- GoDaddy domain forwarding, must go
+    3.33.130.190     <- GoDaddy parking server, must go
+    15.197.148.33    <- GoDaddy parking server, must go
     216.198.79.1     <- Vercel, this is the only correct one
   Traffic round-robins between all three, so it intermittently hits GoDaddy's
-  forwarding service instead of Vercel, and that service has no certificate for
+  parking service instead of Vercel, and that service has no certificate for
   this domain.
+- In the GoDaddy panel this appears as a SINGLE record: an A record on "@" whose
+  Data column reads "Parked". Deleting that one row removes both bad IPs.
 - www.autotopsandtrim.com is a CNAME to eab5c7f6899029eb.vercel-dns-017.com and
   works correctly. DO NOT TOUCH IT.
 - DNS is hosted at GoDaddy (nameservers ns49.domaincontrol.com and
@@ -52,22 +54,38 @@ There are TWO halves. Both are required. Doing only one will not fix it.
 6. Go to https://dcc.godaddy.com/control/portfolio and open DNS for
    autotopsandtrim.com.
 
-7. FIRST, turn off domain forwarding. This is the step people miss.
-   Look for "Forwarding" (it may be a separate tab, or a section under the DNS
-   records list). If there is a forwarding rule on the domain or the root/@ host,
-   DELETE / DISABLE it.
-   Why this matters: 3.33.130.190 and 15.197.148.33 ARE GoDaddy's forwarding
-   service. If you delete those A records while forwarding is still switched on,
-   GoDaddy will silently put them back and the problem will return.
+7. The DNS panel has been inspected already (2026-08-05). There are exactly TWO
+   A records on "@":
 
-8. Now in the DNS records list, find every A record whose Name/Host is "@".
-   - DELETE the A record pointing to 3.33.130.190
-   - DELETE the A record pointing to 15.197.148.33
-   - KEEP exactly ONE A record for "@", pointing at the IP Vercel showed you in
-     step 5. If the existing one already matches, leave it. If it does not, edit
-     it to match.
-   End state: exactly one "@" A record, and nothing else pointing the apex
-   anywhere else.
+     A   @   216.198.79.1    600 seconds     <- Vercel. KEEP THIS.
+     A   @   Parked          600 seconds     <- DELETE THIS ONE.
+
+   The second row literally shows the word "Parked" in the Data column instead of
+   an IP address. That is GoDaddy's domain-parking record, and it is the entire
+   cause of the problem: it expands to GoDaddy's parking servers 3.33.130.190 and
+   15.197.148.33, which is why an external DNS lookup returns three addresses
+   while the panel only lists two. Its propagation icon is greyed out, unlike the
+   real record's.
+
+   DELETE the "Parked" A record. That is the whole fix on the DNS side.
+
+   If the panel instead shows literal A records for 3.33.130.190 or
+   15.197.148.33, delete those, and also check for a "Forwarding" section and
+   disable any rule there — otherwise GoDaddy will re-create them.
+
+   End state: exactly ONE "@" A record, matching the IP Vercel showed in step 5.
+
+8. Do NOT delete these, which are all present and correct:
+     CNAME  www             -> eab5c7f6899029eb.vercel-dns-017.com
+     MX     @               -> smtp.google.com (priority 1)  ** the shop's email **
+     NS     @               -> ns49 / ns50.domaincontrol.com
+     CNAME  _domainconnect  -> _domainconnect.gd.domaincontrol.com
+     SOA    @
+
+   Note: there are also two TXT records on "@" containing IP addresses
+   (15.197.148.33 and 216.198.79.1). Those are somebody's mistake — IPs pasted
+   into the wrong record type — and they have no effect on routing. LEAVE THEM
+   ALONE; removing them is not part of this task.
 
 9. DO NOT MODIFY ANY OF THE FOLLOWING. Changing these will break the website or
    the shop's email:
