@@ -21,6 +21,23 @@ SITE = "https://www.autotopsandtrim.com"
 EMAIL = "contact@autotopsandtrim.com"
 FORM_ENDPOINT = "https://formspree.io/f/mrpzzdgz"   # TODO: swap for the shop's own form
 
+# Let customers attach photos of the job to the quote request.
+#
+# OFF until BOTH are true, and it is one line to switch on:
+#   1. The form endpoint above is an account the shop actually owns. It is not
+#      today (HANDOFF open item 2). Photos of a customer's vehicle carry their
+#      plate, driveway and often their house — sending those to an unverified
+#      third party is materially worse than sending a name and a phone number.
+#   2. That account is on a PAID Formspree plan. File uploads are not on the
+#      free tier (free is 50 submissions/month, no attachments); the cheapest
+#      plan that accepts files is Personal at $15/mo with 1 GB of storage.
+#      Shipping the input against a free endpoint gives customers a file picker
+#      whose attachment is silently dropped, which is worse than no picker.
+#
+# The markup itself needs no JavaScript — a file input plus the multipart
+# enctype is plain HTML, so this does not touch the zero-JS guarantee.
+FORM_ACCEPTS_FILES = False
+
 with open(os.path.join(HERE, "images.json"), encoding="utf-8") as fh:
     IMAGES = json.load(fh)
 
@@ -270,7 +287,17 @@ def cta(num="05", label="Ready when you are",
 
 
 def quote_form(which="contact"):
-    return f"""<form class="quote" action="{FORM_ENDPOINT}" method="post">
+    # A file input requires the multipart enctype; without it the browser posts
+    # only the filename and the photo never leaves the machine.
+    enctype = ' enctype="multipart/form-data"' if FORM_ACCEPTS_FILES else ""
+    photos = """
+  <label class="filefield">Photos of the job <span class="opt">optional</span>
+    <input type="file" name="Photos" accept="image/*" multiple>
+    <span class="fieldnote">A picture of the tear, the sagging shade or the whole
+      vehicle helps us come back to you faster. It does not replace seeing it in
+      person &mdash; we still quote the frame and foam at the shop.</span>
+  </label>""" if FORM_ACCEPTS_FILES else ""
+    return f"""<form class="quote" action="{FORM_ENDPOINT}" method="post"{enctype}>
   <input type="hidden" name="_subject" value="New estimate request from autotopsandtrim.com">
   <div class="f2">
     <label>First name <input type="text" name="First name" required autocomplete="given-name"></label>
@@ -286,7 +313,7 @@ def quote_form(which="contact"):
     <label>Model <input type="text" name="Model"></label>
   </div>
   <label>What do you need? <textarea name="Project description" rows="5" required
-    placeholder="Convertible top, seats, headliner, boat cushions&hellip;"></textarea></label>
+    placeholder="Convertible top, seats, headliner, boat cushions&hellip;"></textarea></label>{photos}
   <!-- TCPA express written consent. Deliberately NOT `required` and NOT pre-checked:
        consent to marketing texts cannot lawfully be a condition of getting a quote. -->
   <label class="consent">
