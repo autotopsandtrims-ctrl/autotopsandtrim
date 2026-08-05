@@ -365,3 +365,9 @@ a.card:hover{border-color:var(--blue-lt);box-shadow:0 14px 34px rgba(22,52,79,.1
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.01ms !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
 }
+
+/* rating line under the testimonials heading */
+.ratingline{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+  font-size:15px;color:#B9C6D2}
+.ratingline b{color:#fff;font-weight:800;font-size:17px}
+.ratingline .stars{margin:0}
