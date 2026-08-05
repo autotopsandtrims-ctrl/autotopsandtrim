@@ -198,6 +198,31 @@ a.card:hover{border-color:var(--blue-lt);box-shadow:0 14px 34px rgba(22,52,79,.1
   .bento > :nth-child(4){grid-column:span 4}
 }
 
+/* ---- fanned photo stack: overlapping, rotated, white-bordered ---- */
+.fan{display:flex;justify-content:flex-start;align-items:center;
+  overflow-x:auto;overflow-y:hidden;padding:34px var(--gut) 40px;
+  margin-inline:calc(var(--gut) * -1);scrollbar-width:none}
+.fan::-webkit-scrollbar{display:none}
+@media (min-width:900px){.fan{justify-content:center;overflow:visible;margin-inline:0;padding-inline:0}}
+.fan figure{margin:0;flex:none;width:clamp(104px,12vw,158px);aspect-ratio:4/5;
+  background:#fff;padding:7px;border-radius:12px;overflow:hidden;
+  box-shadow:0 12px 28px rgba(20,32,44,.20);transition:transform .35s ease}
+.fan figure img{width:100%;height:100%;object-fit:cover;border-radius:6px}
+.fan figure + figure{margin-left:clamp(-46px,-4vw,-26px)}
+.fan figure:nth-child(1){transform:rotate(-13deg) translateY(14px)}
+.fan figure:nth-child(2){transform:rotate(-9deg)  translateY(4px)}
+.fan figure:nth-child(3){transform:rotate(-6deg)  translateY(-2px)}
+.fan figure:nth-child(4){transform:rotate(-3deg)  translateY(-6px)}
+.fan figure:nth-child(5){transform:rotate(-1deg)  translateY(-8px)}
+.fan figure:nth-child(6){transform:rotate(2deg)   translateY(-8px)}
+.fan figure:nth-child(7){transform:rotate(5deg)   translateY(-5px)}
+.fan figure:nth-child(8){transform:rotate(8deg)   translateY(1px)}
+.fan figure:nth-child(9){transform:rotate(11deg)  translateY(9px)}
+.fan figure:nth-child(10){transform:rotate(14deg) translateY(18px)}
+.fan figure:hover{transform:rotate(0deg) translateY(-14px) scale(1.06);z-index:5;
+  box-shadow:0 20px 40px rgba(20,32,44,.28)}
+@media (prefers-reduced-motion:reduce){.fan figure{transition:none}}
+
 /* ---- masonry: every photo at its own aspect ratio, never cropped ---- */
 .masonry{columns:2;column-gap:12px}
 @media (min-width:760px){.masonry{columns:3;column-gap:16px}}
@@ -347,8 +372,9 @@ a.card:hover{border-color:var(--blue-lt);box-shadow:0 14px 34px rgba(22,52,79,.1
 .infolist .big{font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--ink);display:inline-block}
 .infolist .hours{font-size:15px}
 .infolist .hours th,.infolist .hours td{padding:2px 0}
-.infocol .mapwrap{aspect-ratio:4/3}
-@media (min-width:900px){.infocol .mapwrap{aspect-ratio:1/1}}
+/* wide + short, like the old contact page — not a tall block */
+.infocol .mapwrap{aspect-ratio:16/9}
+@media (min-width:900px){.infocol .mapwrap{aspect-ratio:12/5}}
 
 /* tighter form inside the compact card */
 .formcard .quote{gap:13px}
