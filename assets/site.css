@@ -207,6 +207,50 @@ main{animation:pagein .38s cubic-bezier(.22,.61,.36,1) both}
   @view-transition{navigation:none}
 }
 
+/* ---- scroll-driven reveals -------------------------------------------------
+   Still zero JavaScript: `animation-timeline: view()` drives these off scroll
+   position natively. Wrapped in @supports so browsers without it simply show
+   everything, already in its final state — nothing can get stuck invisible. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion:no-preference){
+    @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+    @keyframes settle{from{opacity:0;transform:translateY(34px) scale(.985)}to{opacity:1;transform:none}}
+
+    .band .stack > *,
+    .feat,.card,.pcard,.svc,.flow-step,.masonry figure,.review,.stat,.t{
+      animation:rise linear both;
+      animation-timeline:view();
+      animation-range:entry 0% entry 46%;
+    }
+    /* containers whose children animate individually must not animate too,
+       or the reveal runs twice and reads as a stutter */
+    .band .stack > .flow,
+    .band .stack > .masonry,
+    .band .stack > .grid,
+    .band .stack > .svclist,
+    .band .stack > .feats,
+    .band .stack > .bento{animation:none}
+    /* bigger blocks get a slightly softer, longer entrance */
+    .svc,.flow-step,.bento > *{
+      animation-name:settle;
+      animation-range:entry 0% entry 58%;
+    }
+    /* the marquee and the hero drive themselves — don't double-animate them */
+    .revtrack,.revmarquee,.hero .stack > *,.hero-media{animation-timeline:auto}
+    .hero .stack > *,.hero-media{animation:none}
+  }
+}
+
+/* soften every interactive surface so nothing snaps */
+a,.btn,.card,.pcard,.tile img,.masonry figure img,.flow-n,.lb-x,.lb-nav{
+  transition:color .2s ease,background-color .22s ease,border-color .22s ease,
+             box-shadow .28s ease,transform .35s cubic-bezier(.22,.61,.36,1),opacity .2s ease}
+@media (prefers-reduced-motion:reduce){
+  a,.btn,.card,.pcard,.tile img,.masonry figure img,.flow-n,.lb-x,.lb-nav{transition:none}
+}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
 /* ---- lightbox (CSS only, :target — back button closes it) ---- */
 .lb-open{display:block;cursor:pointer;position:relative}
 /* .lb MUST stay outside <main>. <main> runs the `pagein` transform animation, and a
@@ -237,31 +281,6 @@ main{animation:pagein .38s cubic-bezier(.22,.61,.36,1) both}
 .lb-prev{left:clamp(6px,1.5vw,20px)}
 .lb-next{right:clamp(6px,1.5vw,20px)}
 @media (max-width:560px){.lb-nav{width:44px;height:44px;font-size:24px}}
-
-/* ---- fanned photo stack: overlapping, rotated, white-bordered ---- */
-.fan{display:flex;justify-content:flex-start;align-items:center;
-  overflow-x:auto;overflow-y:hidden;padding:34px var(--gut) 40px;
-  margin-inline:calc(var(--gut) * -1);scrollbar-width:none}
-.fan::-webkit-scrollbar{display:none}
-@media (min-width:900px){.fan{justify-content:center;overflow:visible;margin-inline:0;padding-inline:0}}
-.fan figure{margin:0;flex:none;width:clamp(104px,12vw,158px);aspect-ratio:4/5;
-  background:#fff;padding:7px;border-radius:12px;overflow:hidden;
-  box-shadow:0 12px 28px rgba(20,32,44,.20);transition:transform .35s ease}
-.fan figure img{width:100%;height:100%;object-fit:cover;border-radius:6px}
-.fan figure + figure{margin-left:clamp(-46px,-4vw,-26px)}
-.fan figure:nth-child(1){transform:rotate(-13deg) translateY(14px)}
-.fan figure:nth-child(2){transform:rotate(-9deg)  translateY(4px)}
-.fan figure:nth-child(3){transform:rotate(-6deg)  translateY(-2px)}
-.fan figure:nth-child(4){transform:rotate(-3deg)  translateY(-6px)}
-.fan figure:nth-child(5){transform:rotate(-1deg)  translateY(-8px)}
-.fan figure:nth-child(6){transform:rotate(2deg)   translateY(-8px)}
-.fan figure:nth-child(7){transform:rotate(5deg)   translateY(-5px)}
-.fan figure:nth-child(8){transform:rotate(8deg)   translateY(1px)}
-.fan figure:nth-child(9){transform:rotate(11deg)  translateY(9px)}
-.fan figure:nth-child(10){transform:rotate(14deg) translateY(18px)}
-.fan figure:hover{transform:rotate(0deg) translateY(-14px) scale(1.06);z-index:5;
-  box-shadow:0 20px 40px rgba(20,32,44,.28)}
-@media (prefers-reduced-motion:reduce){.fan figure{transition:none}}
 
 /* ---- masonry: every photo at its own aspect ratio, never cropped ---- */
 .masonry{columns:2;column-gap:12px}

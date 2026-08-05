@@ -13,6 +13,7 @@ REPO = os.path.dirname(HERE)
 OUT = REPO
 SCRATCH = HERE
 ASSETS = os.path.join(REPO, "assets")
+OUT_JSON = os.path.join(HERE, "images.json")
 
 
 WIDTHS = [480, 800, 1400]

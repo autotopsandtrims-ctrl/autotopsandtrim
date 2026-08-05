@@ -53,20 +53,6 @@ REVIEW_COUNT = 9
 GOOGLE_REVIEWS_URL = "https://share.google/T8GTbx9cswkCKF3PI"
 
 
-FAN_PHOTOS = [
-    "g15-1969-cadillac-profile",
-    "g16-cadillac-convertible-red-interior",
-    "g19-mercedes-gla-interior-work",
-    "custom-motorcycle-seat-upholstery-close-up",
-    "g07-bench-seat-red-piping-in-the-shop",
-    "g10-bel-air-new-carpet-going-in",
-    "g01-camaro-ss-new-convertible-top",
-    "g22-marine-cushions-and-helm-trim",
-    "g17-cadillac-top-and-interior-finished",
-    "g18-camaro-ss-profile",
-]
-
-
 # Every page collects the lightboxes its photos need, flushed before the footer.
 _lightboxes = []
 
@@ -106,18 +92,6 @@ def lightbox_markup():
             f'<div class="lb-inner">{img(base, caption, "(min-width:1200px) 1200px, 96vw")}'
             f'<p class="lb-cap">{caption}{catline}</p></div></div>')
     return "".join(out)
-
-
-def fan_stack():
-    """Overlapping, rotated photo stack — the work spread like a hand of cards."""
-    out = []
-    for b in FAN_PHOTOS:
-        if not has(b):
-            continue
-        lb = _lb_add(b, "Upholstery work by Auto Tops and Trim")
-        out.append(f'<figure><a class="lb-open" href="#{lb}">'
-                   f'{img(b, "Upholstery work by Auto Tops and Trim", "170px")}</a></figure>')
-    return f'<div class="fan">{"".join(out)}</div>'
 
 
 def masonry_tiles(items):
@@ -325,7 +299,7 @@ def service_page(slug, title, desc, eyebrow, h1, intro, hero_photo, sections,
         <a class="btn btn-ghost" href="contact.html">Free estimate</a>
       </div>
     </div>
-    <div class="hero-media">{img(hero_photo, h1, HALF, eager=True)}</div>
+    {f'<div class="hero-media">{img(hero_photo, h1, HALF, eager=True)}</div>' if hero_photo else ''}
   </div>
 </section>
 
@@ -574,7 +548,7 @@ def build_services():
         "Sunroof shades", "Sunroof shade repair in Monroe, NC",
         "When the sliding shade over your sunroof sags, tears or stops retracting, the fabric "
         "is usually the only thing that has failed. We recover the panel you already have.",
-        "headliner-install",
+        None,   # no honest photo exists for this service yet — see HANDOFF
         [("What we repair", ["Sagging or drooping shade fabric",
                              "Torn, split or stained shade panels",
                              "Fabric that has come unbonded from the slider",
@@ -631,7 +605,7 @@ def build_services_index():
          "Seats, headliners, door panels and carpet, from one torn seat to a complete "
          "classic interior built to your spec.",
          ["Seat repair and rebuilds", "Headliners and door panels", "Carpet and sound deadening"]),
-        ("sunroof-shade-repair.html", "Sunroof Shade Repair", "headliner-install",
+        ("sunroof-shade-repair.html", "Sunroof Shade Repair", None,
          "Sagging, torn or stuck sliding sunshade? We recover the panel you already have "
          "instead of replacing the whole sunroof assembly.",
          ["Sagging and torn shades", "Matched to your headliner", "Recover, not replace"]),
@@ -652,8 +626,8 @@ def build_services_index():
     rows = ""
     for i, (href, title, photo, blurb, bullets) in enumerate(cards, 1):
         lis = "".join(f"<li>{b}</li>" for b in bullets)
-        rows += f"""<div class="svc">
-      <div class="svc-media">{img(photo, title, HALF)}</div>
+        rows += f"""<div class="svc{'' if photo else ' nomedia'}">
+      {f'<div class="svc-media">{img(photo, title, HALF)}</div>' if photo else ''}
       <div class="svc-body">
         <span class="svc-n">0{i}</span>
         <h2>{title}</h2>
@@ -730,16 +704,11 @@ def build_gallery():
              "seats, headliners, carpet, boat cushions, aircraft cabins and custom bike seats.", p)
     h += header(p)
     tiles = masonry_tiles(GALLERY)
-    counts = {}
-    for _, _, c in GALLERY:
-        counts[c] = counts.get(c, 0) + 1
-    summary = " &middot; ".join(f"{v} {k.lower()}" for k, v in counts.items())
     h += f"""<section class="band">
   <div class="wrap stack">
     <div class="stack">{shead("01","Gallery")}
       <h1>Work out of the Monroe shop</h1>
-      <p class="lead">{summary}. Every piece here was cut, stitched and fitted in house.</p></div>
-    {fan_stack()}
+      <p class="lead">Every piece here was cut, stitched and fitted in house.</p></div>
     <div class="masonry">{tiles}</div>
   </div>
 </section>

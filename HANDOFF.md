@@ -2,7 +2,7 @@
 
 Read this first in a new chat. Everything needed to continue is in this repo.
 
-**Last updated:** 2026-08-05
+**Last updated:** 2026-08-04
 
 ---
 
@@ -44,7 +44,7 @@ The site is **generated**, not hand-edited. Never edit the `.html` files at the
 repo root — they are overwritten on every build.
 
 ```bash
-python _build/build_pages.py     # regenerates all 15 pages
+python _build/build_pages.py     # regenerates all 16 pages
 python _build/validate.py        # checks every link, image and srcset resolves
 ```
 
@@ -54,6 +54,8 @@ python _build/validate.py        # checks every link, image and srcset resolves
 
 Other tools, only needed if reworking photography:
 - `_build/extract_assets.ps1` — pulls photos/fonts out of the old bundle
+- `_build/import_photos.py` — triages a folder of raw photos into a labelled
+  contact sheet (dedupe, burst grouping, EXIF rotation). Step 1 for new photography.
 - `_build/make_responsive.py` — regenerates 480/800/1400px variants
 - `_build/make_preview.py` — flattens the home page to one self-contained file
 
@@ -81,12 +83,17 @@ The user rejected a redesign once already. The rebuild is about **structure, not
 
 ## Architecture notes
 
-- **15 real pages, real URLs.** The old site was a single-page app where nav
+- **16 real pages, real URLs.** The old site was a single-page app where nav
   changed a JS variable and the URL never moved — which is why the back button
   was broken. That is fixed structurally.
 - **Zero JavaScript.** Nav is a CSS checkbox; the lightbox is CSS `:target`
   (so the back button closes it); transitions are CSS. Everything works with
   scripts disabled.
+- **The lightbox layer must stay outside `<main>`.** `<main>` runs the `pagein`
+  transform animation, and a transform-animated ancestor becomes the containing
+  block for `position:fixed` descendants — which made the overlay size itself to
+  the height of `<main>` instead of the viewport, so photos opened far down the
+  page. `footer(lightbox_markup())` emits it after `</main>`. Do not move it back.
 - **Images:** 480/800/1400px WebP variants served via `srcset`.
   Mobile home page ≈ 430 KB across 11 images, versus 14 MB before.
 - `assets/originals/` holds the 43 recovered master photos — **the uncle lost
@@ -96,16 +103,35 @@ The user rejected a redesign once already. The rebuild is about **structure, not
 
 ## Done
 
-- 15 pages: home, services + 5 service pages, gallery, process, about, contact, blog + 3 articles
+- 16 pages: home, services + 6 service pages, gallery, process, about, contact, blog + 3 articles
 - Site outage fixed (an empty `index.html` had been committed)
 - Phone corrected sitewide; hours corrected (site had said Mon–Fri 8–5, Sat 9–2 — both wrong)
 - Street address added to contact, footer, map and schema
 - All 7 written Google reviews, verbatim, with names and dates. Auto-sliding marquee on a dark band.
-- Click-to-enlarge lightbox on gallery, home recent-work and the fanned stack
-- Fanned photo stack on the gallery
-- Photo-forward bento service cards; alternating service rows; step timeline on process
+- Click-to-enlarge lightbox on gallery and home recent-work
+- Photo-forward bento service cards; alternating service rows
 - Masonry so photos are never cropped
 - Per-page meta, LocalBusiness + AggregateRating + Article schema, sitemap.xml, robots.txt
+
+**2026-08-04**
+
+- **Sunroof shade repair page** (`sunroof-shade-repair.html`) — was open item 4.
+  In nav-adjacent SERVICES list, footer, services index, sitemap and schema.
+  Copy is grounded in the two verbatim Google reviews about this exact repair;
+  the page carries **no photos**, because the 43-photo catalogue has none of this
+  work. Shoot some and it gets a "Recent work" strip for free.
+- **Lightbox centring fixed** — see the architecture note above. Hover cursor is
+  a normal pointer now, not `zoom-in`; the backdrop is `default`, not `zoom-out`.
+- **Process page rebuilt** — flat hairline list replaced with a connected numbered
+  timeline (`.flow`: blue rail, outlined nodes, photo in a third column on desktop),
+  plus a band spelling out what the free estimate covers and a testimonials band.
+- **Gallery simplified** at the user's request — fanned photo stack removed
+  entirely (markup, `FAN_PHOTOS`, `fan_stack()` and the `.fan` CSS are all gone),
+  and the "21 automotive · 6 marine · …" count line dropped.
+- Two latent bugs fixed on the way past: the gallery CTA passed its heading and
+  subcopy positionally into `cta()`'s `num`/`label` slots, so the heading rendered
+  as the tiny numeral; and `make_responsive.py` referenced an undefined `OUT_JSON`
+  and would have crashed with `NameError` the next time anyone ran it.
 
 ---
 
@@ -123,13 +149,33 @@ The user rejected a redesign once already. The rebuild is about **structure, not
 3. **Logo.** User is supplying an SVG or transparent PNG (~600px+). Goes where the
    `AUTO TOPS & TRIM` text sits in the header. Also kills the "AT&T" loading
    placeholder in the old bundle.
-4. **Sunroof shade repair service page.** 2 of 9 Google reviews are specifically
-   about this and one customer drove an hour for it. Not mentioned anywhere on
-   the site. Real demand, no competition, no page to rank.
-5. **~100 photos in Google Drive** — folder `1K6ndwfHhQg-N0GH1xWcbeceo9UjmETuA`
-   ("Hopeton images resaves"). Mostly **HEIC, which Chrome cannot display**, with
-   visible duplicates. Plan: download → dedupe by hash → convert to WebP →
-   numbered contact sheet for the user to label.
+4. **Photos for the sunroof page.** The page ships with no photography because
+   the catalogue has none of that repair. A few before/after shots of a sagging
+   shade would finish it.
+5. **Photos in Google Drive** — folder `1K6ndwfHhQg-N0GH1xWcbeceo9UjmETuA`
+   ("Hopeton images resaves"), 100+ files (the listing pages).
+   **The importer is written and waiting: `_build/import_photos.py`.** It dedupes
+   by SHA-256, groups near-identical bursts by average-hash, fixes EXIF rotation,
+   writes numbered review WebPs and a `contact-sheet.html` for the user to label.
+
+   ⚠️ **Blocked on getting the files onto disk.** The Drive MCP returns file
+   content as base64 through the conversation, so pulling 100 photos that way is
+   not viable. Ask the user to download the folder (Drive → right-click → Download
+   gives a zip), unzip it, then run:
+   `python _build/import_photos.py --src "C:/path/to/unzipped"`
+
+   📌 **The "HEIC" premise is probably wrong.** Drive reports `mimeType:
+   image/jpeg` for every file in that folder, including the ones named `.HEIC` —
+   Drive sniffs type from content, so these look like JPEG bytes carrying a stale
+   extension (the folder is named "resaves"). If so, Chrome can display them and
+   no HEIC conversion is needed. `import_photos.py` prints each file's **real**
+   format, which settles it in one run. It also registers `pillow-heif` if
+   installed, so genuine HEICs still work.
+
+   Confirmed duplicates already visible in the listing: `957048668919016666.JPG`
+   appears 3×, and `3577465635962975728.JPG`, `1016386281106343502.HEIC`,
+   `4817363804744854242.HEIC`, `7048509423189683054.JPG` and
+   `7757101485305033643.HEIC` each appear 2× at identical byte sizes.
 6. **Merge `rebuild` → `main`** once approved. That is the go-live moment.
 7. Google Business Profile is locked out (forgotten login) — recovery is the
    highest-leverage marketing task; it drives the local map pack.
