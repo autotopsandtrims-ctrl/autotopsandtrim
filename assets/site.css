@@ -171,6 +171,50 @@ a.card{text-decoration:none;color:inherit}
 a.card:hover{border-color:var(--blue-lt);box-shadow:0 14px 34px rgba(22,52,79,.10)}
 .tint .card{background:var(--white)}
 
+/* ---- photo card with gradient overlay ---- */
+.pcard{position:relative;overflow:hidden;display:flex;align-items:flex-end;
+  text-decoration:none;color:#fff;min-height:290px;isolation:isolate}
+.pcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
+  transition:transform .5s ease}
+.pcard::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to top,rgba(20,25,31,.90) 0%,rgba(20,25,31,.58) 38%,rgba(20,25,31,.14) 72%,rgba(20,25,31,.05) 100%)}
+.pcard:hover img{transform:scale(1.04)}
+.pcard .cat{position:absolute;top:16px;left:18px;z-index:2;font-size:10.5px;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;color:#fff}
+.pcard .pbody{position:relative;z-index:2;padding:20px;display:flex;flex-direction:column;gap:7px}
+.pcard h3{color:#fff;font-size:clamp(19px,1.7vw,23px)}
+.pcard p{color:rgba(255,255,255,.86);font-size:14.5px;line-height:1.55;max-width:38ch}
+.pcard .go{margin-top:4px;font-size:13px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--pale)}
+.pcard .go::after{content:" \2192"}
+
+/* asymmetric bento: 2 + 2 + tall, then 1 wide */
+.bento{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:760px){
+  .bento{grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(230px,auto)}
+  .bento > :nth-child(1){grid-column:span 2}
+  .bento > :nth-child(2){grid-column:span 2}
+  .bento > :nth-child(3){grid-column:span 2;grid-row:span 2}
+  .bento > :nth-child(4){grid-column:span 4}
+}
+
+/* ---- mosaic: recent work, varied tile sizes ---- */
+.mosaic{display:grid;gap:12px;grid-template-columns:repeat(2,1fr);grid-auto-rows:118px}
+.mosaic figure{margin:0;position:relative;overflow:hidden;background:#EDF1F5}
+.mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.mosaic figure:hover img{transform:scale(1.05)}
+.mosaic figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 10px;
+  font-size:11.5px;font-weight:700;letter-spacing:.04em;color:#fff;
+  background:linear-gradient(to top,rgba(20,25,31,.86),rgba(20,25,31,0))}
+.mosaic .t-wide{grid-column:span 2}
+.mosaic .t-tall{grid-row:span 2}
+@media (min-width:700px){
+  .mosaic{grid-template-columns:repeat(4,1fr);grid-auto-rows:150px}
+  .mosaic .t-big{grid-column:span 2;grid-row:span 2}
+  .mosaic .t-wide{grid-column:span 2;grid-row:span 1}
+  .mosaic .t-tall{grid-column:span 1;grid-row:span 2}
+}
+
 /* ---- gallery tiles ---- */
 .tile{margin:0;background:var(--white);border:1px solid var(--rule)}
 .tile img{width:100%;aspect-ratio:4/3;object-fit:cover}
@@ -189,11 +233,14 @@ a.card:hover{border-color:var(--blue-lt);box-shadow:0 14px 34px rgba(22,52,79,.1
 .revrail > *{scroll-snap-align:start}
 @media (min-width:900px){.revrail{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);
   overflow:visible;margin-inline:0;padding-inline:0}}
-.review{border-top:3px solid var(--blue-lt);padding-top:20px;display:flex;flex-direction:column;gap:20px;
-  max-width:44ch}
+.review{padding-top:22px;display:flex;flex-direction:column;gap:18px;max-width:44ch;position:relative}
+.review::before{content:"";position:absolute;top:0;left:0;width:44px;height:3px;background:var(--blue-lt)}
 .review blockquote{margin:0;font-size:17px;line-height:1.68}
-.review .who{font-size:13.5px;font-weight:700;letter-spacing:.04em}
+.review .who{font-size:13.5px;font-weight:700;letter-spacing:.04em;margin-top:auto}
 .review .who span{font-weight:500;color:var(--ink-60)}
+/* centred variant */
+.revrail.mid .review{text-align:center;align-items:center;margin-inline:auto}
+.revrail.mid .review::before{left:50%;transform:translateX(-50%)}
 
 /* ---- faq ---- */
 .faq{border-top:1px solid var(--rule)}
