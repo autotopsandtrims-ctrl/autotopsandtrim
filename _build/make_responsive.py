@@ -39,7 +39,12 @@ for fname in names:
 
     before += os.path.getsize(path)
     with Image.open(path) as im:
-        im = im.convert("RGB")
+        # Photographs flatten to RGB, but anything with real transparency — the
+        # logos, for instance — must keep its alpha channel. WebP supports it.
+        # Forcing RGB here silently composited the logo onto black and produced a
+        # solid block where the transparent background should have been.
+        has_alpha = im.mode in ("RGBA", "LA") or "transparency" in im.info
+        im = im.convert("RGBA" if has_alpha else "RGB")
         ow, oh = im.size
         variants = []
         for w in WIDTHS:

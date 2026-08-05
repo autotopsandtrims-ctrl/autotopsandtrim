@@ -684,6 +684,48 @@
    }
   ]
  },
+ "logo-single-line-light": {
+  "w": 972,
+  "h": 422,
+  "variants": [
+   {
+    "w": 480,
+    "h": 208,
+    "file": "logo-single-line-light-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 347,
+    "file": "logo-single-line-light-800.webp"
+   },
+   {
+    "w": 972,
+    "h": 422,
+    "file": "logo-single-line-light-972.webp"
+   }
+  ]
+ },
+ "logo-stacked-light": {
+  "w": 973,
+  "h": 527,
+  "variants": [
+   {
+    "w": 480,
+    "h": 260,
+    "file": "logo-stacked-light-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 433,
+    "file": "logo-stacked-light-800.webp"
+   },
+   {
+    "w": 973,
+    "h": 527,
+    "file": "logo-stacked-light-973.webp"
+   }
+  ]
+ },
  "marine-boat-cushions-canvas": {
   "w": 675,
   "h": 1200,

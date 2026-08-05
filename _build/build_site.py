@@ -196,8 +196,13 @@ def header(active):
          lockup too tall and too busy. Both facts still appear in the footer, the
          home hero eyebrow, the About page and the LocalBusiness schema, so
          nothing is lost for SEO or for a reader. -->
-    <a class="brand" href="index.html">
-      <span class="brand-name">AUTO TOPS <em>&amp;</em> TRIM</span>
+    <!-- LOGO TRIAL. Header carries the single-line candidate, the footer carries
+         the stacked one, so both can be judged in real context side by side.
+         Source files are white-background JPGs; they were knocked out to
+         transparency and remapped to white + #5E9BD9 so they read on the dark
+         surfaces. TO REVERT: put the <span class="brand-name"> back. -->
+    <a class="brand" href="index.html" aria-label="Auto Tops and Trim, home">
+      {img('logo-single-line-light', 'Auto Tops and Trim', '220px', eager=True)}
     </a>
     <input type="checkbox" id="navtoggle" class="navtoggle" aria-hidden="true">
     <label for="navtoggle" class="burger" aria-label="Menu"><span></span><span></span><span></span></label>
@@ -227,7 +232,7 @@ def footer(lightbox=""):
 <footer class="site-foot">
   <div class="foot-in">
     <div class="foot-col">
-      <p class="foot-brand">AUTO TOPS <em>&amp;</em> TRIM</p>
+      <p class="foot-brand">{img('logo-stacked-light', 'Auto Tops and Trim', '260px')}</p>
       <p>Custom upholstery in Monroe, North Carolina since 1989. Automotive, marine,
          aviation and motorcycle interiors.</p>
       <p><a class="foot-phone" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></p>
