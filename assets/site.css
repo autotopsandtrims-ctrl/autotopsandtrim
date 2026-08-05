@@ -708,3 +708,77 @@ html{scroll-behavior:smooth}
   .foot-area{font-size:12.5px;margin-top:6px}
   .foot-bar{padding:11px var(--gut);font-size:11.5px}
 }
+
+/* ============================================================================
+   MOBILE PASS 2 — refinements. Still nothing applies at 900px and up.
+   ========================================================================== */
+@media (max-width:899px){
+
+  /* --- header was the same charcoal as the hero, so the two merged into one
+         slab. A hairline plus the photo moving to the top breaks them apart. --- */
+  .site-head{box-shadow:0 1px 0 rgba(255,255,255,.14)}
+
+  /* --- hero: photo first, copy under it --- */
+  .hero{padding:0 0 26px}
+  .hero .wrap{gap:0;padding-inline:0}
+  .hero-media{order:-1;margin-bottom:18px}
+  .hero-media .slideshow{border-radius:0;aspect-ratio:4/3}
+  .hero .stack{padding-inline:var(--gut)}
+
+  /* --- subtext was competing with the headings; drop it back --- */
+  .lead{font-size:14px;line-height:1.5}
+  h1{font-size:clamp(25px,6.6vw,30px)}
+  h2{font-size:clamp(20px,5.4vw,25px)}
+  h3{font-size:16px}
+  .band{padding:28px 0}
+  .stack{gap:11px}
+
+  /* --- centre the section intros; reads calmer on a narrow screen --- */
+  .band .wrap > .stack:first-child{text-align:center;align-items:center}
+  .band .wrap > .stack:first-child .shead{justify-content:center}
+  .band .wrap > .stack:first-child .lead{margin-inline:auto}
+  .hero .stack{text-align:center;align-items:center}
+  .hero .shead{justify-content:center}
+  .hero .btnrow{width:100%}
+
+  /* --- scroll-driven reveals are the "choppy" feeling on phones --- */
+  .band .stack > *,.feat,.card,.pcard,.svc,.flow-step,
+  .masonry figure,.review,.stat,.t{animation:none !important}
+
+  /* --- services page --- */
+  .svclist{gap:20px}
+  .svc{gap:11px}
+  .svc-body{gap:8px;align-items:center;text-align:center}
+  .svc-body .ticks{text-align:left}
+  .svc-n{font-size:11px}
+  .svc-body h2{font-size:21px}
+
+  /* --- footer: four stacked blocks became three tight lines --- */
+  .foot-in{display:block;padding:20px var(--gut) 16px;text-align:center}
+  .foot-col{margin-bottom:13px}
+  .foot-col:last-child{margin-bottom:0}
+  /* the blurb paragraph; phone and email are the 3rd and 4th and stay */
+  .foot-col:first-child p:nth-of-type(2){display:none}
+  .foot-brand{font-size:15px;margin-bottom:6px}
+  .foot-h{display:none}
+  .foot-col ul{display:flex;flex-direction:row;flex-wrap:wrap;
+    justify-content:center;gap:0 14px}
+  .site-foot li a{min-height:24px;font-size:13px}
+  .foot-phone{font-size:17px;font-weight:800}
+  .site-foot .hours{margin-inline:auto}
+  .site-foot .hours th,.site-foot .hours td{font-size:12.5px;padding:0 5px}
+  .foot-area{font-size:12.5px;margin-top:5px}
+  .foot-bar{padding:9px var(--gut);font-size:11px}
+
+  /* --- contact page --- */
+  .contact-head{text-align:center}
+  .contact-head .shead{justify-content:center}
+  .formcard{padding:15px 14px}
+  .quote{gap:9px}
+  .quote label{font-size:12px}
+  .quote input,.quote textarea{padding:9px 10px}
+  .quote textarea{min-height:80px}
+  .consent{font-size:12px}
+  .infolist li{padding:9px 0}
+  .mapwrap{aspect-ratio:16/11}
+}
