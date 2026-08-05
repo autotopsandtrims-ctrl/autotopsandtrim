@@ -154,7 +154,14 @@ h3{font-size:clamp(18px,1.5vw,21px);letter-spacing:-.015em;line-height:1.2}
 @media (min-width:640px){.feats{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:1000px){.feats{grid-template-columns:repeat(4,1fr)}}
 .feat{display:flex;flex-direction:column;gap:10px;padding-left:22px;border-left:1px solid var(--rule)}
-.feat .big{font-size:38px;font-weight:800;line-height:1;color:var(--rule);letter-spacing:-.04em}
+/* numeral was var(--rule) #D9E2ED, which is 1.12:1 on a tint band — unreadable.
+   --blue is 4.5:1 on tint and 5.2:1 on white, and stays inside the locked palette. */
+.feat .big{font-size:clamp(38px,3.4vw,46px);font-weight:800;line-height:1;
+  color:var(--blue);letter-spacing:-.04em}
+.dark .feat .big{color:var(--pale)}
+.dark .feat{border-left-color:rgba(255,255,255,.22)}
+/* --rule is nearly the tint colour itself, so hairlines vanish on tinted bands */
+.tint .feat,.tint .faq,.tint .faq details{border-color:#C3D2E3}
 .feat h3{font-size:18px}
 .feat p{font-size:15px;color:var(--ink-70);line-height:1.62}
 
