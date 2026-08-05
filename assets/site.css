@@ -782,3 +782,66 @@ html{scroll-behavior:smooth}
   .infolist li{padding:9px 0}
   .mapwrap{aspect-ratio:16/11}
 }
+
+/* ============================================================================
+   MOBILE PASS 3 — corrections. Still nothing applies at 900px and up.
+   ========================================================================== */
+@media (max-width:899px){
+
+  /* --- hero photo: back inside the gutter so the rounded corners read --- */
+  .hero{padding:18px 0 24px}
+  .hero .wrap{padding-inline:var(--gut);gap:16px}
+  .hero .stack{padding-inline:0}
+  .hero-media{order:-1;margin-bottom:2px}
+  .hero-media .slideshow,.hero-media img{border-radius:var(--r-media)}
+  .hero-media .slideshow{aspect-ratio:4/3}
+
+  /* --- CTA band: the micro-line was pure noise on a narrow screen --- */
+  .microline{display:none}
+  .band.tint2 .lead{font-size:13.5px}
+  .band.tint2 h2{font-size:clamp(19px,5vw,23px)}
+
+  /* --- why choose us / estimate columns --- */
+  .feats{gap:13px}
+  .feat{padding-left:13px}
+  .feat .big{font-size:25px}
+  .feat h3{font-size:15.5px}
+  .feat p{font-size:13.5px;line-height:1.48}
+
+  /* --- service rows read wrong centred; put them back left --- */
+  .svc-body{align-items:flex-start;text-align:left}
+  .svc-body h2{font-size:20px}
+  .svc-body .lead{font-size:13.5px}
+  .svc-body .btn{align-self:stretch;text-align:center}
+
+  /* --- by the numbers: one row, not a 2x2 block --- */
+  .stats{grid-template-columns:repeat(4,1fr);gap:8px}
+  .stat b{font-size:clamp(17px,4.6vw,22px)}
+  .stat span{font-size:8.5px;letter-spacing:.07em;line-height:1.25}
+
+  /* --- contact details as a tile grid, like the reference --- */
+  .infolist{display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+    border:1px solid var(--rule);border-radius:var(--r-ctl);overflow:hidden}
+  .infolist li{padding:11px 12px;border-bottom:1px solid var(--rule);
+    border-right:1px solid var(--rule)}
+  .infolist li::before{display:none}
+  .infolist li:nth-child(2n){border-right:0}
+  .infolist li:nth-last-child(-n+2){border-bottom:0}
+  .infolist .k{font-size:9.5px;margin-bottom:2px}
+  .infolist .v{font-size:13.5px;line-height:1.4;word-break:break-word}
+  .infolist .big{font-size:16px}
+  .infolist .hours{font-size:12px}
+  .infolist .hours th,.infolist .hours td{padding:0}
+
+  /* --- footer: organised sections like the reference, not one long stack --- */
+  .foot-in{display:block;text-align:left;padding:20px var(--gut) 14px}
+  .foot-col{margin-bottom:0;padding:12px 0;border-top:1px solid rgba(255,255,255,.11)}
+  .foot-col:first-child{border-top:0;padding-top:0}
+  .foot-col:first-child p:nth-of-type(2){display:block;font-size:13px;margin-top:4px}
+  .foot-h{display:block;font-size:10.5px;margin-bottom:7px;color:#fff}
+  .foot-col ul{display:grid;grid-template-columns:repeat(2,1fr);
+    gap:1px 14px;justify-content:start}
+  .site-foot li a{min-height:25px;font-size:13px}
+  .site-foot .hours{margin-inline:0}
+  .foot-phone{font-size:19px}
+}
