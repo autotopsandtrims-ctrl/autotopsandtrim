@@ -2313,7 +2313,9 @@ POSTS = [
     {
         "slug": "blog-bimini-top-replacement.html",
         "cat": "Marine", "publish": "2026-08-10", "read": "5 min read",
-        "photo": "marine-boat-cushions-canvas",
+        # NOT marine-boat-cushions-canvas or g22 — both are the same photograph as
+        # marine-seating-and-interior-upholstery (see the duplicate map above GALLERY).
+        "photo": "boat-upholstery-projects-at-the-shop",
         "title": "Bimini top replacement: measuring, bows and fabric choice",
         "seo_title": "Bimini Top Replacement: Bows, Measuring and Fabric | Auto Tops and Trim",
         "meta": "Replacing a bimini top — how bow count and frame width decide fit, which fabric "
@@ -2368,7 +2370,7 @@ POSTS = [
     {
         "slug": "blog-boat-seat-repair.html",
         "cat": "Marine", "publish": "2026-08-11", "read": "5 min read",
-        "photo": "g22-marine-cushions-and-helm-trim",
+        "photo": "marine-seating-and-interior-upholstery",
         "title": "Boat seat repair: tears, seams and the foam nobody checks",
         "seo_title": "Boat Seat Repair: Vinyl Tears, Seams and Foam | Auto Tops and Trim",
         "meta": "Repairing vinyl boat seats — which damage patches successfully, why seams fail "
@@ -2422,7 +2424,9 @@ POSTS = [
     {
         "slug": "blog-marine-vinyl-buying-guide.html",
         "cat": "Marine", "publish": "2026-08-11", "read": "6 min read",
-        "photo": "marine-canvas-cushions",
+        # NOT marine-canvas-cushions — despite the name that photo is a classic car
+        # rear bench seat, not marine at all.
+        "photo": "upholstery-materials-and-marine-project-parts",
         "title": "Marine vinyl: what to look for and what the grades actually mean",
         "seo_title": "Marine Grade Vinyl: What to Look For in Boat Upholstery Fabric",
         "meta": "What makes a vinyl marine grade — UV stabilisation, mildew resistance, "
@@ -2527,6 +2531,544 @@ POSTS = [
             "If a dealer has quoted you for a sunroof assembly because the shade sags, it is "
             "worth a second opinion before you spend that. Free in-person estimate at the shop in "
             "Monroe.",
+        ],
+    },
+
+    # ---- BATCH 4: the rest --------------------------------------------------
+    {
+        "slug": "blog-convertible-top-cost-by-model.html",
+        "cat": "Convertible Tops", "publish": "2026-08-12", "read": "6 min read",
+        "photo": "g18-camaro-ss-profile",
+        "title": "Convertible top replacement by model: what makes some cars cost more",
+        "seo_title": "Convertible Top Replacement Cost by Model | Auto Tops and Trim",
+        "meta": "Mustang, Beetle, Camaro, Corvette, Miata, Sebring and more — what makes each "
+                "convertible top job easy or awkward, and which factors drive the estimate.",
+        "excerpt": "Deliberately one page rather than twelve near-identical ones. Here is what "
+                   "changes between models, and why some cars are simply more work.",
+        "body": [
+            "People search for convertible top costs by model, and most sites answer with a "
+            "dozen near-identical pages and a made-up number on each. We would rather do this "
+            "once, properly, and be honest about what actually differs.",
+            "<h2>What genuinely varies between models</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Factor</th><th>Why it moves the price</th></tr></thead><tbody>"
+            "<tr><th>Original material</th><td>A car that came with cloth costs more to keep "
+            "correct than one that came with pinpoint vinyl</td></tr>"
+            "<tr><th>Rear window type</th><td>Heated glass is a different job from a plastic "
+            "curtain, and some models offered both</td></tr>"
+            "<tr><th>Number of panels</th><td>Some tops are a single skin; others have separate "
+            "quarter panels and a headliner of their own</td></tr>"
+            "<tr><th>Top well and trim</th><td>How much interior trim has to come out to reach "
+            "the attachment points</td></tr>"
+            "<tr><th>Mechanism</th><td>Manual, power, or semi-automatic with sensors that need "
+            "resetting</td></tr>"
+            "<tr><th>Pad and bow condition</th><td>Independent of model &mdash; this is about "
+            "how the individual car has lived</td></tr>"
+            "</tbody></table></div>",
+            "<h2>Commonly asked-about models</h2>",
+            "<ul class=\"ticks\">"
+            "<li><strong>Ford Mustang</strong> — well-supported, materials readily available, "
+            "and both glass and plastic rear windows exist across the generations.</li>"
+            "<li><strong>Chevrolet Camaro</strong> — similar story. We have done these; there is "
+            "one in the <a href=\"gallery.html\">gallery</a>.</li>"
+            "<li><strong>Chevrolet Corvette (C5 era)</strong> — straightforward top, and again "
+            "one we have in the gallery.</li>"
+            "<li><strong>VW Beetle</strong> — the later cars have a heavily insulated multi-layer "
+            "top, which is more material and more work than it looks.</li>"
+            "<li><strong>Mazda Miata</strong> — one of the more accessible jobs, and a very "
+            "common candidate for a glass-window upgrade where the frame allows.</li>"
+            "<li><strong>Chrysler Sebring</strong> — plentiful, and the rear window is usually "
+            "the reason it is in the shop.</li>"
+            "<li><strong>Jeep Wrangler</strong> — a soft top rather than a convertible top in the "
+            "traditional sense; different hardware, different expectations.</li>"
+            "<li><strong>Porsche, BMW, Audi, Mercedes</strong> — generally cloth from the "
+            "factory, frequently Twillfast grade, and the mechanisms are more involved.</li>"
+            "</ul>",
+            "<h2>Why we do not publish a price per model</h2>",
+            "Because it would be a number we invented. Two identical cars can differ by a wide "
+            "margin depending on whether the pads have collapsed, whether the bows are straight, "
+            "and whether the previous top was fitted properly.",
+            "A number that ignores those is the kind of quote customers bring us from elsewhere "
+            "and then discover was for the fabric only. We would rather tell you the six things "
+            "above and then price your actual car.",
+            "<h2>Getting a real number</h2>",
+            "Bring the car to Monroe. We put the top up and down, look at the pads, the bows and "
+            "the window, show you material samples, and give you an itemised estimate at no "
+            "charge — with the fabric, the window and any frame work listed separately. See our "
+            "<a href=\"convertible-tops.html\">convertible top replacement</a> page, or read "
+            "<a href=\"blog-convertible-top-materials-compared.html\">how the materials "
+            "compare</a>.",
+        ],
+    },
+    {
+        "slug": "blog-soft-top-replacement-jeep-miata.html",
+        "cat": "Convertible Tops", "publish": "2026-08-12", "read": "5 min read",
+        "photo": "g01-camaro-ss-new-convertible-top",
+        "title": "Soft top replacement: how Jeeps and roadsters differ from a classic convertible",
+        "seo_title": "Jeep and Miata Soft Top Replacement — What Differs | Auto Tops and Trim",
+        "meta": "Soft tops on Jeeps and small roadsters are a different job from a classic "
+                "convertible top. Window types, frames, fit and what to expect.",
+        "excerpt": "A Jeep soft top and a classic convertible top share a name and almost "
+                   "nothing else. Different frames, different windows, different failure modes.",
+        "body": [
+            "\"Soft top\" and \"convertible top\" get used interchangeably, but on a Jeep or a "
+            "small roadster the job is genuinely different from re-topping a classic convertible.",
+            "<h2>Jeep-style soft tops</h2>",
+            "<ul class=\"ticks\">"
+            "<li><strong>Zip-out windows.</strong> Large clear vinyl panels that unzip, which "
+            "means zips are a wear item and often the first failure.</li>"
+            "<li><strong>Frame-and-fabric rather than bow-and-pad.</strong> There are no pads in "
+            "the traditional sense, so the classic collapsed-pad failure does not apply.</li>"
+            "<li><strong>Designed to come off entirely.</strong> That means more fasteners, and "
+            "more places for a top to be fitted slightly wrong.</li>"
+            "<li><strong>Fit is tension-driven.</strong> A top that seems too small is usually "
+            "cold, not wrong &mdash; these fit far more easily warm.</li>"
+            "</ul>",
+            "The most common complaint we hear is wind noise, and it is nearly always a fit or "
+            "seal issue rather than a fabric one.",
+            "<h2>Small roadsters</h2>",
+            "Roadster tops are compact, tightly packaged and stack into a very small well. That "
+            "creates two characteristic problems:",
+            "<ul class=\"ticks\">"
+            "<li>The rear window folds hard every time the top drops, so plastic curtains crack "
+            "at the fold early. This is the single most common reason a roadster top gets "
+            "replaced.</li>"
+            "<li>Because the stack space is tight, fitting a heavier or thicker material than "
+            "the car was designed for can stop the top stowing correctly.</li>"
+            "</ul>",
+            "Where the frame allows it, converting to a heated glass window is a genuine upgrade "
+            "on these cars — it removes the failure mode entirely. Whether it is possible depends "
+            "on the frame and the well, which is a question for the car being in front of us.",
+            "<h2>What stays the same across all of them</h2>",
+            "<ul class=\"ticks\">"
+            "<li>Never fold a top that is wet or cold</li>"
+            "<li>Rot-proof thread outlasts the fabric; ordinary thread does not</li>"
+            "<li>A top fitted over a bent or seized frame will never sit right</li>"
+            "<li>Ammonia-based glass cleaner clouds plastic windows</li>"
+            "</ul>",
+            "<h2>Bring it by</h2>",
+            "Whether it is a Wrangler, a roadster or a classic, we quote the fabric, the window "
+            "and the frame as three separate questions. Free in-person estimate at the shop in "
+            "Monroe. See our <a href=\"convertible-tops.html\">convertible top replacement</a> "
+            "page.",
+        ],
+    },
+    {
+        "slug": "blog-cracked-leather-seats.html",
+        "cat": "Seats", "publish": "2026-08-12", "read": "5 min read",
+        "photo": "g09-truck-cab-black-seat-red-stitch",
+        "title": "Cracked leather seats: what conditioner can and cannot do",
+        "seo_title": "Cracked Leather Car Seats: Can They Be Saved? | Auto Tops and Trim",
+        "meta": "Why leather car seats crack, whether conditioner reverses it, and how to tell "
+                "surface crazing from structural failure that needs a panel replaced.",
+        "excerpt": "Conditioner prevents cracking. It does not reverse it. Knowing which stage "
+                   "you are at decides whether you are maintaining or replacing.",
+        "body": [
+            "Cracked leather is the most common thing people ask us to fix and the one where "
+            "expectations most often need managing. The short version: conditioner is prevention, "
+            "not cure.",
+            "<h2>Why automotive leather cracks</h2>",
+            "Most modern automotive leather is finished — it has a pigmented topcoat over the "
+            "hide. That coat is what you actually touch, and it is what cracks first.",
+            "Heat cycles are the driver. A car interior in a Carolina summer swings through an "
+            "enormous temperature range, the hide expands and contracts under a topcoat that "
+            "moves differently, and eventually the coat crazes. UV accelerates all of it, which "
+            "is why the driver's seat and anything near a window goes first.",
+            "<h2>The three stages, and what each responds to</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Stage</th><th>What you see</th><th>What helps</th></tr></thead>"
+            "<tbody>"
+            "<tr><th>1. Drying</th><td>Dull, slightly stiff, no cracks yet</td>"
+            "<td>Cleaning and conditioning genuinely works here. This is the stage worth acting "
+            "in.</td></tr>"
+            "<tr><th>2. Surface crazing</th><td>A fine web of lines in the topcoat; the hide "
+            "underneath is intact</td>"
+            "<td>Cleaning and recolouring can make a real difference. Conditioner alone will "
+            "not remove the lines.</td></tr>"
+            "<tr><th>3. Structural cracking</th><td>Cracks through to the hide, edges lifting, "
+            "possibly splitting</td>"
+            "<td>Nothing topical helps. The panel needs replacing.</td></tr>"
+            "</tbody></table></div>",
+            "<h2>The honest problem with filling cracks</h2>",
+            "You can fill and recolour cracks, and immediately afterwards it looks good. The "
+            "difficulty is that cracking means the whole panel has aged the same way. The filled "
+            "cracks hold, and new ones appear alongside them, because the underlying condition "
+            "was never addressed.",
+            "That is why we tend to steer people towards replacing a panel rather than filling a "
+            "badly cracked one — it is the difference between a repair and a subscription.",
+            "<h2>What conditioner is actually for</h2>",
+            "Conditioning a seat that has not cracked yet is genuinely worthwhile and cheap. "
+            "Clean first — conditioner over dirt drives the dirt in — then condition, and do it "
+            "before summer rather than after.",
+            "Parking out of direct sun and using a sunshade does more for leather longevity than "
+            "any product.",
+            "<h2>Replacing one panel rather than a whole interior</h2>",
+            "If the outer bolster of the driver's seat has failed and everything else is sound, "
+            "that panel can be replaced on its own. Matching an aged interior is the hard part, "
+            "and we will tell you honestly how close we expect to get before starting.",
+            "Bring the vehicle, or the seat, to the shop in Monroe. More on our "
+            "<a href=\"auto-upholstery.html\">automotive upholstery</a> page, or read our guide "
+            "to <a href=\"blog-leather-car-seat-repair.html\">leather seat repair</a>.",
+        ],
+    },
+    {
+        "slug": "blog-seat-foam-replacement.html",
+        "cat": "Seats", "publish": "2026-08-13", "read": "5 min read",
+        "photo": "services-strip-3",
+        "title": "Why your seat is uncomfortable: it is almost always the foam",
+        "seo_title": "Car Seat Foam Replacement: Why Old Seats Sag | Auto Tops and Trim",
+        "meta": "Sagging, lopsided or uncomfortable car seats are usually collapsed foam, not a "
+                "worn cover. How foam fails and why recovering without replacing it disappoints.",
+        "excerpt": "A seat that looks fine and feels wrong has a foam problem. Recovering it "
+                   "without addressing that gives you a beautiful seat that is still uncomfortable.",
+        "body": [
+            "People come to us because a seat looks worn. They stay because we point out it also "
+            "<em>feels</em> wrong, and the two have different causes.",
+            "<h2>How seat foam fails</h2>",
+            "Automotive seat foam is polyurethane, and it does not wear evenly. It compresses "
+            "where the load is — the outer bolster you slide across, and the section under your "
+            "hip — while the rest stays close to original.",
+            "The result is a seat that has quietly changed shape. It tips you slightly to one "
+            "side, it no longer supports under the thigh, and long drives become tiring in a way "
+            "that is hard to point at.",
+            "<h2>The tests</h2>",
+            "<ul class=\"ticks\">"
+            "<li><strong>Palm test.</strong> Press either side of the seat base with equal "
+            "force. If one side sinks noticeably further, the foam has collapsed there.</li>"
+            "<li><strong>Sit and look.</strong> Have someone check whether you sit level. A tilt "
+            "you have grown used to is very common.</li>"
+            "<li><strong>Edge test.</strong> Press the front edge of the base. It should resist. "
+            "If it folds away, the section carrying the most load is gone.</li>"
+            "<li><strong>Height test.</strong> If you are sitting lower than you used to, that is "
+            "compression, not your imagination.</li>"
+            "</ul>",
+            "<h2>Why recovering alone disappoints</h2>",
+            "A cover is cut to fit a shape. Stretch a new cover over collapsed foam and you get "
+            "two problems: it looks slightly wrong because the shape underneath is wrong, and it "
+            "wears out early in exactly the same place, because the cover is being stretched "
+            "over a hollow.",
+            "This is the most common reason someone is disappointed by an upholstery job that was "
+            "technically well executed.",
+            "<h2>Rebuild or replace</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Approach</th><th>When it fits</th></tr></thead><tbody>"
+            "<tr><th>Rebuild the existing foam</th>"
+            "<td>Localised collapse in an otherwise sound bun — the failed section is cut out "
+            "and new foam built in and shaped back to profile</td></tr>"
+            "<tr><th>Replace the foam entirely</th>"
+            "<td>Widespread breakdown, or a classic where the original foam has crumbled. Often "
+            "the only way to get the original shape back</td></tr>"
+            "<tr><th>Replace and improve</th>"
+            "<td>A driver you spend real time in. Modern multi-density foam supports better than "
+            "much of what was fitted originally, and nobody sees it</td></tr>"
+            "</tbody></table></div>",
+            "<h2>Check the frame while it is open</h2>",
+            "Foam does not collapse in isolation. Broken springs, failed webbing and cracked "
+            "frames all show up as \"the seat feels wrong\", and they are only visible with the "
+            "cover off. A cracked frame should be repaired properly, never shimmed.",
+            "Bring the seat, or the vehicle, to the shop in Monroe. More on our "
+            "<a href=\"auto-upholstery.html\">automotive upholstery</a> page.",
+        ],
+    },
+    {
+        "slug": "blog-custom-interior-ideas.html",
+        "cat": "Restoration", "publish": "2026-08-13", "read": "5 min read",
+        "photo": "g19-mercedes-gla-interior-work",
+        "title": "Custom interior ideas that still look right in ten years",
+        "seo_title": "Custom Car Interior Ideas That Age Well | Auto Tops and Trim",
+        "meta": "Stitch patterns, contrast thread, two-tone and material mixing — the custom "
+                "interior choices that still look good years later, and the ones that date fast.",
+        "excerpt": "Anything can be done. The useful question is which choices still look "
+                   "deliberate in a decade and which look like the year they were made.",
+        "body": [
+            "Once someone decides to go custom rather than original, the options open up "
+            "completely — and that is exactly when it helps to know which choices age well.",
+            "<h2>Stitch patterns</h2>",
+            "<ul class=\"ticks\">"
+            "<li><strong>Diamond.</strong> The classic, and the one that has never really gone "
+            "out. Works on almost anything from a hot rod to a bike seat.</li>"
+            "<li><strong>Pleated.</strong> Straight vertical pleats. Period-correct on a great "
+            "many classics and quietly timeless.</li>"
+            "<li><strong>Biscuit.</strong> Square tufting. Strong period character &mdash; right "
+            "at home on the correct car, out of place on the wrong one.</li>"
+            "<li><strong>Plain with a feature seam.</strong> Understated, and the choice most "
+            "likely to still look considered in ten years.</li>"
+            "</ul>",
+            "<h2>Contrast thread</h2>",
+            "The cheapest way to change how an interior reads. Red stitch on black is the "
+            "obvious one and it works because it is decisive.",
+            "The thing worth knowing: contrast thread is unforgiving. Every stitch becomes "
+            "visible, so line spacing and consistency have to be right. It costs very little in "
+            "material and it is entirely about execution.",
+            "<h2>Two-tone, done properly</h2>",
+            "Two-tone works when the split follows the seat's own construction lines — insert "
+            "one colour, bolsters another. It looks wrong when the split ignores the panels and "
+            "cuts across them arbitrarily.",
+            "The safest version is a strong colour on the inserts and something restrained on "
+            "the parts you climb across, which also happens to be the parts that wear.",
+            "<h2>Mixing materials</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Combination</th><th>Why it works</th></tr></thead><tbody>"
+            "<tr><th>Leather bolsters, cloth inserts</th>"
+            "<td>Leather where you slide across it, cloth where you sit &mdash; cooler in "
+            "summer and grippier. This is what many manufacturers do, for good reason.</td></tr>"
+            "<tr><th>Vinyl with a leather-look grain, cloth inserts</th>"
+            "<td>Most of the appearance at a fraction of the cost, and very durable</td></tr>"
+            "<tr><th>Suede-look inserts</th>"
+            "<td>Excellent grip and a strong period feel &mdash; but check how it cleans before "
+            "committing on a daily driver</td></tr>"
+            "</tbody></table></div>",
+            "<h2>What we would tell you to spend on</h2>",
+            "<ul class=\"ticks\">"
+            "<li><strong>Foam.</strong> Invisible, and it changes every drive.</li>"
+            "<li><strong>Sound deadening under the carpet.</strong> The biggest single change to "
+            "how an old car feels.</li>"
+            "<li><strong>Execution over ambition.</strong> A simple interior done precisely beats "
+            "an elaborate one done adequately, every time.</li>"
+            "</ul>",
+            "<h2>See it before you commit</h2>",
+            "We keep samples in the shop and can lay materials and thread together on the bench "
+            "before anything is cut. Most people change their mind at least once at that table, "
+            "which is exactly why we do it in that order. See our "
+            "<a href=\"auto-upholstery.html\">automotive upholstery</a> page, or read about "
+            "<a href=\"blog-period-correct-or-upgraded-classic-interior.html\">period-correct "
+            "versus upgraded interiors</a>.",
+        ],
+    },
+    {
+        "slug": "blog-motorcycle-seat-upholstery.html",
+        "cat": "Motorcycle", "publish": "2026-08-13", "read": "5 min read",
+        "photo": "custom-motorcycle-seat-upholstery-close-up",
+        "title": "Motorcycle seat upholstery: recovering, reshaping and stitch work",
+        "seo_title": "Motorcycle Seat Upholstery: Recover, Reshape, Restitch | Auto Tops and Trim",
+        "meta": "Custom motorcycle seat upholstery — recovering worn seats, reshaping foam for "
+                "comfort and height, pan repair and diamond stitch patterns.",
+        "excerpt": "Bring the seat, not the bike. Most of what makes a motorcycle seat "
+                   "comfortable happens in the foam, not the cover.",
+        "body": [
+            "Motorcycle seats are one of the most satisfying jobs in the shop, because the change "
+            "is dramatic and the customer feels it on the first ride. They are also one of the "
+            "easiest to arrange: take the seat off and bring it in. The bike stays home.",
+            "<h2>Recovering</h2>",
+            "A split or faded cover is the usual reason a seat arrives. The material has to "
+            "handle sun, rain and constant abrasion, so it is closer to marine specification than "
+            "automotive — UV-stable, and stitched with thread that will not rot.",
+            "Water getting through a split cover is not only a comfort problem. Once the foam is "
+            "wet it stays wet, and you are then sitting on a sponge for the rest of the season.",
+            "<h2>Reshaping is where comfort actually comes from</h2>",
+            "Most people ask for a new cover. What usually fixes the discomfort is the foam "
+            "underneath it.",
+            "<ul class=\"ticks\">"
+            "<li><strong>Lowering.</strong> Removing foam and reshaping can drop seat height "
+            "measurably &mdash; often the difference between tiptoes and flat feet at a stop.</li>"
+            "<li><strong>Raising.</strong> Building the foam up opens the knee angle, which "
+            "matters on a long ride.</li>"
+            "<li><strong>Widening the sitting area.</strong> Many stock seats taper aggressively "
+            "for looks. A little more width where you actually sit changes long-distance comfort "
+            "more than any material.</li>"
+            "<li><strong>Firmer or softer.</strong> Counter-intuitively, a firmer foam is usually "
+            "more comfortable over distance; soft foam bottoms out and you end up on the pan.</li>"
+            "</ul>",
+            "<h2>The pan</h2>",
+            "Under the foam is the pan — steel, aluminium or plastic. Cracks, rust and broken "
+            "mounting tabs all need dealing with before anything goes on top. A seat that will "
+            "not sit securely is a safety problem, not a comfort one.",
+            "<h2>Stitch work</h2>",
+            "Diamond is the classic and the most requested. Pleated, contrast thread and two-tone "
+            "combinations are all straightforward. What is achievable depends partly on the pan "
+            "shape — a heavily curved seat limits how large a diamond can sit flat without "
+            "distorting.",
+            "Bring a picture of what you want. We will tell you honestly what will work on your "
+            "pan rather than promising it and discovering otherwise halfway through.",
+            "<h2>How to get it done</h2>",
+            "Take the seat off and bring it to the shop in Monroe. Free estimate, no obligation, "
+            "and no need to leave the bike anywhere. See our "
+            "<a href=\"motorcycle-seats.html\">motorcycle seats</a> page.",
+        ],
+    },
+    {
+        "slug": "blog-aircraft-interior-refurbishment.html",
+        "cat": "Aviation", "publish": "2026-08-14", "read": "5 min read",
+        "photo": "aircraft-cabin-upholstery-craftsmanship",
+        "title": "Aircraft interior refurbishment: what makes it different from automotive",
+        "seo_title": "Aircraft Interior Refurbishment and Upholstery | Auto Tops and Trim",
+        "meta": "How aircraft interior upholstery differs from automotive work — weight, fit, "
+                "finish standards and materials. A rare trade in the Charlotte region.",
+        "excerpt": "It is the same craft held to a tighter tolerance — and a trade almost nobody "
+                   "in this region offers.",
+        "body": [
+            "Aviation upholstery is the part of this shop that surprises people most. We have "
+            "been trimming aircraft interiors alongside cars and boats for decades, and it is a "
+            "rare enough trade regionally that owners routinely travel for it.",
+            "<h2>What actually differs</h2>",
+            "<h3>Weight</h3>",
+            "Every ounce counts in a way it simply does not in a car. Material choice, foam "
+            "density and how much structure goes into a panel are all constrained by weight in "
+            "aviation work.",
+            "<h3>Fit and finish tolerance</h3>",
+            "The standard of finish is higher and the tolerances are tighter. In a cabin you are "
+            "sitting inches from every surface, in good light, often for hours. There is nowhere "
+            "for a slightly wandering seam to hide.",
+            "<h3>Materials</h3>",
+            "Aviation materials differ from automotive ones and are specified rather than chosen "
+            "casually. This is a conversation to have before anything is cut, not after — and it "
+            "is one where the owner's own requirements and any applicable approvals govern the "
+            "choice.",
+            "<h3>Consistency across the cabin</h3>",
+            "A car interior is one space. A cabin is seats, side panels, headliner, carpet and "
+            "trim that all have to read as a single finished environment. Doing one element in "
+            "isolation tends to make the rest look tired.",
+            "<h2>What the work covers</h2>",
+            "<ul class=\"ticks\">"
+            "<li>Cockpit and cabin seating, including foam replacement and reshaping</li>"
+            "<li>Side panels and interior trim</li>"
+            "<li>Cabin carpet and floor coverings</li>"
+            "<li>Stitched detail work to a high finish</li>"
+            "</ul>",
+            "<h2>You can bring just the seats</h2>",
+            "This is often the easiest way to do it, and it is what most owners choose. Remove "
+            "the seats and bring them to the shop in Monroe. It avoids the aircraft being tied up "
+            "and lets us do the work without a clock running on hangar space.",
+            "<h2>Talk to us first</h2>",
+            "Because materials and approvals matter more here than in automotive work, aviation "
+            "jobs start with a conversation rather than a quote. Tell us what the aircraft is and "
+            "what you want, and we will be straight about what we can and cannot do. See our "
+            "<a href=\"aviation-upholstery.html\">aviation upholstery</a> page.",
+        ],
+    },
+    {
+        "slug": "blog-best-way-to-clean-car-upholstery.html",
+        "cat": "Interiors", "publish": "2026-08-14", "read": "5 min read",
+        "photo": "g11-carpet-fitted-and-trimmed",
+        "title": "The best way to clean car upholstery, by material",
+        "seo_title": "Best Way to Clean Car Upholstery (Cloth, Vinyl, Leather)",
+        "meta": "How to clean cloth, vinyl and leather car upholstery safely — the method per "
+                "material, what causes permanent damage, and when a stain is not coming out.",
+        "excerpt": "Cloth, vinyl and leather want three different approaches, and the one that "
+                   "suits any of them will damage the other two.",
+        "body": [
+            "Almost all permanent interior damage we see from cleaning comes from one mistake: "
+            "using a method suited to a different material. Work out what you have first.",
+            "<h2>Cloth</h2>",
+            "<ul class=\"ticks\">"
+            "<li>Vacuum thoroughly first. Cleaning over grit grinds it into the weave.</li>"
+            "<li>Use as little moisture as will do the job. Cloth sits on foam, and soaked foam "
+            "takes days to dry and can go mouldy.</li>"
+            "<li>Blot rather than scrub. Scrubbing distorts the pile and leaves a visible patch "
+            "even once the stain is gone.</li>"
+            "<li>Work the whole panel, not just the stain, or you get a clean spot that draws the "
+            "eye as much as the mark did.</li>"
+            "<li>Dry with the windows open or a fan running.</li>"
+            "</ul>",
+            "<h2>Vinyl</h2>",
+            "The most forgiving of the three. Mild soap, warm water, soft cloth or brush; rinse "
+            "and dry.",
+            "What to avoid: solvents and harsh degreasers, which strip plasticisers and leave "
+            "the vinyl hard and prone to cracking at the folds a season later. Also avoid "
+            "silicone-heavy dressings that leave a slick, shiny surface — on a seat that is a "
+            "genuine safety issue.",
+            "<h2>Leather</h2>",
+            "<ul class=\"ticks\">"
+            "<li>Clean first with a dedicated leather cleaner. Conditioner over dirt drives the "
+            "dirt in.</li>"
+            "<li>Then condition. Little and often beats a heavy application once a year.</li>"
+            "<li>Never use household all-purpose cleaner, and never use anything with bleach.</li>"
+            "<li>Test on a hidden area &mdash; a rear seat base edge is ideal.</li>"
+            "</ul>",
+            "Note that most modern automotive leather is finished, so you are cleaning a "
+            "pigmented topcoat rather than the hide. That is why aggressive products strip colour "
+            "rather than just dirt.",
+            "<h2>Universal rules</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Rule</th><th>Why</th></tr></thead><tbody>"
+            "<tr><th>Never clean a hot interior</th><td>Product dries before it can be removed "
+            "and bonds in</td></tr>"
+            "<tr><th>Test somewhere hidden first</th><td>Colourfastness varies enormously, "
+            "especially on older material</td></tr>"
+            "<tr><th>Less water, more patience</th><td>Everything sits on foam; soaked foam is "
+            "the real damage</td></tr>"
+            "<tr><th>No bleach, anywhere</th><td>Attacks stitching thread long before it visibly "
+            "harms the covering</td></tr>"
+            "</tbody></table></div>",
+            "<h2>When it is not coming out</h2>",
+            "Dye transfer from clothing, old grease, and anything that has been heat-set by "
+            "sitting in a hot car are all frequently permanent. So is a mark that has soaked "
+            "through into the foam &mdash; you are treating the surface of something that is "
+            "stained all the way down.",
+            "At that point the honest options are a replacement panel or living with it, and we "
+            "will tell you which rather than selling you a cleaning that will not work. See our "
+            "<a href=\"auto-upholstery.html\">automotive upholstery</a> page.",
+        ],
+    },
+    {
+        "slug": "blog-how-to-reupholster-car-seats.html",
+        "cat": "Seats", "publish": "2026-08-14", "read": "6 min read",
+        "photo": "services-strip-1",
+        "title": "How to reupholster car seats — and an honest look at doing it yourself",
+        "seo_title": "How to Reupholster Car Seats: DIY vs a Trim Shop | Auto Tops and Trim",
+        "meta": "What reupholstering a car seat actually involves step by step, which jobs are "
+                "realistic at home, and where DIY attempts usually come unstuck.",
+        "excerpt": "The sewing is not the hard part. Patterning and getting tension right are, "
+                   "and that is where most home attempts go wrong.",
+        "body": [
+            "Plenty of people reupholster their own seats and get a decent result. Plenty of "
+            "others start and bring us the pieces. The difference is rarely sewing skill — it is "
+            "usually patterning and tension.",
+            "<h2>What the job actually involves</h2>",
+            "<ul class=\"ticks\">"
+            "<li><strong>Remove the seat.</strong> Disconnect the battery first if there are "
+            "airbags or sensors in it.</li>"
+            "<li><strong>Strip the cover.</strong> Hog rings, clips and sometimes glue. Photograph "
+            "everything as you go, from more angles than feel necessary.</li>"
+            "<li><strong>Unpick the old cover.</strong> This is your pattern. Do not cut it "
+            "apart — unpick the seams so each panel stays whole.</li>"
+            "<li><strong>Assess foam and frame.</strong> With everything off, this is the only "
+            "chance to fix what is underneath.</li>"
+            "<li><strong>Cut new panels</strong> from the old ones, allowing for seams.</li>"
+            "<li><strong>Sew.</strong> Upholstery-weight thread and a machine that will pull it "
+            "through several layers plus foam backing.</li>"
+            "<li><strong>Fit under tension.</strong> The cover has to go on tight and even, which "
+            "is far harder than it looks.</li>"
+            "</ul>",
+            "<h2>Where home attempts usually come unstuck</h2>",
+            "<div class=\"tablewrap\"><table class=\"spectable\">"
+            "<thead><tr><th>Problem</th><th>What happens</th></tr></thead><tbody>"
+            "<tr><th>Cutting the old cover apart instead of unpicking</th>"
+            "<td>You have destroyed your only accurate pattern</td></tr>"
+            "<tr><th>Domestic sewing machine</th>"
+            "<td>Will not reliably pull upholstery thread through multiple layers; skipped "
+            "stitches become split seams later</td></tr>"
+            "<tr><th>Ignoring the foam</th>"
+            "<td>A perfect cover over a collapsed bun looks wrong and wears out early in the "
+            "same place</td></tr>"
+            "<tr><th>Uneven tension on fitting</th>"
+            "<td>Wrinkles that never settle, and stress concentrated where it will tear</td></tr>"
+            "<tr><th>Wrong thread</th>"
+            "<td>The seams fail while the material is still fine</td></tr>"
+            "</tbody></table></div>",
+            "<h2>Which jobs are realistic at home</h2>",
+            "<ul class=\"ticks\">"
+            "<li><strong>Reasonable:</strong> a flat bench seat with few panels, a simple "
+            "cushion, or a pre-made cover kit for a common vehicle</li>"
+            "<li><strong>Difficult:</strong> contoured buckets with bolsters, anything with "
+            "piping, and any pattern work</li>"
+            "<li><strong>Leave it alone:</strong> seats with airbags in the bolster. The cover "
+            "is part of a safety system, the seam is designed to burst in a specific way, and "
+            "getting it wrong has consequences beyond appearance.</li>"
+            "</ul>",
+            "<h2>If you are going to try it</h2>",
+            "Start with a rear seat rather than the driver's. It is simpler, less visible, and "
+            "you will have learned a great deal by the time you reach the seat everybody looks "
+            "at. Photograph everything. Label every piece as you unpick it.",
+            "<h2>What we do differently</h2>",
+            "We pattern from the old cover, replace foam that has collapsed rather than "
+            "trimming over it, repair frames properly instead of shimming them, and fit under "
+            "even tension with the right thread for the material. On a classic we chase correct "
+            "grain, stitch spacing and weave.",
+            "And if you have already started and it has gone sideways, bring us the pieces — that "
+            "is a more common phone call than you would think, and it is not a problem. Free "
+            "in-person estimate at the shop in Monroe. See our "
+            "<a href=\"auto-upholstery.html\">automotive upholstery</a> page.",
         ],
     },
 ]
