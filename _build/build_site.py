@@ -276,11 +276,10 @@ def quote_form(which="contact"):
        consent to marketing texts cannot lawfully be a condition of getting a quote. -->
   <label class="consent">
     <input type="checkbox" name="SMS consent" value="Yes, agreed to receive text messages">
-    <span>Text me about my estimate. By checking this box you agree to receive text
-      messages from Auto Tops and Trim at the number provided, including messages
-      about your quote and your job. Consent is not a condition of any purchase.
-      Message and data rates may apply, and message frequency varies.
-      Reply STOP to opt out or HELP for help.</span>
+    <span>By checking this box and submitting your phone number, you agree to receive
+      text messages from Auto Tops and Trim about your estimate, your job, and
+      scheduling. Message frequency varies. Message and data rates may apply.
+      Reply STOP to unsubscribe or HELP for help.</span>
   </label>
   <button type="submit" class="btn btn-primary wide">Send my request</button>
   <p class="formnote">Prefer to talk? Call <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>

@@ -125,37 +125,61 @@ h3{font-size:clamp(18px,1.5vw,21px);letter-spacing:-.015em;line-height:1.2}
 .hero-media img{width:100%;object-fit:cover}
 @media (min-width:900px){.hero .wrap{grid-template-columns:1.02fr 1fr;align-items:center}}
 
-/* ---- full-bleed home hero ----------------------------------------------
-   Home gets the full viewport; every other page keeps the short hero, so the
-   front door reads differently from the rooms behind it. dvh (not vh) so mobile
-   browser chrome does not crop the buttons off the bottom. */
-.hero-full{position:relative;isolation:isolate;padding:0;
-  min-height:min(100dvh,860px);display:grid;align-items:end;overflow:hidden}
-.hero-full .wrap{padding-block:clamp(44px,9vh,104px) clamp(74px,13vh,132px);
-  grid-template-columns:1fr}
-@media (min-width:900px){.hero-full .wrap{grid-template-columns:1fr;align-items:end}}
-.hero-full .stack{max-width:44ch}
-.hero-full h1{font-size:clamp(38px,6.2vw,74px)}
-.hero-full .lead{max-width:46ch}
-.hero-bg{position:absolute;inset:0;z-index:-2}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
-/* legibility floor: the copy must hold up whatever photo sits behind it */
-.hero-full::after{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(to top,
-    rgba(20,25,31,.94) 0%,rgba(20,25,31,.80) 30%,
-    rgba(20,25,31,.50) 62%,rgba(20,25,31,.34) 100%)}
+/* ---- home hero: full height, two columns --------------------------------
+   Text and photo get their own columns rather than the copy floating on top of
+   the image — overlaying it never aligns to anything and fights whatever the
+   photo happens to be doing. dvh (not vh) so mobile browser chrome cannot crop
+   the buttons off the bottom. */
+.hero-full{padding:0;min-height:100dvh;display:grid;align-items:center}
+.hero-full .wrap{padding-block:clamp(30px,5vh,58px);width:100%;
+  gap:clamp(28px,4vw,60px)}
+.hero-full .hero-copy{max-width:40ch;justify-self:start}
+.hero-full h1{font-size:clamp(35px,4.9vw,62px)}
+.hero-full .lead{max-width:44ch}
+@media (min-width:900px){
+  .hero-full .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);align-items:center}
+}
+/* short laptop screens: let the hero shrink rather than push the CTA off-screen */
+@media (min-width:900px) and (max-height:760px){
+  .hero-full{min-height:auto;padding-block:clamp(30px,6vh,58px)}
+}
 
-.hero-scroll{position:absolute;left:50%;bottom:clamp(16px,3vh,30px);translate:-50% 0;
-  width:26px;height:42px;border:2px solid rgba(255,255,255,.5);border-radius:14px;
-  display:grid;justify-items:center;padding-top:7px;z-index:1}
-.hero-scroll span{width:3px;height:8px;border-radius:2px;background:rgba(255,255,255,.85);
-  animation:scrollhint 1.8s ease-in-out infinite}
-@keyframes scrollhint{0%,100%{transform:translateY(0);opacity:1}
-  50%{transform:translateY(9px);opacity:.35}}
-.hero-scroll:hover{border-color:#fff}
-@media (prefers-reduced-motion:reduce){.hero-scroll span{animation:none}}
-/* a scroll cue is pointless on a short viewport where the fold is already past */
-@media (max-height:620px){.hero-scroll{display:none}}
+/* ---- CSS-only crossfade slideshow (no JavaScript) ---- */
+.hero-show{display:flex;flex-direction:column;gap:14px;min-width:0}
+.slideshow{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:14px;
+  background:#1B2026;box-shadow:0 24px 60px rgba(8,14,20,.42)}
+@media (min-width:900px){.slideshow{aspect-ratio:5/4}}
+.slideshow figure{position:absolute;inset:0;margin:0;opacity:0;
+  animation:slidefade 20s linear infinite}
+.slideshow figure img{width:100%;height:100%;object-fit:cover}
+/* 4 slides over 20s: 5s each, with a 1s crossfade at each hand-off */
+@keyframes slidefade{
+  0%{opacity:0}
+  1%{opacity:1}
+  25%{opacity:1}
+  26%{opacity:0}
+  100%{opacity:0}
+}
+.dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;
+  gap:7px;z-index:2}
+.dots span{width:26px;height:3px;border-radius:2px;background:rgba(255,255,255,.34);
+  animation:doton 20s linear infinite}
+@keyframes doton{0%,25%{background:rgba(255,255,255,.92)}
+  26%,100%{background:rgba(255,255,255,.34)}}
+
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px}
+.hero-chips a{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;
+  border-radius:999px;font-size:13.5px;font-weight:700;text-decoration:none;
+  color:#DCE5EE;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06)}
+.hero-chips a:hover{background:var(--blue-btn);border-color:var(--blue-btn);color:#fff}
+
+/* reduced motion: hold the first slide, no cycling */
+@media (prefers-reduced-motion:reduce){
+  .slideshow figure{animation:none;opacity:0}
+  .slideshow figure:first-child{opacity:1}
+  .dots span{animation:none}
+  .dots span:first-child{background:rgba(255,255,255,.92)}
+}
 
 /* ---- buttons ---- */
 .btnrow{display:flex;flex-wrap:wrap;gap:12px}

@@ -161,12 +161,28 @@ def build_home():
         "Free estimates — call (980) 385-8101.", p)
     h += header(p)
 
+    # Hero slideshow. Deliberately NO per-slide captions: the inherited filenames
+    # are unreliable (see HANDOFF open item 2), so the imagery rotates without
+    # making any claim about what each individual photo shows.
+    hero_slides = [
+        "hero-best-finished-vehicle-wide-full-color",
+        "g19-mercedes-gla-interior-work",
+        "marine-boat-cushions-canvas",
+        "custom-motorcycle-seat-upholstery-close-up",
+    ]
+    n_slides = len(hero_slides)
+    slides = "".join(
+        f'<figure style="animation-delay:{i * (20 / n_slides):.1f}s">'
+        f'{img(b, "Upholstery work by Auto Tops and Trim in Monroe, NC", "(min-width:900px) 52vw, 100vw", eager=(i == 0))}'
+        f"</figure>"
+        for i, b in enumerate(hero_slides)
+    )
+    dots = "".join(f'<span style="animation-delay:{i * (20 / n_slides):.1f}s"></span>'
+                   for i in range(n_slides))
+
     h += f"""<section class="hero hero-full">
-  <div class="hero-bg">{img('hero-best-finished-vehicle-wide-full-color',
-      'Finished convertible top and interior by Auto Tops and Trim in Monroe, NC',
-      '100vw', eager=True)}</div>
   <div class="wrap">
-    <div class="stack">
+    <div class="stack hero-copy">
       {shead("", "Monroe, NC &middot; Since 1989")}
       <h1>Custom upholstery, expertly crafted</h1>
       <p class="lead">Convertible tops, seats, headliners and marine canvas for
@@ -178,8 +194,18 @@ def build_home():
       </div>
       <p class="microline">Free estimates &nbsp;&middot;&nbsp; In-person quotes &nbsp;&middot;&nbsp; Union County</p>
     </div>
+    <div class="hero-show">
+      <div class="slideshow">{slides}<div class="dots" aria-hidden="true">{dots}</div></div>
+      <div class="hero-chips">
+        <a href="convertible-tops.html">Convertible Tops</a>
+        <a href="auto-upholstery.html">Auto Upholstery</a>
+        <a href="sunroof-shade-repair.html">Sunroof Shades</a>
+        <a href="marine-upholstery.html">Marine</a>
+        <a href="aviation-upholstery.html">Aviation</a>
+        <a href="motorcycle-seats.html">Motorcycle</a>
+      </div>
+    </div>
   </div>
-  <a class="hero-scroll" href="#what-we-do" aria-label="Scroll to what we do"><span></span></a>
 </section>
 
 <section class="band" id="what-we-do">
