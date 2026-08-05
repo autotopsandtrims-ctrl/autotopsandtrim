@@ -202,10 +202,13 @@ def build_home():
     # copy of each image (see the verified-content map above GALLERY) and none of
     # them is reused anywhere else on this page, so the home page never shows the
     # same photograph twice.
+    # Slide 1 must stay first: it is the LCP preload target set in head() above.
+    # Reorder the rest freely, but if you change slide 1, change preload_image too
+    # or the browser preloads a photo it never shows.
     hero_slides = [
         "g16-cadillac-convertible-red-interior",
-        "g19-mercedes-gla-interior-work",
         "gallery-header-photo-wide",
+        "g19-mercedes-gla-interior-work",
         "g18-camaro-ss-profile",
     ]
     n_slides = len(hero_slides)
