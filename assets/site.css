@@ -124,7 +124,13 @@ h3{font-size:clamp(18px,1.5vw,21px);letter-spacing:-.015em;line-height:1.2}
   .nav a.on::before{display:none}
   .nav a.on{box-shadow:inset 0 -2px 0 var(--blue-lt)}
   .head-call{display:inline-block;order:4}
-  .brand{margin-right:30px}
+  /* margin-right:auto, NOT a fixed value. The base .brand rule sets `auto` so the
+     nav and call button are pushed out to the right edge. Overriding it with a
+     fixed 30px removed that push, so logo, nav and button all packed to the left
+     and left dead space on the right of the header. The gap is handled by
+     min-width instead, which keeps the breathing room without killing the push. */
+  .brand{margin-right:auto;min-width:0}
+  .nav ul{margin-right:26px}
   .head-in{flex-wrap:nowrap}
 }
 
