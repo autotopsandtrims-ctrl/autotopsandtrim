@@ -211,7 +211,8 @@ def header(active):
          The .brand img sizing rules are still in site.css and are inert until
          an <img> exists here again. -->
     <a class="brand" href="index.html" aria-label="Auto Tops and Trim, home">
-      {img('logo-badge-warm', 'Auto Tops and Trim', '190px', eager=True)}
+      {img('logo-badge-warm', '', '190px', eager=True)}
+      <span class="brand-name">AUTO TOPS <em>&amp;</em> TRIM</span>
     </a>
     <input type="checkbox" id="navtoggle" class="navtoggle" aria-hidden="true">
     <label for="navtoggle" class="burger" aria-label="Menu"><span></span><span></span><span></span></label>

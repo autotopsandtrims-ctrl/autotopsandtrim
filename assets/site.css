@@ -1127,12 +1127,20 @@ html{scroll-behavior:smooth}
 
    TO REVERT: delete this whole block. Everything is scoped to .site-head. */
 .site-head{background:#fff;color:var(--ink)}
-.site-head::before{display:none}                  /* no texture on white */
-.site-head::after{height:1px;background:var(--rule)}   /* one quiet hairline */
 
-/* the only device: a flat dark patch so the cream badge reads */
-.brand{padding:6px 14px;border-radius:var(--r-card);background:var(--blue-deep)}
-.brand-name{color:#fff}
+/* quilt back, inverted — faint blue on white instead of white on dark */
+.site-head::before{
+  background-image:
+    repeating-linear-gradient(45deg,rgba(47,111,176,.05) 0 1px,transparent 1px 27px),
+    repeating-linear-gradient(-45deg,rgba(47,111,176,.05) 0 1px,transparent 1px 27px)}
+.site-head::after{height:1px;background:var(--rule)}
+
+/* badge + wordmark side by side. The base .brand is a column (it used to stack
+   the name over a strapline); this puts them on one row. */
+.brand{flex-direction:row;align-items:center;gap:11px;
+  background:none;padding:0}
+.brand-name{color:var(--ink);font-size:clamp(15px,3.2vw,19px);line-height:1.1}
+.brand-name em{color:var(--blue)}
 .brand img{filter:none}
 
 .nav a{color:var(--ink-70);border-bottom-color:var(--rule)}
@@ -1140,7 +1148,22 @@ html{scroll-behavior:smooth}
 .nav a.on::before{background:var(--blue)}
 .burger span{background:var(--ink)}
 @media (min-width:1000px){.nav a.on{box-shadow:inset 0 -2px 0 var(--blue)}}
-@media (max-width:999px){.brand{padding:4px 10px}}
+
+/* Mobile call button: a solid blue block is too loud beside the badge and the
+   wordmark on a white bar. Tinted fill, blue text, so it still reads as the
+   action without shouting over the brand. */
+@media (max-width:999px){
+  .head-call{background:rgba(47,111,176,.10);color:var(--blue);
+    padding:8px 12px;font-size:13.5px;margin-left:8px;
+    box-shadow:inset 0 0 0 1px rgba(47,111,176,.28)}
+  .head-call:hover{background:rgba(47,111,176,.16)}
+  .brand{gap:8px}
+  .brand-name{font-size:14px;letter-spacing:-.01em}
+}
+@media (max-width:400px){
+  .brand-name{display:none}          /* badge alone below this; the name would wrap */
+  .head-call{padding:8px 11px;font-size:13px}
+}
 /* ==================== end white header TRIAL ============================= */
 
 /* ---- comparison tables in articles --------------------------------------
