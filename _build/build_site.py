@@ -210,8 +210,8 @@ def header(active):
            {{img('logo-light', 'Auto Tops and Trim', '210px', eager=True)}}
          The .brand img sizing rules are still in site.css and are inert until
          an <img> exists here again. -->
-    <a class="brand" href="index.html">
-      <span class="brand-name">AUTO TOPS <em>&amp;</em> TRIM</span>
+    <a class="brand" href="index.html" aria-label="Auto Tops and Trim, home">
+      {img('logo-badge-blue', 'Auto Tops and Trim', '150px', eager=True)}
     </a>
     <input type="checkbox" id="navtoggle" class="navtoggle" aria-hidden="true">
     <label for="navtoggle" class="burger" aria-label="Menu"><span></span><span></span><span></span></label>
@@ -241,7 +241,7 @@ def footer(lightbox=""):
 <footer class="site-foot">
   <div class="foot-in">
     <div class="foot-col">
-      <p class="foot-brand">AUTO TOPS <em>&amp;</em> TRIM</p>
+      <p class="foot-brand">{img('logo-badge-warm', 'Auto Tops and Trim', '190px')}</p>
       <p>Custom upholstery in Monroe, North Carolina since 1989. Automotive, marine,
          aviation and motorcycle interiors.</p>
       <p><a class="foot-phone" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></p>

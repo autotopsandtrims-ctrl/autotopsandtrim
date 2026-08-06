@@ -684,6 +684,48 @@
    }
   ]
  },
+ "logo-badge-blue": {
+  "w": 926,
+  "h": 826,
+  "variants": [
+   {
+    "w": 480,
+    "h": 428,
+    "file": "logo-badge-blue-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 714,
+    "file": "logo-badge-blue-800.webp"
+   },
+   {
+    "w": 926,
+    "h": 826,
+    "file": "logo-badge-blue-926.webp"
+   }
+  ]
+ },
+ "logo-badge-warm": {
+  "w": 929,
+  "h": 828,
+  "variants": [
+   {
+    "w": 480,
+    "h": 428,
+    "file": "logo-badge-warm-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 713,
+    "file": "logo-badge-warm-800.webp"
+   },
+   {
+    "w": 929,
+    "h": 828,
+    "file": "logo-badge-warm-929.webp"
+   }
+  ]
+ },
  "logo-dark": {
   "w": 909,
   "h": 403,

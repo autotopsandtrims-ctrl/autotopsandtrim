@@ -1,6 +1,6 @@
-/* Auto Tops and Trim — stylesheet.
+﻿/* Auto Tops and Trim â€” stylesheet.
    Design tokens lifted from the existing site: Archivo, the blue palette,
-   the NN — LABEL section headers and the 44x3 blue bar device.
+   the NN â€” LABEL section headers and the 44x3 blue bar device.
    Mobile-first. Nav works with JavaScript disabled. */
 
 @font-face{font-family:'Archivo';font-style:normal;font-weight:100 900;font-display:swap;
@@ -31,7 +31,7 @@
   --wrap:1200px;
   --gut:clamp(20px,4vw,56px);
   --tap:46px;
-  /* corner radii — media reads softened, controls stay tighter */
+  /* corner radii â€” media reads softened, controls stay tighter */
   --r-media:16px;
   --r-card:14px;
   --r-ctl:8px;
@@ -44,10 +44,10 @@ body{
   font:400 17px/1.66 'Archivo',system-ui,-apple-system,sans-serif;
   -webkit-font-smoothing:antialiased;
 }
-/* Sideways drag on phones — do NOT put overflow on <html> or <body>.
+/* Sideways drag on phones â€” do NOT put overflow on <html> or <body>.
    When <html> is `visible`, <body>'s overflow PROPAGATES to the viewport, so
    setting it on either one is the same thing, and at viewport level it breaks
-   position:fixed on iOS — that is what stranded the call bar mid-screen.
+   position:fixed on iOS â€” that is what stranded the call bar mid-screen.
    Clipping the individual landmarks contains any stray width without
    propagating. `clip` not `hidden`, so no scroll container is created, and the
    fixed call bar and lightbox both live outside these elements. */
@@ -73,7 +73,7 @@ h3{font-size:clamp(18px,1.5vw,21px);letter-spacing:-.015em;line-height:1.2}
 .lead{font-size:17px;line-height:1.66;max-width:54ch;color:var(--ink-70)}
 .center .lead{margin-inline:auto}
 
-/* ---- section header:  01 — WHY CHOOSE US ---- */
+/* ---- section header:  01 â€” WHY CHOOSE US ---- */
 .shead{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
 .shead.mid{justify-content:center}
 .shead .n{font-size:12px;font-weight:800;letter-spacing:.06em;color:var(--ink)}
@@ -206,7 +206,7 @@ h3{font-size:clamp(18px,1.5vw,21px);letter-spacing:-.015em;line-height:1.2}
 @media (min-width:640px){.feats{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:1000px){.feats{grid-template-columns:repeat(4,1fr)}}
 .feat{display:flex;flex-direction:column;gap:10px;padding-left:22px;border-left:1px solid var(--rule)}
-/* numeral was var(--rule) #D9E2ED, which is 1.12:1 on a tint band — unreadable.
+/* numeral was var(--rule) #D9E2ED, which is 1.12:1 on a tint band â€” unreadable.
    --blue is 4.5:1 on tint and 5.2:1 on white, and stays inside the locked palette. */
 .feat .big{font-size:clamp(38px,3.4vw,46px);font-weight:800;line-height:1;
   color:var(--blue);letter-spacing:-.04em}
@@ -269,7 +269,7 @@ main{animation:pagein .38s cubic-bezier(.22,.61,.36,1) both}
 /* ---- scroll-driven reveals -------------------------------------------------
    Still zero JavaScript: `animation-timeline: view()` drives these off scroll
    position natively. Wrapped in @supports so browsers without it simply show
-   everything, already in its final state — nothing can get stuck invisible. */
+   everything, already in its final state â€” nothing can get stuck invisible. */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion:no-preference){
     @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
@@ -294,7 +294,7 @@ main{animation:pagein .38s cubic-bezier(.22,.61,.36,1) both}
       animation-name:settle;
       animation-range:entry 0% entry 58%;
     }
-    /* the marquee and the hero drive themselves — don't double-animate them */
+    /* the marquee and the hero drive themselves â€” don't double-animate them */
     .revtrack,.revmarquee,.hero .stack > *,.hero-media{animation-timeline:auto}
     .hero .stack > *,.hero-media{animation:none}
   }
@@ -310,10 +310,10 @@ a,.btn,.card,.pcard,.tile img,.masonry figure img,.flow-n,.lb-x,.lb-nav{
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-/* ---- lightbox (CSS only, :target — back button closes it) ---- */
+/* ---- lightbox (CSS only, :target â€” back button closes it) ---- */
 .lb-open{display:block;cursor:pointer;position:relative}
 /* .lb MUST stay outside <main>. <main> runs the `pagein` transform animation, and a
-   transform-animated ancestor becomes the containing block for position:fixed — which
+   transform-animated ancestor becomes the containing block for position:fixed â€” which
    made this size to the height of <main>, opening photos far down the page. */
 .lb{position:fixed;top:0;left:0;width:100%;height:100vh;height:100dvh;z-index:200;
   display:none;align-items:center;justify-content:center;overscroll-behavior:contain;
@@ -325,7 +325,7 @@ html{scroll-behavior:smooth}
    transparent every time and the page flashed through behind it for a quarter
    of a second.
    With the backdrop painting solid immediately, consecutive lightboxes are
-   visually continuous — the dark layer never drops out — and only the photo
+   visually continuous â€” the dark layer never drops out â€” and only the photo
    itself transitions. Do not put an opacity animation back on .lb. */
 .lb:target{display:flex}
 /* the photo still eases in, which is what reads as the transition now */
@@ -505,7 +505,7 @@ html{scroll-behavior:smooth}
 .formcard-h{font-size:clamp(19px,1.8vw,23px);margin-bottom:16px}
 .infocol{display:flex;flex-direction:column;gap:clamp(18px,2vw,26px)}
 
-/* info column — blue square dots, the site's own device */
+/* info column â€” blue square dots, the site's own device */
 .infolist{list-style:none;padding:0;display:flex;flex-direction:column;gap:15px}
 .infolist li{position:relative;padding-left:22px}
 .infolist li::before{content:"";position:absolute;left:0;top:.46em;width:8px;height:8px;background:var(--blue-lt)}
@@ -517,7 +517,7 @@ html{scroll-behavior:smooth}
 .infolist .big{font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--ink);display:inline-block}
 .infolist .hours{font-size:15px}
 .infolist .hours th,.infolist .hours td{padding:2px 0}
-/* wide + short, like the old contact page — not a tall block */
+/* wide + short, like the old contact page â€” not a tall block */
 .infocol .mapwrap{aspect-ratio:16/9}
 @media (min-width:900px){.infocol .mapwrap{aspect-ratio:12/5}}
 
@@ -536,7 +536,7 @@ html{scroll-behavior:smooth}
 
 /* ---- SMS consent (TCPA) ----------------------------------------------------
    MUST sit after the .quote rules above. `.quote label` is a column flexbox and
-   `.quote input` is a full-width padded text field — at equal specificity those
+   `.quote input` is a full-width padded text field â€” at equal specificity those
    win on source order and render the checkbox as a giant square. Hence the
    attribute selector, which outranks them. */
 .quote label.consent{display:grid;grid-template-columns:auto minmax(0,1fr);
@@ -563,7 +563,7 @@ html{scroll-behavior:smooth}
 /* ---- footer ---- */
 /* a step lighter than --dark so the footer does not land as a heavy black slab */
 /* padding-bottom clears the fixed .callbar: its 46px min-height plus 8px gap.
-   Keep these two in step — shrink the bar without shrinking this and the footer
+   Keep these two in step â€” shrink the bar without shrinking this and the footer
    ends with dead space; shrink this too far and the bar covers the last line. */
 .site-foot{background:#2A2F36;color:#B4C2CE;padding-bottom:calc(54px + env(safe-area-inset-bottom))}
 .foot-in{max-width:var(--wrap);margin-inline:auto;padding:clamp(38px,5vw,68px) var(--gut);
@@ -637,7 +637,7 @@ html{scroll-behavior:smooth}
 .btn,.quote input,.quote textarea,.consent,.head-call{border-radius:var(--r-ctl)}
 
 /* ============================================================================
-   MOBILE PASS — everything below 900px. Desktop is deliberately untouched:
+   MOBILE PASS â€” everything below 900px. Desktop is deliberately untouched:
    no rule in here applies at 900px and up.
    ========================================================================== */
 @media (max-width:899px){
@@ -736,7 +736,7 @@ html{scroll-behavior:smooth}
 }
 
 /* ============================================================================
-   MOBILE PASS 2 — refinements. Still nothing applies at 900px and up.
+   MOBILE PASS 2 â€” refinements. Still nothing applies at 900px and up.
    ========================================================================== */
 @media (max-width:899px){
 
@@ -810,7 +810,7 @@ html{scroll-behavior:smooth}
 }
 
 /* ============================================================================
-   MOBILE PASS 3 — corrections. Still nothing applies at 900px and up.
+   MOBILE PASS 3 â€” corrections. Still nothing applies at 900px and up.
    ========================================================================== */
 @media (max-width:899px){
 
@@ -997,13 +997,13 @@ html{scroll-behavior:smooth}
 
    Do NOT add `position:relative` here. This rule sits after the sticky-header
    declaration above and has the same specificity, so `relative` silently wins
-   and the header stops sticking — which is exactly what happened when this
+   and the header stops sticking â€” which is exactly what happened when this
    block first shipped. The ::before and ::after below do not need it: the
    `position:sticky` set earlier already establishes a containing block for
    absolutely-positioned children. */
 .site-head{
   background:linear-gradient(168deg,#16344F 0%,#1B3A52 55%,#23282E 100%)}
-/* diamond quilt — deliberately near-invisible; it should register as texture,
+/* diamond quilt â€” deliberately near-invisible; it should register as texture,
    not as a pattern you can name */
 .site-head::before{content:"";position:absolute;inset:0;pointer-events:none;
   background-image:
@@ -1053,7 +1053,7 @@ html{scroll-behavior:smooth}
 /* ---- photos a reviewer attached to their own Google review ---------------
    Sits inside the review card, under the quote. Fixed square tiles with
    object-fit:cover so two portrait phone photos and two landscape ones both
-   read as a deliberate pair rather than a ragged pasted-in row — the cards sit
+   read as a deliberate pair rather than a ragged pasted-in row â€” the cards sit
    side by side in a marquee, so uneven photo heights would stagger the whole
    band. Renders nothing unless a review actually carries photos. */
 .rev-shots{display:grid;gap:8px;margin-top:14px;
@@ -1078,17 +1078,17 @@ html{scroll-behavior:smooth}
 /* drop-shadow, not box-shadow: it follows the artwork's alpha outline rather
    than drawing a rectangle, so it separates the white linework from the header's
    quilted gradient without putting a plate behind the logo. Kept dark and tight
-   — a light shadow would halo, which is the problem we just removed. */
-.brand img{height:50px;width:auto;max-width:62vw;display:block;
+   â€” a light shadow would halo, which is the problem we just removed. */
+.brand img{height:64px;width:auto;max-width:62vw;display:block;
   filter:drop-shadow(0 1px 2px rgba(0,0,0,.55))}
-@media (max-width:899px){.brand img{height:42px}}
-@media (max-width:380px){.brand img{height:35px}}
-.foot-brand img{height:62px;width:auto;max-width:100%;display:block;margin-bottom:2px}
-@media (max-width:899px){.foot-brand img{height:52px}}
+@media (max-width:899px){.brand img{height:54px}}
+@media (max-width:380px){.brand img{height:46px}}
+.foot-brand img{height:110px;width:auto;max-width:100%;display:block;margin-bottom:2px}
+@media (max-width:899px){.foot-brand img{height:92px}}
 
 /* ---- comparison tables in articles --------------------------------------
    Wide spec tables scroll inside their OWN container. The page body must never
-   scroll sideways, and overflow must never go on html/body — at viewport level
+   scroll sideways, and overflow must never go on html/body â€” at viewport level
    that breaks position:fixed on iOS and strands the sticky call bar. */
 .tablewrap{overflow-x:auto;margin:1.5em 0;
   border:1px solid var(--rule);border-radius:var(--r-card)}
@@ -1105,13 +1105,13 @@ html{scroll-behavior:smooth}
   .spectable th,.spectable td{padding:9px 11px}}
 
 /* ================= TRIAL: stitched mobile call bar =======================
-   The sticky "Call ... · Free Estimate" bar, given the same craft treatment the
-   header already carries. Mobile only — .callbar is display:none from 1000px up,
+   The sticky "Call ... Â· Free Estimate" bar, given the same craft treatment the
+   header already carries. Mobile only â€” .callbar is display:none from 1000px up,
    so nothing on desktop is touched.
 
    Two parts, both from the locked palette, no images:
    1. a stitched seam along the TOP edge, using the exact same repeating gradient
-      as .site-head::after — so the header is seamed at its bottom edge and the
+      as .site-head::after â€” so the header is seamed at its bottom edge and the
       call bar at its top, and the page reads as one trimmed panel.
    2. a faint dashed topstitch set in from the edge.
 
@@ -1120,7 +1120,7 @@ html{scroll-behavior:smooth}
    drawn through that strip looks like a rendering fault rather than a detail.
 
    TO REVERT: delete this entire block. Nothing else references it. */
-/* No stitch lines here — just the diamond quilt, the same device the header and
+/* No stitch lines here â€” just the diamond quilt, the same device the header and
    the dark bands already carry.
 
    Applied as a background-image on .callbar itself rather than as a pseudo
@@ -1129,7 +1129,7 @@ html{scroll-behavior:smooth}
    background layer always sits under content, so this cannot ever wash over the
    phone number.
 
-   Geometry now matches the header exactly — 27px diamond — so the top and
+   Geometry now matches the header exactly â€” 27px diamond â€” so the top and
    bottom of the page read as the same treatment rather than two similar ones.
 
    Opacity is LOWER than the header's .030, not higher. The header sits on a
