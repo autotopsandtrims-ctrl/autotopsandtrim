@@ -1079,10 +1079,22 @@ html{scroll-behavior:smooth}
    than drawing a rectangle, so it separates the white linework from the header's
    quilted gradient without putting a plate behind the logo. Kept dark and tight
    â€” a light shadow would halo, which is the problem we just removed. */
-.brand img{height:64px;width:auto;max-width:62vw;display:block;
+.brand img{height:82px;width:auto;max-width:62vw;display:block;
   filter:drop-shadow(0 1px 2px rgba(0,0,0,.55))}
-@media (max-width:899px){.brand img{height:54px}}
-@media (max-width:380px){.brand img{height:46px}}
+@media (max-width:899px){.brand img{height:66px}}
+@media (max-width:380px){.brand img{height:58px}}
+
+/* Mobile: centre the badge and float the burger over on the right. The header is
+   a wrapping flexbox — .nav has flex-basis:100% so it still drops to its own row
+   underneath. Taking the burger out of flow is what lets the badge sit truly
+   centred rather than centred-minus-the-burger. Desktop is untouched: this whole
+   block is below the 1000px breakpoint where the burger exists at all. */
+@media (max-width:999px){
+  .head-in{justify-content:center;position:relative}
+  .brand{margin-right:0}
+  .burger{position:absolute;right:calc(var(--gut) - 8px);top:26px;
+    transform:translateY(-50%);margin-right:0}
+}
 .foot-brand img{height:110px;width:auto;max-width:100%;display:block;margin-bottom:2px}
 @media (max-width:899px){.foot-brand img{height:92px}}
 
