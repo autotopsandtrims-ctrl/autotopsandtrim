@@ -1169,34 +1169,26 @@ html{scroll-behavior:smooth}
    wordmark on a white bar. Tinted fill, blue text, so it still reads as the
    action without shouting over the brand. */
 @media (max-width:999px){
-  /* Glyph + number, with the offer underneath. The burger got pushed onto its
-     own row last time because the wordmark was still in the row as well; it is
-     hidden now, so badge + button + burger fit.
-     The three guards below are what stop it EVER wrapping again:
-       - .brand and .burger never shrink
-       - .head-call is allowed to shrink and its text can ellipsis
-       - below 380px the number drops out entirely, leaving "☎ Free estimate" */
+  /* Glyph + number on ONE line, in a pill that hugs the text.
+     It was stretching because it was display:flex with a wrapping second line —
+     the box then sized to that content block rather than to the number.
+     inline-flex + nowrap + flex:0 0 auto is what makes it wrap the number only.
+     "Free estimate" is dropped here at the user's request. */
   .head-call{background:rgba(47,111,176,.10);color:var(--blue);
     box-shadow:inset 0 0 0 1px rgba(47,111,176,.28);
-    display:flex;flex-wrap:wrap;align-items:center;gap:0 5px;
-    padding:6px 10px;margin-left:8px;line-height:1.14;text-align:left;
-    flex-shrink:1;min-width:0}
+    display:inline-flex;align-items:center;gap:5px;flex:0 0 auto;
+    padding:7px 11px;margin-left:8px;line-height:1;white-space:nowrap}
   .head-call:hover{background:rgba(47,111,176,.16)}
-  .hc-ic{display:inline;font-size:11px;line-height:1}
-  .hc-num{font-size:12.5px;font-weight:800;letter-spacing:-.02em;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .hc-sub{display:block;flex-basis:100%;font-size:8.5px;font-weight:700;
-    letter-spacing:.07em;text-transform:uppercase;opacity:.75;white-space:nowrap}
+  .hc-ic{display:inline;font-size:11.5px;line-height:1}
+  .hc-num{font-size:13px;font-weight:800;letter-spacing:-.02em}
+  .hc-sub{display:none}
   .brand{gap:0;flex-shrink:0}
   .brand img{height:62px}
   .burger{flex-shrink:0}
 }
 @media (max-width:380px){
-  /* narrowest phones: the number goes, the call to action stays */
-  .hc-num{display:none}
-  .hc-sub{flex-basis:auto;font-size:10px}
-  .hc-ic{font-size:12px}
-  .head-call{padding:8px 10px;margin-left:6px}
+  .head-call{padding:6px 9px;margin-left:6px;gap:4px}
+  .hc-num{font-size:12px}
   .brand img{height:54px}
 }
 /* ==================== end white header TRIAL ============================= */
