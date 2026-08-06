@@ -1151,30 +1151,25 @@ html{scroll-behavior:smooth}
 .burger span{background:var(--ink)}
 @media (min-width:1000px){
   .nav a.on{box-shadow:inset 0 -2px 0 var(--blue)}
-  /* desktop keeps the plain number button it already had — the glyph and the
-     "Free estimate" line are mobile-only, where the bottom call bar used to be */
-  .hc-ic,.hc-sub{display:none}
+  /* Desktop: badge only, no wordmark. The badge already carries the name inside
+     it, so the text alongside was saying it twice. */
+  .brand-name{display:none}
+  /* With the wordmark gone the row is badge | nav | call. margin-right:auto on
+     .brand throws nav and call to the right edge; the nav then sits hard against
+     the phone button, so it gets its own breathing room here rather than a
+     gap on .head-in, which would space the badge too. */
+  .nav ul{gap:26px;margin-right:32px}
+  .head-in{padding-top:9px;padding-bottom:9px}
 }
 
 /* Mobile call button: a solid blue block is too loud beside the badge and the
    wordmark on a white bar. Tinted fill, blue text, so it still reads as the
    action without shouting over the brand. */
 @media (max-width:999px){
-  /* The bottom call bar used to carry the whole message — glyph, number and
-     "Free Estimate". Removing it left just a number in the header, which states
-     a fact rather than asking for the call. This puts the intent back: phone
-     glyph and number on one line, the offer underneath.
-     Two lines also matches the stacked wordmark's height, so the row reads as
-     two balanced blocks instead of a tall brand next to a short pill. */
   .head-call{background:rgba(47,111,176,.10);color:var(--blue);
-    margin-left:8px;box-shadow:inset 0 0 0 1px rgba(47,111,176,.28);
-    display:flex;flex-wrap:wrap;align-items:center;gap:0 5px;
-    padding:6px 11px;line-height:1.12;text-align:left}
+    padding:8px 12px;font-size:13.5px;margin-left:8px;
+    box-shadow:inset 0 0 0 1px rgba(47,111,176,.28)}
   .head-call:hover{background:rgba(47,111,176,.16)}
-  .hc-ic{display:inline;font-size:11.5px;line-height:1}
-  .hc-num{font-size:12.5px;font-weight:800;letter-spacing:-.01em}
-  .hc-sub{display:block;flex-basis:100%;font-size:9px;font-weight:700;
-    letter-spacing:.07em;text-transform:uppercase;opacity:.75}
   /* Wordmark stays on mobile, but stacked on two lines instead of one.
      On a single line it was ~137px wide, which blew the row and pushed the
      burger onto its own line under the logo. Wrapped to "AUTO TOPS" over

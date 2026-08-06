@@ -219,11 +219,7 @@ def header(active):
     <nav class="nav" aria-label="Main">
       <ul>{links}</ul>
     </nav>
-    <a class="head-call" href="tel:{PHONE_TEL}">
-      <span class="hc-ic" aria-hidden="true">&#9742;</span>
-      <span class="hc-num">{PHONE_DISPLAY}</span>
-      <span class="hc-sub">Free estimate</span>
-    </a>
+    <a class="head-call" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
   </div>
 </header>
 <main id="main">
