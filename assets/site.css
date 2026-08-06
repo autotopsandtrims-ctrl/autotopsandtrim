@@ -1113,6 +1113,55 @@ html{scroll-behavior:smooth}
 .foot-brand img{height:110px;width:auto;max-width:100%;display:block;margin-bottom:2px}
 @media (max-width:899px){.foot-brand img{height:92px}}
 
+/* ============ TRIAL: white header as a trimmed panel ======================
+   Not a flat white bar. The header is treated as a piece of white upholstery,
+   and the brand sits on a dark patch stitched onto it — the maker's label a trim
+   shop sews into an interior.
+
+   That patch is doing real work, not decoration: the badge artwork is cream, so
+   on plain white it melts into the page. On a dark patch it reads instantly, and
+   the device is drawn straight from the shop's own craft rather than imported.
+
+   Three parts:
+     1. the panel  — white with the diamond quilt INVERTED, faint blue on white
+                     instead of white on dark
+     2. the label  — dark patch behind the brand with a dashed topstitch inset
+     3. the seam   — a double topstitch along the bottom edge, which is how a
+                     real panel edge is finished, rather than a plain 1px rule
+
+   TO REVERT: delete this whole block. Everything is scoped to .site-head. */
+.site-head{background:#fff;color:var(--ink)}
+
+/* 1. the panel — quilt inverted to blue-on-white, and kept very faint */
+.site-head::before{
+  background-image:
+    repeating-linear-gradient(45deg,rgba(47,111,176,.055) 0 1px,transparent 1px 27px),
+    repeating-linear-gradient(-45deg,rgba(47,111,176,.055) 0 1px,transparent 1px 27px)}
+
+/* 3. the seam — two parallel dashed lines, a double topstitch, not a border */
+.site-head::after{height:5px;
+  background:
+    repeating-linear-gradient(90deg,var(--blue) 0 9px,transparent 9px 17px) left top/100% 1px no-repeat,
+    repeating-linear-gradient(90deg,var(--blue) 0 9px,transparent 9px 17px) left bottom/100% 1px no-repeat}
+
+/* 2. the label — a patch stitched onto the panel */
+.brand{position:relative;padding:7px 16px;border-radius:var(--r-card);
+  background:linear-gradient(168deg,#16344F 0%,#1B3A52 55%,#23282E 100%);
+  box-shadow:0 2px 8px rgba(42,46,51,.22)}
+.brand::after{content:"";position:absolute;inset:5px;pointer-events:none;
+  border:1px dashed rgba(94,155,217,.55);border-radius:calc(var(--r-card) - 4px)}
+.brand-name{color:#fff}
+.brand img{filter:none}
+
+/* everything that was drawn for a dark bar, recoloured for white */
+.nav a{color:var(--ink-70);border-bottom-color:var(--rule)}
+.nav a:hover,.nav a.on{color:var(--ink)}
+.nav a.on::before{background:var(--blue)}
+.burger span{background:var(--ink)}
+@media (min-width:1000px){.nav a.on{box-shadow:inset 0 -2px 0 var(--blue)}}
+@media (max-width:999px){.brand{padding:5px 11px}}
+/* ==================== end white-panel header TRIAL ======================= */
+
 /* ---- comparison tables in articles --------------------------------------
    Wide spec tables scroll inside their OWN container. The page body must never
    scroll sideways, and overflow must never go on html/body â€” at viewport level
