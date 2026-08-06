@@ -1139,7 +1139,9 @@ html{scroll-behavior:smooth}
    the name over a strapline); this puts them on one row. */
 .brand{flex-direction:row;align-items:center;gap:11px;
   background:none;padding:0}
-.brand-name{color:var(--ink);font-size:clamp(15px,3.2vw,19px);line-height:1.1}
+/* same grey as the nav links, so the wordmark sits with the other header text
+   instead of reading heavier than everything around it */
+.brand-name{color:var(--ink-70);font-size:clamp(15px,3.2vw,19px);line-height:1.1}
 .brand-name em{color:var(--blue)}
 .brand img{filter:none}
 
@@ -1157,11 +1159,13 @@ html{scroll-behavior:smooth}
     padding:8px 12px;font-size:13.5px;margin-left:8px;
     box-shadow:inset 0 0 0 1px rgba(47,111,176,.28)}
   .head-call:hover{background:rgba(47,111,176,.16)}
-  .brand{gap:8px}
-  .brand-name{font-size:14px;letter-spacing:-.01em}
+  /* No wordmark on mobile. Badge + wordmark + call button + burger overflowed
+     the row, and because .head-in wraps, the burger was pushed onto its own line
+     under the logo. Dropping the text is what keeps all three on one row. */
+  .brand-name{display:none}
+  .brand{gap:0}
 }
 @media (max-width:400px){
-  .brand-name{display:none}          /* badge alone below this; the name would wrap */
   .head-call{padding:8px 11px;font-size:13px}
 }
 /* ==================== end white header TRIAL ============================= */
