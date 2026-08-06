@@ -1151,18 +1151,26 @@ html{scroll-behavior:smooth}
 .burger span{background:var(--ink)}
 @media (min-width:1000px){
   .nav a.on{box-shadow:inset 0 -2px 0 var(--blue)}
-  /* Badge, nav and number all grouped on the left, in that order, with the
-     leftover space falling after them:
-       badge   Home Services Gallery ...  (980) 385-8101
-     The single auto margin sits on .head-call, so it absorbs the slack AFTER the
-     button rather than before it — that is what keeps the number travelling with
-     the nav instead of being pinned to the far right edge. */
+  /* Whole header centred as one group. No auto margins at all — an auto margin
+     shoves everything to one side, which is why this kept ending up hard left
+     with a hole on the right. justify-content:center balances the slack evenly:
+              badge   Home Services Gallery ...   ☎ (980) 385-8101              */
+  .head-in{justify-content:center;padding-top:9px;padding-bottom:9px}
   .brand{margin-right:34px}
   .nav{margin-right:0}
-  .head-call{margin-left:26px;margin-right:auto}
   .nav ul{gap:26px}
-  .head-in{padding-top:9px;padding-bottom:9px}
-  .hc-ic,.hc-sub{display:none}   /* desktop keeps the plain number button */
+
+  /* Phone: outlined, not a solid blue block. On the white header the filled
+     button was the heaviest thing in the bar and fought the badge for attention.
+     This uses the site's existing ghost-button language — blue rule, blue text,
+     fills on hover — so it still reads as the action without dominating. */
+  .head-call{margin-left:28px;margin-right:0;
+    background:none;color:var(--blue);font-size:14px;padding:9px 15px;
+    display:inline-flex;align-items:center;gap:7px;
+    box-shadow:inset 0 0 0 1.5px var(--blue)}
+  .head-call:hover{background:var(--blue);color:#fff}
+  .hc-ic{display:inline;font-size:13px;line-height:1}
+  .hc-sub{display:none}
 }
 
 /* Mobile call button: a solid blue block is too loud beside the badge and the
