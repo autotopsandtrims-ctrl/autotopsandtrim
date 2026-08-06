@@ -2,17 +2,50 @@
 
 Read this first in a new chat. Everything needed to continue is in this repo.
 
-**Last updated:** 2026-08-05
+**Last updated:** 2026-08-06
 
-> 🚀 **THE REBUILD IS LIVE.** `rebuild` was fast-forwarded into `main` on 2026-08-05
-> and pushed. www.autotopsandtrim.com now serves the 16-page site, not the old
-> 13.7 MB bundle. Both branches are in sync — keep pushing to `rebuild`, then
-> fast-forward `main`.
+> 🚀 **THE REBUILD IS LIVE.** www.autotopsandtrim.com serves the generated site.
+> Workflow: push to `rebuild`, check the preview, then fast-forward `main`.
 >
-> **ROLLBACK: `45046b7`** is the last commit of the old single-page site. To revert
-> production: `git push origin 45046b7:main --force`.
->
-> ⚠️ **The apex domain is broken — see open item 1.**
+> **ROLLBACKS:** `6a1af08` (last production commit before the logo work) ·
+> `45046b7` (the old single-page site).
+> Revert production with `git push origin <sha>:main --force`.
+
+## ⚠️ STATE AS OF 2026-08-06 — READ THIS FIRST
+
+**`rebuild` is well ahead of `main`. Production does NOT have any of the logo or
+header work, and does NOT have the 30-article queue.** Everything below is on
+`rebuild` and verified on the preview URL only.
+
+**The header is mid-redesign and is the thing in flight.** Current state on
+`rebuild`, all of it inside one delimited `TRIAL: white header` block at the end
+of `assets/site.css` (delete the block to return to the dark header):
+
+- header background is **white**, not the blue/charcoal gradient
+- the diamond quilt is inverted — faint blue on white
+- nav links, burger and active underline recoloured to charcoal / `#2F6FB0`
+- the **circular cream badge logo** (`logo-badge-warm`) is the brand, at every
+  width. The text wordmark is hidden everywhere (`.brand-name{display:none}`)
+- desktop row: badge, nav beside it, phone button pushed right
+- mobile row: badge, phone button, burger — **the sticky bottom call bar is
+  hidden on mobile**, the number lives in the header instead
+- `MONROE, NC · SINCE 1989` was removed from the header on the user's request
+
+**Three unresolved problems with the current logo, in priority order:**
+
+1. **It is a Ford Mustang with the running-horse emblem on the grille.** Using
+   Ford's trademark in the shop's logo is real legal exposure, not a style
+   question. Raised with the user; not yet acted on.
+2. **It is a serif face.** The design system is locked to Archivo, never a
+   serif. This is a direct conflict with the locked system.
+3. **It is a cream disc, not linework**, so it sits as a pale circle rather than
+   a mark — which is the reason the header went white in the first place.
+
+Earlier candidates, already prepared and kept in `assets/originals/`:
+`logo-light.png` (blue car, "AUTO TOPS" whitened, for dark surfaces) and
+`logo-dark.png` (as supplied, for white). Both have their drop shadow stripped.
+
+**⚠️ The apex domain is still broken — see open item 1.**
 
 ---
 
@@ -168,6 +201,33 @@ The user rejected a redesign once already. The rebuild is about **structure, not
 
 ---
 
+## The blog queue — 30 posts, self-releasing
+
+`POSTS` in `_build/build_pages.py` now holds **30 articles**. Each carries a
+`publish` ISO date and the build only emits a post once that date has arrived —
+before then it produces no page, is absent from `blog.html` and absent from
+`sitemap.xml`, and any stale file on disk is deleted.
+
+- `python _build/build_pages.py` prints `blog: N live, M scheduled (next ...)`
+- `BUILD_DATE=2026-08-14 python _build/build_pages.py` previews a future state
+  without touching any publish date
+- `publish` is the single source of truth for the displayed date **and** for
+  schema.org `datePublished`. The displayed form is `"%B %Y"`, so readers only
+  ever see "August 2026" — the day is invisible to them but drives the gate.
+
+Three a day, 2026-08-06 through 2026-08-14. The 8/6 three have already released.
+
+**⚠️ Nothing publishes them automatically.** `.github/workflows/publish.yml` is
+written and validated but **cannot be committed** — GitHub rejects the push
+because the PAT lacks `workflow` scope. It is excluded via `.git/info/exclude`
+so it stops blocking every push. Until the token gains that scope, each day's
+posts go live only when someone runs the build and pushes.
+
+Research behind the slate is in `SEO_KEYWORDS.md`. Headline findings: the site
+ranks for **zero** keywords; city-modifier terms are tiny (`auto upholstery
+charlotte nc` = 50/mo); the real demand is "near me" (`auto upholstery near me`
+= 6,800/mo) which only the **locked-out Google Business Profile** can win.
+
 ## Open — in priority order
 
 1. **BLOCKER — the apex domain has no valid certificate.**
@@ -187,8 +247,26 @@ The user rejected a redesign once already. The rebuild is about **structure, not
      single apex A record matching what Vercel asked for. Do not touch `www`,
      MX or TXT.
 
-   The user was given a browser-agent prompt for this on 2026-08-05 and reported
-   removing the apex domain from Vercel, so it likely needs re-adding.
+   **ROOT CAUSE CONFIRMED 2026-08-05 from the user's GoDaddy panel.** DNS is at
+   GoDaddy (`ns49`/`ns50.domaincontrol.com`). The panel shows exactly two apex A
+   records:
+
+       A   @   216.198.79.1    <- Vercel. KEEP.
+       A   @   Parked          <- DELETE. This is the whole problem.
+
+   The second literally reads "Parked" in the Data column. It is GoDaddy's
+   domain-parking record and it expands to **both** rogue IPs, which is why an
+   external lookup returns three addresses while the panel lists two.
+
+   **Deleting that one row is the DNS half of the fix.** Also required: add
+   `autotopsandtrim.com` in Vercel (project `hopeton-website`) set to redirect to
+   www, and use whatever A record IP Vercel then displays.
+
+   Do not touch: the `www` CNAME, the `MX` to `smtp.google.com` (the shop's
+   Google email), NS, SOA, or `_domainconnect`. Two TXT records on `@` contain IP
+   addresses — somebody's mistake, harmless, leave them.
+
+   **A ready-to-paste browser-agent prompt is at `APEX_TLS_FIX_PROMPT.md`.**
 
 2. **The contact form.** It posts to `https://formspree.io/f/mrpzzdgz`,
    an endpoint baked in by the original design tool that **neither the user nor I
@@ -275,9 +353,23 @@ The user rejected a redesign once already. The rebuild is about **structure, not
    </details>
 4. **Mobile pass.** Desktop is being signed off first, by the user's choice. Mobile
    currently needs alignment work throughout.
-5. **Logo.** User is supplying an SVG or transparent PNG (~600px+). Goes where the
-   `AUTO TOPS & TRIM` text sits in the header. Also kills the "AT&T" loading
-   placeholder in the old bundle.
+5. **Logo — IN FLIGHT, see the state block at the top of this file.** Four
+   candidates have been through the header. The current one is a circular cream
+   badge with a Ford Mustang and serif type; all three problems with it are
+   listed at the top. It still needs to become a real SVG in two colourways
+   rather than an upscaled raster.
+
+   **Hard-won lessons, do not repeat these:**
+   - `make_responsive.py` used to do `im.convert("RGB")` on everything, which
+     silently destroyed alpha and composited logos onto black. **Fixed** — it now
+     keeps RGBA when the source has it. Photos still flatten to RGB.
+   - The global `img{background:#EDF1F5}` loading placeholder shows straight
+     through a transparent logo as a pale box. `.brand img` and `.foot-brand img`
+     set `background:none` to stop it.
+   - Recolouring a drop shadow along with the artwork turns a grey shadow into a
+     white glow. Strip shadows (faint + neutral pixels) before recolouring.
+   - Deriving alpha from a JPG's luminance gives mushy edges. Only remap colour
+     on sources that already have a correct alpha channel.
 6. **Photos for the sunroof page.** The page ships with no photography because
    the catalogue has none of that repair. A few before/after shots of a sagging
    shade would finish it.
@@ -309,6 +401,23 @@ The user rejected a redesign once already. The rebuild is about **structure, not
    for in-person custom quoting).
 11. Terms/privacy — user parked this. A short privacy note is the useful one,
    since the form collects names and numbers.
+13. **Photo uploads on the quote form.** Built and switched off behind
+    `FORM_ACCEPTS_FILES` in `_build/build_site.py`. A file input needs no
+    JavaScript, so it does not touch the zero-JS rule. Gated on two things:
+    the endpoint being an account the shop owns, and that account being on a
+    **paid** Formspree plan — the free tier is 50 submissions/month with no
+    attachments, and the cheapest tier that accepts files is $15/mo.
+14. **Charles Monk's full review text.** His Google review is truncated at
+    "...took the time to redo some of it when he didn't like the way it
+    turned…". The visible part is stronger than anything currently quoted.
+    Expand "More" on the profile and transcribe it verbatim.
+15. **Reviewer photo permission.** His two headliner before/after photos are now
+    live in his review card (review #2, deliberately). They are his, not the
+    shop's. Worth asking before using them more widely.
+16. **Swipe in the lightbox** needs JavaScript. The zero-JS rule exists because
+    the OLD site used JS for navigation and broke the back button — a gesture
+    layer on top of the existing `:target` links would not reintroduce that.
+    Proposed to the user as progressive enhancement; not yet decided.
 
 ---
 
@@ -323,6 +432,34 @@ The user rejected a redesign once already. The rebuild is about **structure, not
 - **Never push to `main`** without explicit approval — that is production.
 - Verify live state before claiming anything works. Check the deployed URL,
   not just local output.
+
+**2026-08-06 — content, clean URLs, logo trials**
+
+- **Clean URLs.** `vercel.json` sets `cleanUrls`; every internal link, canonical,
+  `og:url`, sitemap entry and Article `mainEntityOfPage` emits the extensionless
+  form. Old `.html` URLs 308-redirect, so nothing indexed breaks. Links are
+  rewritten once in `write()` rather than at hundreds of call sites, which also
+  keeps `header()`'s `href == active` comparison working.
+- **30 blog posts written and queued** — see the queue section above.
+- **The three original posts were rewritten** with verified material comparison
+  tables (Haartz Stayfast/Twillfast/pinpoint vinyl; Sunbrella/Top Gun/Stamoid/
+  Seamark) and **re-dated honestly to 2026-08-04**, the day they actually
+  entered the repo. They had claimed May/June/July.
+- **Reviewer photos.** Charles Monk's headliner before/after now render inside
+  his review card, and his review was moved to **position 2** on purpose.
+- **Lightbox flash fixed.** `.lb:target` ran `animation:lbin` fading the whole
+  backdrop from transparent, so stepping between photos flashed the page
+  through. The backdrop is now static; only the photo eases.
+- **Sticky header restored.** The quilted-header block set `position:relative`
+  on `.site-head` after the `position:sticky` declaration — same specificity,
+  later in the cascade — and silently un-stuck the header. There is a comment at
+  the spot now saying not to put it back.
+- **Recent-work masonry.** The caption fix had swapped in five portrait photos
+  and one landscape, so the CSS columns went badly unbalanced and left a large
+  gap. The tile order is now tall/wide/tall on both sides — **the order is
+  load-bearing, check ratios in `_build/images.json` before swapping any tile.**
+- A uniform-grid version of that strip was tried and reverted; the user prefers
+  the masonry.
 
 **2026-08-05 — GO LIVE + mobile + polish**
 
