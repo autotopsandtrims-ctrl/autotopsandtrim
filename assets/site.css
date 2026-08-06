@@ -1139,9 +1139,9 @@ html{scroll-behavior:smooth}
    the name over a strapline); this puts them on one row. */
 .brand{flex-direction:row;align-items:center;gap:11px;
   background:none;padding:0}
-/* same grey as the nav links, so the wordmark sits with the other header text
-   instead of reading heavier than everything around it */
-.brand-name{color:var(--ink-70);font-size:clamp(15px,3.2vw,19px);line-height:1.1}
+/* The badge carries the shop name inside the artwork, so a text wordmark beside
+   it said the same thing twice. Hidden at every width — desktop and mobile. */
+.brand-name{display:none}
 .brand-name em{color:var(--blue)}
 .brand img{filter:none}
 
@@ -1151,14 +1151,15 @@ html{scroll-behavior:smooth}
 .burger span{background:var(--ink)}
 @media (min-width:1000px){
   .nav a.on{box-shadow:inset 0 -2px 0 var(--blue)}
-  /* Desktop: badge only, no wordmark. The badge already carries the name inside
-     it, so the text alongside was saying it twice. */
-  .brand-name{display:none}
-  /* With the wordmark gone the row is badge | nav | call. margin-right:auto on
-     .brand throws nav and call to the right edge; the nav then sits hard against
-     the phone button, so it gets its own breathing room here rather than a
-     gap on .head-in, which would space the badge too. */
-  .nav ul{gap:26px;margin-right:32px}
+  /* Nav sits next to the badge, not across the page from it.
+     The auto margin moves from .brand to .nav: previously .brand{margin-right:auto}
+     threw BOTH nav and call button to the far right, leaving a wide empty gap
+     after the logo. Putting the auto margin on .nav instead means the nav follows
+     the badge on the left, and only the phone button is pushed to the right edge.
+       badge  Home Services Gallery ...            (980) 385-8101   */
+  .brand{margin-right:34px}
+  .nav{margin-right:auto}
+  .nav ul{gap:26px}
   .head-in{padding-top:9px;padding-bottom:9px}
 }
 
@@ -1170,23 +1171,12 @@ html{scroll-behavior:smooth}
     padding:8px 12px;font-size:13.5px;margin-left:8px;
     box-shadow:inset 0 0 0 1px rgba(47,111,176,.28)}
   .head-call:hover{background:rgba(47,111,176,.16)}
-  /* Wordmark stays on mobile, but stacked on two lines instead of one.
-     On a single line it was ~137px wide, which blew the row and pushed the
-     burger onto its own line under the logo. Wrapped to "AUTO TOPS" over
-     "& TRIM" it is about 75px, which fits alongside a smaller badge, the call
-     button and the burger.
-     max-width in ch is what forces the break, at the existing space, without
-     hard-coding a <br> into the markup. */
-  .brand-name{display:block;max-width:10ch;white-space:normal;
-    font-size:12.5px;line-height:1.16;letter-spacing:-.005em}
-  .brand{gap:9px}
-  .brand img{height:52px}
+  .brand{gap:0}
+  .brand img{height:56px}
 }
 @media (max-width:400px){
   .head-call{padding:7px 10px;font-size:12.5px;margin-left:6px}
-  .brand img{height:46px}
-  .brand-name{font-size:11.5px}
-  .brand{gap:7px}
+  .brand img{height:48px}
 }
 /* ==================== end white header TRIAL ============================= */
 
