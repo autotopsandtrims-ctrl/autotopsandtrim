@@ -1098,6 +1098,44 @@ html{scroll-behavior:smooth}
 .foot-brand img{height:110px;width:auto;max-width:100%;display:block;margin-bottom:2px}
 @media (max-width:899px){.foot-brand img{height:92px}}
 
+/* ================= TRIAL: white header ===================================
+   Flips the header from the dark blue-to-charcoal gradient to white, and
+   recolours everything that was drawn to sit on dark: nav links, the active
+   underline, the burger, the brand and the stitched seam.
+
+   Two things are deliberately dropped rather than recoloured:
+     - the diamond quilt (::before) is white lines at 3% opacity, which is
+       invisible on white. Hiding it beats inventing a dark version.
+     - the logo's drop-shadow, which existed only to lift white linework off a
+       dark background.
+
+   The badge artwork is cream, so it needs a hairline ring on white or it melts
+   into the page.
+
+   Everything below this line is scoped to .site-head and its children, so no
+   other band, card or surface on the site is affected.
+
+   TO REVERT: delete this whole block. */
+.site-head{background:#fff;color:var(--ink);
+  box-shadow:0 1px 0 var(--rule)}
+.site-head::before{display:none}                 /* quilt: white-on-white, pointless */
+.site-head::after{background:repeating-linear-gradient(90deg,
+  var(--blue) 0 13px,rgba(47,111,176,.22) 13px 22px)}
+.brand{color:var(--ink)}
+.brand-name em{color:var(--blue)}
+.brand img{filter:none;border-radius:50%;box-shadow:0 0 0 1px var(--rule)}
+.nav a{color:var(--ink-70);border-bottom-color:var(--rule)}
+.nav a:hover{color:var(--ink)}
+.nav a.on{color:var(--ink)}
+.nav a.on::before{background:var(--blue)}
+.burger span{background:var(--ink)}
+@media (min-width:1000px){
+  .nav a.on{box-shadow:inset 0 -2px 0 var(--blue)}
+}
+/* the sticky header sat on a dark page edge before; on white it needs the rule
+   above to separate it from the hero, which is still dark */
+/* ========================= end white-header TRIAL ======================== */
+
 /* ---- comparison tables in articles --------------------------------------
    Wide spec tables scroll inside their OWN container. The page body must never
    scroll sideways, and overflow must never go on html/body â€” at viewport level
