@@ -1,0 +1,13 @@
+{
+  "name": "Auto Tops and Trim",
+  "short_name": "Auto Tops",
+  "description": "Custom upholstery in Monroe, North Carolina since 1989. Automotive, marine, aviation and motorcycle interiors.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FFFFFF",
+  "theme_color": "#16344F",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

@@ -173,7 +173,15 @@ def head(title, desc, path, extra_schema=None, faqs=None, preload=""):
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{canonical}">
-<meta name="theme-color" content="#12354F">
+<meta name="theme-color" content="#16344F">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:image" content="{SITE}/icon-512.png">
+<meta property="og:site_name" content="Auto Tops and Trim">
+<meta name="twitter:card" content="summary">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/font-327592e7.woff2" crossorigin>
 {preload}<link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">{schema}</script>
