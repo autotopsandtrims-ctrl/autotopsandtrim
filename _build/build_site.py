@@ -124,7 +124,7 @@ SCHEMA = {
     "openingHoursSpecification": [
         {"@type": "OpeningHoursSpecification",
          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-         "opens": "09:00", "closes": "17:30"},
+         "opens": "09:00", "closes": "19:00"},
         {"@type": "OpeningHoursSpecification",
          "dayOfWeek": "Saturday", "opens": "11:00", "closes": "17:00"},
     ],
@@ -276,7 +276,7 @@ def footer(lightbox=""):
     <div class="foot-col">
       <p class="foot-h">Hours</p>
       <table class="hours">
-        <tr><th>Mon &ndash; Fri</th><td>9:00 AM &ndash; 5:30 PM</td></tr>
+        <tr><th>Mon &ndash; Fri</th><td>9:00 AM &ndash; 7:00 PM</td></tr>
         <tr><th>Saturday</th><td>11:00 AM &ndash; 5:00 PM</td></tr>
         <tr><th>Sunday</th><td>Closed</td></tr>
       </table>
@@ -359,7 +359,7 @@ def quote_form(which="contact"):
   </label>
   <button type="submit" class="btn btn-primary wide">Send my request</button>
   <p class="formnote">Prefer to talk? Call <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
-     <span class="fn-hrs">Mon&ndash;Fri 9:00&nbsp;AM&ndash;5:30&nbsp;PM &middot; Sat 11:00&nbsp;AM&ndash;5:00&nbsp;PM</span></p>
+     <span class="fn-hrs">Mon&ndash;Fri 9:00&nbsp;AM&ndash;7:00&nbsp;PM &middot; Sat 11:00&nbsp;AM&ndash;5:00&nbsp;PM</span></p>
 </form>
 """
 

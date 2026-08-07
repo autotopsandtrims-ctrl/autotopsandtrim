@@ -1082,7 +1082,7 @@ def build_contact():
     general_faqs = [
         ("Do I need an appointment?",
          "You are welcome to bring it by during opening hours &mdash; Monday to Friday 9:00 to "
-         "5:30, and Saturday 11:00 to 5:00. Calling ahead on "
+         "7:00, and Saturday 11:00 to 5:00. Calling ahead on "
          f"{PHONE_DISPLAY} is worth doing, because it means someone is free to come out and "
          "look at the job properly rather than between other work."),
         ("What does an estimate cost?",
@@ -1108,7 +1108,7 @@ def build_contact():
     ]
     h = head("Contact | Auto Tops and Trim, Monroe NC | (980) 385-8101",
              "Contact Auto Tops and Trim at 4209 W Hwy 74, Monroe, NC. Call (980) 385-8101 or "
-             "request a free upholstery estimate. Open Mon-Fri 9:00-5:30 and Saturday 11:00-5:00.",
+             "request a free upholstery estimate. Open Mon-Fri 9:00-7:00 and Saturday 11:00-5:00.",
              p, faqs=general_faqs)
     h += header(p)
     h += f"""<section class="band compact">
@@ -1134,7 +1134,7 @@ def build_contact():
                  target="_blank" rel="noopener">Get directions &rarr;</a></span></li>
           <li><span class="k">Hours</span>
             <span class="v"><table class="hours">
-              <tr><th>Mon &ndash; Fri</th><td>9:00 AM &ndash; 5:30 PM</td></tr>
+              <tr><th>Mon &ndash; Fri</th><td>9:00 AM &ndash; 7:00 PM</td></tr>
               <tr><th>Saturday</th><td>11:00 AM &ndash; 5:00 PM</td></tr>
               <tr><th>Sunday</th><td>Closed</td></tr>
             </table></span></li>
