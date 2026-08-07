@@ -1099,28 +1099,32 @@ def build_process():
              "estimate through material selection, the work itself, and fitting.", p)
     h += header(p)
     # (tag, title, copy, photo) — tag is the one-line "what this costs you"
+    # PHOTOS: supplied by the user 2026-08-07, already sorted into one folder per
+    # step ("You bring it in", "We quote the job", …) — so each step now shows the
+    # thing it describes instead of a generic shop photo.
+    # The handshake on step 2 is licensed stock (Pexels), not a shop photograph;
+    # it is the one image here that is not from Monroe.
     steps = [
         ("Walk in or call ahead", "You bring it in",
          "Drive the vehicle over, trailer the boat, or carry in a single seat. "
          "We look at it with you and talk through what you want.",
-         "services-strip-1"),
+         "process-you-bring-it-in-corvette-at-the-shop"),
         ("Free, and itemised", "We quote the job",
          "We check what is under the cover — foam, frames, pads, bows — because that is "
          "where surprises live. Then you get an itemised estimate at no charge.",
-         # was process-header-photo-wide, which is this page's hero photo again
-         "boat-upholstery-projects-at-the-shop"),
+         "process-we-quote-the-job-handshake"),
         ("Samples in hand", "You pick the materials",
          "We keep samples in the shop. Vinyl or canvas, glass or plastic window, "
          "period-correct or upgraded — you see and feel the difference before deciding.",
-         "services-strip-3"),
+         "process-materials-vinyl-and-fabric-rolls"),
         ("Same hands throughout", "We do the work",
          "Disassembly, repair of what is underneath, then cutting and stitching. "
          "The same hands that quoted the job do the work.",
-         "services-strip-2"),
+         "process-we-do-the-work-fitting-a-top"),
         ("Checked with you", "Fitting and finish",
          "Nothing leaves until it fits properly. Weather sealing on marine and "
          "convertible work, and a final check with you at pickup.",
-         "services-strip-4"),
+         "process-fitting-and-finish-cream-interior"),
     ]
     flow = "".join(
         f'<div class="flow-step"><span class="flow-n">{i:02d}</span>'
@@ -1150,7 +1154,10 @@ def build_process():
         <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a>
         <a class="btn btn-ghost" href="contact.html">Request a quote</a>
       </div></div>
-    <div class="hero-media">{img('seat-rebuild-after', 'A rebuilt bench seat, finished and ready to fit', HALF, eager=True)}</div>
+    <!-- Was `seat-rebuild-after`, a finished seat on a driveway. This page is
+         about how a job runs, so it now opens on someone actually working —
+         supplied with the step photos 2026-08-07. -->
+    <div class="hero-media">{img('process-working-at-the-bench', 'Trimming work in progress on the bench at the Monroe shop', HALF, eager=True)}</div>
   </div>
 </section>
 

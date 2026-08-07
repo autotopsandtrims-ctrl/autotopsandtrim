@@ -899,6 +899,32 @@
    }
   ]
  },
+ "process-fitting-and-finish-cream-interior": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "process-fitting-and-finish-cream-interior-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "process-fitting-and-finish-cream-interior-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "process-fitting-and-finish-cream-interior-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "process-fitting-and-finish-cream-interior-3024.webp"
+   }
+  ]
+ },
  "process-header-photo-wide": {
   "w": 1536,
   "h": 2048,
@@ -922,6 +948,136 @@
     "w": 1536,
     "h": 2048,
     "file": "process-header-photo-wide-1536.webp"
+   }
+  ]
+ },
+ "process-materials-vinyl-and-fabric-rolls": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "process-materials-vinyl-and-fabric-rolls-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "process-materials-vinyl-and-fabric-rolls-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "process-materials-vinyl-and-fabric-rolls-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "process-materials-vinyl-and-fabric-rolls-3024.webp"
+   }
+  ]
+ },
+ "process-we-do-the-work-fitting-a-top": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "process-we-do-the-work-fitting-a-top-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "process-we-do-the-work-fitting-a-top-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "process-we-do-the-work-fitting-a-top-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "process-we-do-the-work-fitting-a-top-3024.webp"
+   }
+  ]
+ },
+ "process-we-quote-the-job-handshake": {
+  "w": 3840,
+  "h": 5760,
+  "variants": [
+   {
+    "w": 480,
+    "h": 720,
+    "file": "process-we-quote-the-job-handshake-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1200,
+    "file": "process-we-quote-the-job-handshake-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 2100,
+    "file": "process-we-quote-the-job-handshake-1400.webp"
+   },
+   {
+    "w": 3840,
+    "h": 5760,
+    "file": "process-we-quote-the-job-handshake-3840.webp"
+   }
+  ]
+ },
+ "process-working-at-the-bench": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "process-working-at-the-bench-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "process-working-at-the-bench-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "process-working-at-the-bench-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "process-working-at-the-bench-3024.webp"
+   }
+  ]
+ },
+ "process-you-bring-it-in-corvette-at-the-shop": {
+  "w": 1536,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "process-you-bring-it-in-corvette-at-the-shop-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "process-you-bring-it-in-corvette-at-the-shop-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "process-you-bring-it-in-corvette-at-the-shop-1400.webp"
+   },
+   {
+    "w": 1536,
+    "h": 2048,
+    "file": "process-you-bring-it-in-corvette-at-the-shop-1536.webp"
    }
   ]
  },
