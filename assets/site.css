@@ -543,6 +543,11 @@ html{scroll-behavior:smooth}
    `.quote input` is a full-width padded text field â€” at equal specificity those
    win on source order and render the checkbox as a giant square. Hence the
    attribute selector, which outranks them. */
+/* Honeypot wrapper. Must stay visually gone but still present in the DOM and
+   still submitted, so a bot that fills every input trips it. Off-screen rather
+   than display:none, because some bots skip hidden fields. */
+.quote .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
 .quote label.consent{display:grid;grid-template-columns:auto minmax(0,1fr);
   gap:10px;align-items:start;font-weight:400;font-size:13px;line-height:1.55;
   color:var(--ink-70);cursor:pointer}

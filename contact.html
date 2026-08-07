@@ -77,6 +77,20 @@
         <h2 class="formcard-h">Request your free estimate</h2>
         <form class="quote" action="https://formspree.io/f/mrpzzdgz" method="post">
   <input type="hidden" name="_subject" value="New estimate request from autotopsandtrim.com">
+  <!-- Honeypot. Formspree silently discards any submission where `_gotcha` is
+       filled: a bot scraping the HTML fills every field it finds, a person never
+       sees this one. No JavaScript, so the zero-JS guarantee holds.
+       Positioned off-screen rather than display:none, because some bots skip
+       display:none fields. aria-hidden + tabindex=-1 keep it away from screen
+       readers and the tab order; autocomplete=off stops browsers filling it.
+       Formspree also runs reCAPTCHA server-side on every form by default, so
+       this is a second layer, not the only one. If spam still lands, the
+       stronger move is a CUSTOM-named honeypot plus a form rule, since
+       spammers know `_gotcha` by name. -->
+  <div class="hp" aria-hidden="true">
+    <label>Leave this field empty
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+  </div>
   <div class="f2">
     <label>First name <input type="text" name="First name" required autocomplete="given-name"></label>
     <label>Last name <input type="text" name="Last name" required autocomplete="family-name"></label>
