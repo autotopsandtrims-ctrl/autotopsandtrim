@@ -75,6 +75,12 @@ automotive, marine, aviation, motorcycle" framing is the outlier. Agreed plan:
    three text columns linking to their pages, which stay live. **Design them with
    no photo slot at all** — an empty slot looks broken, a text block does not.
    Explicitly NOT "photos coming soon".
+
+   **DO NOT ask the owner to go and photograph anything.** He was asked on
+   2026-08-07 and declined; the instruction is to work with what exists and
+   ship the text-only treatment. Motorcycle and aviation get photos if and when
+   he supplies them, not before. Build these sections so that dropping a photo
+   in later is additive and needs no redesign.
 6. A **Before & After** page/band was requested. Ten complete before/after job
    sets exist; the white sedan roof is the strongest.
 
