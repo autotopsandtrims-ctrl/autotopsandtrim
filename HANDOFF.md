@@ -266,6 +266,15 @@ The user rejected a redesign once already. The rebuild is about **structure, not
 - New in the generator: `ba_band()` (before/after), `also_band()`, optional
   `lead_html` on `service_page()` with counted section numbers, optional blog
   `photo`; new CSS for `.ba`, `.also`, `.pcard.nophoto`, `.card.nophoto`
+- **Reply promise:** "We reply to every request within one business day", defined
+  ONCE as `REPLY_PROMISE` in `build_site.py` and generated into the quote form,
+  the contact lead, the sitewide CTA micro-line and a new FAQ (so it is in the
+  FAQPage schema too). **Change the constant, not the pages.** It is a single
+  keepable commitment with no "usually" hedge; if the shop wants to promise a
+  few hours instead, that is a one-line edit.
+  ⚠️ The CTA micro-line is `display:none` below 900px by an earlier deliberate
+  decision, so on a phone the promise shows in the form, the contact lead and
+  the FAQ but not in the CTA band.
 
 - 16 pages: home, services + 6 service pages, gallery, process, about, contact, blog + 3 articles
 - Site outage fixed (an empty `index.html` had been committed)
