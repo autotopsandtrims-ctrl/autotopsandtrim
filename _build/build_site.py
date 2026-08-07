@@ -86,10 +86,23 @@ NAV = [
     ("contact.html", "Contact"),
 ]
 
+# ORDER IS THE OWNER'S BUSINESS CARD: convertible tops, vinyl tops, sunroofs,
+# vehicle interiors. The photo counts back it up (62 convertible tops, 115
+# interior, 14 vinyl, 2 sunroof), and it is what the shop actually sells. The
+# old "four trades under one roof — automotive, marine, aviation, motorcycle"
+# framing was the outlier and is gone from the ordering everywhere.
+#
+# Marine, aviation and motorcycle stay live and stay listed, but LAST — they are
+# demoted into a "We also work on" band on the home page and the services index.
+#
+# URLS ARE FROZEN. `auto-upholstery.html` is labelled "Vehicle Interiors" and
+# keeps its filename: it is indexed, internally linked from a dozen blog posts,
+# and renaming the file would 404 every one of them for no SEO gain.
 SERVICES = [
     ("convertible-tops.html", "Convertible Tops"),
-    ("auto-upholstery.html", "Auto Upholstery"),
+    ("vinyl-tops.html", "Vinyl Tops"),
     ("sunroof-shade-repair.html", "Sunroof Shade Repair"),
+    ("auto-upholstery.html", "Vehicle Interiors"),
     ("marine-upholstery.html", "Marine Upholstery"),
     ("aviation-upholstery.html", "Aviation Upholstery"),
     ("motorcycle-seats.html", "Motorcycle Seats"),
@@ -99,9 +112,9 @@ SCHEMA = {
     "@context": "https://schema.org",
     "@type": "AutoRepair",
     "name": "Auto Tops and Trim",
-    "description": ("Custom automotive, marine, aviation and motorcycle upholstery in "
-                    "Monroe, NC. Convertible tops, seats, headliners, sunroof shades, "
-                    "carpet and marine canvas."),
+    "description": ("Convertible tops, vinyl tops, sunroof shades and complete vehicle "
+                    "interiors in Monroe, NC since 1989 — seats, headliners, door panels "
+                    "and carpet. Boat upholstery and canvas too."),
     "url": SITE,
     "telephone": PHONE_DISPLAY,
     "email": EMAIL,
@@ -130,7 +143,10 @@ SCHEMA = {
     ],
     "makesOffer": [
         {"@type": "Offer", "itemOffered": {"@type": "Service", "name": n}}
-        for n in ["Automotive Upholstery", "Convertible Tops", "Sunroof Shade Repair",
+        # Same order as SERVICES, for the same reason: the card first, the three
+        # secondary trades last.
+        for n in ["Convertible Top Replacement", "Vinyl Top Replacement",
+                  "Sunroof Shade Repair", "Vehicle Interior Upholstery",
                   "Marine Upholstery", "Aviation Upholstery", "Motorcycle Upholstery"]
     ],
 }
@@ -255,8 +271,8 @@ def footer(lightbox=""):
   <div class="foot-in">
     <div class="foot-col">
       <p class="foot-brand">{img('logo-badge-warm', 'Auto Tops and Trim', '190px')}</p>
-      <p>Custom upholstery in Monroe, North Carolina since 1989. Automotive, marine,
-         aviation and motorcycle interiors.</p>
+      <p>Custom upholstery in Monroe, North Carolina since 1989. Convertible tops,
+         vinyl tops, sunroof shades and complete vehicle interiors.</p>
       <p><a class="foot-phone" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></p>
       <p><a href="mailto:{EMAIL}">{EMAIL}</a></p>
       <p class="foot-area"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path

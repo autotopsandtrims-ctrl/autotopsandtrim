@@ -1075,6 +1075,68 @@ html{scroll-behavior:smooth}
 .rev-shots a:hover img{transform:scale(1.05)}
 @media (max-width:899px){.rev-shots{gap:6px;margin-top:11px}}
 
+/* ============================================================================
+   SERVICES RESTRUCTURE (2026-08-07) â€” the photoless treatments.
+
+   Three services (marine, aviation, motorcycle) and one more (sunroof shades)
+   have no photograph this shop can honestly claim. Every rule below exists so
+   that absence reads as a design decision rather than a broken image slot.
+   Nothing here says "photos coming soon", and every one of these becomes an
+   ordinary photo component again by deleting one class.
+   ========================================================================== */
+
+/* ---- pcard with no photo: a designed panel, not an empty frame ----------
+   The bento's tiles are photos with a gradient over them. This one is the
+   gradient without the photo â€” same shape, same type, same hover target, so it
+   sits in the grid as a peer instead of a hole. */
+.pcard.nophoto{background:linear-gradient(155deg,#1E4468 0%,var(--blue-deep) 55%,#12283C 100%)}
+/* the overlay gradient exists to make white type legible over a photograph.
+   There is no photograph here, so it would only mud the panel. */
+.pcard.nophoto::after{display:none}
+.pcard.nophoto .pbody{padding:22px 20px}
+.pcard.nophoto .cat{color:var(--pale)}
+/* the wide bento slot gives this tile more room than its text needs, so the
+   copy is allowed a longer measure than a photo tile's caption */
+.pcard.nophoto p{max-width:60ch}
+
+/* ---- "We also work on": three text columns, no media slot --------------- */
+.also{display:grid;gap:clamp(20px,3vw,34px);grid-template-columns:1fr}
+@media (min-width:820px){.also{grid-template-columns:repeat(3,1fr)}}
+.also-col{display:flex;flex-direction:column;gap:9px;align-items:flex-start;
+  padding-top:16px;border-top:2px solid var(--blue-lt)}
+.also-cat{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--blue)}
+.also-col h3{font-size:clamp(19px,1.8vw,22px)}
+.also-col p{color:var(--ink-70);font-size:15.5px;line-height:1.62}
+.also-col .card-link{margin-top:2px}
+
+/* ---- before / after / during sequence ----------------------------------
+   Unlike the masonry, these ARE cropped to one ratio. Three portrait photos at
+   their natural heights read as three unrelated pictures; a common ratio is
+   what makes the eye compare them, which is the entire point of the band. */
+.ba{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:700px){.ba{grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px)}}
+.ba figure{margin:0;position:relative;overflow:hidden;border-radius:var(--r-media);
+  background:#EDF1F5}
+.ba figure img{width:100%;height:100%;aspect-ratio:3/4;object-fit:cover;border-radius:0;
+  transition:transform .5s ease}
+.ba figure:hover img{transform:scale(1.04)}
+.ba figcaption{position:absolute;left:0;right:0;bottom:0;padding:30px 13px 12px;
+  font-size:12.5px;font-weight:600;letter-spacing:.02em;color:#fff;line-height:1.45;
+  background:linear-gradient(to top,rgba(20,25,31,.90),rgba(20,25,31,.58) 58%,rgba(20,25,31,0))}
+/* the stage chip is the label doing the work â€” BEFORE / STRIPPED / AFTER */
+.ba-stage{position:absolute;top:12px;left:12px;z-index:2;padding:6px 11px;
+  font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:#fff;background:rgba(20,25,31,.72);border-radius:var(--r-ctl)}
+@media (max-width:699px){
+  .ba figure img{aspect-ratio:4/3}
+  .ba figcaption{padding:24px 11px 10px;font-size:11.5px}
+}
+
+/* ---- blog card with no photo ------------------------------------------- */
+.card.nophoto{border-top:3px solid var(--blue-lt)}
+.card.nophoto .card-body{padding-top:24px}
+
 /* ---- LOGO TRIAL: header and footer marks --------------------------------
    Sized by height so the lockup stays put whatever the artwork's aspect ratio.
    width:auto lets the intrinsic ratio drive the width, and max-width stops a

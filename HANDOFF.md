@@ -2,7 +2,7 @@
 
 Read this first in a new chat. Everything needed to continue is in this repo.
 
-**Last updated:** 2026-08-06
+**Last updated:** 2026-08-07
 
 > 🚀 **THE REBUILD IS LIVE.** www.autotopsandtrim.com serves the generated site.
 > Workflow: push to `rebuild`, check the preview, then fast-forward `main`.
@@ -13,8 +13,14 @@ Read this first in a new chat. Everything needed to continue is in this repo.
 
 ## ⚠️ STATE AS OF 2026-08-07 — READ THIS FIRST
 
-**`rebuild` and `main` are IDENTICAL and everything below is LIVE.** The
-2026-08-06 block that used to sit here (claiming production lagged) was stale.
+**`rebuild` and `main` were IDENTICAL and everything below is LIVE up to commit
+`8091973`.** The 2026-08-06 block that used to sit here (claiming production
+lagged) was stale.
+
+**The services restructure was built and validated 2026-08-07** and sits on top
+of that commit — see the section below for exactly what changed. **`git` is not
+on PATH**; use GitHub Desktop's bundled copy:
+`%LOCALAPPDATA%\GitHubDesktop\app-3.6.3\resources\app\git\cmd\git.exe`.
 
 **The apex TLS blocker is FIXED.** `autotopsandtrim.com` now has one A record
 (`216.198.79.1`), a valid Let's Encrypt cert issued 2026-08-05, and 308-redirects
@@ -49,40 +55,58 @@ unlike the earlier Drive batch, where the HEIC extensions were lying.
 283 photos**, which confirms the four suspect images were never the shop's.
 Marine is real — 3 boat photos plus boats on trailers in the shop exteriors.
 
-### THE SERVICES RESTRUCTURE — AGREED, NOT YET BUILT
+### THE SERVICES RESTRUCTURE — BUILT 2026-08-07
 
 The owner's business card reads **convertible tops, vinyl tops, sunroofs,
 vehicle interiors**, and the photo counts match it (62 convertible tops, 115
 interior, 14 vinyl, 2 sunroof). The site's "four trades under one roof —
-automotive, marine, aviation, motorcycle" framing is the outlier. Agreed plan:
+automotive, marine, aviation, motorcycle" framing was the outlier. Items 1–5 of
+the agreed plan are **built and validated**; item 6 is the only one still open.
 
-1. **Build a Vinyl Tops page.** It is on his card, there are 14 photos including
-   a complete before/after, and **the site has no such page at all.** The five
-   masters are already adopted and unreferenced:
-   `vinyl-top-before-roof-covering-rotted`, `vinyl-top-roof-stripped-trim-removed`,
-   `vinyl-top-after-burgundy-fitted`, `vinyl-top-after-opera-window-detail`,
-   `vinyl-top-before-peeling-at-rear`.
-2. Reorder `SERVICES` in `build_site.py` to card order; rename
-   "Auto Upholstery" to **Vehicle Interiors**. Keep existing URLs so nothing 404s.
-3. Reorder `SCHEMA["makesOffer"]` and rewrite `SCHEMA["description"]` and the
-   footer tagline, both of which still lead with the four-trades framing.
-4. **Rewire the four stock photos out of the remaining places.** Off the gallery
-   already; still used as service-page heroes, home `pcard` images, services-index
-   images and the `photo` of six blog posts. Marine can use the real
-   `boat-upholstery-projects-at-the-shop`; aviation and motorcycle need
-   text-only treatments.
-5. Demote marine/motorcycle/aviation into one **"We also work on"** band with
-   three text columns linking to their pages, which stay live. **Design them with
-   no photo slot at all** — an empty slot looks broken, a text block does not.
-   Explicitly NOT "photos coming soon".
+Done:
+
+1. **Vinyl Tops page built** — `vinyl-tops.html`, in the nav-adjacent SERVICES
+   list, the footer, the services index, the sitemap and the schema. It carries a
+   **before / stripped / after band** (new `ba_band()` helper + `.ba` CSS) built
+   from the adopted masters, plus the second car's peeling-at-the-rear shot as
+   the one "Recent work" tile. Hero is `vinyl-top-after-burgundy-fitted`.
+   **Captions were written from opening all five photos full size.** Two cars are
+   involved, not one, and no caption names a make or a model year.
+   ⚠️ **One thing for the owner to confirm:** the finished covering photographs
+   as a matte, cloth-grained material, so the page copy and captions say "top",
+   never "vinyl", about that particular car. If he confirms it is vinyl, the
+   captions can say so.
+2. **`SERVICES` reordered to card order** and "Auto Upholstery" relabelled
+   **Vehicle Interiors**. `auto-upholstery.html` KEEPS its filename — it is
+   indexed and linked from a dozen blog posts. Its `<title>` also keeps "Auto
+   Upholstery" for the same reason; only the visible label changed.
+3. **`SCHEMA["description"]`, `SCHEMA["makesOffer"]` and the footer tagline
+   rewritten** to lead with the card. The four-trades framing is also gone from
+   the home hero and meta, the services-index H1, the About hero, meta, "by the
+   numbers" band (the "4 — trades under one roof" stat is now the 5.0 Google
+   rating) and the Contact FAQ.
+4. **All four stock photos are off every page** — heroes, home `pcard`s,
+   services-index images and five blog posts. Marine took the real
+   `boat-upholstery-projects-at-the-shop` for its hero; aviation and motorcycle
+   are text-only, hero and photo strip both. `dupcheck` still reports 0 pages
+   repeating a photo and `validate` 0 missing refs across 23 pages.
+5. **"We also work on" band shipped** (`also_band()` + `.also` CSS) on the home
+   page, the services index and About. Three text columns, **no photo slot at
+   all**, unnumbered so it reads as secondary. Blog posts can now omit `photo`
+   too (`.card.nophoto`); the motorcycle and aviation posts do. Adding a photo
+   later is additive everywhere — no redesign needed.
 
    **DO NOT ask the owner to go and photograph anything.** He was asked on
-   2026-08-07 and declined; the instruction is to work with what exists and
-   ship the text-only treatment. Motorcycle and aviation get photos if and when
-   he supplies them, not before. Build these sections so that dropping a photo
-   in later is additive and needs no redesign.
-6. A **Before & After** page/band was requested. Ten complete before/after job
-   sets exist; the white sedan roof is the strongest.
+   2026-08-07 and declined.
+
+STILL OPEN:
+
+6. A **Before & After** page/band across the site was requested. Only the vinyl
+   job has one so far. Ten complete before/after sets exist in the sorted folder
+   (the white sedan roof is the strongest) but **only 7 of the 283 photos have
+   been imported**, so this needs a photo-import pass through
+   `_build/import_photos.py` first — the other nine sets are not in
+   `images.json` yet and cannot be referenced.
 
 ### STILL BLOCKED
 
@@ -232,6 +256,16 @@ The user rejected a redesign once already. The rebuild is about **structure, not
 ---
 
 ## Done
+
+**2026-08-07 — services restructure**
+
+- `vinyl-tops.html` added — 7 service pages now, 23 pages built
+- Card order everywhere: convertible tops → vinyl tops → sunroofs → vehicle interiors
+- Marine/aviation/motorcycle demoted into the photoless "We also work on" band
+- The four unverified stock photos are off the whole site, not just the gallery
+- New in the generator: `ba_band()` (before/after), `also_band()`, optional
+  `lead_html` on `service_page()` with counted section numbers, optional blog
+  `photo`; new CSS for `.ba`, `.also`, `.pcard.nophoto`, `.card.nophoto`
 
 - 16 pages: home, services + 6 service pages, gallery, process, about, contact, blog + 3 articles
 - Site outage fixed (an empty `index.html` had been committed)
