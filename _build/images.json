@@ -1109,6 +1109,58 @@
    }
   ]
  },
+ "sunroof-shade-fabric-failed-wide": {
+  "w": 3000,
+  "h": 4000,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "sunroof-shade-fabric-failed-wide-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "sunroof-shade-fabric-failed-wide-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "sunroof-shade-fabric-failed-wide-1400.webp"
+   },
+   {
+    "w": 3000,
+    "h": 4000,
+    "file": "sunroof-shade-fabric-failed-wide-3000.webp"
+   }
+  ]
+ },
+ "sunroof-shade-fabric-failed": {
+  "w": 3000,
+  "h": 4000,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "sunroof-shade-fabric-failed-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "sunroof-shade-fabric-failed-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "sunroof-shade-fabric-failed-1400.webp"
+   },
+   {
+    "w": 3000,
+    "h": 4000,
+    "file": "sunroof-shade-fabric-failed-3000.webp"
+   }
+  ]
+ },
  "upholstery-materials-and-marine-project-parts": {
   "w": 297,
   "h": 396,
@@ -1216,6 +1268,32 @@
     "w": 3024,
     "h": 4032,
     "file": "vinyl-top-before-roof-covering-rotted-3024.webp"
+   }
+  ]
+ },
+ "vinyl-top-burgundy-finished-in-the-bay": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "vinyl-top-burgundy-finished-in-the-bay-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "vinyl-top-burgundy-finished-in-the-bay-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "vinyl-top-burgundy-finished-in-the-bay-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "vinyl-top-burgundy-finished-in-the-bay-3024.webp"
    }
   ]
  },

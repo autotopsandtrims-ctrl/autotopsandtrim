@@ -185,43 +185,40 @@ def reviews_block(num="03", label="Testimonials",
 
 
 # ============================================================== HOME
+# (photo, category, one line). No link and no page target on purpose — see below.
 ALSO = [
-    ("marine-upholstery.html", "Marine", "Boat upholstery and canvas",
-     "Boat seating, cushions, helm trim and canvas, in materials specified for "
-     "standing water, UV and salt rather than for a car interior. Bring one "
-     "cushion by and we will tell you what you are looking at."),
-    ("aviation-upholstery.html", "Aviation", "Aircraft cabin interiors",
-     "Cockpit and cabin seating, side panels, trim and carpet, finished to the "
-     "tighter tolerance that aviation work asks for. A rare trade in this region, "
-     "and one we have done alongside cars for decades."),
-    ("motorcycle-seats.html", "Motorcycle", "Custom bike seats",
-     "Seats recovered, foam reshaped for comfort and seat height, pan repair and "
-     "custom stitch work. Take the seat off and bring it in &mdash; the bike stays "
-     "home."),
+    ("marine-seating-and-interior-upholstery", "Marine",
+     "Boat seating, cushions, helm trim and canvas."),
+    ("aircraft-cabin-upholstery-craftsmanship", "Aviation",
+     "Cockpit and cabin interiors, panels and carpet."),
+    ("custom-motorcycle-seat-upholstery-close-up", "Motorcycle",
+     "Custom bike seats, recovered and reshaped."),
 ]
 
 
 def also_band(label="We also work on",
               heading="Boats, aircraft and bikes come through here too",
               tone=""):
-    """The three secondary trades, as text columns with NO photo slot.
+    """The three secondary trades as a row of photographs.
 
-    Deliberately photoless. The four images that used to carry these three
-    services read as commercial stock photography and nothing ties them to this
-    shop — and 283 photographs of real work confirmed there is no aviation and no
-    motorcycle work among them. An empty photo frame looks broken; a text column
-    does not, and it is not "photos coming soon" either. If the shop supplies
-    real photographs later, adding a media slot here is additive.
+    NOT LINKS AND NOT CLICKABLE, on the user's instruction 2026-08-07: the tiles
+    are there to show the range of the shop, not to send anyone off the page.
+    The three pages are still reachable from the footer's Services list.
 
-    Unnumbered on purpose: every other band on the home page and the services
-    index carries a section number, so an unnumbered one reads as secondary,
-    which is exactly what this band is.
+    ⚠️ These three photographs are the unverified stock images. They were taken
+    off the gallery and off every service page in the restructure because nothing
+    ties them to this shop, and 283 photographs of real work contain no aviation
+    and no motorcycle. They were put back HERE, decoratively, on the user's
+    explicit instruction. Nothing in this band claims they are the shop's own
+    jobs — no captions, no "recent work" heading, no lightbox.
+
+    Unnumbered on purpose: every other band carries a section number, so an
+    unnumbered one reads as secondary, which is what this band is.
     """
     cols = "".join(
-        f'<div class="also-col"><span class="also-cat">{cat}</span>'
-        f'<h3>{title}</h3><p>{body}</p>'
-        f'<a class="card-link" href="{href}">{cat} upholstery</a></div>'
-        for href, cat, title, body in ALSO)
+        f'<figure class="also-col">{img(photo, "", THIRD)}'
+        f'<figcaption><span class="also-cat">{cat}</span>{line}</figcaption></figure>'
+        for photo, cat, line in ALSO)
     return f"""<section class="band{f' {tone}' if tone else ''}" id="also">
   <div class="wrap stack">
     <div class="stack">{shead("", label)}<h2>{heading}</h2></div>
@@ -237,8 +234,7 @@ def build_home():
     h = head(
         "Auto Tops and Trim | Custom Upholstery in Monroe, NC Since 1989",
         "Custom upholstery in Monroe, NC since 1989. Convertible tops, vinyl tops, "
-        "sunroof shade repair and complete vehicle interiors — seats, headliners, door "
-        "panels and carpet. Free estimates — call (980) 385-8101.", p,
+        "sunroofs and vehicle interiors. Free estimates — call (980) 385-8101.", p,
         preload=preload_image("g16-cadillac-convertible-red-interior",
                               "(min-width:900px) 52vw, 100vw"))
     h += header(p)
@@ -253,20 +249,22 @@ def build_home():
     # or the browser preloads a photo it never shows.
     hero_slides = [
         "g16-cadillac-convertible-red-interior",
-        # NEW slide 2 (owner-supplied 2026-08-07): a silver convertible with a
-        # full red vinyl interior - dash, door cards, front and rear benches.
-        "convertible-red-vinyl-interior-full",
         # was slide 2, pushed down one on the owner's instruction
         "gallery-header-photo-wide",
-        # NEW slide 4 (owner-supplied): red pickup cab, black seat, new carpet.
+        # owner-supplied: red pickup cab, black seat, new carpet.
         # Portrait 0.75, same ratio as the portrait slide it replaces.
         "red-pickup-cab-black-seat-and-carpet",
     ]
+    # `convertible-red-vinyl-interior-full` used to be slide 2. It moved to the
+    # Vehicle Interiors card below on 2026-08-07 — it is the best full-interior
+    # photograph in the catalogue and that is the card it belongs on. It cannot
+    # be in both places: no page shows the same photograph twice.
     n_slides = len(hero_slides)
     # Must equal the `slidefade` / `doton` durations in assets/site.css. Two
-    # seconds a slide across four slides = an 8s cycle. If you change the count,
-    # change the CSS duration too or the dots drift out of step with the photos.
-    SLIDESHOW_SECONDS = 8
+    # seconds a slide across three slides = a 6s cycle. If you change the count,
+    # change the CSS duration AND the keyframe percentages too, or the dots drift
+    # out of step with the photos.
+    SLIDESHOW_SECONDS = 6
     slides = "".join(
         f'<figure style="animation-delay:{i * (SLIDESHOW_SECONDS / n_slides):.1f}s">'
         f'{img(b, "Upholstery work by Auto Tops and Trim in Monroe, NC", "(min-width:900px) 52vw, 100vw", eager=(i == 0), priority=(i == 0))}'
@@ -281,9 +279,8 @@ def build_home():
     <div class="stack">
       {shead("", "Monroe, NC &middot; Since 1989")}
       <h1>Custom upholstery, expertly crafted</h1>
-      <p class="lead">Convertible tops, vinyl tops, sunroof shades and complete
-        vehicle interiors &mdash; seats, headliners, door panels and carpet,
-        trimmed by hand in Monroe since 1989.</p>
+      <p class="lead">Convertible tops, vinyl tops, sunroofs and vehicle interiors
+        &mdash; handcrafted in Monroe since 1989.</p>
       <div class="btnrow">
         <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a>
         <a class="btn btn-ghost" href="contact.html">Request a Quote Online</a>
@@ -300,53 +297,43 @@ def build_home():
   <div class="wrap stack">
     <div class="center stack">
       {shead("01", "What we do", center=True)}
-      <h2>Tops, trim and interiors, trimmed by hand in Monroe</h2>
-      <p class="lead">Four things fill this shop: convertible tops, vinyl tops, sunroof
-         shades and vehicle interiors. They are what is on the sign, and they are what
-         we have been doing since 1989.</p>
+      <h2>Expert upholstery solutions for every vehicle and vessel type</h2>
+      <p class="lead">Most upholstery shops do cars. We have been doing boats, aircraft
+         and bikes alongside them since 1989.</p>
     </div>
-    <!-- CARD ORDER, with ONE deliberate swap. The business card reads convertible
-         tops, vinyl tops, sunroofs, vehicle interiors. Positions 3 and 4 are
-         swapped here and only here, because the bento's third slot is the tall
-         one and sunroof shades are the single service with no honest photograph
-         in the catalogue — a photoless tile belongs in the short wide slot, not
-         the tall one. Every other list on the site (nav, footer, services index,
-         schema) runs in true card order.
-         The sunroof tile is `.pcard nophoto`: a designed panel, not an empty
-         image frame. Drop a real sunroof photo into the catalogue and it becomes
-         an ordinary pcard by deleting one class. -->
+    <!-- The four names off the owner's business card, in his order: convertible
+         tops, vinyl tops, sunroofs, vehicle interiors. Blurbs stay one short
+         sentence each, the length the original cards ran at — these tiles are
+         photo cards, not paragraphs. -->
     <div class="bento">
       <a class="pcard" href="convertible-tops.html">
         {img('automotive-ford-galaxie-top-after', 'Convertible top fitted to a classic Ford', HALF)}
         <span class="cat">Convertible tops</span>
         <div class="pbody"><h3>Convertible Tops</h3>
           <p>Vinyl and canvas tops, heated glass and plastic windows, and the frame
-             and pad work underneath that most quotes leave out.</p>
+             underneath.</p>
           <span class="go">See the work</span></div>
       </a>
       <a class="pcard" href="vinyl-tops.html">
-        {img('vinyl-top-after-burgundy-fitted', 'New burgundy top fitted over a hardtop roof', HALF)}
+        {img('vinyl-top-burgundy-finished-in-the-bay', 'A new burgundy vinyl top finished in the shop bay', HALF)}
         <span class="cat">Vinyl tops</span>
         <div class="pbody"><h3>Vinyl Tops</h3>
-          <p>Rotted, peeling or faded roof coverings stripped back to the metal,
-             re-padded and re-covered.</p>
+          <p>Rotted, peeling or faded roof coverings stripped back and re-covered.</p>
           <span class="go">See the work</span></div>
       </a>
       <a class="pcard" href="auto-upholstery.html">
-        {img('seat-rebuild-after', 'Rebuilt bench seat with red stitching', HALF)}
+        {img('convertible-red-vinyl-interior-full', 'A full red vinyl interior fitted to a convertible', HALF)}
         <span class="cat">Vehicle interiors</span>
         <div class="pbody"><h3>Vehicle Interiors</h3>
-          <p>Seats, headliners, door panels and carpet &mdash; from one torn seat to a
-             complete classic interior built to your spec.</p>
+          <p>Custom upholstery, headliners, carpet replacement and full interior
+             restorations.</p>
           <span class="go">See the work</span></div>
       </a>
-      <a class="pcard nophoto" href="sunroof-shade-repair.html">
+      <a class="pcard" href="sunroof-shade-repair.html">
+        {img('sunroof-shade-fabric-failed', 'A sunroof shade with the fabric broken up and flaking away', HALF)}
         <span class="cat">Sunroofs</span>
-        <div class="pbody"><h3>Sunroof Shade Repair</h3>
-          <p>When the sliding shade sags, tears or stops retracting, the fabric is
-             usually all that has failed. We recover the panel you already have instead
-             of replacing the whole sunroof assembly &mdash; two of our Google reviews
-             are about this exact repair.</p>
+        <div class="pbody"><h3>Sunroofs</h3>
+          <p>Sagging, torn or stuck sliding sunshades recovered, not replaced.</p>
           <span class="go">See the work</span></div>
       </a>
     </div>
@@ -606,7 +593,7 @@ def build_services():
         "Vinyl tops", "Vinyl and padded top replacement",
         "When a vinyl roof goes, it usually goes at the seams and the rear first — and "
         "what is underneath matters more than what you can see.",
-        "vinyl-top-after-burgundy-fitted",
+        "vinyl-top-burgundy-finished-in-the-bay",
         [("What we re-cover", ["Full vinyl roofs", "Landau and half tops",
                                "Padded tops and cabriolet-style roofs",
                                "Rear quarter and opera window surrounds"]),
@@ -618,10 +605,10 @@ def build_services():
                                     "Matched to your paint or your interior",
                                     "Samples laid on the car before you decide",
                                     "Free, itemised estimate"])],
-        # One tile only, and it is the SECOND car. Three of the five vinyl photos
-        # carry the before/after band above and the fifth is the hero, so nothing
-        # on this page is shown twice.
-        ["vinyl-top-before-peeling-at-rear"],
+        # The remaining two masters. Three of the six vinyl photos carry the
+        # before/after band above and the sixth is the hero, so nothing on this
+        # page is shown twice.
+        ["vinyl-top-after-burgundy-fitted", "vinyl-top-before-peeling-at-rear"],
         [("Can a vinyl top be repaired, or does the whole thing come off?",
           "A lifting edge or an open seam can sometimes be re-bonded. Once the material has "
           "gone hard, split across the top, or rotted where water has sat, it is a recover — "
@@ -645,7 +632,8 @@ def build_services():
           "It depends on what is under the old top. Stripping, cleaning and re-covering a sound "
           "roof is a straightforward job; rust or a damaged skin adds time, and we will tell you "
           "that when we have the old covering off rather than spring it on you later.")],
-        ["Another car in with the covering lifted and peeling at the rear"],
+        ["New top fitted over the roof and rear quarter",
+         "Another car in with the covering lifted and peeling at the rear"],
         lead_html=ba_band(
             [("vinyl-top-before-roof-covering-rotted", "Before",
               "Old roof covering rotted through to the padding"),
@@ -840,7 +828,11 @@ def build_services():
         "Sunroof shades", "Sunroof shade repair in Monroe, NC",
         "When the sliding shade over your sunroof sags, tears or stops retracting, the fabric "
         "is usually the only thing that has failed. We recover the panel you already have.",
-        None,   # no honest photo exists for this service yet — see HANDOFF
+        # A real photograph at last: the shop's own shot of a sunroof shade whose
+        # fabric has broken up and is flaking off the panel. Imported from the
+        # 283-photo batch 2026-08-07 — folder 06-sunroof-shade, the only two
+        # sunroof photographs that exist.
+        "sunroof-shade-fabric-failed",
         [("What we repair", ["Sagging or drooping shade fabric",
                              "Torn, split or stained shade panels",
                              "Fabric that has come unbonded from the slider",
@@ -853,7 +845,7 @@ def build_services():
                             "The shade is trim work — it is what this shop does",
                             "Bring the vehicle by; we will tell you what it needs",
                             "Customers drive in from Charlotte and Union County"])],
-        [],   # no sunroof photos exist in the catalogue yet — none invented
+        ["sunroof-shade-fabric-failed-wide"],
         [("My sunroof shade is sagging. Can it be fixed, or do I need a whole new sunroof?",
           "In most cases the sunroof itself is fine and only the shade fabric has failed. The "
           "fabric is bonded to a thin sliding panel, and over years of Carolina heat that bond "
@@ -886,9 +878,8 @@ def build_services_index():
     _lb_reset()
     p = "services.html"
     h = head("Upholstery Services | Auto Tops and Trim, Monroe NC",
-             "Convertible tops, vinyl tops, sunroof shade repair and vehicle interiors in "
-             "Monroe, NC — seats, headliners, door panels and carpet. Boat upholstery and "
-             "canvas too. Free estimates.", p)
+             "Convertible tops, vinyl tops, sunroofs and vehicle interiors in Monroe, NC. "
+             "Boat, aircraft and motorcycle upholstery too. Free estimates.", p)
     h += header(p)
 
     # TRUE BUSINESS-CARD ORDER, and only the four services the shop leads with.
@@ -904,7 +895,7 @@ def build_services_index():
          "Rotted, peeling or faded roof coverings stripped back to the metal, re-padded "
          "and re-covered — including landau and padded tops.",
          ["Full, landau and half tops", "Rust checked before quoting", "Colour matched to the car"]),
-        ("sunroof-shade-repair.html", "Sunroof Shade Repair", None,
+        ("sunroof-shade-repair.html", "Sunroofs", "sunroof-shade-fabric-failed",
          "Sagging, torn or stuck sliding sunshade? We recover the panel you already have "
          "instead of replacing the whole sunroof assembly.",
          ["Sagging and torn shades", "Matched to your headliner", "Recover, not replace"]),
@@ -932,10 +923,10 @@ def build_services_index():
     h += f"""<section class="band" style="padding-bottom:0">
   <div class="wrap center stack">
     {shead("01", "Services", center=True)}
-    <h1>Tops, trim and interiors, trimmed by hand since 1989</h1>
-    <p class="lead">Convertible tops, vinyl tops, sunroof shades and complete vehicle
-       interiors, out of one shop in Monroe, North Carolina. Every job is quoted free
-       of charge, from your photos or in person.</p>
+    <h1>Expert upholstery for every vehicle and vessel type</h1>
+    <p class="lead">Convertible tops, vinyl tops, sunroofs and vehicle interiors, out of
+       one shop in Monroe, North Carolina. Every job is quoted free of charge, from your
+       photos or in person.</p>
   </div>
 </section>
 
@@ -1194,16 +1185,15 @@ def build_about():
     _lb_reset()
     p = "about.html"
     h = head("About | Auto Tops and Trim, Monroe NC Since 1989",
-             "Auto Tops and Trim has been trimming convertible tops, vinyl tops, sunroof "
-             "shades and vehicle interiors in Monroe, North Carolina since 1989.", p)
+             "Auto Tops and Trim has been trimming automotive, marine, aviation and "
+             "motorcycle interiors in Monroe, North Carolina since 1989.", p)
     h += header(p)
     h += f"""<section class="hero">
   <div class="wrap">
     <div class="stack">{shead("","About the shop")}
       <h1>Trimming interiors in Monroe since 1989</h1>
-      <p class="lead">Convertible tops, vinyl tops, sunroof shades and complete vehicle
-         interiors, out of one building on West Highway 74. Boats, aircraft and bikes
-         come through here too.</p></div>
+      <p class="lead">What began as a focused automotive upholstery shop grew into a
+         multi-disciplinary interior restoration business — cars, boats, aircraft and bikes.</p></div>
     <div class="hero-media">{img('owner-shop-leadership-grayscale', 'The Auto Tops and Trim shop on West Highway 74 in Monroe', HALF, eager=True)}</div>
   </div>
 </section>
@@ -1237,17 +1227,14 @@ def build_about():
   <div class="wrap stack">
     <div class="center stack">
       {shead("03", "By the numbers", center=True)}
-      <h2>One shop, one trade, done properly</h2>
-      <p class="lead">Tops, trim and interiors are what fill this building, and they have
-         filled it since 1989. Boats, aircraft and bikes come in alongside them.</p>
+      <h2>Four trades, one roof, since 1989</h2>
+      <p class="lead">Cars, boats, aircraft and bikes are four different crafts.
+         Most shops pick one. We kept all four in the same building in Monroe.</p>
     </div>
-    <!-- The old fourth stat read "4 — Trades under one roof", which is the framing
-         this restructure removed. Replaced with the Google rating, which is the one
-         number here a customer can go and verify in about ten seconds. -->
     <div class="stats" style="margin-top:clamp(30px,4vw,52px)">
       <div class="stat"><b>1989</b><span>Trimming since</span></div>
+      <div class="stat"><b>4</b><span>Trades under one roof</span></div>
       <div class="stat"><b>35+</b><span>Years in Union County</span></div>
-      <div class="stat"><b>{RATING}</b><span>Google rating, {REVIEW_COUNT} reviews</span></div>
       <div class="stat"><b>Free</b><span>Estimates on every job</span></div>
     </div>
   </div>
@@ -1269,10 +1256,10 @@ def build_about():
            re-padded and re-covered &mdash; landau and padded tops included.</p>
         <span class="card-link">Vinyl tops</span></div></a>
       <a class="card" href="sunroof-shade-repair.html"><div class="card-body">
-        <h3>Sunroof shades</h3>
+        <h3>Sunroofs</h3>
         <p>The sliding shade recovered rather than the whole sunroof assembly
            replaced. Two of our Google reviews are about this exact repair.</p>
-        <span class="card-link">Sunroof shade repair</span></div></a>
+        <span class="card-link">Sunroofs</span></div></a>
       <a class="card" href="auto-upholstery.html"><div class="card-body">
         <h3>Seats, headliners and interiors</h3>
         <p>One torn seat or a complete classic interior built to your spec, for
@@ -1320,9 +1307,9 @@ def build_contact():
          "picture. We would rather find that at the shop than surprise you with it later. The "
          "estimate costs nothing either way."),
         ("What do you actually work on?",
-         "Convertible tops, vinyl tops, sunroof shades and complete vehicle interiors &mdash; "
-         "seats, headliners, door panels and carpet. That is the bulk of the shop. Boat "
-         "cushions and canvas, aircraft cabins and custom bike seats come through as well."),
+         "Convertible tops, vinyl tops, sunroofs and vehicle interiors &mdash; seats, "
+         "headliners, door panels and carpet. Boat cushions and canvas, aircraft cabins "
+         "and custom bike seats come through as well."),
         ("Do I have to bring the whole vehicle?",
          "Not always. If the job is a seat, a cushion or a motorcycle seat, take it off and bring "
          "it in on its own &mdash; that is how a lot of these start. Tops, headliners and interiors "

@@ -110,7 +110,10 @@ NAV = [
 SERVICES = [
     ("convertible-tops.html", "Convertible Tops"),
     ("vinyl-tops.html", "Vinyl Tops"),
-    ("sunroof-shade-repair.html", "Sunroof Shade Repair"),
+    # LABEL IS "SUNROOFS" — the word on the business card. The file name stays
+    # sunroof-shade-repair.html: it is indexed and "sunroof shade repair" is the
+    # phrase people actually search, so the page keeps it in its own title.
+    ("sunroof-shade-repair.html", "Sunroofs"),
     ("auto-upholstery.html", "Vehicle Interiors"),
     ("marine-upholstery.html", "Marine Upholstery"),
     ("aviation-upholstery.html", "Aviation Upholstery"),
@@ -121,9 +124,8 @@ SCHEMA = {
     "@context": "https://schema.org",
     "@type": "AutoRepair",
     "name": "Auto Tops and Trim",
-    "description": ("Convertible tops, vinyl tops, sunroof shades and complete vehicle "
-                    "interiors in Monroe, NC since 1989 — seats, headliners, door panels "
-                    "and carpet. Boat upholstery and canvas too."),
+    "description": ("Convertible tops, vinyl tops, sunroofs and vehicle interiors in "
+                    "Monroe, NC since 1989. Boat, aircraft and motorcycle upholstery too."),
     "url": SITE,
     "telephone": PHONE_DISPLAY,
     "email": EMAIL,
@@ -154,8 +156,8 @@ SCHEMA = {
         {"@type": "Offer", "itemOffered": {"@type": "Service", "name": n}}
         # Same order as SERVICES, for the same reason: the card first, the three
         # secondary trades last.
-        for n in ["Convertible Top Replacement", "Vinyl Top Replacement",
-                  "Sunroof Shade Repair", "Vehicle Interior Upholstery",
+        for n in ["Convertible Tops", "Vinyl Tops",
+                  "Sunroof Shade Repair", "Vehicle Interiors",
                   "Marine Upholstery", "Aviation Upholstery", "Motorcycle Upholstery"]
     ],
 }
@@ -281,7 +283,7 @@ def footer(lightbox=""):
     <div class="foot-col">
       <p class="foot-brand">{img('logo-badge-warm', 'Auto Tops and Trim', '190px')}</p>
       <p>Custom upholstery in Monroe, North Carolina since 1989. Convertible tops,
-         vinyl tops, sunroof shades and complete vehicle interiors.</p>
+         vinyl tops, sunroofs and vehicle interiors.</p>
       <p><a class="foot-phone" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></p>
       <p><a href="mailto:{EMAIL}">{EMAIL}</a></p>
       <p class="foot-area"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path
