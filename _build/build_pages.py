@@ -1521,7 +1521,7 @@ POSTS = [
         "title": "What actually drives the cost of a headliner replacement",
         "seo_title": "Headliner Replacement Cost: What Changes the Price | Auto Tops and Trim",
         "meta": "The five things that move the price of a headliner replacement — roof size, "
-                "sunroof, trim removal, material and hidden damage. Free in-person estimates.",
+                "sunroof, trim removal, material and hidden damage. Free estimates.",
         "excerpt": "Two quotes for the same car can look very different. Here are the five "
                    "variables that explain the gap, and the ones a cheap quote usually leaves out.",
         "body": [
