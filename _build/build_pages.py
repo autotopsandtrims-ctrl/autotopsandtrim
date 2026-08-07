@@ -6,7 +6,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import (  # noqa: E402
-    IMAGES, SITE, PHONE_DISPLAY, PHONE_TEL, OUT, REPLY_PROMISE,
+    IMAGES, SITE, PHONE_DISPLAY, PHONE_TEL, EMAIL, OUT, REPLY_PROMISE,
     img, has, head, header, footer, cta, shead, quote_form, write, NAV, SERVICES, SCHEMA,
     preload_image, public_path,
 )
@@ -189,7 +189,9 @@ def reviews_block(num="03", label="Testimonials",
 ALSO = [
     ("marine-seating-and-interior-upholstery", "Marine",
      "Boat seating, cushions, helm trim and canvas."),
-    ("aircraft-cabin-upholstery-craftsmanship", "Aviation",
+    # NOT aircraft-cabin-upholstery-craftsmanship: that master is 396x298 and is
+    # visibly soft the moment it fills a card. This one is 1800x1201.
+    ("aircraft-interior-seat-upholstery", "Aviation",
      "Cockpit and cabin interiors, panels and carpet."),
     ("custom-motorcycle-seat-upholstery-close-up", "Motorcycle",
      "Custom bike seats, recovered and reshaped."),
@@ -216,8 +218,9 @@ def also_band(label="We also work on",
     unnumbered one reads as secondary, which is what this band is.
     """
     cols = "".join(
-        f'<figure class="also-col">{img(photo, "", THIRD)}'
-        f'<figcaption><span class="also-cat">{cat}</span>{line}</figcaption></figure>'
+        f'<figure class="also-col">{img(photo, "", QUARTER)}'
+        f'<figcaption><span class="also-cat">{cat}</span>'
+        f'<span class="line">{line}</span></figcaption></figure>'
         for photo, cat, line in ALSO)
     return f"""<section class="band{f' {tone}' if tone else ''}" id="also">
   <div class="wrap stack">
@@ -537,8 +540,10 @@ def build_services():
         "Convertible tops", "Convertible top replacement in Monroe, NC",
         "A new top is really three jobs: the fabric, the window, and whatever needs "
         "repairing on the frame underneath. We quote all three.",
-        # was `convertible-top-after`, which is a truck cab interior, not a top
-        "convertible-top-replacement-and-finish",
+        # Was `convertible-top-replacement-and-finish` — a 297x396 master, soft on
+        # any desktop, and the shop's retired phone number is legible on the sign
+        # behind the car. This one is 3024x4032 and has no signage in frame.
+        "convertible-top-blue-galaxie-finished",
         [("Materials", ["Quality vinyl — holds up well in Carolina sun",
                         "Canvas cloth — correct on a classic, ages gracefully",
                         "Samples shown in the shop before you decide"]),
@@ -550,7 +555,8 @@ def build_services():
                                    "Checked before we quote, not after"])],
         # Dropped g05 (it is a Cadillac front end, not a cloth top) and g17
         # (a duplicate of g16, and the top is stowed in it anyway).
-        ["g01-camaro-ss-new-convertible-top", "automotive-interior-restoration-detail",
+        ["convertible-top-tan-on-black-camaro", "convertible-top-tan-side-view",
+         "g01-camaro-ss-new-convertible-top", "automotive-interior-restoration-detail",
          "automotive-ford-galaxie-top-after", "g18-camaro-ss-profile"],
         [("How much does a convertible top replacement cost?",
           "It depends on three things: the material you choose, whether the rear window is "
@@ -569,7 +575,8 @@ def build_services():
          ("How long does it take?",
           "Most tops are a few days once the material is in hand. Frame or pad repair adds time. "
           "We will give you a realistic window with the estimate.")],
-        ["Camaro SS — new convertible top", "Burgundy cloth top — rear window",
+        ["Tan top fitted to a black convertible", "Tan top — side view",
+         "Camaro SS — new convertible top", "Burgundy cloth top — rear window",
          "Ford Galaxie — top fitted", "Camaro SS — profile"])
 
     # VINYL TOPS — new 2026-08-07 with the services restructure. It is the second
@@ -702,8 +709,9 @@ def build_services():
         # Was `marine-seating-and-interior-upholstery` — a varnished-wood runabout
         # cockpit that reads as commercial photography and carries nothing tying it
         # to this shop. 283 photographs of real work confirmed it was never ours.
-        # This one is the shop building with a boat on a trailer outside it.
-        "boat-upholstery-projects-at-the-shop",
+        # Real marine work, imported 2026-08-07: a boat cockpit at 3024x4032.
+        # The old hero (shop-with-a-boat-outside) was a 297x396 master.
+        "boat-cockpit-cream-and-grey",
         [("Seating and cushions", ["UV-stabilised, mildew-resistant marine vinyl",
                                    "Quick-dry reticulated foam that passes water through",
                                    "Thread that will not rot", "Helm and console trim"]),
@@ -715,7 +723,8 @@ def build_services():
         # This strip previously showed the OLD hero twice more under two other
         # filenames, plus `marine-canvas-cushions`, which is a car interior. The
         # boat-on-a-trailer shot moved up to the hero, so one honest tile is left.
-        ["upholstery-materials-and-marine-project-parts"],
+        ["boat-helm-seat-white", "boat-upholstery-projects-at-the-shop",
+         "upholstery-materials-and-marine-project-parts"],
         [("Why not leather on a boat?",
           "Leather is wonderful in a car interior. On the water it is a maintenance problem — "
           "standing water, UV and salt will dry it out and crack it within a season or two."),
@@ -728,7 +737,8 @@ def build_services():
          ("My canvas has gone chalky — recover or replace?",
           "Depends how far it has gone. Chalking is usually a sign of a cheaper coated fabric "
           "reaching the end of its life. We will give you an honest answer when we see it.")],
-        ["Project parts on the shop bench"])
+        ["Helm seat off a boat, in for recovering",
+         "Boat in for upholstery at the shop", "Project parts on the shop bench"])
 
     service_page(
         "aviation-upholstery.html",
@@ -1053,6 +1063,31 @@ GALLERY = [
     ("g07-bench-seat-red-piping-in-the-shop", "Cushion and armrest, trimmed on the bench", "Automotive"),
     ("seat-rebuild-after", "Seat rebuild — finished", "Automotive"),
     ("boat-upholstery-projects-at-the-shop", "Boat in for upholstery at the shop", "Marine"),
+    # ---- adopted 2026-08-07 out of the 283-photo batch. Captions describe what
+    # is in the frame, never the filename, and nothing here shows the retired
+    # 704 number on the building (that check was made photo by photo).
+    ("convertible-top-blue-galaxie-finished", "Ford Galaxie — new black top fitted", "Automotive"),
+    ("convertible-top-tan-on-black-camaro", "Tan top fitted to a black convertible", "Automotive"),
+    ("convertible-top-tan-side-view", "Tan top — side view", "Automotive"),
+    ("vinyl-top-burgundy-finished-in-the-bay", "Vinyl top — finished in the shop bay", "Automotive"),
+    ("vinyl-top-after-burgundy-fitted", "Vinyl top — new burgundy covering fitted", "Automotive"),
+    ("vinyl-top-after-opera-window-detail", "Vinyl top — wrapped around the rear window", "Automotive"),
+    ("vinyl-top-before-roof-covering-rotted", "Before — roof covering rotted through", "Automotive"),
+    ("vinyl-top-roof-stripped-trim-removed", "Stripped — covering and mouldings off", "Automotive"),
+    ("vinyl-top-before-peeling-at-rear", "Before — vinyl top peeling at the rear", "Automotive"),
+    ("convertible-red-vinyl-interior-full", "Full red vinyl interior, front to back", "Automotive"),
+    ("red-pickup-cab-black-seat-and-carpet", "Pickup cab — black seat and new carpet", "Automotive"),
+    ("process-fitting-and-finish-cream-interior", "Cream leather interior, finished", "Automotive"),
+    ("sunroof-shade-fabric-failed", "Sunroof shade — fabric broken up and flaking", "Automotive"),
+    ("sunroof-shade-fabric-failed-wide", "Sunroof shade — the whole panel", "Automotive"),
+    ("shop-lifting-the-top-frame", "Lifting the top frame off a car", "In the shop"),
+    ("process-we-do-the-work-fitting-a-top", "Fitting a convertible top", "In the shop"),
+    ("shop-seat-foam-and-jute-padding", "Foam and jute padding on the machine table", "In the shop"),
+    ("shop-stitched-seam-detail", "Stitched seam detail", "In the shop"),
+    ("process-materials-vinyl-and-fabric-rolls", "Vinyl and fabric roll stock", "In the shop"),
+    ("process-working-at-the-bench", "Trimming work in progress at the bench", "In the shop"),
+    ("boat-cockpit-cream-and-grey", "Boat cockpit — cream and grey upholstery", "Marine"),
+    ("boat-helm-seat-white", "Helm seat off a boat, in for recovering", "Marine"),
     # REMOVED 2026-08-07: the runabout cockpit, the two aircraft cabin shots and
     # the cafe-racer seat. The owner supplied 283 photographs of his actual work
     # that day and NOT ONE is aviation or motorcycle, which settles the
@@ -1188,6 +1223,93 @@ def build_process():
     write(p, h)
 
 
+def build_careers():
+    """Hiring page. Nothing here is invented.
+
+    NO PAY, NO HOURS, NO BENEFITS and no job titles nobody has agreed to — none
+    of that has been supplied, and a wrong number on a hiring page wastes both
+    sides' time. What it does say is what the shop actually needs (someone who
+    can sew, plus hands for everything either side of the machine) and how to
+    put yourself forward. Add the specifics here the moment the owner gives them.
+    """
+    _lb_reset()
+    p = "careers.html"
+    h = head("Careers | Auto Tops and Trim, Monroe NC",
+             "Auto Tops and Trim in Monroe, NC is hiring. Upholstery sewing machine "
+             "operators and general shop help. Call (980) 385-8101 or stop by the shop "
+             "at 4209 W Hwy 74.", p)
+    h += header("contact.html")
+    h += f"""<section class="hero">
+  <div class="wrap">
+    <div class="stack">{shead("", "Join the shop")}
+      <h1>We are hiring in Monroe</h1>
+      <p class="lead">This is a working trim shop, not a counter job. If you can sew, or
+         you want to learn this trade properly from someone who has done it since 1989,
+         come and talk to us.</p>
+      <div class="btnrow">
+        <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a>
+        <a class="btn btn-ghost" href="mailto:{EMAIL}?subject=Job%20enquiry">Email us</a>
+      </div>
+    </div>
+    <div class="hero-media">{img('process-working-at-the-bench', 'Trimming work in progress at the bench', HALF, eager=True)}</div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap stack">
+    <div class="stack">{shead("01", "Who we are looking for")}
+      <h2>Sewing first &mdash; but not sewing only</h2>
+      <p class="lead">The machine is the hardest seat to fill, so an experienced upholstery
+         sewing machine operator can walk in tomorrow. It is not the only job here though:
+         a top or an interior is stripped, repaired, patterned, cut, fitted and finished,
+         and every one of those steps needs a pair of hands.</p></div>
+    <div class="grid g3">
+      <div class="stack"><h3>On the machine</h3><ul class="ticks">
+        <li>Industrial machine experience &mdash; automotive, marine or furniture</li>
+        <li>Panels, seams, piping, pleats and diamond work</li>
+        <li>Working clean off a pattern</li>
+      </ul></div>
+      <div class="stack"><h3>Around the machine</h3><ul class="ticks">
+        <li>Stripping interiors and pulling old covers</li>
+        <li>Foam, frames, pads and bows &mdash; the repair underneath</li>
+        <li>Fitting tops and trim on the car</li>
+        <li>Keeping the shop and the benches straight</li>
+      </ul></div>
+      <div class="stack"><h3>What matters most</h3><ul class="ticks">
+        <li>You turn up, on the days you said you would</li>
+        <li>You take care with someone else&rsquo;s vehicle</li>
+        <li>You would rather do it twice than hand back something crooked</li>
+        <li>Willing to learn the parts you do not know yet</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="band tint">
+  <div class="wrap narrow stack">
+    <div class="stack">{shead("02", "How to apply")}
+      <h2>There is no form for this one</h2>
+      <p class="lead">Call the shop, send an email, or come by in person &mdash; in person
+         is best. Bring something you have made if you have it, or photographs of it. A
+         seat cover you stitched says more than a r&eacute;sum&eacute; does.</p></div>
+    <ul class="infolist">
+      <li><span class="k">Call</span><span class="v"><a class="big" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></span></li>
+      <li><span class="k">Email</span><span class="v"><a href="mailto:{EMAIL}?subject=Job%20enquiry">{EMAIL}</a></span></li>
+      <li><span class="k">Come by</span><span class="v"><strong>4209 W Hwy 74</strong><br>Monroe, NC 28110<br>
+        Mon&ndash;Fri 9:00&nbsp;AM&ndash;7:00&nbsp;PM &middot; Sat 11:00&nbsp;AM&ndash;5:00&nbsp;PM</span></li>
+    </ul>
+  </div>
+</section>
+"""
+    h += cta(num="03", label="Come and see the place",
+             heading="Not sure you have enough experience?",
+             sub="Come by anyway and say so. We would rather meet someone willing to learn "
+                 "the trade than wait for a perfect résumé that never turns up.")
+    h += footer(lightbox_markup())
+    pages.append(p)
+    write(p, h)
+
+
 def build_about():
     _lb_reset()
     p = "about.html"
@@ -1222,10 +1344,14 @@ def build_about():
   <div class="wrap stack">
     <div class="stack">{shead("02","Inside the shop")}<h2>How the work gets done</h2></div>
     <div class="grid g4 swiperow">
-      <figure class="tile">{img('services-strip-1', 'A bench seat cushion with red piping on the shop table', QUARTER)}</figure>
-      <figure class="tile">{img('services-strip-3', 'A bench seat part way through a rebuild in the shop', QUARTER)}</figure>
-      <figure class="tile">{img('services-strip-4', 'A Ford Galaxie with the tonneau cover fitted over the top well', QUARTER)}</figure>
-      <figure class="tile">{img('services-strip-2', 'A Corvette outside the shop', QUARTER)}</figure>
+      <!-- Replaced 2026-08-07. The four tiles here were parked cars and a seat on
+           a bench, under a heading about how the work gets done, and three of the
+           four masters were 249x332 or 297x396 - visibly soft on a desktop. These
+           four are full-resolution and each one shows an actual stage of the job. -->
+      <figure class="tile">{img('shop-lifting-the-top-frame', 'Lifting the top frame off a car in the shop', QUARTER)}</figure>
+      <figure class="tile">{img('shop-seat-foam-and-jute-padding', 'New foam and jute padding on the machine table', QUARTER)}</figure>
+      <figure class="tile">{img('shop-stitched-seam-detail', 'Stitched seam detail on a finished panel', QUARTER)}</figure>
+      <figure class="tile">{img('process-materials-vinyl-and-fabric-rolls', 'Vinyl and fabric roll stock in the shop', QUARTER)}</figure>
     </div>
   </div>
 </section>
@@ -3451,6 +3577,7 @@ if __name__ == "__main__":
     build_gallery()
     build_process()
     build_about()
+    build_careers()
     build_contact()
     build_blog()
     build_meta()

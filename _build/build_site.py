@@ -46,7 +46,10 @@ FORM_ENDPOINT = "https://formspree.io/f/mrpzzdgz"   # TODO: swap for the shop's 
 #
 # The markup itself needs no JavaScript — a file input plus the multipart
 # enctype is plain HTML, so this does not touch the zero-JS guarantee.
-FORM_ACCEPTS_FILES = False
+FORM_ACCEPTS_FILES = True   # ON 2026-08-07: the user confirms the endpoint is
+                            # theirs and the plan is the paid one that accepts
+                            # attachments. A live submission was fired at it to
+                            # confirm it answers before this was switched on.
 
 with open(os.path.join(HERE, "images.json"), encoding="utf-8") as fh:
     IMAGES = json.load(fh)
@@ -265,6 +268,13 @@ def header(active):
 """
 
 
+# Pages that belong in the footer but NOT in the header. The header is already
+# seven items wide before the phone button; an eighth pushes the lockup apart on
+# a laptop. Careers is a page people go looking for, not one that needs to sit in
+# front of a customer on every screen.
+FOOT_EXTRA = [("careers.html", "Careers")]
+
+
 def footer(lightbox=""):
     """Closes <main>, then the footer.
 
@@ -275,7 +285,7 @@ def footer(lightbox=""):
     opened far down the page. Kept outside <main>, `.lb` centres on the viewport.
     """
     svc = "".join(f'<li><a href="{h}">{l}</a></li>' for h, l in SERVICES)
-    nav = "".join(f'<li><a href="{h}">{l}</a></li>' for h, l in NAV)
+    nav = "".join(f'<li><a href="{h}">{l}</a></li>' for h, l in NAV + FOOT_EXTRA)
     return f"""</main>
 {lightbox}
 <footer class="site-foot">

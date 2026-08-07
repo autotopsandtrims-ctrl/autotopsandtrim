@@ -75,7 +75,7 @@
     <div class="contact-grid">
       <div class="formcard">
         <h2 class="formcard-h">Request your free estimate</h2>
-        <form class="quote" action="https://formspree.io/f/mrpzzdgz" method="post">
+        <form class="quote" action="https://formspree.io/f/mrpzzdgz" method="post" enctype="multipart/form-data">
   <input type="hidden" name="_subject" value="New estimate request from autotopsandtrim.com">
   <!-- Honeypot. Formspree silently discards any submission where `_gotcha` is
        filled: a bot scraping the HTML fills every field it finds, a person never
@@ -106,6 +106,12 @@
   </div>
   <label>What do you need? <textarea name="Project description" rows="5" required
     placeholder="Convertible top, seats, headliner, boat cushions&hellip;"></textarea></label>
+  <label class="filefield">Photos of the job <span class="opt">optional</span>
+    <input type="file" name="Photos" accept="image/*" multiple>
+    <span class="fieldnote">A picture of the tear, the sagging shade or the whole
+      vehicle helps us come back to you faster. It does not replace seeing it in
+      person &mdash; we still quote the frame and foam at the shop.</span>
+  </label>
   <!-- TCPA express written consent. Deliberately NOT `required` and NOT pre-checked:
        consent to marketing texts cannot lawfully be a condition of getting a quote. -->
   <label class="consent">
@@ -185,7 +191,7 @@
     <div class="foot-col foot-acc">
       <input type="checkbox" id="fa-nav" class="facc" aria-hidden="true">
       <label for="fa-nav" class="foot-h">Pages</label>
-      <ul><li><a href="/">Home</a></li><li><a href="/services">Services</a></li><li><a href="/gallery">Gallery</a></li><li><a href="/process">Our Process</a></li><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/contact">Contact</a></li></ul>
+      <ul><li><a href="/">Home</a></li><li><a href="/services">Services</a></li><li><a href="/gallery">Gallery</a></li><li><a href="/process">Our Process</a></li><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/contact">Contact</a></li><li><a href="/careers">Careers</a></li></ul>
     </div>
     <div class="foot-col">
       <p class="foot-h">Hours</p>

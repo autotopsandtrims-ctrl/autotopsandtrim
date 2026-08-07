@@ -1094,18 +1094,42 @@ html{scroll-behavior:smooth}
    there to show the range of the shop, and a tile that looks clickable but is
    not is worse than one that never suggested it. The three pages are still
    reachable from the footer. */
-.also{display:grid;gap:clamp(14px,2vw,22px);grid-template-columns:1fr}
-@media (min-width:760px){.also{grid-template-columns:repeat(3,1fr)}}
-.also-col{margin:0;display:flex;flex-direction:column;gap:11px}
-.also-col img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-media)}
-.also-col figcaption{display:flex;flex-direction:column;gap:3px;
-  color:var(--ink-70);font-size:15px;line-height:1.55}
+/* THREE ACROSS AT EVERY WIDTH. Never one-per-row on a phone: the point of the
+   band is that you take in all three trades in a glance, and a stack of three
+   full-width photos reads as three more sections to scroll past. */
+.also{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(9px,1.6vw,20px);
+  padding:6px 0 14px}
+/* Each tile is a photo print: white mount, rounded, dropped shadow, and set at a
+   slight angle so the row reads as cards laid on a table rather than a grid of
+   thumbnails. The angles alternate and the middle card sits higher, which is
+   what stops three equal rectangles looking like a spreadsheet. */
+.also-col{margin:0;display:flex;flex-direction:column;gap:8px;
+  background:var(--white);padding:8px 8px 10px;border-radius:14px;
+  box-shadow:0 10px 26px rgba(22,52,79,.13);
+  animation:alsofloat 9s ease-in-out infinite}
+.also-col:nth-child(1){transform:rotate(-1.6deg)}
+.also-col:nth-child(2){transform:rotate(.9deg) translateY(-10px);animation-delay:-3s}
+.also-col:nth-child(3){transform:rotate(-.6deg);animation-delay:-6s}
+/* the drift is deliberately tiny — it should read as the cards breathing, not
+   as something moving on the page while you are trying to read it */
+@keyframes alsofloat{
+  0%,100%{translate:0 0}
+  50%{translate:0 -5px}
+}
+.also-col img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px}
+.also-col figcaption{display:flex;flex-direction:column;gap:3px;padding:0 4px;
+  color:var(--ink-70);font-size:14.5px;line-height:1.5}
 .also-cat{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
   color:var(--blue)}
-@media (max-width:759px){
-  .also-col img{aspect-ratio:16/10}
-  .also-col figcaption{font-size:13.5px}
+@media (max-width:900px){
+  .also-col{padding:5px 5px 7px;border-radius:10px;gap:5px;
+    box-shadow:0 6px 16px rgba(22,52,79,.14)}
+  .also-col img{aspect-ratio:1/1;border-radius:6px}
+  .also-cat{font-size:9px;letter-spacing:.09em}
+  /* the sentence does not survive a third of a phone screen; the label does */
+  .also-col figcaption .line{display:none}
 }
+@media (prefers-reduced-motion:reduce){.also-col{animation:none}}
 
 /* ---- before / after / during sequence ----------------------------------
    Unlike the masonry, these ARE cropped to one ratio. Three portrait photos at

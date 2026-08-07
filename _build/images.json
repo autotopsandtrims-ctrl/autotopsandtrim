@@ -94,6 +94,58 @@
    }
   ]
  },
+ "boat-cockpit-cream-and-grey": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "boat-cockpit-cream-and-grey-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "boat-cockpit-cream-and-grey-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "boat-cockpit-cream-and-grey-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "boat-cockpit-cream-and-grey-3024.webp"
+   }
+  ]
+ },
+ "boat-helm-seat-white": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "boat-helm-seat-white-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "boat-helm-seat-white-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "boat-helm-seat-white-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "boat-helm-seat-white-3024.webp"
+   }
+  ]
+ },
  "boat-upholstery-projects-at-the-shop": {
   "w": 297,
   "h": 396,
@@ -178,6 +230,32 @@
    }
   ]
  },
+ "convertible-top-blue-galaxie-finished": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "convertible-top-blue-galaxie-finished-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "convertible-top-blue-galaxie-finished-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "convertible-top-blue-galaxie-finished-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "convertible-top-blue-galaxie-finished-3024.webp"
+   }
+  ]
+ },
  "convertible-top-replacement-and-finish": {
   "w": 297,
   "h": 396,
@@ -186,6 +264,58 @@
     "w": 297,
     "h": 396,
     "file": "convertible-top-replacement-and-finish-297.webp"
+   }
+  ]
+ },
+ "convertible-top-tan-on-black-camaro": {
+  "w": 3000,
+  "h": 4000,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "convertible-top-tan-on-black-camaro-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "convertible-top-tan-on-black-camaro-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "convertible-top-tan-on-black-camaro-1400.webp"
+   },
+   {
+    "w": 3000,
+    "h": 4000,
+    "file": "convertible-top-tan-on-black-camaro-3000.webp"
+   }
+  ]
+ },
+ "convertible-top-tan-side-view": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "convertible-top-tan-side-view-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "convertible-top-tan-side-view-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "convertible-top-tan-side-view-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "convertible-top-tan-side-view-3024.webp"
    }
   ]
  },
@@ -1262,6 +1392,84 @@
     "w": 249,
     "h": 332,
     "file": "services-strip-5-249.webp"
+   }
+  ]
+ },
+ "shop-lifting-the-top-frame": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "shop-lifting-the-top-frame-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "shop-lifting-the-top-frame-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "shop-lifting-the-top-frame-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "shop-lifting-the-top-frame-3024.webp"
+   }
+  ]
+ },
+ "shop-seat-foam-and-jute-padding": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "shop-seat-foam-and-jute-padding-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "shop-seat-foam-and-jute-padding-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "shop-seat-foam-and-jute-padding-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "shop-seat-foam-and-jute-padding-3024.webp"
+   }
+  ]
+ },
+ "shop-stitched-seam-detail": {
+  "w": 3000,
+  "h": 4000,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "shop-stitched-seam-detail-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "shop-stitched-seam-detail-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "shop-stitched-seam-detail-1400.webp"
+   },
+   {
+    "w": 3000,
+    "h": 4000,
+    "file": "shop-stitched-seam-detail-3000.webp"
    }
   ]
  },
