@@ -11,11 +11,83 @@ Read this first in a new chat. Everything needed to continue is in this repo.
 > `45046b7` (the old single-page site).
 > Revert production with `git push origin <sha>:main --force`.
 
-## ⚠️ STATE AS OF 2026-08-06 — READ THIS FIRST
+## ⚠️ STATE AS OF 2026-08-07 — READ THIS FIRST
 
-**`rebuild` is well ahead of `main`. Production does NOT have any of the logo or
-header work, and does NOT have the 30-article queue.** Everything below is on
-`rebuild` and verified on the preview URL only.
+**`rebuild` and `main` are IDENTICAL and everything below is LIVE.** The
+2026-08-06 block that used to sit here (claiming production lagged) was stale.
+
+**The apex TLS blocker is FIXED.** `autotopsandtrim.com` now has one A record
+(`216.198.79.1`), a valid Let's Encrypt cert issued 2026-08-05, and 308-redirects
+to www. Old open item 1 is closed.
+
+**Shipped 2026-08-07:** hours changed to Mon-Fri 9:00-7:00 (weekend unchanged);
+the "we will not quote from a photo" policy REVERSED across 12 places on the
+owner's correction - the shop does estimate from photos, with an in-person look
+when the job needs it; hero slideshow reshuffled to two owner-supplied slides and
+retimed to 2s a slide; a `_gotcha` honeypot added to the quote form; the four
+unverified stock photos removed from the gallery.
+
+### THE PHOTO BATCH — 283 sorted, mostly NOT on the site yet
+
+The owner supplied **283 unique photographs** of real shop work (309 files, 26
+exact duplicates dropped). **139 are genuine HEIC** and need `pillow-heif` —
+unlike the earlier Drive batch, where the HEIC extensions were lying.
+
+- Sorted into 14 category folders at
+  `C:\Users\table\Downloads\hopeton-photos-sorted`, named
+  `NNN__<set>__<BEFORE|AFTER>__<slug>.<ext>` so job sets sort together.
+- Classification written from viewing every photo on contact sheets. **The
+  folder each photo is in is reliable. The vehicle makes and model years in the
+  filenames are NOT** — they were read off 430px thumbnails. Never caption from
+  them; open the photo at full size first. Two of those thumbnail reads were
+  already proved wrong when the vinyl-top photos were adopted.
+- **17 photos have the retired 704-224-9124 number readable on the building.**
+  Do not publish those. `#267` is a shipping label with an address on it.
+- Only 7 of the 283 are adopted so far: 2 hero slides and 5 vinyl-top masters.
+
+**What this batch settles:** there is **no aviation and no motorcycle work in
+283 photos**, which confirms the four suspect images were never the shop's.
+Marine is real — 3 boat photos plus boats on trailers in the shop exteriors.
+
+### THE SERVICES RESTRUCTURE — AGREED, NOT YET BUILT
+
+The owner's business card reads **convertible tops, vinyl tops, sunroofs,
+vehicle interiors**, and the photo counts match it (62 convertible tops, 115
+interior, 14 vinyl, 2 sunroof). The site's "four trades under one roof —
+automotive, marine, aviation, motorcycle" framing is the outlier. Agreed plan:
+
+1. **Build a Vinyl Tops page.** It is on his card, there are 14 photos including
+   a complete before/after, and **the site has no such page at all.** The five
+   masters are already adopted and unreferenced:
+   `vinyl-top-before-roof-covering-rotted`, `vinyl-top-roof-stripped-trim-removed`,
+   `vinyl-top-after-burgundy-fitted`, `vinyl-top-after-opera-window-detail`,
+   `vinyl-top-before-peeling-at-rear`.
+2. Reorder `SERVICES` in `build_site.py` to card order; rename
+   "Auto Upholstery" to **Vehicle Interiors**. Keep existing URLs so nothing 404s.
+3. Reorder `SCHEMA["makesOffer"]` and rewrite `SCHEMA["description"]` and the
+   footer tagline, both of which still lead with the four-trades framing.
+4. **Rewire the four stock photos out of the remaining places.** Off the gallery
+   already; still used as service-page heroes, home `pcard` images, services-index
+   images and the `photo` of six blog posts. Marine can use the real
+   `boat-upholstery-projects-at-the-shop`; aviation and motorcycle need
+   text-only treatments.
+5. Demote marine/motorcycle/aviation into one **"We also work on"** band with
+   three text columns linking to their pages, which stay live. **Design them with
+   no photo slot at all** — an empty slot looks broken, a text block does not.
+   Explicitly NOT "photos coming soon".
+6. A **Before & After** page/band was requested. Ten complete before/after job
+   sets exist; the white sedan roof is the strongest.
+
+### STILL BLOCKED
+
+**The quote form still posts to `formspree.io/f/mrpzzdgz`.** The owner has now
+paid for a Formspree Personal plan ($15/mo, file uploads) and Vercel Pro
+($20/mo, which is what makes commercial hosting legitimate) — but the endpoint
+he supplied was the old unowned one, read off the site rather than his
+dashboard. **Get the endpoint from formspree.io → Forms.** Photo uploads are
+built and ready behind `FORM_ACCEPTS_FILES` in `build_site.py`; do not switch
+them on until the endpoint is his. Video is not viable at any tier: 25MB per
+file, and phone video passes that in about 30 seconds.
 
 **The header is mid-redesign and is the thing in flight.** Current state on
 `rebuild`, all of it inside one delimited `TRIAL: white header` block at the end

@@ -866,11 +866,15 @@ GALLERY = [
     ("marine-canvas-cushions", "Classic coupe — rear bench seat", "Automotive"),
     ("g07-bench-seat-red-piping-in-the-shop", "Cushion and armrest, trimmed on the bench", "Automotive"),
     ("seat-rebuild-after", "Seat rebuild — finished", "Automotive"),
-    ("marine-seating-and-interior-upholstery", "Runabout — cockpit seating and helm trim", "Marine"),
     ("boat-upholstery-projects-at-the-shop", "Boat in for upholstery at the shop", "Marine"),
-    ("aircraft-interior-seat-upholstery", "Aircraft cabin seating", "Aviation"),
-    ("aircraft-cabin-upholstery-craftsmanship", "Aircraft cabin — divan and club seat", "Aviation"),
-    ("custom-motorcycle-seat-upholstery-close-up", "Diamond-stitched motorcycle seat", "Motorcycle"),
+    # REMOVED 2026-08-07: the runabout cockpit, the two aircraft cabin shots and
+    # the cafe-racer seat. The owner supplied 283 photographs of his actual work
+    # that day and NOT ONE is aviation or motorcycle, which settles the
+    # provenance question this file has carried since 2026-08-05 - those four are
+    # not his. The lead directly below this list says every piece was cut,
+    # stitched and fitted in house, so they could not stay and leave it true.
+    # They are still referenced by the service pages and six blog posts; that
+    # rewiring is the remaining half of the job (see HANDOFF).
 ]
 
 
