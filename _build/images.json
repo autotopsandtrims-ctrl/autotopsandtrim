@@ -131,6 +131,32 @@
    }
   ]
  },
+ "convertible-red-vinyl-interior-full": {
+  "w": 4000,
+  "h": 3000,
+  "variants": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "convertible-red-vinyl-interior-full-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "convertible-red-vinyl-interior-full-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1050,
+    "file": "convertible-red-vinyl-interior-full-1400.webp"
+   },
+   {
+    "w": 4000,
+    "h": 3000,
+    "file": "convertible-red-vinyl-interior-full-4000.webp"
+   }
+  ]
+ },
  "convertible-top-after": {
   "w": 904,
   "h": 1200,
@@ -896,6 +922,32 @@
     "w": 1536,
     "h": 2048,
     "file": "process-header-photo-wide-1536.webp"
+   }
+  ]
+ },
+ "red-pickup-cab-black-seat-and-carpet": {
+  "w": 1542,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 638,
+    "file": "red-pickup-cab-black-seat-and-carpet-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1063,
+    "file": "red-pickup-cab-black-seat-and-carpet-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1859,
+    "file": "red-pickup-cab-black-seat-and-carpet-1400.webp"
+   },
+   {
+    "w": 1542,
+    "h": 2048,
+    "file": "red-pickup-cab-black-seat-and-carpet-1542.webp"
    }
   ]
  },

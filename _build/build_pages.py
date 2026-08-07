@@ -207,9 +207,14 @@ def build_home():
     # or the browser preloads a photo it never shows.
     hero_slides = [
         "g16-cadillac-convertible-red-interior",
+        # NEW slide 2 (owner-supplied 2026-08-07): a silver convertible with a
+        # full red vinyl interior - dash, door cards, front and rear benches.
+        "convertible-red-vinyl-interior-full",
+        # was slide 2, pushed down one on the owner's instruction
         "gallery-header-photo-wide",
-        "g19-mercedes-gla-interior-work",
-        "g18-camaro-ss-profile",
+        # NEW slide 4 (owner-supplied): red pickup cab, black seat, new carpet.
+        # Portrait 0.75, same ratio as the portrait slide it replaces.
+        "red-pickup-cab-black-seat-and-carpet",
     ]
     n_slides = len(hero_slides)
     slides = "".join(
