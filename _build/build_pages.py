@@ -217,13 +217,17 @@ def build_home():
         "red-pickup-cab-black-seat-and-carpet",
     ]
     n_slides = len(hero_slides)
+    # Must equal the `slidefade` / `doton` durations in assets/site.css. Two
+    # seconds a slide across four slides = an 8s cycle. If you change the count,
+    # change the CSS duration too or the dots drift out of step with the photos.
+    SLIDESHOW_SECONDS = 8
     slides = "".join(
-        f'<figure style="animation-delay:{i * (20 / n_slides):.1f}s">'
+        f'<figure style="animation-delay:{i * (SLIDESHOW_SECONDS / n_slides):.1f}s">'
         f'{img(b, "Upholstery work by Auto Tops and Trim in Monroe, NC", "(min-width:900px) 52vw, 100vw", eager=(i == 0), priority=(i == 0))}'
         f"</figure>"
         for i, b in enumerate(hero_slides)
     )
-    dots = "".join(f'<span style="animation-delay:{i * (20 / n_slides):.1f}s"></span>'
+    dots = "".join(f'<span style="animation-delay:{i * (SLIDESHOW_SECONDS / n_slides):.1f}s"></span>'
                    for i in range(n_slides))
 
     h += f"""<section class="hero">

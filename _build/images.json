@@ -1119,5 +1119,130 @@
     "file": "upholstery-materials-and-marine-project-parts-297.webp"
    }
   ]
+ },
+ "vinyl-top-after-burgundy-fitted": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "vinyl-top-after-burgundy-fitted-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "vinyl-top-after-burgundy-fitted-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "vinyl-top-after-burgundy-fitted-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "vinyl-top-after-burgundy-fitted-3024.webp"
+   }
+  ]
+ },
+ "vinyl-top-after-opera-window-detail": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "vinyl-top-after-opera-window-detail-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "vinyl-top-after-opera-window-detail-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "vinyl-top-after-opera-window-detail-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "vinyl-top-after-opera-window-detail-3024.webp"
+   }
+  ]
+ },
+ "vinyl-top-before-peeling-at-rear": {
+  "w": 1242,
+  "h": 1552,
+  "variants": [
+   {
+    "w": 480,
+    "h": 600,
+    "file": "vinyl-top-before-peeling-at-rear-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1000,
+    "file": "vinyl-top-before-peeling-at-rear-800.webp"
+   },
+   {
+    "w": 1242,
+    "h": 1552,
+    "file": "vinyl-top-before-peeling-at-rear-1242.webp"
+   }
+  ]
+ },
+ "vinyl-top-before-roof-covering-rotted": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "vinyl-top-before-roof-covering-rotted-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "vinyl-top-before-roof-covering-rotted-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "vinyl-top-before-roof-covering-rotted-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "vinyl-top-before-roof-covering-rotted-3024.webp"
+   }
+  ]
+ },
+ "vinyl-top-roof-stripped-trim-removed": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "vinyl-top-roof-stripped-trim-removed-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "vinyl-top-roof-stripped-trim-removed-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "vinyl-top-roof-stripped-trim-removed-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "vinyl-top-roof-stripped-trim-removed-3024.webp"
+   }
+  ]
  }
 }
