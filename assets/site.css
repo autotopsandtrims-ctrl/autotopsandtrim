@@ -1133,6 +1133,17 @@ html{scroll-behavior:smooth}
   .ba figcaption{padding:24px 11px 10px;font-size:11.5px}
 }
 
+/* ---- the reply-time promise, directly under the submit button ----------
+   Sits between the button and .formnote. Deliberately heavier than .formnote:
+   it answers the question every person hesitating over a submit button is
+   actually asking, which is "and then what happens". The .quote flexbox already
+   supplies the gap, so this only needs the negative top margin to sit close to
+   the button it belongs to rather than floating between two notes. */
+.replynote{display:flex;align-items:flex-start;gap:9px;margin-top:-4px;
+  font-size:13.5px;font-weight:600;line-height:1.5;color:var(--ink-70)}
+.replynote svg{flex:none;width:17px;height:17px;margin-top:1px;fill:var(--blue)}
+@media (max-width:899px){.replynote{font-size:12.5px;line-height:1.45}}
+
 /* ---- blog card with no photo ------------------------------------------- */
 .card.nophoto{border-top:3px solid var(--blue-lt)}
 .card.nophoto .card-body{padding-top:24px}

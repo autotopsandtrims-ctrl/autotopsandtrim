@@ -6,7 +6,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import (  # noqa: E402
-    IMAGES, SITE, PHONE_DISPLAY, PHONE_TEL, OUT,
+    IMAGES, SITE, PHONE_DISPLAY, PHONE_TEL, OUT, REPLY_PROMISE,
     img, has, head, header, footer, cta, shead, quote_form, write, NAV, SERVICES, SCHEMA,
     preload_image, public_path,
 )
@@ -1308,6 +1308,10 @@ def build_contact():
          "Nothing. Estimates are free whether we work from your photos or look at the job in "
          "person, and they are itemised so you can see what each part of the job costs rather "
          "than one number at the bottom."),
+        ("How quickly will I hear back?",
+         f"{REPLY_PROMISE} &mdash; by email or a call back, whichever you asked for. If it is "
+         f"urgent, ring the shop on {PHONE_DISPLAY} during opening hours; a phone call is always "
+         "the fastest route to an answer."),
         ("Can you quote from a photo?",
          "Yes. Email photos to contact@autotopsandtrim.com or text them to "
          f"{PHONE_DISPLAY} and we will come back to you with an estimate. On some jobs we will "
@@ -1339,7 +1343,7 @@ def build_contact():
       {shead("", "Monroe, NC &middot; Free project estimates")}
       <h1>Contact Auto Tops and Trim</h1>
       <p class="lead">Tell us about your project and we will send a clear recommendation
-         with an estimate.</p>
+         with an estimate. {REPLY_PROMISE}.</p>
     </div>
     <div class="contact-grid">
       <div class="formcard">

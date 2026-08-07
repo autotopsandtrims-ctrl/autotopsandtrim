@@ -20,6 +20,15 @@ PHONE_DISPLAY = "(980) 385-8101"
 PHONE_TEL = "+19803858101"
 SITE = "https://www.autotopsandtrim.com"
 EMAIL = "contact@autotopsandtrim.com"
+
+# The one response-time promise the site makes, written ONCE so the form, the
+# call-to-action and the contact page can never drift apart from each other.
+#
+# Deliberately a single, keepable commitment with no "usually" attached: a
+# promise the shop misses on a busy Saturday is worse than no promise at all.
+# If the owner wants to commit to something faster, change it HERE and nowhere
+# else — every place it appears is generated from this string.
+REPLY_PROMISE = "We reply to every request within one business day"
 FORM_ENDPOINT = "https://formspree.io/f/mrpzzdgz"   # TODO: swap for the shop's own form
 
 # Let customers attach photos of the job to the quote request.
@@ -331,7 +340,8 @@ def cta(num="05", label="Ready when you are",
       <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a>
       <a class="btn btn-ghost" href="contact.html">Request a Quote Online</a>
     </div>
-    <p class="microline">Free estimates &nbsp;&middot;&nbsp; By photo or in person &nbsp;&middot;&nbsp; Monroe, NC since 1989</p>
+    <p class="microline">Free estimates &nbsp;&middot;&nbsp; By photo or in person
+       &nbsp;&middot;&nbsp; Reply within one business day &nbsp;&middot;&nbsp; Monroe, NC since 1989</p>
   </div>
 </section>
 """
@@ -388,6 +398,12 @@ def quote_form(which="contact"):
       rates may apply. Reply STOP to opt out, HELP for help.</span>
   </label>
   <button type="submit" class="btn btn-primary wide">Send my request</button>
+  <!-- Inline SVG clock, not the &#9200; character: that codepoint renders as a
+       full-colour emoji on most platforms and would be the loudest thing on the
+       page. Same treatment as the footer's map pin. -->
+  <p class="replynote"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path
+     d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm1-13h-2v6l5 3 1-1.7-4-2.3Z"/>
+     </svg>{REPLY_PROMISE} &mdash; by email or a call back, whichever you prefer.</p>
   <p class="formnote">Prefer to talk? Call <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
      <span class="fn-hrs">Mon&ndash;Fri 9:00&nbsp;AM&ndash;7:00&nbsp;PM &middot; Sat 11:00&nbsp;AM&ndash;5:00&nbsp;PM</span></p>
 </form>
