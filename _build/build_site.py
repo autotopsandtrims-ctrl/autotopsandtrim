@@ -315,7 +315,7 @@ def cta(num="05", label="Ready when you are",
       <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a>
       <a class="btn btn-ghost" href="contact.html">Request a Quote Online</a>
     </div>
-    <p class="microline">Free estimates &nbsp;&middot;&nbsp; In-person quotes &nbsp;&middot;&nbsp; Monroe, NC since 1989</p>
+    <p class="microline">Free estimates &nbsp;&middot;&nbsp; By photo or in person &nbsp;&middot;&nbsp; Monroe, NC since 1989</p>
   </div>
 </section>
 """

@@ -233,7 +233,7 @@ def build_home():
         <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a>
         <a class="btn btn-ghost" href="contact.html">Request a Quote Online</a>
       </div>
-      <p class="microline">Free estimates &nbsp;&middot;&nbsp; In-person quotes &nbsp;&middot;&nbsp; Union County</p>
+      <p class="microline">Free estimates &nbsp;&middot;&nbsp; By photo or in person &nbsp;&middot;&nbsp; Union County</p>
     </div>
     <div class="hero-media">
       <div class="slideshow">{slides}<div class="dots" aria-hidden="true">{dots}</div></div>
@@ -456,9 +456,10 @@ def build_services():
           "quotes people bring us from elsewhere only cover the fabric. We give you an itemized "
           "estimate covering all three, at no cost."),
          ("Can you quote from a photo?",
-          "We would rather not, and it is in your interest too. A photo cannot show collapsed "
-          "pads or bent bows, and a new top fitted over a bad frame will never sit right. Bring "
-          "the car by and we will walk it with you."),
+          "Yes &mdash; send photos over and we will get an estimate back to you. On a convertible "
+          "top we will usually want to see the car before the number is final, because a photo "
+          "cannot show collapsed pads or bent bows, and a new top fitted over a bad frame will "
+          "never sit right. The estimate is free either way."),
          ("Vinyl or canvas — which should I pick?",
           "Vinyl costs less up front and handles the sun here very well. Canvas cloth costs more, "
           "looks correct on a classic, and ages more gracefully. We keep both in the shop so you "
@@ -642,7 +643,7 @@ def build_services():
          ("How we approach it", ["The existing panel is recovered where it is sound",
                                  "Material matched to your headliner in the shop",
                                  "You are welcome to watch the work",
-                                 "Quoted in person, free of charge"]),
+                                 "Quoted from photos or in person, free of charge"]),
          ("Worth knowing", ["A dealer often quotes the whole sunroof cassette",
                             "The shade is trim work — it is what this shop does",
                             "Bring the vehicle by; we will tell you what it needs",
@@ -667,9 +668,11 @@ def build_services():
           "window with the free estimate. Calling ahead on "
           f"{PHONE_DISPLAY} is the surest way to catch us with time to look at it."),
          ("Can you quote it from a photo?",
-          "We would rather see it. A photo will not show whether the slider and the mechanism are "
-          "still sound, and that is the part that decides whether this is a simple recover or a "
-          "bigger job. The estimate is free either way.")],
+          "Yes. Send photos of the shade and we will come back to you with an estimate. We may "
+          "still want to look at it in person before confirming, because a photo will not show "
+          "whether the slider and the mechanism are still sound, and that is the part that "
+          "decides whether this is a simple recover or a bigger job. The estimate is free "
+          "either way.")],
         extra_html=sunroof_voices)
 
 
@@ -729,7 +732,7 @@ def build_services_index():
     {shead("01", "Services", center=True)}
     <h1>Expert upholstery for every vehicle and vessel type</h1>
     <p class="lead">Four trades under one roof in Monroe, North Carolina.
-       Every job is quoted in person and free of charge.</p>
+       Every job is quoted free of charge, from your photos or in person.</p>
   </div>
 </section>
 
@@ -902,7 +905,7 @@ def build_process():
          "Drive the vehicle over, trailer the boat, or carry in a single seat. "
          "We look at it with you and talk through what you want.",
          "services-strip-1"),
-        ("Free, and itemised", "We quote in person",
+        ("Free, and itemised", "We quote the job",
          "We check what is under the cover — foam, frames, pads, bows — because that is "
          "where surprises live. Then you get an itemised estimate at no charge.",
          # was process-header-photo-wide, which is this page's hero photo again
@@ -1002,8 +1005,10 @@ def build_about():
     <p class="lead">Upholstery is not a job you can rush or fake. A top fitted over collapsed
        pads will never sit right. Foam that is wrong for a boat will hold water against the
        cushion. Knowing the difference is what over three decades buys you.</p>
-    <p class="lead">That is also why we quote in person. A photograph cannot show a bent bow
-       or a rusted seat frame, and a number given without seeing those is not a real number.</p>
+    <p class="lead">Send photos and we will get an estimate back to you. It is also why some
+       jobs need a look before the number is final &mdash; a photograph cannot show a bent bow
+       or a rusted seat frame, and on that kind of work we would rather confirm it with the
+       vehicle in front of us than revise the price later.</p>
   </div>
 </section>
 
@@ -1031,7 +1036,7 @@ def build_about():
       <div class="stat"><b>1989</b><span>Trimming since</span></div>
       <div class="stat"><b>4</b><span>Trades under one roof</span></div>
       <div class="stat"><b>35+</b><span>Years in Union County</span></div>
-      <div class="stat"><b>Free</b><span>In-person estimates</span></div>
+      <div class="stat"><b>Free</b><span>Estimates on every job</span></div>
     </div>
   </div>
 </section>
@@ -1086,13 +1091,16 @@ def build_contact():
          f"{PHONE_DISPLAY} is worth doing, because it means someone is free to come out and "
          "look at the job properly rather than between other work."),
         ("What does an estimate cost?",
-         "Nothing. Estimates are free and given in person, and they are itemised so you can see "
-         "what each part of the job costs rather than one number at the bottom."),
-        ("Why will you not quote from a photo?",
-         "Because a photo cannot show the things that decide the price. Collapsed pads, a bent "
-         "bow, a rusted seat frame, foam that has gone hard &mdash; none of that is visible in a "
-         "picture, and a number given without seeing it is not a real number. It protects you as "
-         "much as us."),
+         "Nothing. Estimates are free whether we work from your photos or look at the job in "
+         "person, and they are itemised so you can see what each part of the job costs rather "
+         "than one number at the bottom."),
+        ("Can you quote from a photo?",
+         "Yes. Email photos to contact@autotopsandtrim.com or text them to "
+         f"{PHONE_DISPLAY} and we will come back to you with an estimate. On some jobs we will "
+         "still want to see it in person before that number is final &mdash; collapsed pads, a "
+         "bent bow, a rusted seat frame or foam that has gone hard do not always show up in a "
+         "picture. We would rather find that at the shop than surprise you with it later. The "
+         "estimate costs nothing either way."),
         ("What do you actually work on?",
          "Four trades under one roof: automotive, marine, aviation and motorcycle. Convertible "
          "tops, seats, headliners, door panels, carpet, sunroof shades, boat cushions and canvas, "
@@ -1245,14 +1253,16 @@ POSTS = [
             "collapsed or the bows are bent, a new top fitted over them will sit badly no matter "
             "how good the fabric is — and it will wear through early at every high spot. We check "
             "the frame before quoting rather than after.",
-            "<h2>Why we will not quote a convertible top from a photo</h2>",
-            "A photograph cannot show a collapsed pad or a bent bow. It cannot show you where the "
-            "old top was stretched to cover a frame problem someone chose not to fix. Quoting from "
-            "a picture means either guessing high to stay safe, or guessing low and revising the "
-            "number once the car is apart. Neither is fair to you.",
-            "That is why every estimate here is done in person, in the shop, with the car in front "
-            "of us — and why it is free and itemised, so you can see which of the three jobs above "
-            "each line belongs to.",
+            "<h2>What a photo can and cannot tell us</h2>",
+            "Send photos and we will come back to you with an estimate — pictures are genuinely "
+            "useful for narrowing down material, style and rough cost. What a photograph cannot "
+            "show is a collapsed pad or a bent bow, or where an old top was stretched to cover a "
+            "frame problem someone chose not to fix.",
+            "So on a convertible top we will usually want to see the car before the number is "
+            "final. Pricing a frame nobody has looked at means either guessing high to stay safe, "
+            "or guessing low and revising once the car is apart, and neither is fair to you. The "
+            "estimate is free and itemised either way, so you can see which of the three jobs "
+            "above each line belongs to.",
             "<h2>Signs your top needs replacing rather than repairing</h2>",
             "<ul class=\"ticks\">"
             "<li>The rear window has clouded, yellowed or split along a fold</li>"
@@ -1548,14 +1558,15 @@ POSTS = [
             "</ul>",
             "A water-damaged board is the one that changes a quote materially, because a soft "
             "board will not hold new material and has to be repaired or replaced.",
-            "<h2>Why we will not quote this from a photo</h2>",
-            "A photo of a sagging headliner tells us the fabric has let go. It cannot tell us "
-            "whether the board is sound, whether there is a sunroof shade behind it, or how much "
-            "trim has to come out on your particular vehicle — and those are the three things "
-            "that set the price.",
-            "Bring the vehicle to the shop in Monroe and you will get an itemised estimate, in "
-            "person, at no cost, with each of the five items above priced separately so you can "
-            "see what you are paying for.",
+            "<h2>What a photo can and cannot tell us</h2>",
+            "A photo of a sagging headliner tells us the fabric has let go, and that is usually "
+            "enough for us to come back with an estimate. What it cannot tell us is whether the "
+            "board is sound, whether there is a sunroof shade behind it, or how much trim has to "
+            "come out on your particular vehicle — and those are the three things that set the "
+            "price.",
+            "So we may ask to see the vehicle in Monroe before confirming the number. Either way "
+            "you get an itemised estimate at no cost, with each of the five items above priced "
+            "separately so you can see what you are paying for.",
         ],
     },
     {
@@ -2110,10 +2121,11 @@ POSTS = [
             "<tr><th>Failed springs or webbing</th>"
             "<td>Replaced. Common on older bench seats and the reason they sit low.</td></tr>"
             "</tbody></table></div>",
-            "<h2>Why we quote in person</h2>",
-            "Three of the four factors above are invisible in a photograph. You cannot see foam "
-            "condition, a cracked frame or failed webbing until the cover comes off, and quoting "
-            "without knowing means either padding the number to stay safe or revising it later.",
+            "<h2>Why some seats need a look first</h2>",
+            "Send photos and we will get a number back to you. That said, three of the four "
+            "factors above are invisible in a photograph — you cannot see foam condition, a "
+            "cracked frame or failed webbing until the cover comes off, and pricing without "
+            "knowing means either padding the number to stay safe or revising it later.",
             "We take the seat apart far enough to see what we are dealing with, then give you an "
             "itemised estimate at no cost, with the cover, the foam and any frame work priced "
             "separately.",
