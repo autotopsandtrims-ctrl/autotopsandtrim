@@ -206,6 +206,10 @@ ALSO = [
 
 def also_band(label="We also work on",
               heading="Boats, aircraft and bikes come through here too",
+              lead="Boat seating, cushions, helm trim and canvas in materials chosen for "
+                   "sun and standing water; cockpit and cabin interiors for aircraft; and "
+                   "motorcycle seats recovered or reshaped for comfort. Same shop, same "
+                   "hands, same free estimate.",
               tone=""):
     """The three secondary trades as a row of photographs.
 
@@ -233,7 +237,8 @@ def also_band(label="We also work on",
     # unfinished.
     return f"""<section class="band{f' {tone}' if tone else ''}" id="also">
   <div class="wrap stack">
-    <div class="center stack">{shead("", label, center=True)}<h2>{heading}</h2></div>
+    <div class="center stack">{shead("", label, center=True)}<h2>{heading}</h2>
+      {f'<p class="lead">{lead}</p>' if lead else ''}</div>
     <div class="also">{cols}</div>
   </div>
 </section>
@@ -249,36 +254,41 @@ PAIRS = [
      "Vinyl top"),
     ("shot-087-old-black-top-faded", "shot-089-new-black-top-side",
      "Convertible top"),
+    # supplied 2026-08-08 in the BEFORE AFTER folder, as matched pairs: `b`/`b2`
+    # are the before shots, `a`/`a2` the after. These replaced the last two pairs.
+    ("ba-seats-before-torn-buckets", "ba-seats-after-recovered-buckets",
+     "Bucket seats"),
+    ("ba-galaxie-before-frame-and-material", "ba-galaxie-after-new-top-fitted",
+     "Convertible top"),
     ("shot-194-frame-and-weatherstrip", "shot-195-brown-top-on-white-car",
      "Convertible top"),
-    ("shot-009-torn-buckets-second-angle", "shot-026-pleated-cushion-finished",
-     "Seats"),
-    ("shot-204-black-seat-torn-foam-out", "shot-214-black-seat-finished",
-     "Seat rebuild"),
 ]
 
 
 def pair_deck(pairs, label="Before and after", num="",
               heading="The same job, twice",
               lead="", tone="tint"):
-    """Before/after cards: the two photographs stacked, before on top.
+    """Before/after cards: the two photographs SIDE BY SIDE, before left.
 
-    Same photo-print treatment as the "we also work on" deck so the two bands
-    read as one idea, but these are a straight grid rather than a fan — a fan
-    overlaps its neighbours, and you cannot overlap something you are asking
-    people to compare. Two across on a phone, four across on a desktop.
+    Left-to-right, not stacked — that is how anyone reads a before and after,
+    and stacking three of them made a very tall column on a phone. Each pair is
+    one card: two photos butted together with a hairline between them and a small
+    arrow sitting on the join, so the card reads as one comparison rather than
+    two pictures. Deliberately NOT the fan used by the deck above — these are
+    meant to be compared, and overlapping cards fight that.
     """
     cards = ""
     for before, after, cap in pairs:
         if not (has(before) and has(after)):
             continue
         cards += (
-            f'<figure class="pair">'
+            f'<figure class="pair"><span class="pair-shots">'
             f'<span class="pair-shot"><span class="pair-tag">Before</span>'
             f'{img(before, f"{cap} before", QUARTER)}</span>'
             f'<span class="pair-shot"><span class="pair-tag after">After</span>'
             f'{img(after, f"{cap} after", QUARTER)}</span>'
-            f'<figcaption>{cap}</figcaption></figure>')
+            f'<span class="pair-arrow" aria-hidden="true">&rarr;</span>'
+            f'</span><figcaption>{cap}</figcaption></figure>')
     return f"""<section class="band{f' {tone}' if tone else ''}" id="before-after">
   <div class="wrap stack">
     <div class="center stack">{shead(num, label, center=True)}<h2>{heading}</h2>
@@ -410,7 +420,7 @@ def build_home():
           <span class="go">See the work</span></div>
       </a>
       <a class="pcard" href="auto-upholstery.html">
-        {img('shot-264-cream-seats-and-top-frame', 'Cream leather interior fitted in a convertible', HALF)}
+        {img('interior-red-truck-burgundy-seat', 'Burgundy interior fitted in a red pickup', HALF)}
         <span class="cat">Vehicle interiors</span>
         <div class="pbody"><h3>Vehicle Interiors</h3>
           <p>Custom upholstery, headliners, carpet replacement and full interior
@@ -418,7 +428,7 @@ def build_home():
           <span class="go">See the work</span></div>
       </a>
       <a class="pcard" href="sunroof-shade-repair.html">
-        {img('shot-045-finished-with-sunroof-opening', 'A finished headliner around a sunroof opening', HALF)}
+        {img('sunroof-glass-open-in-the-shop', 'A sunroof open on a car in the shop', HALF)}
         <span class="cat">Sunroofs</span>
         <div class="pbody"><h3>Sunroofs</h3>
           <p>Sagging, torn or stuck sliding sunshades recovered, not replaced.</p>

@@ -1174,25 +1174,51 @@ html{scroll-behavior:smooth}
    Same photo-print treatment as the deck above, but a straight grid: a fan
    overlaps its neighbours, and you cannot overlap two photographs you are
    asking someone to compare. Two across on a phone, four on a desktop. */
-.pairs{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,2vw,24px);
+.pairs{display:grid;grid-template-columns:1fr;gap:clamp(12px,2vw,22px);
   padding-top:clamp(14px,2.5vw,26px)}
-@media (min-width:900px){.pairs{grid-template-columns:repeat(4,1fr)}}
-.pair{margin:0;display:flex;flex-direction:column;gap:6px;
+@media (min-width:760px){.pairs{grid-template-columns:repeat(2,1fr)}}
+.pair{margin:0;display:flex;flex-direction:column;gap:7px;
   background:var(--white);padding:8px 8px 10px;border-radius:14px;
   box-shadow:0 10px 26px rgba(22,52,79,.13)}
-.pair-shot{position:relative;display:block}
-.pair-shot img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px}
-.pair-tag{position:absolute;top:7px;left:7px;z-index:2;padding:4px 9px;
+/* the two shots butt together as one image, split by a hairline */
+.pair-shots{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:3px;
+  border-radius:9px;overflow:hidden;background:var(--rule)}
+.pair-shot{position:relative;display:block;min-width:0}
+.pair-shot img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:0}
+.pair-tag{position:absolute;top:7px;left:7px;z-index:2;padding:4px 8px;
   font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
-  color:#fff;background:rgba(20,25,31,.74);border-radius:6px}
+  color:#fff;background:rgba(20,25,31,.74);border-radius:5px}
 .pair-tag.after{background:var(--blue-btn)}
-.pair figcaption{padding:2px 4px 0;text-align:center;font-size:13px;font-weight:700;
+/* the arrow sits on the join, so the eye travels left to right across it */
+.pair-arrow{position:absolute;left:50%;top:50%;translate:-50% -50%;z-index:3;
+  width:30px;height:30px;display:grid;place-items:center;border-radius:50%;
+  background:var(--white);color:var(--blue-btn);font-size:15px;font-weight:800;
+  box-shadow:0 3px 10px rgba(22,52,79,.28)}
+.pair figcaption{padding:1px 4px 0;text-align:center;font-size:13px;font-weight:700;
   letter-spacing:.02em;color:var(--ink-70)}
 @media (max-width:560px){
   .pair{padding:5px 5px 7px;border-radius:10px;gap:5px}
-  .pair-shot img{border-radius:6px}
-  .pair-tag{font-size:8.5px;padding:3px 7px;letter-spacing:.1em}
+  .pair-shots{gap:2px;border-radius:7px}
+  .pair-tag{font-size:8px;padding:3px 6px;letter-spacing:.08em;top:5px;left:5px}
+  .pair-arrow{width:24px;height:24px;font-size:12px}
   .pair figcaption{font-size:11.5px}
+}
+
+/* ---- footer social row --------------------------------------------------
+   One row under the address, sized to the 44px touch target on a phone. The
+   icons inherit currentColor, so they take the footer's text colour and need no
+   second set of assets if the footer ever changes background. */
+.socials{list-style:none;display:flex;gap:10px;margin:14px 0 0;padding:0}
+.socials a{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  color:#E9EEF3;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.socials svg{width:18px;height:18px;fill:currentColor}
+.socials a:hover{background:var(--blue-btn);border-color:var(--blue-btn);
+  color:#fff;transform:translateY(-2px)}
+@media (max-width:899px){
+  .socials{gap:9px;margin-top:12px}
+  .socials a{width:44px;height:44px}
+  .socials svg{width:19px;height:19px}
 }
 
 /* ---- careers: how to apply --------------------------------------------- */
@@ -1204,8 +1230,11 @@ html{scroll-behavior:smooth}
   border-radius:var(--r-card);padding:18px 16px}
 .applycard .k{font-size:10.5px;font-weight:700;letter-spacing:.15em;
   text-transform:uppercase;color:var(--blue)}
-.applycard a{text-decoration:none;font-weight:700;word-break:break-word}
-.applycard .big{font-size:clamp(19px,2.2vw,23px);letter-spacing:-.02em}
+/* the email address must sit on ONE line at every width — it is 27 characters,
+   so it is sized to fit the card rather than allowed to break mid-word */
+.applycard a{text-decoration:none;font-weight:700;max-width:100%;
+  white-space:nowrap;overflow-wrap:normal;font-size:clamp(12.5px,2.6vw,15px)}
+.applycard .big{font-size:clamp(19px,2.2vw,23px);letter-spacing:-.02em;white-space:nowrap}
 .applycard .hrs{font-size:13px;color:var(--ink-60)}
 
 /* ---- blog card with no photo ------------------------------------------- */

@@ -94,6 +94,110 @@
    }
   ]
  },
+ "ba-galaxie-after-new-top-fitted": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "ba-galaxie-after-new-top-fitted-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "ba-galaxie-after-new-top-fitted-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "ba-galaxie-after-new-top-fitted-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "ba-galaxie-after-new-top-fitted-3024.webp"
+   }
+  ]
+ },
+ "ba-galaxie-before-frame-and-material": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "ba-galaxie-before-frame-and-material-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "ba-galaxie-before-frame-and-material-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "ba-galaxie-before-frame-and-material-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "ba-galaxie-before-frame-and-material-3024.webp"
+   }
+  ]
+ },
+ "ba-seats-after-recovered-buckets": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "ba-seats-after-recovered-buckets-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "ba-seats-after-recovered-buckets-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "ba-seats-after-recovered-buckets-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "ba-seats-after-recovered-buckets-3024.webp"
+   }
+  ]
+ },
+ "ba-seats-before-torn-buckets": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "ba-seats-before-torn-buckets-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "ba-seats-before-torn-buckets-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "ba-seats-before-torn-buckets-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "ba-seats-before-torn-buckets-3024.webp"
+   }
+  ]
+ },
  "boat-cockpit-cream-and-grey": {
   "w": 3024,
   "h": 4032,
@@ -863,6 +967,32 @@
     "w": 1200,
     "h": 900,
     "file": "hero-best-finished-vehicle-wide-full-color-1200.webp"
+   }
+  ]
+ },
+ "interior-red-truck-burgundy-seat": {
+  "w": 1542,
+  "h": 2048,
+  "variants": [
+   {
+    "w": 480,
+    "h": 638,
+    "file": "interior-red-truck-burgundy-seat-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1063,
+    "file": "interior-red-truck-burgundy-seat-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1859,
+    "file": "interior-red-truck-burgundy-seat-1400.webp"
+   },
+   {
+    "w": 1542,
+    "h": 2048,
+    "file": "interior-red-truck-burgundy-seat-1542.webp"
    }
   ]
  },
@@ -7544,6 +7674,32 @@
     "w": 1542,
     "h": 2048,
     "file": "shot-4-4-1542.webp"
+   }
+  ]
+ },
+ "sunroof-glass-open-in-the-shop": {
+  "w": 3000,
+  "h": 4000,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "sunroof-glass-open-in-the-shop-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "sunroof-glass-open-in-the-shop-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "sunroof-glass-open-in-the-shop-1400.webp"
+   },
+   {
+    "w": 3000,
+    "h": 4000,
+    "file": "sunroof-glass-open-in-the-shop-3000.webp"
    }
   ]
  },
