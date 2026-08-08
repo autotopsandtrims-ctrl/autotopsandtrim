@@ -189,16 +189,18 @@ def reviews_block(num="03", label="Testimonials",
 # this band is about, so the deck reads as "and all of this too" rather than as
 # three lonely stock photos. Order matters: it is the left-to-right order of the
 # fan. No links and no captions — see also_band().
+# BOATS, AIRCRAFT AND BIKES ONLY. No cars in this deck — the whole rest of the
+# site is cars, and a car here makes the band say nothing. Three marine (two of
+# them real shop photographs), two aviation, one motorcycle.
 ALSO = [
+    ("boat-on-the-trailer-at-the-shop", "Marine", ""),
     ("boat-cockpit-cream-and-grey", "Marine", ""),
-    ("convertible-top-tan-side-view", "Convertible tops", ""),
-    # NOT aircraft-cabin-upholstery-craftsmanship: that master is 396x298 and is
-    # visibly soft the moment it fills a card. This one is 1800x1201.
+    # NOT aircraft-cabin-upholstery-craftsmanship as the big one: that master is
+    # 396x298. It is fine at this card size but this one is 1800x1201.
     ("aircraft-interior-seat-upholstery", "Aviation", ""),
     ("custom-motorcycle-seat-upholstery-close-up", "Motorcycle", ""),
-    ("marine-seating-and-interior-upholstery", "Marine", ""),
-    ("shop-stitched-seam-detail", "Craft", ""),
-    ("convertible-red-vinyl-interior-full", "Interiors", ""),
+    ("aircraft-cabin-upholstery-craftsmanship", "Aviation", ""),
+    ("boat-helm-seat-white", "Marine", ""),
 ]
 
 
@@ -226,13 +228,92 @@ def also_band(label="We also work on",
         f'<figcaption><span class="also-cat">{cat}</span>'
         f'<span class="line">{line}</span></figcaption></figure>'
         for photo, cat, line in ALSO)
+    # Centred heading, because the deck under it is centred. A left-aligned
+    # heading over a centred row is the kind of mismatch that makes a page look
+    # unfinished.
     return f"""<section class="band{f' {tone}' if tone else ''}" id="also">
   <div class="wrap stack">
-    <div class="stack">{shead("", label)}<h2>{heading}</h2></div>
+    <div class="center stack">{shead("", label, center=True)}<h2>{heading}</h2></div>
     <div class="also">{cols}</div>
   </div>
 </section>
 """
+
+
+# (before, after, label). EVERY PAIR IS ONE JOB ON ONE VEHICLE, confirmed by
+# opening both photographs and matching the car — same colour, same wheels, same
+# bay. A "before and after" that is actually two different cars is worse than no
+# before and after at all, so a pair that could not be confirmed was left out.
+PAIRS = [
+    ("vinyl-top-before-roof-covering-rotted", "vinyl-top-after-burgundy-fitted",
+     "Vinyl top"),
+    ("shot-087-old-black-top-faded", "shot-089-new-black-top-side",
+     "Convertible top"),
+    ("shot-194-frame-and-weatherstrip", "shot-195-brown-top-on-white-car",
+     "Convertible top"),
+    ("shot-009-torn-buckets-second-angle", "shot-026-pleated-cushion-finished",
+     "Seats"),
+    ("shot-204-black-seat-torn-foam-out", "shot-214-black-seat-finished",
+     "Seat rebuild"),
+]
+
+
+def pair_deck(pairs, label="Before and after", num="",
+              heading="The same job, twice",
+              lead="", tone="tint"):
+    """Before/after cards: the two photographs stacked, before on top.
+
+    Same photo-print treatment as the "we also work on" deck so the two bands
+    read as one idea, but these are a straight grid rather than a fan — a fan
+    overlaps its neighbours, and you cannot overlap something you are asking
+    people to compare. Two across on a phone, four across on a desktop.
+    """
+    cards = ""
+    for before, after, cap in pairs:
+        if not (has(before) and has(after)):
+            continue
+        cards += (
+            f'<figure class="pair">'
+            f'<span class="pair-shot"><span class="pair-tag">Before</span>'
+            f'{img(before, f"{cap} before", QUARTER)}</span>'
+            f'<span class="pair-shot"><span class="pair-tag after">After</span>'
+            f'{img(after, f"{cap} after", QUARTER)}</span>'
+            f'<figcaption>{cap}</figcaption></figure>')
+    return f"""<section class="band{f' {tone}' if tone else ''}" id="before-after">
+  <div class="wrap stack">
+    <div class="center stack">{shead(num, label, center=True)}<h2>{heading}</h2>
+      {f'<p class="lead">{lead}</p>' if lead else ''}</div>
+    <div class="pairs">{cards}</div>
+  </div>
+</section>
+"""
+
+
+def build_before_after():
+    _lb_reset()
+    p = "before-after.html"
+    h = head("Before and After | Auto Tops and Trim, Monroe NC",
+             "Before and after photographs of real jobs out of the Monroe, NC shop — "
+             "convertible tops, vinyl tops, seats and interiors. Free estimates.", p)
+    h += header("gallery.html")
+    h += f"""<section class="band" style="padding-bottom:0">
+  <div class="wrap center stack">
+    {shead("01", "Before and after", center=True)}
+    <h1>What these cars looked like when they arrived</h1>
+    <p class="lead">Every pair below is one job on one vehicle, photographed on the way
+       in and on the way out.</p>
+  </div>
+</section>
+"""
+    h += pair_deck(PAIRS, num="02", label="The jobs",
+                   heading="Five jobs, start to finish", tone="")
+    h += cta(num="03", label="Yours next",
+             heading="Bring us the one you are embarrassed about",
+             sub="The worse it looks now, the better the second photograph is. Free, "
+                 "itemised estimates, from your photos or in person.")
+    h += footer(lightbox_markup())
+    pages.append(p)
+    write(p, h)
 
 
 def build_home():
@@ -329,7 +410,7 @@ def build_home():
           <span class="go">See the work</span></div>
       </a>
       <a class="pcard" href="auto-upholstery.html">
-        {img('shot-004-hex-quilted-front-seats', 'Hex-quilted cognac leather front seats', HALF)}
+        {img('shot-264-cream-seats-and-top-frame', 'Cream leather interior fitted in a convertible', HALF)}
         <span class="cat">Vehicle interiors</span>
         <div class="pbody"><h3>Vehicle Interiors</h3>
           <p>Custom upholstery, headliners, carpet replacement and full interior
@@ -386,7 +467,11 @@ def build_home():
   </div>
 </section>
 
-{also_band()}
+{pair_deck(PAIRS[:4], label="Before and after",
+           heading="The same job, twice",
+           lead="Four cars, photographed on the way in and on the way out.",
+           tone="")}
+{also_band(tone="tint")}
 """ + reviews_block() + f"""
 
 <section class="band">
@@ -1285,9 +1370,12 @@ def build_careers():
   </div>
 </section>
 
+<!-- EVERY heading on this page is centred, including the CTA at the bottom.
+     Mixing a left-aligned band with a centred one on the same page is what made
+     this look thrown together on a phone. -->
 <section class="band">
   <div class="wrap stack">
-    <div class="stack">{shead("01", "Who we are looking for")}
+    <div class="center stack">{shead("01", "Who we are looking for", center=True)}
       <h2>Sewing first &mdash; but not sewing only</h2>
       <p class="lead">The machine is the hardest seat to fill, so an experienced upholstery
          sewing machine operator can walk in tomorrow. It is not the only job here though:
@@ -1317,17 +1405,23 @@ def build_careers():
 
 <section class="band tint">
   <div class="wrap narrow stack">
-    <div class="stack">{shead("02", "How to apply")}
+    <div class="center stack">{shead("02", "How to apply", center=True)}
       <h2>There is no form for this one</h2>
-      <p class="lead">Call the shop, send an email, or come by in person &mdash; in person
-         is best. Bring something you have made if you have it, or photographs of it. A
-         seat cover you stitched says more than a r&eacute;sum&eacute; does.</p></div>
-    <ul class="infolist">
-      <li><span class="k">Call</span><span class="v"><a class="big" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></span></li>
-      <li><span class="k">Email</span><span class="v"><a href="mailto:{EMAIL}?subject=Job%20enquiry">{EMAIL}</a></span></li>
-      <li><span class="k">Come by</span><span class="v"><strong>4209 W Hwy 74</strong><br>Monroe, NC 28110<br>
-        Mon&ndash;Fri 9:00&nbsp;AM&ndash;7:00&nbsp;PM &middot; Sat 11:00&nbsp;AM&ndash;5:00&nbsp;PM</span></li>
-    </ul>
+      <p class="lead">Call, email, or come by &mdash; in person is best. Bring something
+         you have made, or photographs of it.</p></div>
+    <!-- Three centred cards rather than a label/value list: the list put a narrow
+         left column against a wrapping right one, which on a phone left the
+         labels stranded above ragged text. -->
+    <div class="applyrow">
+      <div class="applycard"><span class="k">Call</span>
+        <a class="big" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></div>
+      <div class="applycard"><span class="k">Email</span>
+        <a href="mailto:{EMAIL}?subject=Job%20enquiry">{EMAIL}</a></div>
+      <div class="applycard"><span class="k">Come by</span>
+        <strong>4209 W Hwy 74</strong>
+        <span>Monroe, NC 28110</span>
+        <span class="hrs">Mon&ndash;Fri 9&ndash;7 &middot; Sat 11&ndash;5</span></div>
+    </div>
   </div>
 </section>
 """
@@ -3605,6 +3699,7 @@ if __name__ == "__main__":
     build_services()
     build_gallery()
     build_process()
+    build_before_after()
     build_about()
     build_careers()
     build_contact()

@@ -146,6 +146,32 @@
    }
   ]
  },
+ "boat-on-the-trailer-at-the-shop": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "boat-on-the-trailer-at-the-shop-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "boat-on-the-trailer-at-the-shop-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "boat-on-the-trailer-at-the-shop-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "boat-on-the-trailer-at-the-shop-3024.webp"
+   }
+  ]
+ },
  "boat-upholstery-projects-at-the-shop": {
   "w": 297,
   "h": 396,
