@@ -95,6 +95,7 @@ NAV = [
     ("process.html", "Our Process"),
     ("about.html", "About"),
     ("blog.html", "Blog"),
+    ("careers.html", "Careers"),
     ("contact.html", "Contact"),
 ]
 
@@ -268,11 +269,10 @@ def header(active):
 """
 
 
-# Pages that belong in the footer but NOT in the header. The header is already
-# seven items wide before the phone button; an eighth pushes the lockup apart on
-# a laptop. Careers is a page people go looking for, not one that needs to sit in
-# front of a customer on every screen.
-FOOT_EXTRA = [("careers.html", "Careers")]
+# Pages that belong in the footer but NOT in the header. Empty right now —
+# Careers went into the main nav on 2026-08-07 because a footer-only link was
+# not findable.
+FOOT_EXTRA = []
 
 
 def footer(lightbox=""):

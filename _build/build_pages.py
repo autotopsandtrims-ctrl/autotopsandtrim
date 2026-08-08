@@ -185,16 +185,20 @@ def reviews_block(num="03", label="Testimonials",
 
 
 # ============================================================== HOME
-# (photo, category, one line). No link and no page target on purpose — see below.
+# The fanned deck. Seven cards, alternating real shop work with the three trades
+# this band is about, so the deck reads as "and all of this too" rather than as
+# three lonely stock photos. Order matters: it is the left-to-right order of the
+# fan. No links and no captions — see also_band().
 ALSO = [
-    ("marine-seating-and-interior-upholstery", "Marine",
-     "Boat seating, cushions, helm trim and canvas."),
+    ("boat-cockpit-cream-and-grey", "Marine", ""),
+    ("convertible-top-tan-side-view", "Convertible tops", ""),
     # NOT aircraft-cabin-upholstery-craftsmanship: that master is 396x298 and is
     # visibly soft the moment it fills a card. This one is 1800x1201.
-    ("aircraft-interior-seat-upholstery", "Aviation",
-     "Cockpit and cabin interiors, panels and carpet."),
-    ("custom-motorcycle-seat-upholstery-close-up", "Motorcycle",
-     "Custom bike seats, recovered and reshaped."),
+    ("aircraft-interior-seat-upholstery", "Aviation", ""),
+    ("custom-motorcycle-seat-upholstery-close-up", "Motorcycle", ""),
+    ("marine-seating-and-interior-upholstery", "Marine", ""),
+    ("shop-stitched-seam-detail", "Craft", ""),
+    ("convertible-red-vinyl-interior-full", "Interiors", ""),
 ]
 
 
@@ -318,14 +322,14 @@ def build_home():
           <span class="go">See the work</span></div>
       </a>
       <a class="pcard" href="vinyl-tops.html">
-        {img('vinyl-top-burgundy-finished-in-the-bay', 'A new burgundy vinyl top finished in the shop bay', HALF)}
+        {img('vinyl-top-after-burgundy-fitted', 'A new burgundy vinyl top fitted over the roof and rear quarter', HALF)}
         <span class="cat">Vinyl tops</span>
         <div class="pbody"><h3>Vinyl Tops</h3>
           <p>Rotted, peeling or faded roof coverings stripped back and re-covered.</p>
           <span class="go">See the work</span></div>
       </a>
       <a class="pcard" href="auto-upholstery.html">
-        {img('convertible-red-vinyl-interior-full', 'A full red vinyl interior fitted to a convertible', HALF)}
+        {img('shot-004-hex-quilted-front-seats', 'Hex-quilted cognac leather front seats', HALF)}
         <span class="cat">Vehicle interiors</span>
         <div class="pbody"><h3>Vehicle Interiors</h3>
           <p>Custom upholstery, headliners, carpet replacement and full interior
@@ -333,7 +337,7 @@ def build_home():
           <span class="go">See the work</span></div>
       </a>
       <a class="pcard" href="sunroof-shade-repair.html">
-        {img('sunroof-shade-fabric-failed', 'A sunroof shade with the fabric broken up and flaking away', HALF)}
+        {img('shot-045-finished-with-sunroof-opening', 'A finished headliner around a sunroof opening', HALF)}
         <span class="cat">Sunroofs</span>
         <div class="pbody"><h3>Sunroofs</h3>
           <p>Sagging, torn or stuck sliding sunshades recovered, not replaced.</p>
@@ -1099,6 +1103,31 @@ GALLERY = [
 ]
 
 
+def batch_gallery_rows():
+    """Every photo adopted out of the sorted batch, for the gallery.
+
+    Written by the adoption pass into _build/gallery_batch.json so this file does
+    not carry 250 hand-typed lines. Captions come from the descriptive tail of
+    each source filename and the folder it was sorted into — the folder is
+    reliable, the vehicle make/year in a filename is NOT, so that part is dropped
+    and never shown. Anything already listed in GALLERY by hand is skipped, so no
+    photograph appears twice.
+    """
+    path = os.path.join(HERE, "gallery_batch.json")
+    if not os.path.exists(path):
+        return []
+    with open(path, encoding="utf-8") as fh:
+        rows = json.load(fh)
+    seen = {b for b, _, _ in GALLERY}
+    out = []
+    for r in rows:
+        if r["base"] in seen or not has(r["base"]):
+            continue
+        seen.add(r["base"])
+        out.append((r["base"], r["caption"], r["cat"]))
+    return out
+
+
 def build_gallery():
     _lb_reset()
     p = "gallery.html"
@@ -1106,12 +1135,14 @@ def build_gallery():
              "Upholstery work from Auto Tops and Trim in Monroe, NC — convertible tops, "
              "seats, headliners, carpet, boat cushions, aircraft cabins and custom bike seats.", p)
     h += header(p)
-    tiles = masonry_tiles(GALLERY)
+    shots = GALLERY + batch_gallery_rows()
+    tiles = masonry_tiles(shots)
     h += f"""<section class="band">
   <div class="wrap stack">
     <div class="stack">{shead("01","Gallery")}
       <h1>Work out of the Monroe shop</h1>
-      <p class="lead">Every piece here was cut, stitched and fitted in house.</p></div>
+      <p class="lead">{len(shots)} photographs of real jobs. Every piece here was cut,
+         stitched and fitted in house.</p></div>
     <div class="masonry">{tiles}</div>
   </div>
 </section>
@@ -1151,7 +1182,7 @@ def build_process():
         ("Samples in hand", "You pick the materials",
          "We keep samples in the shop. Vinyl or canvas, glass or plastic window, "
          "period-correct or upgraded — you see and feel the difference before deciding.",
-         "process-materials-vinyl-and-fabric-rolls"),
+         "process-working-at-the-bench"),
         ("Same hands throughout", "We do the work",
          "Disassembly, repair of what is underneath, then cutting and stitching. "
          "The same hands that quoted the job do the work.",
@@ -1189,10 +1220,9 @@ def build_process():
         <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a>
         <a class="btn btn-ghost" href="contact.html">Request a quote</a>
       </div></div>
-    <!-- Was `seat-rebuild-after`, a finished seat on a driveway. This page is
-         about how a job runs, so it now opens on someone actually working —
-         supplied with the step photos 2026-08-07. -->
-    <div class="hero-media">{img('process-working-at-the-bench', 'Trimming work in progress on the bench at the Monroe shop', HALF, eager=True)}</div>
+    <!-- The bench shot moved down to "You pick the materials" where it belongs;
+         this page opens on a car in the shop instead. -->
+    <div class="hero-media">{img('shot-166-classic-in-for-top-work', 'A classic in the Monroe shop for top work', HALF, eager=True)}</div>
   </div>
 </section>
 
@@ -1344,14 +1374,13 @@ def build_about():
   <div class="wrap stack">
     <div class="stack">{shead("02","Inside the shop")}<h2>How the work gets done</h2></div>
     <div class="grid g4 swiperow">
-      <!-- Replaced 2026-08-07. The four tiles here were parked cars and a seat on
-           a bench, under a heading about how the work gets done, and three of the
-           four masters were 249x332 or 297x396 - visibly soft on a desktop. These
-           four are full-resolution and each one shows an actual stage of the job. -->
-      <figure class="tile">{img('shop-lifting-the-top-frame', 'Lifting the top frame off a car in the shop', QUARTER)}</figure>
-      <figure class="tile">{img('shop-seat-foam-and-jute-padding', 'New foam and jute padding on the machine table', QUARTER)}</figure>
-      <figure class="tile">{img('shop-stitched-seam-detail', 'Stitched seam detail on a finished panel', QUARTER)}</figure>
-      <figure class="tile">{img('process-materials-vinyl-and-fabric-rolls', 'Vinyl and fabric roll stock in the shop', QUARTER)}</figure>
+      <!-- These are literally inside the shop, which is what the heading says.
+           The tiles before this were parked cars and a seat on a bench, three of
+           them from 249x332 masters. -->
+      <figure class="tile">{img('shot-167-shop-with-convertible', 'A convertible in the shop with the benches behind it', QUARTER)}</figure>
+      <figure class="tile">{img('shot-248-shop-with-white-mustang', 'A Mustang in the bay with the roller door open', QUARTER)}</figure>
+      <figure class="tile">{img('shot-164-shop-floor-wide', 'The shop floor, benches and tool cart', QUARTER)}</figure>
+      <figure class="tile">{img('shot-253-shop-floor-with-black-car', 'Work tables and a car in for trim work', QUARTER)}</figure>
     </div>
   </div>
 </section>

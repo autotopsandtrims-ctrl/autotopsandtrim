@@ -1,0 +1,1400 @@
+[
+ {
+  "base": "shot-001-cream-leather-front-seat",
+  "caption": "After &mdash; cream leather front seat",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/001__mercedes-gla__AFTER__cream-leather-front-seat.jpg"
+ },
+ {
+  "base": "shot-003-cream-leather-passenger-seat",
+  "caption": "After &mdash; cream leather passenger seat",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/003__mercedes-gla__AFTER__cream-leather-passenger-seat.heic"
+ },
+ {
+  "base": "shot-004-hex-quilted-front-seats",
+  "caption": "After &mdash; hex quilted front seats",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/004__cognac-quilt__AFTER__hex-quilted-front-seats.heic"
+ },
+ {
+  "base": "shot-006-diamond-quilted-seat-pair",
+  "caption": "After &mdash; diamond quilted seat pair",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/006__red-diamond__AFTER__diamond-quilted-seat-pair.heic"
+ },
+ {
+  "base": "shot-007-black-perforated-leather-seat",
+  "caption": "After &mdash; black perforated leather seat",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/007__AFTER__black-perforated-leather-seat.heic"
+ },
+ {
+  "base": "shot-008-split-seams-foam-exposed",
+  "caption": "Before &mdash; split seams foam exposed",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/008__burgundy-buckets__BEFORE__split-seams-foam-exposed.heic"
+ },
+ {
+  "base": "shot-009-torn-buckets-second-angle",
+  "caption": "Before &mdash; torn buckets second angle",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/009__burgundy-buckets__BEFORE__torn-buckets-second-angle.heic"
+ },
+ {
+  "base": "shot-010-torn-buckets-third-angle",
+  "caption": "Before &mdash; torn buckets third angle",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/010__burgundy-buckets__BEFORE__torn-buckets-third-angle.heic"
+ },
+ {
+  "base": "shot-011-rear-bench-on-floor",
+  "caption": "Before &mdash; rear bench on floor",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/011__burgundy-buckets__BEFORE__rear-bench-on-floor.heic"
+ },
+ {
+  "base": "shot-012-old-material-stripped-off",
+  "caption": "Before &mdash; old material stripped off",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/012__burgundy-buckets__BEFORE__old-material-stripped-off.heic"
+ },
+ {
+  "base": "shot-026-pleated-cushion-finished",
+  "caption": "After &mdash; pleated cushion finished",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/026__burgundy-buckets__AFTER__pleated-cushion-finished.heic"
+ },
+ {
+  "base": "shot-027-cushion-finished-on-floor",
+  "caption": "After &mdash; cushion finished on floor",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/027__burgundy-buckets__AFTER__cushion-finished-on-floor.heic"
+ },
+ {
+  "base": "shot-028-seat-back-on-bench",
+  "caption": "After &mdash; seat back on bench",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/028__burgundy-buckets__AFTER__seat-back-on-bench.heic"
+ },
+ {
+  "base": "shot-029-black-grey-suede-bolsters",
+  "caption": "After &mdash; black grey suede bolsters",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/029__camaro-sport__AFTER__black-grey-suede-bolsters.heic"
+ },
+ {
+  "base": "shot-030-finished-seats-on-the-car",
+  "caption": "After &mdash; finished seats on the car",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/030__burgundy-buckets__AFTER__finished-seats-on-the-car.heic"
+ },
+ {
+  "base": "shot-052-panamera-from-driver-door",
+  "caption": "After &mdash; panamera from driver door",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/052__porsche__AFTER__panamera-from-driver-door.heic"
+ },
+ {
+  "base": "shot-053-panamera-dash-and-console",
+  "caption": "After &mdash; panamera dash and console",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/053__porsche__AFTER__panamera-dash-and-console.heic"
+ },
+ {
+  "base": "shot-054-pink-black-sport-pair",
+  "caption": "After &mdash; pink black sport pair",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/054__pink-seats__AFTER__pink-black-sport-pair.heic"
+ },
+ {
+  "base": "shot-055-burgundy-pleated-pair",
+  "caption": "After &mdash; burgundy pleated pair",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/055__AFTER__burgundy-pleated-pair.heic"
+ },
+ {
+  "base": "shot-056-burgundy-pleated-bench",
+  "caption": "After &mdash; burgundy pleated bench",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/056__AFTER__burgundy-pleated-bench.heic"
+ },
+ {
+  "base": "shot-057-black-grey-sport-seat-close",
+  "caption": "After &mdash; black grey sport seat close",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/057__corvette__AFTER__black-grey-sport-seat-close.heic"
+ },
+ {
+  "base": "shot-058-black-seat-protective-film",
+  "caption": "After &mdash; black seat protective film",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/058__corvette__AFTER__black-seat-protective-film.heic"
+ },
+ {
+  "base": "shot-062-white-vinyl-bucket",
+  "caption": "After &mdash; white vinyl bucket",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/062__AFTER__white-vinyl-bucket.heic"
+ },
+ {
+  "base": "shot-063-cream-tan-seat",
+  "caption": "After &mdash; cream tan seat",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/063__AFTER__cream-tan-seat.heic"
+ },
+ {
+  "base": "shot-064-bench-outdoors-on-grass",
+  "caption": "After &mdash; bench outdoors on grass",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/064__red-velour__AFTER__bench-outdoors-on-grass.heic"
+ },
+ {
+  "base": "shot-069-black-pleated-bench",
+  "caption": "After &mdash; black pleated bench",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/069__AFTER__black-pleated-bench.heic"
+ },
+ {
+  "base": "shot-070-grey-black-bench",
+  "caption": "After &mdash; grey black bench",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/070__AFTER__grey-black-bench.heic"
+ },
+ {
+  "base": "shot-072-sections-on-bench-mid-build",
+  "caption": "Sections on bench mid build",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/072__red-velour__sections-on-bench-mid-build.heic"
+ },
+ {
+  "base": "shot-073-bench-back-on-table",
+  "caption": "After &mdash; bench back on table",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/073__red-velour__AFTER__bench-back-on-table.heic"
+ },
+ {
+  "base": "shot-074-bench-on-table-shop-behind",
+  "caption": "After &mdash; bench on table shop behind",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/074__red-velour__AFTER__bench-on-table-shop-behind.heic"
+ },
+ {
+  "base": "shot-075-bench-finished-outdoors",
+  "caption": "After &mdash; bench finished outdoors",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/075__red-velour__AFTER__bench-finished-outdoors.heic"
+ },
+ {
+  "base": "shot-076-bench-second-angle",
+  "caption": "After &mdash; bench second angle",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/076__red-velour__AFTER__bench-second-angle.heic"
+ },
+ {
+  "base": "shot-077-bench-third-angle",
+  "caption": "After &mdash; bench third angle",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/077__red-velour__AFTER__bench-third-angle.heic"
+ },
+ {
+  "base": "shot-077-bench-third-angle-alt",
+  "caption": "After &mdash; bench third angle alt",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/077a__red-velour__AFTER__bench-third-angle-alt.jpg"
+ },
+ {
+  "base": "shot-099-gold-sedan-interior",
+  "caption": "Gold sedan interior",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/099__gold-sedan-interior.heic"
+ },
+ {
+  "base": "shot-113-seat-rotted-to-the-burlap",
+  "caption": "Before &mdash; seat rotted to the burlap",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/113__old-springs__BEFORE__seat-rotted-to-the-burlap.heic"
+ },
+ {
+  "base": "shot-114-rotted-foam-and-frame",
+  "caption": "Before &mdash; rotted foam and frame",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/114__old-springs__BEFORE__rotted-foam-and-frame.heic"
+ },
+ {
+  "base": "shot-115-bare-springs-and-webbing",
+  "caption": "Before &mdash; bare springs and webbing",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/115__old-springs__BEFORE__bare-springs-and-webbing.heic"
+ },
+ {
+  "base": "shot-116-springs-second-angle",
+  "caption": "Before &mdash; springs second angle",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/116__old-springs__BEFORE__springs-second-angle.heic"
+ },
+ {
+  "base": "shot-117-springs-third-angle",
+  "caption": "Before &mdash; springs third angle",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/117__old-springs__BEFORE__springs-third-angle.heic"
+ },
+ {
+  "base": "shot-118-old-burlap-on-frame",
+  "caption": "Before &mdash; old burlap on frame",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/118__old-springs__BEFORE__old-burlap-on-frame.heic"
+ },
+ {
+  "base": "shot-123-red-black-door-panels",
+  "caption": "Red black door panels",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/123__chevy-57__red-black-door-panels.heic"
+ },
+ {
+  "base": "shot-124-panels-against-the-wall",
+  "caption": "Panels against the wall",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/124__chevy-57__panels-against-the-wall.heic"
+ },
+ {
+  "base": "shot-135-purple-black-quilted-bench",
+  "caption": "After &mdash; purple black quilted bench",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/135__purple-bench__AFTER__purple-black-quilted-bench.heic"
+ },
+ {
+  "base": "shot-136-purple-bench-second-angle",
+  "caption": "After &mdash; purple bench second angle",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/136__purple-bench__AFTER__purple-bench-second-angle.heic"
+ },
+ {
+  "base": "shot-137-purple-bench-third-angle",
+  "caption": "After &mdash; purple bench third angle",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/137__purple-bench__AFTER__purple-bench-third-angle.heic"
+ },
+ {
+  "base": "shot-143-black-bench-red-piping",
+  "caption": "After &mdash; black bench red piping",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/143__chevy-56__AFTER__black-bench-red-piping.jpg"
+ },
+ {
+  "base": "shot-144-bench-in-the-shop",
+  "caption": "After &mdash; bench in the shop",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/144__chevy-56__AFTER__bench-in-the-shop.jpg"
+ },
+ {
+  "base": "shot-145-bench-on-the-bench",
+  "caption": "After &mdash; bench on the bench",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/145__chevy-56__AFTER__bench-on-the-bench.jpg"
+ },
+ {
+  "base": "shot-146-black-white-pleated-interior",
+  "caption": "After &mdash; black white pleated interior",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/146__chevy-56__AFTER__black-white-pleated-interior.jpg"
+ },
+ {
+  "base": "shot-147-red-black-door-panel",
+  "caption": "After &mdash; red black door panel",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/147__chevy-56__AFTER__red-black-door-panel.jpg"
+ },
+ {
+  "base": "shot-148-rear-bench-fitted",
+  "caption": "After &mdash; rear bench fitted",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/148__chevy-56__AFTER__rear-bench-fitted.jpg"
+ },
+ {
+  "base": "shot-153-dark-interior-dash",
+  "caption": "Dark interior dash",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/153__dark-interior-dash.jpg"
+ },
+ {
+  "base": "shot-155-tan-rear-seat-back",
+  "caption": "After &mdash; tan rear seat back",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/155__tan-panels__AFTER__tan-rear-seat-back.jpg"
+ },
+ {
+  "base": "shot-156-tan-panel-by-purple-car",
+  "caption": "After &mdash; tan panel by purple car",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/156__tan-panels__AFTER__tan-panel-by-purple-car.jpg"
+ },
+ {
+  "base": "shot-157-tan-panel-upright",
+  "caption": "After &mdash; tan panel upright",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/157__tan-panels__AFTER__tan-panel-upright.jpg"
+ },
+ {
+  "base": "shot-159-bench-with-new-carpet",
+  "caption": "After &mdash; bench with new carpet",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/159__chevy-56__AFTER__bench-with-new-carpet.jpg"
+ },
+ {
+  "base": "shot-176-black-seat-red-piping-bench",
+  "caption": "After &mdash; black seat red piping bench",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/176__AFTER__black-seat-red-piping-bench.jpg"
+ },
+ {
+  "base": "shot-182-red-interior-front-bench",
+  "caption": "After &mdash; red interior front bench",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/182__caddy-69__AFTER__red-interior-front-bench.jpg"
+ },
+ {
+  "base": "shot-184-door-open-red-interior",
+  "caption": "After &mdash; door open red interior",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/184__caddy-69__AFTER__door-open-red-interior.jpg"
+ },
+ {
+  "base": "shot-189-black-grey-bench-outdoors",
+  "caption": "Black grey bench outdoors",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/189__black-grey-bench-outdoors.jpg"
+ },
+ {
+  "base": "shot-190-black-bench-red-stitch",
+  "caption": "After &mdash; black bench red stitch",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/190__AFTER__black-bench-red-stitch.jpg"
+ },
+ {
+  "base": "shot-191-black-bench-second-angle",
+  "caption": "After &mdash; black bench second angle",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/191__AFTER__black-bench-second-angle.jpg"
+ },
+ {
+  "base": "shot-199-seat-back-destroyed-foam-out",
+  "caption": "Before &mdash; seat back destroyed foam out",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/199__BEFORE__seat-back-destroyed-foam-out.jpg"
+ },
+ {
+  "base": "shot-2-2",
+  "caption": "2",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/2.jpg"
+ },
+ {
+  "base": "shot-202-worn-vinyl-bench",
+  "caption": "Before &mdash; worn vinyl bench",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/202__BEFORE__worn-vinyl-bench.jpg"
+ },
+ {
+  "base": "shot-203-worn-bench-second-angle",
+  "caption": "Before &mdash; worn bench second angle",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/203__BEFORE__worn-bench-second-angle.jpg"
+ },
+ {
+  "base": "shot-204-black-seat-torn-foam-out",
+  "caption": "Before &mdash; black seat torn foam out",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/204__BEFORE__black-seat-torn-foam-out.jpg"
+ },
+ {
+  "base": "shot-205-red-car-seat-torn",
+  "caption": "Before &mdash; red car seat torn",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/205__BEFORE__red-car-seat-torn.jpg"
+ },
+ {
+  "base": "shot-214-black-seat-finished",
+  "caption": "After &mdash; black seat finished",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/214__AFTER__black-seat-finished.jpg"
+ },
+ {
+  "base": "shot-219-dash-and-interior-stripped",
+  "caption": "Dash and interior stripped",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/219__corvette-teardown__dash-and-interior-stripped.jpg"
+ },
+ {
+  "base": "shot-220-teardown-second-angle",
+  "caption": "Teardown second angle",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/220__corvette-teardown__teardown-second-angle.jpg"
+ },
+ {
+  "base": "shot-221-grey-black-truck-seats",
+  "caption": "Grey black truck seats",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/221__truck__grey-black-truck-seats.jpg"
+ },
+ {
+  "base": "shot-223-cognac-leather-interior",
+  "caption": "After &mdash; cognac leather interior",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/223__cognac-vert__AFTER__cognac-leather-interior.jpg"
+ },
+ {
+  "base": "shot-224-cognac-seats-and-headrests",
+  "caption": "After &mdash; cognac seats and headrests",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/224__cognac-vert__AFTER__cognac-seats-and-headrests.jpg"
+ },
+ {
+  "base": "shot-227-grey-cushion-torn",
+  "caption": "Before &mdash; grey cushion torn",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/227__BEFORE__grey-cushion-torn.jpg"
+ },
+ {
+  "base": "shot-264-cream-seats-and-top-frame",
+  "caption": "Cream seats and top frame",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/264__cream-seats-and-top-frame.jpg"
+ },
+ {
+  "base": "shot-265-cream-interior-second-angle",
+  "caption": "Cream interior second angle",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/265__cream-interior-second-angle.jpg"
+ },
+ {
+  "base": "shot-268-suv-interior-and-dash",
+  "caption": "Suv interior and dash",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/268__tahoe__suv-interior-and-dash.jpg"
+ },
+ {
+  "base": "shot-269-suv-dash-from-driver-seat",
+  "caption": "Suv dash from driver seat",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/269__tahoe__suv-dash-from-driver-seat.jpg"
+ },
+ {
+  "base": "shot-270-seat-frame-stripped-to-foam",
+  "caption": "Before &mdash; seat frame stripped to foam",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/270__frame-strip__BEFORE__seat-frame-stripped-to-foam.jpg"
+ },
+ {
+  "base": "shot-271-rusted-frame-and-springs",
+  "caption": "Before &mdash; rusted frame and springs",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/271__frame-strip__BEFORE__rusted-frame-and-springs.jpg"
+ },
+ {
+  "base": "shot-277-grey-seat-and-gauges",
+  "caption": "After &mdash; grey seat and gauges",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/277__red-truck__AFTER__grey-seat-and-gauges.jpg"
+ },
+ {
+  "base": "shot-3-3",
+  "caption": "3",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/3.jpg"
+ },
+ {
+  "base": "shot-4-4",
+  "caption": "4",
+  "cat": "Vehicle interiors",
+  "src": "01-auto-seats-and-interiors/4.jpg"
+ },
+ {
+  "base": "shot-024-black-soft-top-rear-quarter",
+  "caption": "After &mdash; black soft top rear quarter",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/024__red-vert-black__AFTER__black-soft-top-rear-quarter.heic"
+ },
+ {
+  "base": "shot-025-black-top-up-rear-deck",
+  "caption": "After &mdash; black top up rear deck",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/025__red-vert-black__AFTER__black-top-up-rear-deck.heic"
+ },
+ {
+  "base": "shot-060-stripped-top-frame-bare",
+  "caption": "Before &mdash; stripped top frame bare",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/060__blue-vert__BEFORE__stripped-top-frame-bare.heic"
+ },
+ {
+  "base": "shot-061-top-frame-and-old-material",
+  "caption": "Before &mdash; top frame and old material",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/061__blue-vert__BEFORE__top-frame-and-old-material.heic"
+ },
+ {
+  "base": "shot-087-old-black-top-faded",
+  "caption": "Before &mdash; old black top faded",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/087__red-lebaron__BEFORE__old-black-top-faded.heic"
+ },
+ {
+  "base": "shot-088-old-top-from-the-rear",
+  "caption": "Before &mdash; old top from the rear",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/088__red-lebaron__BEFORE__old-top-from-the-rear.heic"
+ },
+ {
+  "base": "shot-089-new-black-top-side",
+  "caption": "After &mdash; new black top side",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/089__red-lebaron__AFTER__new-black-top-side.heic"
+ },
+ {
+  "base": "shot-100-worn-top-and-glass-window",
+  "caption": "Before &mdash; worn top and glass window",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/100__eclipse-spyder__BEFORE__worn-top-and-glass-window.heic"
+ },
+ {
+  "base": "shot-101-in-the-bay-black-top",
+  "caption": "In the bay black top",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/101__eclipse-spyder__in-the-bay-black-top.heic"
+ },
+ {
+  "base": "shot-102-faded-top-close",
+  "caption": "Before &mdash; faded top close",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/102__eclipse-spyder__BEFORE__faded-top-close.heic"
+ },
+ {
+  "base": "shot-103-new-top-being-fitted",
+  "caption": "New top being fitted",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/103__eclipse-spyder__new-top-being-fitted.heic"
+ },
+ {
+  "base": "shot-105-rear-three-quarter",
+  "caption": "After &mdash; rear three quarter",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/105__eclipse-spyder__AFTER__rear-three-quarter.heic"
+ },
+ {
+  "base": "shot-106-side-profile",
+  "caption": "After &mdash; side profile",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/106__eclipse-spyder__AFTER__side-profile.heic"
+ },
+ {
+  "base": "shot-107-top-mechanism-exposed",
+  "caption": "Top mechanism exposed",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/107__boxster__top-mechanism-exposed.heic"
+ },
+ {
+  "base": "shot-110-top-down-boot-cover",
+  "caption": "Top down boot cover",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/110__blue-vert__top-down-boot-cover.heic"
+ },
+ {
+  "base": "shot-120-new-top-clamped-and-taped",
+  "caption": "New top clamped and taped",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/120__black-fit__new-top-clamped-and-taped.heic"
+ },
+ {
+  "base": "shot-121-top-glue-up-second-angle",
+  "caption": "Top glue up second angle",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/121__black-fit__top-glue-up-second-angle.heic"
+ },
+ {
+  "base": "shot-122-material-over-the-frame",
+  "caption": "Material over the frame",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/122__galaxie__material-over-the-frame.heic"
+ },
+ {
+  "base": "shot-126-galaxie-rear-quarter",
+  "caption": "After &mdash; galaxie rear quarter",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/126__galaxie__AFTER__galaxie-rear-quarter.heic"
+ },
+ {
+  "base": "shot-128-galaxie-front-three-quarter",
+  "caption": "After &mdash; galaxie front three quarter",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/128__galaxie__AFTER__galaxie-front-three-quarter.heic"
+ },
+ {
+  "base": "shot-140-tan-top-glass-window-flat",
+  "caption": "Tan top glass window flat",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/140__tan-top__tan-top-glass-window-flat.heic"
+ },
+ {
+  "base": "shot-141-tan-top-on-black-car",
+  "caption": "After &mdash; tan top on black car",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/141__tan-top__AFTER__tan-top-on-black-car.heic"
+ },
+ {
+  "base": "shot-169-top-frame-and-glass",
+  "caption": "Top frame and glass",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/169__fox-body__top-frame-and-glass.jpg"
+ },
+ {
+  "base": "shot-170-frame-detail",
+  "caption": "Frame detail",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/170__fox-body__frame-detail.jpg"
+ },
+ {
+  "base": "shot-171-old-top-removed",
+  "caption": "Before &mdash; old top removed",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/171__fox-body__BEFORE__old-top-removed.jpg"
+ },
+ {
+  "base": "shot-172-new-top-taped-in-shop",
+  "caption": "New top taped in shop",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/172__new-top-taped-in-shop.jpg"
+ },
+ {
+  "base": "shot-192-white-top-in-the-shop",
+  "caption": "White top in the shop",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/192__blue-caddy__white-top-in-the-shop.jpg"
+ },
+ {
+  "base": "shot-194-frame-and-weatherstrip",
+  "caption": "Before &mdash; frame and weatherstrip",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/194__white-brown__BEFORE__frame-and-weatherstrip.jpg"
+ },
+ {
+  "base": "shot-195-brown-top-on-white-car",
+  "caption": "After &mdash; brown top on white car",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/195__white-brown__AFTER__brown-top-on-white-car.jpg"
+ },
+ {
+  "base": "shot-196-brown-top-close",
+  "caption": "After &mdash; brown top close",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/196__white-brown__AFTER__brown-top-close.jpg"
+ },
+ {
+  "base": "shot-197-top-channel-detail",
+  "caption": "Top channel detail",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/197__white-brown__top-channel-detail.jpg"
+ },
+ {
+  "base": "shot-198-brown-top-rear-quarter",
+  "caption": "After &mdash; brown top rear quarter",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/198__white-brown__AFTER__brown-top-rear-quarter.jpg"
+ },
+ {
+  "base": "shot-206-old-material-stapled-to-frame",
+  "caption": "Before &mdash; old material stapled to frame",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/206__BEFORE__old-material-stapled-to-frame.jpg"
+ },
+ {
+  "base": "shot-208-top-frame-and-headliner",
+  "caption": "Top frame and headliner",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/208__top-frame-and-headliner.jpg"
+ },
+ {
+  "base": "shot-211-cream-convertible-side",
+  "caption": "Cream convertible side",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/211__solara__cream-convertible-side.jpg"
+ },
+ {
+  "base": "shot-212-top-frame-teardown",
+  "caption": "Before &mdash; top frame teardown",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/212__solara__BEFORE__top-frame-teardown.jpg"
+ },
+ {
+  "base": "shot-213-frame-teardown-close",
+  "caption": "Before &mdash; frame teardown close",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/213__solara__BEFORE__frame-teardown-close.jpg"
+ },
+ {
+  "base": "shot-226-black-camaro-side",
+  "caption": "After &mdash; black camaro side",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/226__camaro-zl1__AFTER__black-camaro-side.jpg"
+ },
+ {
+  "base": "shot-250-top-off-in-the-bay",
+  "caption": "Top off in the bay",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/250__mustang-silver__top-off-in-the-bay.jpg"
+ },
+ {
+  "base": "shot-254-camaro-in-bay-top-work",
+  "caption": "Camaro in bay top work",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/254__camaro-black__camaro-in-bay-top-work.jpg"
+ },
+ {
+  "base": "shot-255-camaro-masked-for-top",
+  "caption": "Camaro masked for top",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/255__camaro-black__camaro-masked-for-top.jpg"
+ },
+ {
+  "base": "shot-256-top-work-second-angle",
+  "caption": "Top work second angle",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/256__camaro-black__top-work-second-angle.jpg"
+ },
+ {
+  "base": "shot-257-top-work-third-angle",
+  "caption": "Top work third angle",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/257__camaro-black__top-work-third-angle.jpg"
+ },
+ {
+  "base": "shot-261-top-glass-and-frame",
+  "caption": "Top glass and frame",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/261__top-glass-and-frame.jpg"
+ },
+ {
+  "base": "shot-262-rear-glass-fitted",
+  "caption": "Rear glass fitted",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/262__rear-glass-fitted.jpg"
+ },
+ {
+  "base": "shot-263-frame-over-black-seats",
+  "caption": "Frame over black seats",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/263__frame-over-black-seats.jpg"
+ },
+ {
+  "base": "shot-272-yellow-camaro-top-work",
+  "caption": "Yellow camaro top work",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/272__bumblebee__yellow-camaro-top-work.jpg"
+ },
+ {
+  "base": "shot-273-top-frame-and-material",
+  "caption": "Top frame and material",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/273__bumblebee__top-frame-and-material.jpg"
+ },
+ {
+  "base": "shot-274-top-folded-on-the-car",
+  "caption": "Top folded on the car",
+  "cat": "Convertible tops",
+  "src": "02-convertible-tops/274__bumblebee__top-folded-on-the-car.jpg"
+ },
+ {
+  "base": "shot-018-rusted-roof-edge-close",
+  "caption": "Before &mdash; rusted roof edge close",
+  "cat": "Vinyl tops",
+  "src": "03-vinyl-roofs/018__white-caddy__BEFORE__rusted-roof-edge-close.heic"
+ },
+ {
+  "base": "shot-019-roof-stripped-ready",
+  "caption": "Before &mdash; roof stripped ready",
+  "cat": "Vinyl tops",
+  "src": "03-vinyl-roofs/019__white-caddy__BEFORE__roof-stripped-ready.heic"
+ },
+ {
+  "base": "shot-084-masked-frame-corrosion",
+  "caption": "Before &mdash; masked frame corrosion",
+  "cat": "Vinyl tops",
+  "src": "03-vinyl-roofs/084__silver-mopar__BEFORE__masked-frame-corrosion.heic"
+ },
+ {
+  "base": "shot-085-top-stripped-masked-yellow",
+  "caption": "Before &mdash; top stripped masked yellow",
+  "cat": "Vinyl tops",
+  "src": "03-vinyl-roofs/085__silver-mopar__BEFORE__top-stripped-masked-yellow.heic"
+ },
+ {
+  "base": "shot-086-opera-window-opening",
+  "caption": "Before &mdash; opera window opening",
+  "cat": "Vinyl tops",
+  "src": "03-vinyl-roofs/086__silver-mopar__BEFORE__opera-window-opening.heic"
+ },
+ {
+  "base": "shot-033-board-out-foam-degraded",
+  "caption": "Before &mdash; board out foam degraded",
+  "cat": "Headliners",
+  "src": "04-headliners/033__headliner-board__BEFORE__board-out-foam-degraded.heic"
+ },
+ {
+  "base": "shot-034-fabric-and-foam-on-bench",
+  "caption": "Fabric and foam on bench",
+  "cat": "Headliners",
+  "src": "04-headliners/034__headliner-board__fabric-and-foam-on-bench.heic"
+ },
+ {
+  "base": "shot-045-finished-with-sunroof-opening",
+  "caption": "After &mdash; finished with sunroof opening",
+  "cat": "Headliners",
+  "src": "04-headliners/045__AFTER__finished-with-sunroof-opening.heic"
+ },
+ {
+  "base": "shot-046-finished-sunroof-grab-handle",
+  "caption": "After &mdash; finished sunroof grab handle",
+  "cat": "Headliners",
+  "src": "04-headliners/046__AFTER__finished-sunroof-grab-handle.heic"
+ },
+ {
+  "base": "shot-047-grey-console-and-map-lights",
+  "caption": "After &mdash; grey console and map lights",
+  "cat": "Headliners",
+  "src": "04-headliners/047__AFTER__grey-console-and-map-lights.heic"
+ },
+ {
+  "base": "shot-048-light-grey-over-windscreen",
+  "caption": "After &mdash; light grey over windscreen",
+  "cat": "Headliners",
+  "src": "04-headliners/048__AFTER__light-grey-over-windscreen.heic"
+ },
+ {
+  "base": "shot-049-rear-quarter-grab-handle",
+  "caption": "After &mdash; rear quarter grab handle",
+  "cat": "Headliners",
+  "src": "04-headliners/049__AFTER__rear-quarter-grab-handle.heic"
+ },
+ {
+  "base": "shot-050-porsche-headliner-finished",
+  "caption": "After &mdash; porsche headliner finished",
+  "cat": "Headliners",
+  "src": "04-headliners/050__porsche__AFTER__porsche-headliner-finished.heic"
+ },
+ {
+  "base": "shot-051-porsche-pillar-trim",
+  "caption": "After &mdash; porsche pillar trim",
+  "cat": "Headliners",
+  "src": "04-headliners/051__porsche__AFTER__porsche-pillar-trim.heic"
+ },
+ {
+  "base": "shot-065-cream-board-light-cutout",
+  "caption": "After &mdash; cream board light cutout",
+  "cat": "Headliners",
+  "src": "04-headliners/065__AFTER__cream-board-light-cutout.heic"
+ },
+ {
+  "base": "shot-066-cream-panel-on-table",
+  "caption": "Cream panel on table",
+  "cat": "Headliners",
+  "src": "04-headliners/066__cream-panel-on-table.heic"
+ },
+ {
+  "base": "shot-150-bows-exposed-liner-out",
+  "caption": "Before &mdash; bows exposed liner out",
+  "cat": "Headliners",
+  "src": "04-headliners/150__suv__BEFORE__bows-exposed-liner-out.jpg"
+ },
+ {
+  "base": "shot-151-hatch-open-liner-out",
+  "caption": "Hatch open liner out",
+  "cat": "Headliners",
+  "src": "04-headliners/151__suv__hatch-open-liner-out.jpg"
+ },
+ {
+  "base": "shot-152-rear-headliner-frame",
+  "caption": "Rear headliner frame",
+  "cat": "Headliners",
+  "src": "04-headliners/152__suv__rear-headliner-frame.jpg"
+ },
+ {
+  "base": "shot-200-sagging-liner-board-exposed",
+  "caption": "Before &mdash; sagging liner board exposed",
+  "cat": "Headliners",
+  "src": "04-headliners/200__BEFORE__sagging-liner-board-exposed.jpg"
+ },
+ {
+  "base": "shot-201-sagging-liner-second-angle",
+  "caption": "Before &mdash; sagging liner second angle",
+  "cat": "Headliners",
+  "src": "04-headliners/201__BEFORE__sagging-liner-second-angle.jpg"
+ },
+ {
+  "base": "shot-005-trunk-lining-orange-stitch",
+  "caption": "After &mdash; trunk lining orange stitch",
+  "cat": "Carpet",
+  "src": "05-carpet-and-floors/005__cognac-quilt__AFTER__trunk-lining-orange-stitch.heic"
+ },
+ {
+  "base": "shot-092-driver-side-carpet-work",
+  "caption": "Driver side carpet work",
+  "cat": "Carpet",
+  "src": "05-carpet-and-floors/092__carpet-job__driver-side-carpet-work.heic"
+ },
+ {
+  "base": "shot-093-carpet-lifted-seat-out",
+  "caption": "Before &mdash; carpet lifted seat out",
+  "cat": "Carpet",
+  "src": "05-carpet-and-floors/093__carpet-job__BEFORE__carpet-lifted-seat-out.heic"
+ },
+ {
+  "base": "shot-094-install-console-area",
+  "caption": "Install console area",
+  "cat": "Carpet",
+  "src": "05-carpet-and-floors/094__carpet-job__install-console-area.heic"
+ },
+ {
+  "base": "shot-095-tools-in-the-footwell",
+  "caption": "Tools in the footwell",
+  "cat": "Carpet",
+  "src": "05-carpet-and-floors/095__carpet-job__tools-in-the-footwell.heic"
+ },
+ {
+  "base": "shot-149-dash-and-carpet-install",
+  "caption": "Dash and carpet install",
+  "cat": "Carpet",
+  "src": "05-carpet-and-floors/149__chevy-56__dash-and-carpet-install.jpg"
+ },
+ {
+  "base": "shot-160-interior-gutted-carpet-work",
+  "caption": "Interior gutted carpet work",
+  "cat": "Carpet",
+  "src": "05-carpet-and-floors/160__chevy-57__interior-gutted-carpet-work.jpg"
+ },
+ {
+  "base": "shot-179-sound-deadening-laid",
+  "caption": "Sound deadening laid",
+  "cat": "Carpet",
+  "src": "05-carpet-and-floors/179__ford-f1-red__sound-deadening-laid.jpg"
+ },
+ {
+  "base": "shot-180-cab-floor-and-seat-frame",
+  "caption": "Cab floor and seat frame",
+  "cat": "Carpet",
+  "src": "05-carpet-and-floors/180__ford-f1-red__cab-floor-and-seat-frame.jpg"
+ },
+ {
+  "base": "shot-232-floor-pan-stripped",
+  "caption": "Before &mdash; floor pan stripped",
+  "cat": "Carpet",
+  "src": "05-carpet-and-floors/232__caddy-59__BEFORE__floor-pan-stripped.jpg"
+ },
+ {
+  "base": "shot-233-interior-gutted",
+  "caption": "Before &mdash; interior gutted",
+  "cat": "Carpet",
+  "src": "05-carpet-and-floors/233__caddy-59__BEFORE__interior-gutted.jpg"
+ },
+ {
+  "base": "shot-234-new-carpet-and-dash",
+  "caption": "After &mdash; new carpet and dash",
+  "cat": "Carpet",
+  "src": "05-carpet-and-floors/234__caddy-59__AFTER__new-carpet-and-dash.jpg"
+ },
+ {
+  "base": "shot-276-cab-roof-and-interior",
+  "caption": "Cab roof and interior",
+  "cat": "Carpet",
+  "src": "05-carpet-and-floors/276__red-truck__cab-roof-and-interior.jpg"
+ },
+ {
+  "base": "shot-279-new-carpet-and-pedals",
+  "caption": "After &mdash; new carpet and pedals",
+  "cat": "Carpet",
+  "src": "05-carpet-and-floors/279__red-truck__AFTER__new-carpet-and-pedals.jpg"
+ },
+ {
+  "base": "shot-032-white-helm-seat-angle",
+  "caption": "After &mdash; white helm seat angle",
+  "cat": "Marine",
+  "src": "07-marine-boats/032__boat-helm-white__AFTER__white-helm-seat-angle.heic"
+ },
+ {
+  "base": "shot-042-open-bay-at-night",
+  "caption": "Open bay at night",
+  "cat": "The shop",
+  "src": "08-shop-exterior/042__open-bay-at-night.heic"
+ },
+ {
+  "base": "shot-083-padding-on-the-machine",
+  "caption": "Padding on the machine",
+  "cat": "In the shop",
+  "src": "09-shop-interior/083__padding-on-the-machine.heic"
+ },
+ {
+  "base": "shot-119-stripped-out-material-pile",
+  "caption": "Stripped out material pile",
+  "cat": "In the shop",
+  "src": "09-shop-interior/119__stripped-out-material-pile.heic"
+ },
+ {
+  "base": "shot-154-frame-parts-on-the-floor",
+  "caption": "Frame parts on the floor",
+  "cat": "In the shop",
+  "src": "09-shop-interior/154__frame-parts-on-the-floor.jpg"
+ },
+ {
+  "base": "shot-162-bench-seat-on-the-work-table",
+  "caption": "Bench seat on the work table",
+  "cat": "In the shop",
+  "src": "09-shop-interior/162__bench-seat-on-the-work-table.jpg"
+ },
+ {
+  "base": "shot-163-work-table-and-tool-cart",
+  "caption": "Work table and tool cart",
+  "cat": "In the shop",
+  "src": "09-shop-interior/163__work-table-and-tool-cart.jpg"
+ },
+ {
+  "base": "shot-164-shop-floor-wide",
+  "caption": "Shop floor wide",
+  "cat": "In the shop",
+  "src": "09-shop-interior/164__shop-floor-wide.jpg"
+ },
+ {
+  "base": "shot-165-benches-and-tool-cart",
+  "caption": "Benches and tool cart",
+  "cat": "In the shop",
+  "src": "09-shop-interior/165__benches-and-tool-cart.jpg"
+ },
+ {
+  "base": "shot-166-classic-in-for-top-work",
+  "caption": "Classic in for top work",
+  "cat": "In the shop",
+  "src": "09-shop-interior/166__classic-in-for-top-work.jpg"
+ },
+ {
+  "base": "shot-167-shop-with-convertible",
+  "caption": "Shop with convertible",
+  "cat": "In the shop",
+  "src": "09-shop-interior/167__shop-with-convertible.jpg"
+ },
+ {
+  "base": "shot-168-grey-seats-in-the-shop",
+  "caption": "Grey seats in the shop",
+  "cat": "In the shop",
+  "src": "09-shop-interior/168__grey-seats-in-the-shop.jpg"
+ },
+ {
+  "base": "shot-193-top-frame-and-air-hose",
+  "caption": "Top frame and air hose",
+  "cat": "In the shop",
+  "src": "09-shop-interior/193__top-frame-and-air-hose.jpg"
+ },
+ {
+  "base": "shot-215-cream-cushions-and-thread",
+  "caption": "Cream cushions and thread",
+  "cat": "In the shop",
+  "src": "09-shop-interior/215__cream-cushions-and-thread.jpg"
+ },
+ {
+  "base": "shot-216-cushions-on-the-bench",
+  "caption": "Cushions on the bench",
+  "cat": "In the shop",
+  "src": "09-shop-interior/216__cushions-on-the-bench.jpg"
+ },
+ {
+  "base": "shot-222-dash-teardown-with-tools",
+  "caption": "Dash teardown with tools",
+  "cat": "In the shop",
+  "src": "09-shop-interior/222__dash-teardown-with-tools.jpg"
+ },
+ {
+  "base": "shot-239-cutting-table-and-roll-stock",
+  "caption": "Cutting table and roll stock",
+  "cat": "In the shop",
+  "src": "09-shop-interior/239__cutting-table-and-roll-stock.jpg"
+ },
+ {
+  "base": "shot-240-cutting-table-with-material",
+  "caption": "Cutting table with material",
+  "cat": "In the shop",
+  "src": "09-shop-interior/240__cutting-table-with-material.jpg"
+ },
+ {
+  "base": "shot-241-bench-seats-on-the-table",
+  "caption": "Bench seats on the table",
+  "cat": "In the shop",
+  "src": "09-shop-interior/241__bench-seats-on-the-table.jpg"
+ },
+ {
+  "base": "shot-242-table-tools-and-seats",
+  "caption": "Table tools and seats",
+  "cat": "In the shop",
+  "src": "09-shop-interior/242__table-tools-and-seats.jpg"
+ },
+ {
+  "base": "shot-248-shop-with-white-mustang",
+  "caption": "Shop with white mustang",
+  "cat": "In the shop",
+  "src": "09-shop-interior/248__shop-with-white-mustang.jpg"
+ },
+ {
+  "base": "shot-251-workbench-and-tool-chest",
+  "caption": "Workbench and tool chest",
+  "cat": "In the shop",
+  "src": "09-shop-interior/251__workbench-and-tool-chest.jpg"
+ },
+ {
+  "base": "shot-252-bench-with-materials",
+  "caption": "Bench with materials",
+  "cat": "In the shop",
+  "src": "09-shop-interior/252__bench-with-materials.jpg"
+ },
+ {
+  "base": "shot-253-shop-floor-with-black-car",
+  "caption": "Shop floor with black car",
+  "cat": "In the shop",
+  "src": "09-shop-interior/253__shop-floor-with-black-car.jpg"
+ },
+ {
+  "base": "shot-260-bay-doorway-with-machine",
+  "caption": "Bay doorway with machine",
+  "cat": "In the shop",
+  "src": "09-shop-interior/260__bay-doorway-with-machine.jpg"
+ },
+ {
+  "base": "shot-068-roll-stock-with-white-cushion",
+  "caption": "Roll stock with white cushion",
+  "cat": "In the shop",
+  "src": "10-materials-and-craft-detail/068__roll-stock-with-white-cushion.heic"
+ },
+ {
+  "base": "shot-275-hand-holding-vinyl-sample",
+  "caption": "Hand holding vinyl sample",
+  "cat": "In the shop",
+  "src": "10-materials-and-craft-detail/275__hand-holding-vinyl-sample.jpg"
+ },
+ {
+  "base": "shot-134-hands-on-the-top-material",
+  "caption": "Hands on the top material",
+  "cat": "In the shop",
+  "src": "11-people-at-work/134__hands-on-the-top-material.heic"
+ },
+ {
+  "base": "shot-188-person-beside-the-cadillac",
+  "caption": "Person beside the cadillac",
+  "cat": "In the shop",
+  "src": "11-people-at-work/188__caddy-69__person-beside-the-cadillac.jpg"
+ },
+ {
+  "base": "shot-035-wrangler-underglow-front",
+  "caption": "Wrangler underglow front",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/035__purple-jeep__wrangler-underglow-front.heic"
+ },
+ {
+  "base": "shot-036-wrangler-night-front",
+  "caption": "Wrangler night front",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/036__purple-jeep__wrangler-night-front.heic"
+ },
+ {
+  "base": "shot-037-wrangler-night-rear",
+  "caption": "Wrangler night rear",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/037__purple-jeep__wrangler-night-rear.heic"
+ },
+ {
+  "base": "shot-038-wrangler-at-shop-night",
+  "caption": "Wrangler at shop night",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/038__purple-jeep__wrangler-at-shop-night.heic"
+ },
+ {
+  "base": "shot-039-wrangler-door-open",
+  "caption": "Wrangler door open",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/039__purple-jeep__wrangler-door-open.heic"
+ },
+ {
+  "base": "shot-040-wrangler-led-wheel",
+  "caption": "Wrangler led wheel",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/040__purple-jeep__wrangler-led-wheel.heic"
+ },
+ {
+  "base": "shot-044-panamera-rear-at-shop",
+  "caption": "Panamera rear at shop",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/044__porsche__panamera-rear-at-shop.heic"
+ },
+ {
+  "base": "shot-059-red-c8-exterior",
+  "caption": "Red c8 exterior",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/059__corvette__red-c8-exterior.heic"
+ },
+ {
+  "base": "shot-080-f100-primer-outside",
+  "caption": "F100 primer outside",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/080__ford-f100__f100-primer-outside.heic"
+ },
+ {
+  "base": "shot-081-f100-front-at-shop",
+  "caption": "F100 front at shop",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/081__ford-f100__f100-front-at-shop.heic"
+ },
+ {
+  "base": "shot-108-grey-porsche-in-bay",
+  "caption": "Grey porsche in bay",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/108__boxster__grey-porsche-in-bay.heic"
+ },
+ {
+  "base": "shot-109-grey-porsche-side",
+  "caption": "Grey porsche side",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/109__boxster__grey-porsche-side.heic"
+ },
+ {
+  "base": "shot-111-beetle-in-shop",
+  "caption": "Beetle in shop",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/111__vw-beetle__beetle-in-shop.heic"
+ },
+ {
+  "base": "shot-112-beetle-second-angle",
+  "caption": "Beetle second angle",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/112__vw-beetle__beetle-second-angle.heic"
+ },
+ {
+  "base": "shot-130-red-c5-front",
+  "caption": "Red c5 front",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/130__c5-corvette__red-c5-front.heic"
+ },
+ {
+  "base": "shot-131-red-c5-front-angle",
+  "caption": "Red c5 front angle",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/131__c5-corvette__red-c5-front-angle.heic"
+ },
+ {
+  "base": "shot-161-maroon-chevy-door-open",
+  "caption": "Maroon chevy door open",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/161__chevy-56__maroon-chevy-door-open.jpg"
+ },
+ {
+  "base": "shot-174-camaro-stripes-front",
+  "caption": "Camaro stripes front",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/174__camaro-tan__camaro-stripes-front.jpg"
+ },
+ {
+  "base": "shot-177-red-f1-pickup-at-shop",
+  "caption": "Red f1 pickup at shop",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/177__ford-f1-red__red-f1-pickup-at-shop.jpg"
+ },
+ {
+  "base": "shot-181-cadillac-rear-halo-lights",
+  "caption": "Cadillac rear halo lights",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/181__caddy-69__cadillac-rear-halo-lights.jpg"
+ },
+ {
+  "base": "shot-185-rear-with-underglow",
+  "caption": "Rear with underglow",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/185__caddy-69__rear-with-underglow.jpg"
+ },
+ {
+  "base": "shot-187-side-with-underglow",
+  "caption": "Side with underglow",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/187__caddy-69__side-with-underglow.jpg"
+ },
+ {
+  "base": "shot-209-white-300zx-black-top",
+  "caption": "White 300zx black top",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/209__300zx__white-300zx-black-top.jpg"
+ },
+ {
+  "base": "shot-230-cadillac-front",
+  "caption": "Cadillac front",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/230__caddy-59__cadillac-front.jpg"
+ },
+ {
+  "base": "shot-231-cadillac-side-on-grass",
+  "caption": "Cadillac side on grass",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/231__caddy-59__cadillac-side-on-grass.jpg"
+ },
+ {
+  "base": "shot-235-cadillac-in-the-bay",
+  "caption": "Cadillac in the bay",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/235__caddy-59__cadillac-in-the-bay.jpg"
+ },
+ {
+  "base": "shot-236-cadillac-rear-fins",
+  "caption": "Cadillac rear fins",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/236__caddy-59__cadillac-rear-fins.jpg"
+ },
+ {
+  "base": "shot-237-cadillac-in-shop-angle",
+  "caption": "Cadillac in shop angle",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/237__caddy-59__cadillac-in-shop-angle.jpg"
+ },
+ {
+  "base": "shot-238-cadillac-front-in-shop",
+  "caption": "Cadillac front in shop",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/238__caddy-59__cadillac-front-in-shop.jpg"
+ },
+ {
+  "base": "shot-243-beetle-and-yellow-car",
+  "caption": "Beetle and yellow car",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/243__vw-beetle__beetle-and-yellow-car.jpg"
+ },
+ {
+  "base": "shot-244-beetle-front-in-shop",
+  "caption": "Beetle front in shop",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/244__vw-beetle__beetle-front-in-shop.jpg"
+ },
+ {
+  "base": "shot-245-orange-beetle-side",
+  "caption": "Orange beetle side",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/245__vw-beetle__orange-beetle-side.jpg"
+ },
+ {
+  "base": "shot-246-beetle-white-interior",
+  "caption": "Beetle white interior",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/246__vw-beetle__beetle-white-interior.jpg"
+ },
+ {
+  "base": "shot-249-white-mustang-rear",
+  "caption": "White mustang rear",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/249__mustang-white__white-mustang-rear.jpg"
+ },
+ {
+  "base": "shot-258-camaro-red-stripe-outside",
+  "caption": "Camaro red stripe outside",
+  "cat": "Customer vehicles",
+  "src": "12-customer-vehicles/258__camaro-black__camaro-red-stripe-outside.jpg"
+ }
+]
