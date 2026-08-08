@@ -1263,8 +1263,10 @@ html{scroll-behavior:smooth}
 .foot-col ul.socials a:hover{background:var(--blue-btn);border-color:var(--blue-btn);
   color:#fff;transform:translateY(-2px)}
 @media (max-width:899px){
-  /* the footer centres its columns on a phone, so the row centres with them */
-  .foot-col ul.socials{justify-content:center;gap:10px;margin-top:12px}
+  /* Left, not centred. The footer centres its text on a phone, but a row of
+     four icon buttons floating in the middle of the column read as unmoored —
+     against the left edge they line up with everything above them. */
+  .foot-col ul.socials{justify-content:flex-start;gap:10px;margin-top:12px}
   .foot-col ul.socials a{width:40px;height:40px;min-height:40px;border-radius:10px}
   .foot-col ul.socials svg{width:18px;height:18px}
 }
