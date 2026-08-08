@@ -250,7 +250,10 @@ def also_band(label="We also work on",
 # bay. A "before and after" that is actually two different cars is worse than no
 # before and after at all, so a pair that could not be confirmed was left out.
 PAIRS = [
-    ("vinyl-top-before-roof-covering-rotted", "vinyl-top-after-burgundy-fitted",
+    # AFTER is the in-the-bay shot, not the rear-quarter one: the rear quarter is
+    # the home page's vinyl card, and nothing on that page is shown twice. It is
+    # also the better match — both frames are the whole roof, from the same side.
+    ("vinyl-top-before-roof-covering-rotted", "vinyl-top-burgundy-finished-in-the-bay",
      "Vinyl top"),
     ("shot-087-old-black-top-faded", "shot-089-new-black-top-side",
      "Convertible top"),
@@ -347,22 +350,22 @@ def build_home():
     # or the browser preloads a photo it never shows.
     hero_slides = [
         "g16-cadillac-convertible-red-interior",
-        # was slide 2, pushed down one on the owner's instruction
+        # BACK as slide 2 on 2026-08-08. It had moved to the Vehicle Interiors
+        # card while that card had nothing better; the card now carries the red
+        # pickup interior, so this is free to return to the hero where the owner
+        # put it originally.
+        "convertible-red-vinyl-interior-full",
         "gallery-header-photo-wide",
         # owner-supplied: red pickup cab, black seat, new carpet.
         # Portrait 0.75, same ratio as the portrait slide it replaces.
         "red-pickup-cab-black-seat-and-carpet",
     ]
-    # `convertible-red-vinyl-interior-full` used to be slide 2. It moved to the
-    # Vehicle Interiors card below on 2026-08-07 — it is the best full-interior
-    # photograph in the catalogue and that is the card it belongs on. It cannot
-    # be in both places: no page shows the same photograph twice.
     n_slides = len(hero_slides)
     # Must equal the `slidefade` / `doton` durations in assets/site.css. Two
-    # seconds a slide across three slides = a 6s cycle. If you change the count,
+    # seconds a slide across four slides = an 8s cycle. If you change the count,
     # change the CSS duration AND the keyframe percentages too, or the dots drift
     # out of step with the photos.
-    SLIDESHOW_SECONDS = 6
+    SLIDESHOW_SECONDS = 8
     slides = "".join(
         f'<figure style="animation-delay:{i * (SLIDESHOW_SECONDS / n_slides):.1f}s">'
         f'{img(b, "Upholstery work by Auto Tops and Trim in Monroe, NC", "(min-width:900px) 52vw, 100vw", eager=(i == 0), priority=(i == 0))}'
@@ -1004,7 +1007,9 @@ def build_services_index():
          "Rotted, peeling or faded roof coverings stripped back to the metal, re-padded "
          "and re-covered — including landau and padded tops.",
          ["Full, landau and half tops", "Rust checked before quoting", "Colour matched to the car"]),
-        ("sunroof-shade-repair.html", "Sunroofs", "sunroof-shade-fabric-failed",
+        # Same photograph as the home page card, on purpose: it is the best
+        # sunroof shot there is and the two cards should agree.
+        ("sunroof-shade-repair.html", "Sunroofs", "sunroof-glass-open-in-the-shop",
          "Sagging, torn or stuck sliding sunshade? We recover the panel you already have "
          "instead of replacing the whole sunroof assembly.",
          ["Sagging and torn shades", "Matched to your headliner", "Recover, not replace"]),
@@ -2107,7 +2112,10 @@ POSTS = [
         # Photo was the unverified runabout-cockpit stock shot (removed 2026-08-07).
         "slug": "blog-mildew-on-boat-seats.html",
         "cat": "Marine", "publish": "2026-08-07", "read": "5 min read",
-        "photo": "boat-upholstery-projects-at-the-shop",
+        # NOT boat-upholstery-projects-at-the-shop — the how-to-clean-boat-seats
+        # post already uses it, and both are live, so the blog index showed the
+        # same photograph on two cards.
+        "photo": "boat-helm-seat-white",
         "title": "Mildew and mould on boat seats: what comes off and what does not",
         "seo_title": "How to Get Mildew and Mould Off Vinyl Boat Seats | Auto Tops and Trim",
         "meta": "Black spots on vinyl boat seats explained — surface mildew versus mould rooted "

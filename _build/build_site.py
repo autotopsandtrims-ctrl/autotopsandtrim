@@ -303,6 +303,16 @@ def footer(lightbox=""):
     """
     svc = "".join(f'<li><a href="{h}">{l}</a></li>' for h, l in SERVICES)
     nav = "".join(f'<li><a href="{h}">{l}</a></li>' for h, l in NAV + FOOT_EXTRA)
+    # The same row of icons is emitted twice and one copy is hidden per width:
+    # on a desktop it belongs under Hours, on a phone under the address, and the
+    # footer's four columns collapse into one centred stack in between. Two
+    # copies plus a display rule is the honest way to do that in pure CSS — the
+    # alternative is reordering a grid and hoping the source order still reads
+    # correctly to a screen reader.
+    socials_row = "".join(
+        f'<li><a href="{url}" target="_blank" rel="noopener" aria-label="{name}">'
+        f'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="{path}"/></svg>'
+        f'</a></li>' for name, url, path in SOCIALS)
     return f"""</main>
 {lightbox}
 <footer class="site-foot">
@@ -316,10 +326,7 @@ def footer(lightbox=""):
       <p class="foot-area"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path
         d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/>
         </svg>4209 W Hwy 74, Monroe, NC 28110</p>
-      <ul class="socials">{"".join(
-        f'<li><a href="{url}" target="_blank" rel="noopener" aria-label="{name}">'
-        f'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="{path}"/></svg>'
-        f'</a></li>' for name, url, path in SOCIALS)}</ul>
+      <ul class="socials sc-mob">{socials_row}</ul>
     </div>
     <div class="foot-col foot-acc">
       <input type="checkbox" id="fa-svc" class="facc" aria-hidden="true">
@@ -338,6 +345,7 @@ def footer(lightbox=""):
         <tr><th>Saturday</th><td>11:00 AM &ndash; 5:00 PM</td></tr>
         <tr><th>Sunday</th><td>Closed</td></tr>
       </table>
+      <ul class="socials sc-desk">{socials_row}</ul>
     </div>
   </div>
   <div class="foot-bar">

@@ -152,27 +152,27 @@ h3{font-size:clamp(18px,1.5vw,21px);letter-spacing:-.015em;line-height:1.2}
   background:#1B2026;min-width:0}
 @media (min-width:900px){.slideshow{aspect-ratio:16/11}}
 .slideshow figure{position:absolute;inset:0;margin:0;opacity:0;
-  animation:slidefade 6s linear infinite}
+  animation:slidefade 8s linear infinite}
 .slideshow figure img{width:100%;height:100%;object-fit:cover}
-/* 3 slides over 6s: 2s each, keeping the owner's 2-seconds-a-slide.
-   Each slide holds for 1/3 of the cycle, so the visible window is 33%.
+/* 4 slides over 8s: 2s each, on the owner's instruction. Each slide holds for a
+   quarter of the cycle, so the visible window is 25%.
    The crossfade is a PERCENTAGE of the cycle, so shortening the cycle shortens
-   the fade with it: 4% of 6s is ~0.24s, which is the same fade as before.
+   the fade with it: 3% of 8s is ~0.24s.
    The delay divisor in build_pages.py must match this duration, and these
    percentages must match the slide COUNT. */
 @keyframes slidefade{
   0%{opacity:0}
-  4%{opacity:1}
-  33%{opacity:1}
-  37%{opacity:0}
+  3%{opacity:1}
+  25%{opacity:1}
+  28%{opacity:0}
   100%{opacity:0}
 }
 .dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;
   gap:7px;z-index:2}
 .dots span{width:26px;height:3px;border-radius:2px;background:rgba(255,255,255,.34);
-  animation:doton 6s linear infinite}
-@keyframes doton{0%,33%{background:rgba(255,255,255,.92)}
-  34%,100%{background:rgba(255,255,255,.34)}}
+  animation:doton 8s linear infinite}
+@keyframes doton{0%,25%{background:rgba(255,255,255,.92)}
+  26%,100%{background:rgba(255,255,255,.34)}}
 
 /* reduced motion: hold the first slide, no cycling */
 @media (prefers-reduced-motion:reduce){
@@ -1196,6 +1196,45 @@ html{scroll-behavior:smooth}
   box-shadow:0 3px 10px rgba(22,52,79,.28)}
 .pair figcaption{padding:1px 4px 0;text-align:center;font-size:13px;font-weight:700;
   letter-spacing:.02em;color:var(--ink-70)}
+
+/* ---- the animation ------------------------------------------------------
+   Three things, all slow, all CSS, none of them moving the layout:
+
+   1. the cards deal themselves in, staggered, once on load
+   2. the AFTER photo breathes — a 4% zoom over 7s. Only the after side moves,
+      so the eye is pulled from left to right across the join without anything
+      being labelled twice
+   3. the arrow on the join pulses in time with it
+
+   Zoom lives on the img inside an overflow:hidden parent, so nothing reflows and
+   nothing spills. Hover lifts the whole card and pushes the zoom a little
+   further, which is the only part that is not automatic. */
+.pair{animation:pairin .55s cubic-bezier(.22,.61,.36,1) both;
+  transition:transform .3s ease,box-shadow .3s ease}
+.pairs > .pair:nth-child(2){animation-delay:.09s}
+.pairs > .pair:nth-child(3){animation-delay:.18s}
+.pairs > .pair:nth-child(4){animation-delay:.27s}
+.pairs > .pair:nth-child(5){animation-delay:.36s}
+@keyframes pairin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.pair:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(22,52,79,.2)}
+
+.pair-shot img{transition:transform .45s ease}
+/* the after side only */
+.pair-shot:nth-child(2) img{animation:afterbreathe 7s ease-in-out infinite}
+.pairs > .pair:nth-child(2) .pair-shot:nth-child(2) img{animation-delay:-1.75s}
+.pairs > .pair:nth-child(3) .pair-shot:nth-child(2) img{animation-delay:-3.5s}
+.pairs > .pair:nth-child(4) .pair-shot:nth-child(2) img{animation-delay:-5.25s}
+@keyframes afterbreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.pair:hover .pair-shot:nth-child(2) img{transform:scale(1.06)}
+
+.pair-arrow{animation:arrownudge 7s ease-in-out infinite}
+@keyframes arrownudge{
+  0%,100%{transform:translateX(0);box-shadow:0 3px 10px rgba(22,52,79,.28)}
+  50%{transform:translateX(3px);box-shadow:0 5px 16px rgba(30,92,153,.42)}
+}
+@media (prefers-reduced-motion:reduce){
+  .pair,.pair-shot img,.pair-arrow{animation:none}
+}
 @media (max-width:560px){
   .pair{padding:5px 5px 7px;border-radius:10px;gap:5px}
   .pair-shots{gap:2px;border-radius:7px}
@@ -1208,17 +1247,34 @@ html{scroll-behavior:smooth}
    One row under the address, sized to the 44px touch target on a phone. The
    icons inherit currentColor, so they take the footer's text colour and need no
    second set of assets if the footer ever changes background. */
-.socials{list-style:none;display:flex;gap:10px;margin:14px 0 0;padding:0}
-.socials a{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;
+/* SELECTORS ARE `.foot-col ul.socials`, not `.socials`, ON PURPOSE. The footer
+   already styles `.foot-col ul` at three different widths — column, then wrapped
+   row, then a two-column grid — and those rules are more specific than a lone
+   class, which is what was throwing these icons around. Matching that
+   specificity is what keeps them on one line everywhere. */
+.foot-col ul.socials{list-style:none;display:flex;flex-direction:row;flex-wrap:nowrap;
+  justify-content:flex-start;align-items:center;gap:8px;margin:14px 0 0;padding:0}
+.foot-col ul.socials li{flex:0 0 auto}
+.foot-col ul.socials a{display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;min-height:36px;padding:0;border-radius:9px;
   background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
   color:#E9EEF3;transition:background .2s ease,border-color .2s ease,transform .2s ease}
-.socials svg{width:18px;height:18px;fill:currentColor}
-.socials a:hover{background:var(--blue-btn);border-color:var(--blue-btn);
+.foot-col ul.socials svg{width:17px;height:17px;fill:currentColor}
+.foot-col ul.socials a:hover{background:var(--blue-btn);border-color:var(--blue-btn);
   color:#fff;transform:translateY(-2px)}
 @media (max-width:899px){
-  .socials{gap:9px;margin-top:12px}
-  .socials a{width:44px;height:44px}
-  .socials svg{width:19px;height:19px}
+  /* the footer centres its columns on a phone, so the row centres with them */
+  .foot-col ul.socials{justify-content:center;gap:10px;margin-top:12px}
+  .foot-col ul.socials a{width:40px;height:40px;min-height:40px;border-radius:10px}
+  .foot-col ul.socials svg{width:18px;height:18px}
+}
+/* WHERE the row sits: under Hours once the footer is four columns wide, under
+   the address while it is a single centred stack. Both copies are in the HTML
+   and one is hidden per width — see footer() for why. */
+.foot-col ul.socials.sc-desk{display:none}
+@media (min-width:1000px){
+  .foot-col ul.socials.sc-desk{display:flex;margin-top:16px}
+  .foot-col ul.socials.sc-mob{display:none}
 }
 
 /* ---- careers: how to apply --------------------------------------------- */

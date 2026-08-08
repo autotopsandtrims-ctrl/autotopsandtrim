@@ -26,10 +26,24 @@ GROUPS = {
     "custom-bike-seat": "BURGUNDY-TOP",
 }
 
+# The old version collected names into a SET, so it could only ever catch the
+# case above — the same photograph under two different filenames. A page that
+# used one filename twice collapsed to a single set entry and passed, which is
+# how the vinyl top ended up on the home page twice. Count occurrences instead.
+#
+# Two things have to be excluded or every page fails:
+#   * the lightbox copies, which are a second <img> of a photo already shown.
+#     They are emitted after </main>, so only the page body is scanned.
+#   * srcset, which repeats the same basename once per tier. Only `src=` counts.
 bad = 0
 for f in sorted(glob.glob("*.html")):
     html = open(f, encoding="utf-8").read()
-    names = set(re.findall(r"assets/([a-z0-9\-]+?)-\d+\.webp", html))
+    body = html.split("</main>")[0]
+    # The testimonial marquee prints its cards twice so the loop is seamless, so
+    # every reviewer photo legitimately appears twice. Drop the whole marquee.
+    body = re.sub(r'<div class="revmarquee".*?</div>\s*<div class="wrap"', '<div class="wrap"',
+                  body, flags=re.S)
+    names = re.findall(r'src="assets/([a-z0-9\-]+?)-\d+\.webp"', body)
     ident = collections.Counter(GROUPS.get(n, n) for n in names)
     dupes = {k: v for k, v in ident.items() if v > 1}
     if dupes:
