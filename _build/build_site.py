@@ -119,6 +119,10 @@ SERVICES = [
     # phrase people actually search, so the page keeps it in its own title.
     ("sunroof-shade-repair.html", "Sunroofs"),
     ("auto-upholstery.html", "Vehicle Interiors"),
+    # Headliners sit directly under Vehicle Interiors, not alongside the four
+    # card services. It is interior work with its own page because it is the
+    # least-contested search cluster the shop has, not a fifth trade.
+    ("headliner-replacement.html", "Headliner Replacement"),
     ("marine-upholstery.html", "Marine Upholstery"),
     ("aviation-upholstery.html", "Aviation Upholstery"),
     ("motorcycle-seats.html", "Motorcycle Seats"),

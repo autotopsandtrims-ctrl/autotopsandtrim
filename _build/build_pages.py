@@ -185,13 +185,25 @@ def reviews_block(num="03", label="Testimonials",
 
 
 # ============================================================== HOME
-# The fanned deck. Seven cards, alternating real shop work with the three trades
+# The fanned deck. Five cards, alternating real shop work with the three trades
 # this band is about, so the deck reads as "and all of this too" rather than as
 # three lonely stock photos. Order matters: it is the left-to-right order of the
 # fan. No links and no captions — see also_band().
 # BOATS, AIRCRAFT AND BIKES ONLY. No cars in this deck — the whole rest of the
-# site is cars, and a car here makes the band say nothing. Three marine (two of
-# them real shop photographs), two aviation, one motorcycle.
+# site is cars, and a car here makes the band say nothing. Two marine (both real
+# shop photographs), two aviation, one motorcycle.
+#
+# ⚠️ EVERY CARD IN THIS DECK MUST BE FINISHED WORK OR A CLEAN SUBJECT. The cards
+# carry no captions by design, so a damaged piece here reads as the shop's output
+# rather than as its intake. That is what removed `boat-helm-seat-white` on
+# 2026-08-09 (user's call): it is a BEFORE photo — cracked, stained vinyl with a
+# mismatched tan bottom cushion — and it sat on the far right of the fan with
+# nothing saying so. It is still used where a caption gives it that context: the
+# gallery, the marine page strip and the mildew blog post.
+#
+# The card count is load-bearing: `.also-col:nth-child(N)` in site.css sets the
+# arc, and there is a five-card override that keeps the fan symmetric. Change the
+# length of this list and the arc has to be retuned to match.
 ALSO = [
     ("boat-on-the-trailer-at-the-shop", "Marine", ""),
     ("boat-cockpit-cream-and-grey", "Marine", ""),
@@ -200,7 +212,6 @@ ALSO = [
     ("aircraft-interior-seat-upholstery", "Aviation", ""),
     ("custom-motorcycle-seat-upholstery-close-up", "Motorcycle", ""),
     ("aircraft-cabin-upholstery-craftsmanship", "Aviation", ""),
-    ("boat-helm-seat-white", "Marine", ""),
 ]
 
 
@@ -799,6 +810,87 @@ def build_services():
          "Classic Chevrolet — carpet fitted", "Ford F1 cab — rebuilt seat and carpet",
          "Shift boot and carpet detail", "Classic Chevrolet — bench seat and door panels",
          "Classic Chevrolet — new carpet going in", "Classic coupe — rear bench seat"])
+
+    # HEADLINERS — added 2026-08-09 for the paid-search campaign. Headliner terms
+    # are the single least-contested cluster in the whole keyword set (Ahrefs KD 0
+    # on "headliner repair near me" at 2,100/mo US), and until now the only place
+    # the word appeared was one bullet inside auto-upholstery.html, which is a poor
+    # landing page for someone who searched the word specifically.
+    #
+    # It sits AFTER Vehicle Interiors in SERVICES on purpose: the business card
+    # lists four services and headliner work is part of interiors, so this reads
+    # as a detail page rather than a fifth trade. The 2026-08-07 correction stands.
+    #
+    # PHOTOS: both were opened at full size before captioning. `shot-050` is a
+    # finished light-grey headliner in a coupe (it IS a Porsche — verified by the
+    # crest on the headrest — but no caption on this site names a make).
+    # `shot-152` is an SUV with the board out and the bare roof showing.
+    # `shot-208-top-frame-and-headliner` was REJECTED: despite the filename there
+    # is no headliner in it, it is the underside of a raised convertible top.
+    # `headliner-install` is the known duplicate Cadillac exterior — never use it.
+    #
+    # NOTHING HERE CLAIMS A TURNAROUND OR A PRICE. Neither is verified.
+    service_page(
+        "headliner-replacement.html",
+        "Headliner Replacement in Monroe, NC | Sagging Headliner Repair",
+        "Headliner replacement in Monroe, NC. Sagging and drooping headliners recovered "
+        "with new foam-backed fabric. Free estimates — (980) 385-8101.",
+        "Headliners", "Headliner replacement in Monroe, NC",
+        "A headliner sags because the foam behind the fabric has broken down, not because "
+        "the glue let go. That is why pins and spray adhesive rarely hold — we replace the "
+        "material instead.",
+        "shot-050-porsche-headliner-finished",
+        [("Why it sags", ["Foam backing crumbles with age and heat",
+                          "Fabric separates from the board above it",
+                          "Pins and spray glue treat the symptom, not the foam",
+                          "Carolina summers make it happen faster"]),
+         ("What we do", ["The board comes out of the car",
+                         "Old fabric and crumbling foam scraped back",
+                         "New foam-backed fabric fitted to the board",
+                         "Refitted with the trim off, not cut around"]),
+         ("While it is out", ["Sun visors and grab handles recovered to match",
+                              "Sunroof sunshade panel, if yours has one",
+                              "Dome light and pillar trim refitted properly",
+                              "Colour matched to the rest of your interior"])],
+        # NOT the hero photo again — dupcheck fails any page that repeats one.
+        # g13 is the F1's finished black headliner (per the verified content map
+        # above GALLERY); it also appears on auto-upholstery, which is fine —
+        # dupcheck only forbids a repeat WITHIN a page.
+        ["shot-152-rear-headliner-frame", "g13-sound-deadening-before-carpet"],
+        [("My headliner is sagging. Can it be glued back up?",
+          "Almost never for long. The fabric is separating because the foam bonded to its "
+          "back has turned to powder — there is nothing solid left for glue to hold to. "
+          "Pins and spray adhesive buy a little time and usually leave marks in the fabric. "
+          "Recovering the board is the repair that lasts."),
+         ("Do you replace the whole roof lining or just the fabric?",
+          "The board itself is almost always sound and gets reused. What gets replaced is "
+          "the foam-backed fabric bonded to it. We only quote a new board if yours is warped "
+          "or broken."),
+         ("Can you match it to the rest of my interior?",
+          "Usually. We will show you material against your own trim before you decide. On an "
+          "interior that has faded over the years, the honest answer is that a brand-new "
+          "match can look newer than everything around it, and we will say so."),
+         ("Can you quote from a photo?",
+          "Yes. Send us a photo of the sagging area and the year, make and model, and we will "
+          "give you an estimate by email. Some jobs need an in-person look before we commit "
+          "to a number, and we will tell you if yours is one of them."),
+         ("Do you do headliners on modern cars, or only classics?",
+          "Both. Sagging headliners are common on cars from the mid-1990s onward, and that is "
+          "a lot of what comes through the shop alongside the restoration work.")],
+        ["Board out, roof stripped back before the new material goes up",
+         "Ford F1 — headliner fitted and finished"],
+        extra_html="""<section class="band tint">
+  <div class="wrap narrow stack">
+    <div class="stack">""" + shead("04", "Before you call") + """<h2>Worth reading first</h2></div>
+    <p class="lead">If you would rather try it yourself first, we have written up the
+    honest version — what the DIY fixes actually do, and when they will not hold.</p>
+    <div class="btnrow">
+      <a class="btn btn-ghost" href="blog-how-to-fix-a-sagging-headliner.html">How to fix a sagging headliner</a>
+      <a class="btn btn-ghost" href="blog-headliner-replacement-cost.html">What headliner replacement costs</a>
+    </div>
+  </div>
+</section>
+""")
 
     service_page(
         "marine-upholstery.html",
