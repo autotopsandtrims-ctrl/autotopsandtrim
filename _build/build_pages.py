@@ -166,7 +166,11 @@ def reviews_block(num="03", label="Testimonials",
     link = (f'<p style="text-align:center"><a class="googlelink" href="{GOOGLE_REVIEWS_URL}" '
             f'target="_blank" rel="noopener">Read all {REVIEW_COUNT} reviews on Google</a></p>'
             if GOOGLE_REVIEWS_URL else "")
-    return f"""<section class="band dark">
+    # The `reviews` class exists ONLY so the quilt override in site.css can
+    # target this band. The user had the desktop quilt turned up sitewide on
+    # 2026-08-09, disliked it, and asked for it back down everywhere except
+    # the reviews section - so this is the one dark band that keeps .030.
+    return f"""<section class="band dark reviews">
   <div class="wrap stack">
     <div class="center stack">
       {shead(num, label, center=True)}
@@ -367,14 +371,36 @@ def trust_strip():
     star = ('<svg class="tr-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
             '<path d="M12 2l2.9 6.26 6.86.74-5.12 4.6 1.44 6.72L12 17.1l-6.08 3.22 '
             '1.44-6.72L2.24 9l6.86-.74L12 2z"/></svg>')
+    # (photo, alt, big, small). EVERY PHOTO WAS OPENED AND LOOKED AT before it
+    # went in here, and every one is absent from the rest of the home page —
+    # dupcheck fails the build if a page shows the same photograph twice, and
+    # index.html already carries 32 photographs.
+    #
+    # The photo is chosen to EARN its label rather than to be wallpaper:
+    # the machine by the bay door for the years in trade, a material sample in
+    # hand for the free estimate, the lit bay for being reachable. Rejected on
+    # sight: shot-004 and shot-006 are photographs OF PRINTED PHOTOGRAPHS — soft,
+    # with the print's edge in frame — and shot-007 is visibly worn leather,
+    # which is not what belongs under a 5.0 rating.
     cells = [
-        (f'{rating}{star}', "On Google"),
-        (f"Since {FOUNDED_YEAR}", f"{years} years in Monroe"),
-        ("Free", "Estimates"),
-        ("Within 1 hour", "We reply, shop hours"),
+        ("shot-045-finished-with-sunroof-opening",
+         "Finished headliner and interior in a car with the sunroof shade closed",
+         f"{rating}{star}", "On Google"),
+        ("shot-260-bay-doorway-with-machine",
+         "The shop's sewing machine beside the open bay door",
+         f"Since {FOUNDED_YEAR}", f"{years} years in Monroe"),
+        ("shot-275-hand-holding-vinyl-sample",
+         "A hand holding a labelled vinyl sample against the roll stock",
+         "Free", "Estimates"),
+        ("shot-042-open-bay-at-night",
+         "The shop bay lit up at night with cars outside",
+         "Within 1 hour", "We reply"),
     ]
-    tds = "".join(f'<div class="tr-cell"><span class="tr-big">{big}</span>'
-                  f'<span class="tr-sm">{sm}</span></div>' for big, sm in cells)
+    tds = "".join(
+        f'<figure class="tr-cell">{img(photo, alt, QUARTER)}'
+        f'<figcaption class="tr-cap"><span class="tr-big">{big}</span>'
+        f'<span class="tr-sm">{sm}</span></figcaption></figure>'
+        for photo, alt, big, sm in cells)
     return f'<section class="trust" aria-label="Why customers choose us">\n  <div class="wrap">{tds}</div>\n</section>\n'
 
 
