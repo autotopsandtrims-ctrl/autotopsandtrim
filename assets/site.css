@@ -1119,6 +1119,16 @@ html{scroll-behavior:smooth}
 .also-col:nth-child(5){transform:rotate(4.5deg) translateY(6px);z-index:5;animation-delay:-5.6s}
 .also-col:nth-child(6){transform:rotate(8deg) translateY(18px);z-index:6;animation-delay:-7s}
 .also-col:nth-child(7){transform:rotate(11deg) translateY(34px);z-index:7;animation-delay:-8.4s}
+/* FIVE-CARD DECK. The arc above is tuned for six or seven; stop it at five and
+   it ends on rotate(4.5deg) while the left edge is still at -9deg, so the whole
+   fan visibly leans left. This retunes those five into a symmetric arc. It is
+   scoped with :has so it only fires when the deck really is five cards long —
+   add a sixth back to ALSO and the original arc takes over again untouched. */
+.also:has(> .also-col:nth-child(5):last-child) .also-col:nth-child(1){transform:rotate(-9deg) translateY(20px)}
+.also:has(> .also-col:nth-child(5):last-child) .also-col:nth-child(2){transform:rotate(-5deg) translateY(6px)}
+.also:has(> .also-col:nth-child(5):last-child) .also-col:nth-child(3){transform:rotate(0deg) translateY(-2px)}
+.also:has(> .also-col:nth-child(5):last-child) .also-col:nth-child(4){transform:rotate(5deg) translateY(6px)}
+.also:has(> .also-col:nth-child(5):last-child) .also-col:nth-child(5){transform:rotate(9deg) translateY(20px)}
 /* the drift is deliberately tiny — the deck should breathe, not move around the
    page while someone is trying to look at it */
 @keyframes alsofloat{
