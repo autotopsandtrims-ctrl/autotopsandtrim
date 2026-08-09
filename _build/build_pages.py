@@ -1032,11 +1032,24 @@ def build_services():
         "Sunroof shades", "Sunroof shade repair in Monroe, NC",
         "When the sliding shade over your sunroof sags, tears or stops retracting, the fabric "
         "is usually the only thing that has failed. We recover the panel you already have.",
-        # A real photograph at last: the shop's own shot of a sunroof shade whose
-        # fabric has broken up and is flaking off the panel. Imported from the
-        # 283-photo batch 2026-08-07 — folder 06-sunroof-shade, the only two
-        # sunroof photographs that exist.
-        "sunroof-shade-fabric-failed",
+        # HERO MUST BE FINISHED WORK. It used to be `sunroof-shade-fabric-failed`
+        # — a shade whose fabric has broken up and is flaking off the panel. That
+        # is the problem this page sells the cure for, and leading with it made
+        # the page look like a picture of a bad job. Swapped 2026-08-09 on the
+        # user's instruction: broken shades belong in the copy, not the hero.
+        #
+        # This one is `04-headliners/045__AFTER__...`, a confirmed AFTER: a
+        # finished light-grey headliner with the sliding shade intact and closed
+        # across the opening, vents and daylight above it.
+        #
+        # ⚠️ HONEST LIMIT, do not paper over it: there is NO photograph anywhere
+        # in the 283-photo batch of a RECOVERED sunroof shade. Folder
+        # 06-sunroof-shade holds exactly two files and both are BEFORE
+        # (217/218, "shade-board-foam-degraded"). So this page can show finished
+        # interiors with sound shades and the panel out in the shop, but nothing
+        # here may be captioned as a shade this shop recovered. If the owner ever
+        # supplies a true after, it becomes the hero and a ba_band() goes in.
+        "shot-045-finished-with-sunroof-opening",
         [("What we repair", ["Sagging or drooping shade fabric",
                              "Torn, split or stained shade panels",
                              "Fabric that has come unbonded from the slider",
@@ -1049,7 +1062,13 @@ def build_services():
                             "The shade is trim work — it is what this shop does",
                             "Bring the vehicle by; we will tell you what it needs",
                             "Customers drive in from Charlotte and Union County"])],
-        ["sunroof-shade-fabric-failed-wide"],
+        # Was the second broken-fabric shot. Now three photographs of sound work,
+        # every one of them the shop's own. Captions describe ONLY what is in
+        # frame — none of them claims a recovered shade, because none of them is
+        # one (see the hero note above).
+        ["shot-046-finished-sunroof-grab-handle",
+         "sunroof-glass-open-in-the-shop",
+         "shot-065-cream-board-light-cutout"],
         [("My sunroof shade is sagging. Can it be fixed, or do I need a whole new sunroof?",
           "In most cases the sunroof itself is fine and only the shade fabric has failed. The "
           "fabric is bonded to a thin sliding panel, and over years of Carolina heat that bond "
@@ -1074,6 +1093,12 @@ def build_services():
           "whether the slider and the mechanism are still sound, and that is the part that "
           "decides whether this is a simple recover or a bigger job. The estimate is free "
           "either way.")],
+        # gallery_caps — one per photo above, same order. These describe ONLY
+        # what is in frame. Nothing here says "recovered shade": no such
+        # photograph exists (see the hero note).
+        ["Finished headliner and a sound sliding shade across the opening",
+         "Sunroof panel out, on a car in the shop",
+         "A freshly covered board on the bench, cut for its openings"],
         extra_html=sunroof_voices)
 
 

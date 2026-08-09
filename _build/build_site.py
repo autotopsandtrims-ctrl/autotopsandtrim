@@ -28,7 +28,15 @@ EMAIL = "contact@autotopsandtrim.com"
 # promise the shop misses on a busy Saturday is worse than no promise at all.
 # If the owner wants to commit to something faster, change it HERE and nowhere
 # else — every place it appears is generated from this string.
-REPLY_PROMISE = "We reply to every request within one business day"
+# CHANGED 2026-08-09 from "one business day" to one hour, at the owner's request.
+# Speed-to-lead is the single biggest conversion lever in local services and this
+# now backs the paid campaign, where it is an advertised claim rather than a hope.
+#
+# SCOPED TO SHOP HOURS DELIBERATELY. Unqualified, this promise breaks every Sunday
+# and every evening, and a missed advertised promise is worse than a slower kept
+# one. The hours sit directly under it on the contact page and the landing pages.
+# To make it unqualified, drop the trailing clause here and nowhere else.
+REPLY_PROMISE = "We reply to every request within one hour during shop hours"
 FORM_ENDPOINT = "https://formspree.io/f/mrpzzdgz"   # TODO: swap for the shop's own form
 
 # Let customers attach photos of the job to the quote request.
@@ -386,7 +394,7 @@ def cta(num="05", label="Ready when you are",
       <a class="btn btn-ghost" href="contact.html">Request a Quote Online</a>
     </div>
     <p class="microline">Free estimates &nbsp;&middot;&nbsp; By photo or in person
-       &nbsp;&middot;&nbsp; Reply within one business day &nbsp;&middot;&nbsp; Monroe, NC since 1989</p>
+       &nbsp;&middot;&nbsp; Reply within one hour &nbsp;&middot;&nbsp; Monroe, NC since 1989</p>
   </div>
 </section>
 """
