@@ -23,6 +23,10 @@
   --blue-btn:#1E5C99;
   --blue-deep:#16344F;
   --pale:#9CC3E8;
+  /* The one sanctioned warm colour, and only ever for a rating star — this is
+     not the rejected tan accent. Was a bare literal in .stars; tokenised
+     2026-08-09 so the hero trust strip could not drift to a second gold. */
+  --star-gold:#E8A33D;
   --band:#E8EEF6;
   --band-2:#F1F5F9;
   --rule:#D9E2ED;
@@ -419,7 +423,7 @@ html{scroll-behavior:smooth}
 .rev-line{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
 .rev-date{font-size:12.5px;color:#93A5B4}
 .review blockquote{margin:0;font-size:16px;line-height:1.65;color:#DCE4EB}
-.stars{color:#E8A33D;font-size:15px;letter-spacing:.16em;line-height:1}
+.stars{color:var(--star-gold);font-size:15px;letter-spacing:.16em;line-height:1}
 .stars span{position:absolute;left:-9999px}
 .dark .review blockquote{color:#E6ECF2}
 .dark .review .who{color:#fff}
@@ -1026,10 +1030,15 @@ html{scroll-behavior:smooth}
     var(--blue-lt) 0 13px,rgba(94,155,217,.20) 13px 22px)}
 .head-in{position:relative;z-index:1}
 
-/* Every large dark surface gets the same quilting, dialled right down: roughly
-   half the header's opacity and a larger diamond, because these cover far more
-   area. Enough to stop the panels reading as flat, not enough to notice as a
-   pattern. To undo, delete this block and the three position:relative rules. */
+/* Every large dark surface gets the same quilting on a larger diamond, because
+   these cover far more area than the header bar. Enough to stop the panels
+   reading as flat, not enough to notice as a pattern.
+   To undo, delete this block and the three position:relative rules.
+
+   .016 is the MOBILE value and it is deliberate — do not raise it here. The
+   desktop bump lives in the "quilt visibility, desktop only" block at the very
+   end of this file. Phones were reported as fine; only the desktop grid was
+   too faint to see. */
 .hero{background:var(--dark)}
 .hero,.band.dark,.site-foot{position:relative}
 .hero::before,.band.dark::before,.site-foot::before{
@@ -1371,7 +1380,9 @@ html{scroll-behavior:smooth}
    TO REVERT: delete this whole block. Everything is scoped to .site-head. */
 .site-head{background:#fff;color:var(--ink)}
 
-/* quilt back, inverted — faint blue on white instead of white on dark */
+/* quilt back, inverted — faint blue on white instead of white on dark.
+   .05 is the MOBILE value — leave it. The desktop bump is in the "quilt
+   visibility, desktop only" block at the very end of this file. */
 .site-head::before{
   background-image:
     repeating-linear-gradient(45deg,rgba(47,111,176,.05) 0 1px,transparent 1px 27px),
@@ -1497,3 +1508,75 @@ html{scroll-behavior:smooth}
     repeating-linear-gradient(-45deg,rgba(255,255,255,.020) 0 1px,transparent 1px 27px);
   box-shadow:0 -10px 26px rgba(0,0,0,.13)}
 /* ========================= end TRIAL block ============================== */
+
+/* ============ quilt visibility, DESKTOP ONLY ==============================
+   Added 2026-08-09. The user reported the background grid was barely visible
+   on a desktop monitor and asked for it back up; phones were explicitly fine,
+   so every value here is inside min-width:900px and mobile is untouched.
+
+   Why it looked reduced, since this will come up again: it was not. The dark
+   surfaces have carried .016 since 6455f06 and were never lowered, and the
+   header only went .055 -> .05. What changed is that the HEADER WENT FROM DARK
+   TO WHITE, and the same motif reads far weaker as 5% blue on #fff than as 3%
+   white on the old blue-charcoal gradient. So this compensates for the
+   surface, not for a cut. Do not "restore" the base values to fix a desktop
+   complaint - change these two.
+
+   MUST STAY LAST IN THE FILE. The white-header TRIAL block above re-declares
+   .site-head::before at the same specificity, so an earlier rule would lose.
+
+   THESE ARE THE DIALS - keep the pair in each rule equal:
+     header  .09  (base .05)   blue on white
+     dark    .030 (base .016)  white on dark
+   The 27px and 36px diamonds are unchanged, so the texture is the same size,
+   just readable. */
+@media (min-width:900px){
+  .site-head::before{
+    background-image:
+      repeating-linear-gradient(45deg,rgba(47,111,176,.09) 0 1px,transparent 1px 27px),
+      repeating-linear-gradient(-45deg,rgba(47,111,176,.09) 0 1px,transparent 1px 27px)}
+  .hero::before,.band.dark::before,.site-foot::before{
+    background-image:
+      repeating-linear-gradient(45deg,rgba(255,255,255,.030) 0 1px,transparent 1px 36px),
+      repeating-linear-gradient(-45deg,rgba(255,255,255,.030) 0 1px,transparent 1px 36px)}
+}
+
+/* ============ trust strip under the home hero, DESKTOP ONLY ===============
+   Added 2026-08-09. Four proof cells directly beneath the hero: rating, years
+   in business, free estimates, reply time. Emitted by trust_strip() in
+   build_pages.py, home page only.
+
+   HIDDEN BY DEFAULT and only switched on at 900px — the user asked for this on
+   desktop and said mobile was fine. Four cells across a phone either wrap into
+   a tall block or shrink past legibility, so it simply does not render there.
+
+   Class names all carry a `tr-` prefix. The design came from
+   _draft-headliner.html, which used `.t`, `.big` and `.sm` — all safe in a
+   standalone draft, all already taken in this stylesheet. Do not rename them
+   back.
+
+   The star is var(--star-gold) = #E8A33D, the SAME gold `.stars` already uses
+   for the review marquee — NOT the draft's #F0B24A. Two different golds for a
+   star on one page is the kind of drift the locked palette exists to stop.
+   Gold is the one sanctioned warm colour here because it is a rating star; it
+   is not the rejected tan accent. */
+.trust{display:none}
+@media (min-width:900px){
+  /* var(--blue-deep), NOT var(--deep): the draft this came from defined its own
+     --deep token. That name does not exist here and would have silently left
+     the strip with no background at all. */
+  .trust{display:block;background:var(--blue-deep);color:#fff;position:relative;z-index:1}
+  /* gap:1px + the cell shadows draw the hairline rules between cells without
+     a border on the outer edges. Overriding .wrap's padding to 0 is deliberate:
+     the cells carry their own padding so the rules run the full height. */
+  .trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;padding:0}
+  .tr-cell{padding:18px 20px;display:flex;flex-direction:column;gap:3px;
+    box-shadow:1px 0 0 rgba(255,255,255,.11)}
+  .tr-cell:last-child{box-shadow:none}
+  .tr-big{font-size:19px;font-weight:800;letter-spacing:-.02em;
+    display:flex;align-items:center;gap:.18em;line-height:1.15}
+  .tr-star{width:.72em;height:.72em;flex:none;fill:var(--star-gold);
+    transform:translateY(-.03em)}
+  .tr-sm{font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    font-weight:700;color:#93AFC9}
+}

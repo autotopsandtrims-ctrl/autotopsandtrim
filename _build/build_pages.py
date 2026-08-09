@@ -340,6 +340,44 @@ def build_before_after():
     write(p, h)
 
 
+FOUNDED_YEAR = 1989
+
+
+def trust_strip():
+    """The four-cell proof bar that sits directly under the home hero.
+
+    DESKTOP ONLY. `.trust` is display:none at the base and only turned on
+    inside min-width:900px in site.css — the user asked for this on desktop and
+    said mobile was fine as it stood, and four cells across a phone would either
+    wrap into a tall block or shrink past legibility.
+
+    Lifted from `_draft-headliner.html`, which is where this bar was designed,
+    but with EVERY class renamed to a `tr-` prefix. The draft is a standalone
+    file with its own stylesheet and used `.t`, `.big` and `.sm`; in site.css
+    `.t{` and `.big` are already taken by other components, so the draft names
+    would have collided the moment they landed in the real stylesheet.
+
+    The rating and review count come from SCHEMA so the visible bar can never
+    drift from the AggregateRating markup Google reads. The years figure is
+    computed from FOUNDED_YEAR against the build date — hardcoding "37 years"
+    would silently go stale on 1 January.
+    """
+    rating = SCHEMA["aggregateRating"]["ratingValue"]
+    years = _today().year - FOUNDED_YEAR
+    star = ('<svg class="tr-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+            '<path d="M12 2l2.9 6.26 6.86.74-5.12 4.6 1.44 6.72L12 17.1l-6.08 3.22 '
+            '1.44-6.72L2.24 9l6.86-.74L12 2z"/></svg>')
+    cells = [
+        (f'{rating}{star}', "On Google"),
+        (f"Since {FOUNDED_YEAR}", f"{years} years in Monroe"),
+        ("Free", "Estimates"),
+        ("Within 1 hour", "We reply, shop hours"),
+    ]
+    tds = "".join(f'<div class="tr-cell"><span class="tr-big">{big}</span>'
+                  f'<span class="tr-sm">{sm}</span></div>' for big, sm in cells)
+    return f'<section class="trust" aria-label="Why customers choose us">\n  <div class="wrap">{tds}</div>\n</section>\n'
+
+
 def build_home():
     _lb_reset()
     p = "index.html"
@@ -386,6 +424,13 @@ def build_home():
     dots = "".join(f'<span style="animation-delay:{i * (SLIDESHOW_SECONDS / n_slides):.1f}s"></span>'
                    for i in range(n_slides))
 
+    # The hero's `.microline` ("Free estimates · By photo or in person · Union
+    # County") was REMOVED here 2026-08-09 when trust_strip() went in directly
+    # below it. The strip says the same things louder and in the same spot, so
+    # keeping both printed "Free estimates" twice about 40px apart. Nothing is
+    # lost on mobile: `.microline` was already display:none under 900px, and the
+    # strip is desktop-only too. The class and its CTA-band usage are untouched.
+    # To restore, put the <p class="microline"> back after the .btnrow div.
     h += f"""<section class="hero">
   <div class="wrap">
     <div class="stack">
@@ -397,14 +442,13 @@ def build_home():
         <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a>
         <a class="btn btn-ghost" href="contact.html">Request a Quote Online</a>
       </div>
-      <p class="microline">Free estimates &nbsp;&middot;&nbsp; By photo or in person &nbsp;&middot;&nbsp; Union County</p>
     </div>
     <div class="hero-media">
       <div class="slideshow">{slides}<div class="dots" aria-hidden="true">{dots}</div></div>
     </div>
   </div>
 </section>
-
+{trust_strip()}
 <section class="band" id="what-we-do">
   <div class="wrap stack">
     <div class="center stack">
