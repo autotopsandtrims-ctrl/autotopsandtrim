@@ -1525,26 +1525,42 @@ html{scroll-behavior:smooth}
    MUST STAY LAST IN THE FILE. The white-header TRIAL block above re-declares
    .site-head::before at the same specificity, so an earlier rule would lose.
 
-   THESE ARE THE DIALS - keep the pair in each rule equal:
-     header  .09  (base .05)   blue on white
-     dark    .030 (base .016)  white on dark
-   The 27px and 36px diamonds are unchanged, so the texture is the same size,
-   just readable. */
+   CURRENT STATE, after two rounds of the user looking at it on a monitor:
+     header        .05   BASE, not overridden - a louder header was rejected
+     dark surfaces .016  BASE, not overridden - footer and ordinary dark bands
+     reviews band  .030  override below, explicitly kept
+     hero          .022  override below
+   The 27px and 36px diamonds never change. Only ever move the alpha, and keep
+   the pair inside a rule equal or the two diagonals stop matching. */
 @media (min-width:900px){
   /* REVERTED 2026-08-09, same day it went in. The user looked at the louder
      grid on desktop and did not like it, so the header and the general dark
-     surfaces are back on their original .05 / .016 and are no longer listed
-     here at all. Mobile never moved in either direction.
+     surfaces are back on their original .05 / .016. Mobile never moved in
+     either direction and still does not. Two exceptions follow. */
 
-     The ONE exception the user asked to keep is the reviews band, below. */
-
-  /* Reviews marquee only. `.band.dark.reviews` is emitted by reviews_band() in
+  /* Reviews marquee only. `.band.dark.reviews` is emitted by reviews_block() in
      build_pages.py; every other dark band keeps the base .016. Specificity is
      0,3,0 against the base rule's 0,2,0, so this wins without !important. */
   .band.dark.reviews::before{
     background-image:
       repeating-linear-gradient(45deg,rgba(255,255,255,.030) 0 1px,transparent 1px 36px),
       repeating-linear-gradient(-45deg,rgba(255,255,255,.030) 0 1px,transparent 1px 36px)}
+
+  /* Hero only. The user still found the hero grid hard to see on desktop and
+     asked for "a little bit, nothing crazy".
+
+     .022, NOT .030 — deliberately short of the reviews band. The hero was at
+     .030 in 64ed559, the user saw exactly that and rejected it, so matching the
+     reviews value here would walk straight back into the thing that was turned
+     down. .022 is about a third of the way up from .016 rather than doubling
+     it. If it is still too faint, .025 next; do not jump to .030.
+
+     Hero only means hero only: .site-foot and ordinary .band.dark stay at base.
+     Same specificity as the base rule, so this must stay after it in the file. */
+  .hero::before{
+    background-image:
+      repeating-linear-gradient(45deg,rgba(255,255,255,.022) 0 1px,transparent 1px 36px),
+      repeating-linear-gradient(-45deg,rgba(255,255,255,.022) 0 1px,transparent 1px 36px)}
 }
 
 /* The trust strip that briefly lived here (a four-cell proof bar, then four
