@@ -1547,63 +1547,11 @@ html{scroll-behavior:smooth}
       repeating-linear-gradient(-45deg,rgba(255,255,255,.030) 0 1px,transparent 1px 36px)}
 }
 
-/* ============ trust strip under the home hero, DESKTOP ONLY ===============
-   Added 2026-08-09. Four proof cells directly beneath the hero: rating, years
-   in business, free estimates, reply time. Emitted by trust_strip() in
-   build_pages.py, home page only.
+/* The trust strip that briefly lived here (a four-cell proof bar, then four
+   photo tiles under the home hero) was REMOVED on the user's instruction the
+   same day it went in. Both versions are in git if it is ever wanted back:
+   64ed559 for the flat bar, 1d9358f for the photo tiles.
 
-   HIDDEN BY DEFAULT and only switched on at 900px — the user asked for this on
-   desktop and said mobile was fine. Four cells across a phone either wrap into
-   a tall block or shrink past legibility, so it simply does not render there.
-
-   Class names all carry a `tr-` prefix. The design came from
-   _draft-headliner.html, which used `.t`, `.big` and `.sm` — all safe in a
-   standalone draft, all already taken in this stylesheet. Do not rename them
-   back.
-
-   The star is var(--star-gold) = #E8A33D, the SAME gold `.stars` already uses
-   for the review marquee — NOT the draft's #F0B24A. Two different golds for a
-   star on one page is the kind of drift the locked palette exists to stop.
-   Gold is the one sanctioned warm colour here because it is a rating star; it
-   is not the rejected tan accent. */
-.trust{display:none}
-@media (min-width:900px){
-  .trust{display:block;background:var(--blue-deep);color:#fff;position:relative;z-index:1;
-    padding:clamp(16px,2vw,26px) 0 clamp(22px,2.6vw,34px)}
-  .trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);
-    gap:clamp(10px,1.2vw,16px)}
-
-  /* Each tile is a photo with the fact set over it. The photo is positioned,
-     not a background-image, so it keeps the srcset the img() helper emits. */
-  .tr-cell{position:relative;margin:0;border-radius:var(--r-card);overflow:hidden;
-    aspect-ratio:16/9;isolation:isolate}
-  /* Radius lives on this clipping parent, never on the scaled child — a hover
-     transform on the image snaps the corners square otherwise. */
-  .tr-cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-    border-radius:0;background:none;
-    transition:transform .5s cubic-bezier(.2,.6,.2,1)}
-  .tr-cell:hover img{transform:scale(1.045)}
-
-  /* The scrim is what makes white text legible over a photograph we do not
-     control the exposure of. Two stops, weighted to the bottom where the label
-     sits, plus a flat wash so even a blown-out sky keeps some contrast. */
-  .tr-cell::after{content:"";position:absolute;inset:0;pointer-events:none;
-    background:
-      linear-gradient(to top,rgba(11,26,40,.90) 0%,rgba(11,26,40,.55) 38%,
-                              rgba(11,26,40,.12) 68%,rgba(11,26,40,.06) 100%),
-      linear-gradient(rgba(11,26,40,.16),rgba(11,26,40,.16))}
-
-  .tr-cap{position:absolute;left:0;right:0;bottom:0;z-index:1;
-    padding:clamp(12px,1.4vw,17px) clamp(13px,1.5vw,18px);
-    display:flex;flex-direction:column;gap:2px}
-  .tr-big{font-size:clamp(17px,1.5vw,21px);font-weight:800;letter-spacing:-.02em;
-    display:flex;align-items:center;gap:.18em;line-height:1.12;
-    text-shadow:0 1px 12px rgba(0,0,0,.45)}
-  .tr-star{width:.72em;height:.72em;flex:none;fill:var(--star-gold);
-    transform:translateY(-.03em)}
-  .tr-sm{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;
-    font-weight:700;color:#C6D8EA;text-shadow:0 1px 10px rgba(0,0,0,.5)}
-}
-@media (min-width:900px) and (prefers-reduced-motion:reduce){
-  .tr-cell img,.tr-cell:hover img{transition:none;transform:none}
-}
+   --star-gold stays in :root. It is not an orphan — `.stars` uses it for the
+   review marquee, and tokenising that literal was a correctness fix worth
+   keeping regardless of this strip. */
