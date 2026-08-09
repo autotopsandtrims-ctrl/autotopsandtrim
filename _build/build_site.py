@@ -64,15 +64,34 @@ with open(os.path.join(HERE, "images.json"), encoding="utf-8") as fh:
 
 
 # ---------------------------------------------------------------- images
-def img(base, alt, sizes="100vw", cls="", eager=False, ratio=None, priority=False):
-    """Render a responsive <img> from the catalog. Raises if base is unknown."""
+def img(base, alt, sizes="100vw", cls="", eager=False, ratio=None, priority=False,
+        style_extra=""):
+    """Render a responsive <img> from the catalog. Raises if base is unknown.
+
+    `ratio=False` emits NO aspect-ratio at all. That is for images whose box is
+    sized by their container instead — the landing-page step cards are a fixed
+    250px-tall crop with object-fit, and an aspect-ratio on the <img> fights the
+    height:100% those cards depend on.
+
+    `style_extra` appends declarations to the same style attribute, which is how
+    those cards carry a per-photo `object-position`: these are phone photos and
+    the subject is rarely dead centre, so each crop has to be aimed individually.
+    """
     if base not in IMAGES:
         raise KeyError(f"unknown photo: {base}")
     meta = IMAGES[base]
     variants = meta["variants"]
     srcset = ", ".join(f"assets/{v['file']} {v['w']}w" for v in variants)
     largest = variants[-1]
-    style = f' style="aspect-ratio:{meta["w"]}/{meta["h"]}"' if ratio is None else f' style="aspect-ratio:{ratio}"'
+    if ratio is False:
+        decls = ""
+    elif ratio is None:
+        decls = f'aspect-ratio:{meta["w"]}/{meta["h"]}'
+    else:
+        decls = f"aspect-ratio:{ratio}"
+    if style_extra:
+        decls = f"{decls};{style_extra}" if decls else style_extra
+    style = f' style="{decls}"' if decls else ""
     loading = "" if eager else ' loading="lazy" decoding="async"'
     # the LCP image should not queue behind a dozen other requests
     prio = ' fetchpriority="high" decoding="async"' if priority else ""
@@ -208,7 +227,7 @@ def faq_schema(faqs):
     }
 
 
-def head(title, desc, path, extra_schema=None, faqs=None, preload=""):
+def head(title, desc, path, extra_schema=None, faqs=None, preload="", extra_head=""):
     # Canonical must point at the clean URL Vercel actually serves, not the .html
     # file, or every page would declare a canonical that immediately redirects.
     canonical = SITE + public_path(path)
@@ -245,7 +264,7 @@ def head(title, desc, path, extra_schema=None, faqs=None, preload=""):
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/font-327592e7.woff2" crossorigin>
 {preload}<link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">{schema}</script>
-</head>
+{extra_head}</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 """
@@ -304,8 +323,15 @@ def header(active):
 FOOT_EXTRA = []
 
 
-def footer(lightbox=""):
+def footer(lightbox="", callbar=None):
     """Closes <main>, then the footer.
+
+    `callbar` replaces the sticky mobile bar's MARKUP only. It keeps the
+    `.callbar` class, so site.css keeps owning the bar's position, z-index, the
+    hide-above-1000px rule and the .site-foot padding that clears it — a landing
+    page that invented its own fixed bar would have to re-derive all four and
+    would drift the day any of them changes. The landing pages pass a two-button
+    call/text split; everything else gets the single call link below.
 
     `lightbox` is emitted AFTER </main> on purpose. <main> carries the `pagein`
     animation, and an ancestor running a transform-affecting animation becomes the
@@ -325,6 +351,27 @@ def footer(lightbox=""):
         f'<li><a href="{url}" target="_blank" rel="noopener" aria-label="{name}">'
         f'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="{path}"/></svg>'
         f'</a></li>' for name, url, path in SOCIALS)
+    # SPLIT CALL / TEXT, sitewide, 2026-08-09.
+    #
+    # (980) 385-8101 receives picture messages — confirmed by the owner. The
+    # whole site's ask is "send us a photo of the job", and until now the only
+    # way to do that was an eight-field form. Someone reading this on a phone is
+    # standing next to the car with the camera already open; a text is a few
+    # seconds, the form is not.
+    #
+    # `.callbar` is kept on the WRAPPER so site.css keeps owning position,
+    # z-index, the hide-above-1000px rule, the safe-area padding and the
+    # .site-foot clearance. `.split` only changes the internal layout.
+    #
+    # Call stays the wider half: it is the only conversion Google can track, so
+    # it should not lose the emphasis. sms: carries no body param on purpose —
+    # iOS wants &body=, Android wants ?body=, and one syntax breaks the other.
+    bar = callbar if callbar is not None else f"""<div class="callbar split">
+  <a class="cb cb-call" href="tel:{PHONE_TEL}">
+    <span class="callbar-ic" aria-hidden="true">&#9742;</span>Call {PHONE_DISPLAY}</a>
+  <a class="cb cb-text" href="sms:{PHONE_TEL}">
+    <span class="callbar-ic" aria-hidden="true">&#9993;</span>Text a photo</a>
+</div>"""
     return f"""</main>
 {lightbox}
 <footer class="site-foot">
@@ -364,10 +411,7 @@ def footer(lightbox=""):
     <p>&copy; 2026 Auto Tops and Trim. All rights reserved.</p>
   </div>
 </footer>
-<a class="callbar" href="tel:{PHONE_TEL}">
-  <span class="callbar-ic" aria-hidden="true">&#9742;</span>
-  Call {PHONE_DISPLAY} &middot; Free Estimate
-</a>
+{bar}
 </body>
 </html>
 """

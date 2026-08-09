@@ -928,6 +928,240 @@
    }
   ]
  },
+ "headliner-board-out-foam-degraded": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "headliner-board-out-foam-degraded-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "headliner-board-out-foam-degraded-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "headliner-board-out-foam-degraded-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "headliner-board-out-foam-degraded-3024.webp"
+   }
+  ]
+ },
+ "headliner-cream-panel-on-table": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "headliner-cream-panel-on-table-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "headliner-cream-panel-on-table-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "headliner-cream-panel-on-table-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "headliner-cream-panel-on-table-3024.webp"
+   }
+  ]
+ },
+ "headliner-finished-console-and-map-lights": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "headliner-finished-console-and-map-lights-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "headliner-finished-console-and-map-lights-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "headliner-finished-console-and-map-lights-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "headliner-finished-console-and-map-lights-3024.webp"
+   }
+  ]
+ },
+ "headliner-finished-cream-light-cutout": {
+  "w": 4032,
+  "h": 3024,
+  "variants": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "headliner-finished-cream-light-cutout-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "headliner-finished-cream-light-cutout-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1050,
+    "file": "headliner-finished-cream-light-cutout-1400.webp"
+   },
+   {
+    "w": 4032,
+    "h": 3024,
+    "file": "headliner-finished-cream-light-cutout-4032.webp"
+   }
+  ]
+ },
+ "headliner-finished-over-windscreen": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "headliner-finished-over-windscreen-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "headliner-finished-over-windscreen-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "headliner-finished-over-windscreen-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "headliner-finished-over-windscreen-3024.webp"
+   }
+  ]
+ },
+ "headliner-finished-pillar-trim": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "headliner-finished-pillar-trim-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "headliner-finished-pillar-trim-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "headliner-finished-pillar-trim-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "headliner-finished-pillar-trim-3024.webp"
+   }
+  ]
+ },
+ "headliner-finished-rear-quarter": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "headliner-finished-rear-quarter-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "headliner-finished-rear-quarter-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "headliner-finished-rear-quarter-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "headliner-finished-rear-quarter-3024.webp"
+   }
+  ]
+ },
+ "headliner-finished-sunroof-grab-handle": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "headliner-finished-sunroof-grab-handle-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "headliner-finished-sunroof-grab-handle-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "headliner-finished-sunroof-grab-handle-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "headliner-finished-sunroof-grab-handle-3024.webp"
+   }
+  ]
+ },
+ "headliner-finished-with-sunroof-opening": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "headliner-finished-with-sunroof-opening-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "headliner-finished-with-sunroof-opening-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "headliner-finished-with-sunroof-opening-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "headliner-finished-with-sunroof-opening-3024.webp"
+   }
+  ]
+ },
  "headliner-install": {
   "w": 1200,
   "h": 900,
@@ -946,6 +1180,136 @@
     "w": 1200,
     "h": 900,
     "file": "headliner-install-1200.webp"
+   }
+  ]
+ },
+ "headliner-old-fabric-and-foam-on-bench": {
+  "w": 3024,
+  "h": 4032,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "headliner-old-fabric-and-foam-on-bench-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "headliner-old-fabric-and-foam-on-bench-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "headliner-old-fabric-and-foam-on-bench-1400.webp"
+   },
+   {
+    "w": 3024,
+    "h": 4032,
+    "file": "headliner-old-fabric-and-foam-on-bench-3024.webp"
+   }
+  ]
+ },
+ "headliner-sagging-board-exposed": {
+  "w": 3000,
+  "h": 4000,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "headliner-sagging-board-exposed-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "headliner-sagging-board-exposed-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "headliner-sagging-board-exposed-1400.webp"
+   },
+   {
+    "w": 3000,
+    "h": 4000,
+    "file": "headliner-sagging-board-exposed-3000.webp"
+   }
+  ]
+ },
+ "headliner-sagging-second-angle": {
+  "w": 3000,
+  "h": 4000,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "headliner-sagging-second-angle-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "headliner-sagging-second-angle-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "headliner-sagging-second-angle-1400.webp"
+   },
+   {
+    "w": 3000,
+    "h": 4000,
+    "file": "headliner-sagging-second-angle-3000.webp"
+   }
+  ]
+ },
+ "headliner-suv-bows-exposed": {
+  "w": 4000,
+  "h": 3000,
+  "variants": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "headliner-suv-bows-exposed-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "headliner-suv-bows-exposed-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1050,
+    "file": "headliner-suv-bows-exposed-1400.webp"
+   },
+   {
+    "w": 4000,
+    "h": 3000,
+    "file": "headliner-suv-bows-exposed-4000.webp"
+   }
+  ]
+ },
+ "headliner-suv-hatch-open-liner-out": {
+  "w": 4000,
+  "h": 3000,
+  "variants": [
+   {
+    "w": 480,
+    "h": 360,
+    "file": "headliner-suv-hatch-open-liner-out-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 600,
+    "file": "headliner-suv-hatch-open-liner-out-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1050,
+    "file": "headliner-suv-hatch-open-liner-out-1400.webp"
+   },
+   {
+    "w": 4000,
+    "h": 3000,
+    "file": "headliner-suv-hatch-open-liner-out-4000.webp"
    }
   ]
  },

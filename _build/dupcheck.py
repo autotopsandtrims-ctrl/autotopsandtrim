@@ -43,6 +43,15 @@ for f in sorted(glob.glob("*.html")):
     # every reviewer photo legitimately appears twice. Drop the whole marquee.
     body = re.sub(r'<div class="revmarquee".*?</div>\s*<div class="wrap"', '<div class="wrap"',
                   body, flags=re.S)
+    # The landing pages' before/after deck is the same exemption for the same
+    # reason. A pair card exists precisely to show one object at two stages, so
+    # the "after" shot is very often the page's hero and the two bench shots are
+    # the same two the step cards used — that is the argument the block is making,
+    # not an accident. Without this every landing page fails on its strongest
+    # section. The check still does the job it was written for: catching the same
+    # photograph turning up twice in the ordinary flow of a page, which is how the
+    # vinyl top ended up on the home page twice.
+    body = re.sub(r'<div class="pairs">.*?</div>\s*</div>\s*</section>', '', body, flags=re.S)
     names = re.findall(r'src="assets/([a-z0-9\-]+?)-\d+\.webp"', body)
     ident = collections.Counter(GROUPS.get(n, n) for n in names)
     dupes = {k: v for k, v in ident.items() if v > 1}

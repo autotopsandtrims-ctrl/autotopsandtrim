@@ -1571,3 +1571,35 @@ html{scroll-behavior:smooth}
    --star-gold stays in :root. It is not an orphan — `.stars` uses it for the
    review marquee, and tokenising that literal was a correctness fix worth
    keeping regardless of this strip. */
+
+/* ================= SPLIT CALL / TEXT BAR + contact text link ==============
+   Added 2026-08-09. The shop's number receives picture messages, and the whole
+   site asks people to "send a photo of the job" - but the only route was an
+   eight-field form. On a phone, next to the car, a text is a few seconds.
+
+   `.callbar` keeps every base rule above: fixed position, z-index, the
+   hide-from-1000px rule, safe-area padding, and the .site-foot clearance that
+   depends on its height. `.split` changes ONLY the internal layout, so nothing
+   here has to re-derive any of that.
+
+   Call is the wider half deliberately - it is the one conversion Google can
+   track, so it keeps the emphasis.
+
+   TO REVERT: delete this block and the callbar markup in build_site.footer().
+   ======================================================================== */
+.callbar.split{gap:0;padding:0;padding-bottom:env(safe-area-inset-bottom);
+  justify-content:stretch}
+.callbar.split .cb{flex:1;display:flex;align-items:center;justify-content:center;
+  gap:8px;min-height:46px;padding:7px 10px;color:#fff;text-decoration:none;
+  font-weight:700;font-size:15px;letter-spacing:-.01em}
+.callbar.split .cb-call{flex:1.32;background:var(--blue-btn)}
+.callbar.split .cb-text{background:#16344F;box-shadow:inset 1px 0 0 rgba(255,255,255,.17)}
+.callbar.split .cb:active{filter:brightness(1.14)}
+@media (max-width:359px){
+  .callbar.split .cb{font-size:13.5px;gap:6px}
+}
+
+/* contact page: the text option sits under the number it shares */
+.textlink{display:inline-block;margin-top:7px;font-size:14.5px;font-weight:700;
+  color:var(--blue);text-decoration:none}
+.textlink:hover{text-decoration:underline}

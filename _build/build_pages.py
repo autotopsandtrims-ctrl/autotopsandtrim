@@ -10,6 +10,7 @@ from build_site import (  # noqa: E402
     img, has, head, header, footer, cta, shead, quote_form, write, NAV, SERVICES, SCHEMA,
     preload_image, public_path,
 )
+from build_landing import landing_page  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
@@ -344,66 +345,6 @@ def build_before_after():
     write(p, h)
 
 
-FOUNDED_YEAR = 1989
-
-
-def trust_strip():
-    """The four-cell proof bar that sits directly under the home hero.
-
-    DESKTOP ONLY. `.trust` is display:none at the base and only turned on
-    inside min-width:900px in site.css — the user asked for this on desktop and
-    said mobile was fine as it stood, and four cells across a phone would either
-    wrap into a tall block or shrink past legibility.
-
-    Lifted from `_draft-headliner.html`, which is where this bar was designed,
-    but with EVERY class renamed to a `tr-` prefix. The draft is a standalone
-    file with its own stylesheet and used `.t`, `.big` and `.sm`; in site.css
-    `.t{` and `.big` are already taken by other components, so the draft names
-    would have collided the moment they landed in the real stylesheet.
-
-    The rating and review count come from SCHEMA so the visible bar can never
-    drift from the AggregateRating markup Google reads. The years figure is
-    computed from FOUNDED_YEAR against the build date — hardcoding "37 years"
-    would silently go stale on 1 January.
-    """
-    rating = SCHEMA["aggregateRating"]["ratingValue"]
-    years = _today().year - FOUNDED_YEAR
-    star = ('<svg class="tr-star" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
-            '<path d="M12 2l2.9 6.26 6.86.74-5.12 4.6 1.44 6.72L12 17.1l-6.08 3.22 '
-            '1.44-6.72L2.24 9l6.86-.74L12 2z"/></svg>')
-    # (photo, alt, big, small). EVERY PHOTO WAS OPENED AND LOOKED AT before it
-    # went in here, and every one is absent from the rest of the home page —
-    # dupcheck fails the build if a page shows the same photograph twice, and
-    # index.html already carries 32 photographs.
-    #
-    # The photo is chosen to EARN its label rather than to be wallpaper:
-    # the machine by the bay door for the years in trade, a material sample in
-    # hand for the free estimate, the lit bay for being reachable. Rejected on
-    # sight: shot-004 and shot-006 are photographs OF PRINTED PHOTOGRAPHS — soft,
-    # with the print's edge in frame — and shot-007 is visibly worn leather,
-    # which is not what belongs under a 5.0 rating.
-    cells = [
-        ("shot-045-finished-with-sunroof-opening",
-         "Finished headliner and interior in a car with the sunroof shade closed",
-         f"{rating}{star}", "On Google"),
-        ("shot-260-bay-doorway-with-machine",
-         "The shop's sewing machine beside the open bay door",
-         f"Since {FOUNDED_YEAR}", f"{years} years in Monroe"),
-        ("shot-275-hand-holding-vinyl-sample",
-         "A hand holding a labelled vinyl sample against the roll stock",
-         "Free", "Estimates"),
-        ("shot-042-open-bay-at-night",
-         "The shop bay lit up at night with cars outside",
-         "Within 1 hour", "We reply"),
-    ]
-    tds = "".join(
-        f'<figure class="tr-cell">{img(photo, alt, QUARTER)}'
-        f'<figcaption class="tr-cap"><span class="tr-big">{big}</span>'
-        f'<span class="tr-sm">{sm}</span></figcaption></figure>'
-        for photo, alt, big, sm in cells)
-    return f'<section class="trust" aria-label="Why customers choose us">\n  <div class="wrap">{tds}</div>\n</section>\n'
-
-
 def build_home():
     _lb_reset()
     p = "index.html"
@@ -450,13 +391,6 @@ def build_home():
     dots = "".join(f'<span style="animation-delay:{i * (SLIDESHOW_SECONDS / n_slides):.1f}s"></span>'
                    for i in range(n_slides))
 
-    # The hero's `.microline` ("Free estimates · By photo or in person · Union
-    # County") was REMOVED here 2026-08-09 when trust_strip() went in directly
-    # below it. The strip says the same things louder and in the same spot, so
-    # keeping both printed "Free estimates" twice about 40px apart. Nothing is
-    # lost on mobile: `.microline` was already display:none under 900px, and the
-    # strip is desktop-only too. The class and its CTA-band usage are untouched.
-    # To restore, put the <p class="microline"> back after the .btnrow div.
     h += f"""<section class="hero">
   <div class="wrap">
     <div class="stack">
@@ -468,13 +402,14 @@ def build_home():
         <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a>
         <a class="btn btn-ghost" href="contact.html">Request a Quote Online</a>
       </div>
+      <p class="microline">Free estimates &nbsp;&middot;&nbsp; By photo or in person &nbsp;&middot;&nbsp; Union County</p>
     </div>
     <div class="hero-media">
       <div class="slideshow">{slides}<div class="dots" aria-hidden="true">{dots}</div></div>
     </div>
   </div>
 </section>
-{trust_strip()}
+
 <section class="band" id="what-we-do">
   <div class="wrap stack">
     <div class="center stack">
@@ -835,133 +770,21 @@ def build_services():
                  "The middle picture is the part of the job nobody sees and the part "
                  "that decides how long the new top lasts."))
 
-    service_page(
-        "auto-upholstery.html",
-        "Auto Upholstery in Monroe, NC | Seats, Headliners, Carpet",
-        "Automotive upholstery in Monroe, NC. Seat repair and rebuilds, headliners, door "
-        "panels, carpet and full classic interiors. Free estimates — (980) 385-8101.",
-        # Eyebrow matches the nav label ("Vehicle Interiors"); the <title> above
-        # keeps "Auto Upholstery" because that is the phrase people search for and
-        # the page has been indexed under it.
-        "Vehicle interiors", "Seats, headliners and interiors",
-        "From a single torn seat to a complete classic interior built to your spec. "
-        "Daily drivers, trucks, and show cars.",
-        "seat-rebuild-after",
-        [("Seats", ["Torn and worn seat repair", "Foam replacement and reshaping",
-                    "Seat frame rebuild and structural repair", "Custom stitch and piping"]),
-         ("Interior trim", ["Headliner replacement", "Door panels, pleated or plain",
-                            "Carpet fitted and bound", "Shift boots and console trim"]),
-         ("Full restoration", ["Period-correct or upgraded builds",
-                               "Sound deadening under the carpet",
-                               "Materials specified with you first"])],
-        # Dropped headliner-install (a duplicate Cadillac exterior) and moved
-        # automotive-interior-restoration-detail to the convertible-tops page,
-        # which is what it actually shows.
-        ["g06-ford-f1-cab-seat-carpet-and-trim", "g07-bench-seat-red-piping-in-the-shop",
-         "g09-truck-cab-black-seat-red-stitch", "g13-sound-deadening-before-carpet",
-         "g11-carpet-fitted-and-trimmed", "g19-mercedes-gla-interior-work",
-         "g12-shift-boot-and-carpet-detail", "g08-cushion-and-armrest-trimmed",
-         "g10-bel-air-new-carpet-going-in", "marine-canvas-cushions"],
-        [("Do you repair a single seat, or only full interiors?",
-          "Either. Plenty of our work is one torn driver's seat or a sagging headliner. "
-          "You do not need a full restoration to come see us."),
-         ("How long does a seat repair take?",
-          "A straightforward seat repair is usually quick once materials are in. Bigger jobs "
-          "depend on what we find under the cover — broken frames and collapsed foam add time. "
-          "We will tell you what we find before we proceed."),
-         ("Do you work on modern cars as well as classics?",
-          "Yes. Late-model seats, headliners and trim are routine work here alongside the "
-          "restoration projects."),
-         ("Can you match the original material?",
-          "Usually. For a classic we chase correct grain, stitch spacing and carpet weave. "
-          "Where an exact original is no longer made, we will show you the closest options.")],
-        ["Ford F1 cab — sound deadening down", "Cushion and armrest, trimmed on the bench",
-         "Truck cab — black seat, red stitch", "Ford F1 — headliner fitted and finished",
-         "Classic Chevrolet — carpet fitted", "Ford F1 cab — rebuilt seat and carpet",
-         "Shift boot and carpet detail", "Classic Chevrolet — bench seat and door panels",
-         "Classic Chevrolet — new carpet going in", "Classic coupe — rear bench seat"])
-
-    # HEADLINERS — added 2026-08-09 for the paid-search campaign. Headliner terms
-    # are the single least-contested cluster in the whole keyword set (Ahrefs KD 0
-    # on "headliner repair near me" at 2,100/mo US), and until now the only place
-    # the word appeared was one bullet inside auto-upholstery.html, which is a poor
-    # landing page for someone who searched the word specifically.
+    # ------------------------------------------------------------------
+    # auto-upholstery.html and headliner-replacement.html are NOT built here.
     #
-    # It sits AFTER Vehicle Interiors in SERVICES on purpose: the business card
-    # lists four services and headliner work is part of interiors, so this reads
-    # as a detail page rather than a fifth trade. The 2026-08-07 correction stands.
+    # Both are paid-search landing pages now, built by build_landings() from
+    # the landing_page() type in build_landing.py — the `_draft-headliner.html`
+    # layout the user approved at DRAFT v15. They keep their existing URLs,
+    # their <title>s, their FAQ copy and their place in SERVICES and the nav;
+    # only the body layout changed. Git history holds the service_page() calls
+    # they replaced.
     #
-    # PHOTOS: both were opened at full size before captioning. `shot-050` is a
-    # finished light-grey headliner in a coupe (it IS a Porsche — verified by the
-    # crest on the headrest — but no caption on this site names a make).
-    # `shot-152` is an SUV with the board out and the bare roof showing.
-    # `shot-208-top-frame-and-headliner` was REJECTED: despite the filename there
-    # is no headliner in it, it is the underside of a raised convertible top.
-    # `headliner-install` is the known duplicate Cadillac exterior — never use it.
-    #
-    # NOTHING HERE CLAIMS A TURNAROUND OR A PRICE. Neither is verified.
-    service_page(
-        "headliner-replacement.html",
-        "Headliner Replacement in Monroe, NC | Sagging Headliner Repair",
-        "Headliner replacement in Monroe, NC. Sagging and drooping headliners recovered "
-        "with new foam-backed fabric. Free estimates — (980) 385-8101.",
-        "Headliners", "Headliner replacement in Monroe, NC",
-        "A headliner sags because the foam behind the fabric has broken down, not because "
-        "the glue let go. That is why pins and spray adhesive rarely hold — we replace the "
-        "material instead.",
-        "shot-050-porsche-headliner-finished",
-        [("Why it sags", ["Foam backing crumbles with age and heat",
-                          "Fabric separates from the board above it",
-                          "Pins and spray glue treat the symptom, not the foam",
-                          "Carolina summers make it happen faster"]),
-         ("What we do", ["The board comes out of the car",
-                         "Old fabric and crumbling foam scraped back",
-                         "New foam-backed fabric fitted to the board",
-                         "Refitted with the trim off, not cut around"]),
-         ("While it is out", ["Sun visors and grab handles recovered to match",
-                              "Sunroof sunshade panel, if yours has one",
-                              "Dome light and pillar trim refitted properly",
-                              "Colour matched to the rest of your interior"])],
-        # NOT the hero photo again — dupcheck fails any page that repeats one.
-        # g13 is the F1's finished black headliner (per the verified content map
-        # above GALLERY); it also appears on auto-upholstery, which is fine —
-        # dupcheck only forbids a repeat WITHIN a page.
-        ["shot-152-rear-headliner-frame", "g13-sound-deadening-before-carpet"],
-        [("My headliner is sagging. Can it be glued back up?",
-          "Almost never for long. The fabric is separating because the foam bonded to its "
-          "back has turned to powder — there is nothing solid left for glue to hold to. "
-          "Pins and spray adhesive buy a little time and usually leave marks in the fabric. "
-          "Recovering the board is the repair that lasts."),
-         ("Do you replace the whole roof lining or just the fabric?",
-          "The board itself is almost always sound and gets reused. What gets replaced is "
-          "the foam-backed fabric bonded to it. We only quote a new board if yours is warped "
-          "or broken."),
-         ("Can you match it to the rest of my interior?",
-          "Usually. We will show you material against your own trim before you decide. On an "
-          "interior that has faded over the years, the honest answer is that a brand-new "
-          "match can look newer than everything around it, and we will say so."),
-         ("Can you quote from a photo?",
-          "Yes. Send us a photo of the sagging area and the year, make and model, and we will "
-          "give you an estimate by email. Some jobs need an in-person look before we commit "
-          "to a number, and we will tell you if yours is one of them."),
-         ("Do you do headliners on modern cars, or only classics?",
-          "Both. Sagging headliners are common on cars from the mid-1990s onward, and that is "
-          "a lot of what comes through the shop alongside the restoration work.")],
-        ["Board out, roof stripped back before the new material goes up",
-         "Ford F1 — headliner fitted and finished"],
-        extra_html="""<section class="band tint">
-  <div class="wrap narrow stack">
-    <div class="stack">""" + shead("04", "Before you call") + """<h2>Worth reading first</h2></div>
-    <p class="lead">If you would rather try it yourself first, we have written up the
-    honest version — what the DIY fixes actually do, and when they will not hold.</p>
-    <div class="btnrow">
-      <a class="btn btn-ghost" href="blog-how-to-fix-a-sagging-headliner.html">How to fix a sagging headliner</a>
-      <a class="btn btn-ghost" href="blog-headliner-replacement-cost.html">What headliner replacement costs</a>
-    </div>
-  </div>
-</section>
-""")
-
+    # If either page ever needs to go back to being an ordinary service page,
+    # move it out of LANDINGS in build_landings() rather than adding a second
+    # writer here — two builders for one slug means last-one-wins and a
+    # duplicate entry in sitemap.xml.
+    # ------------------------------------------------------------------
     service_page(
         "marine-upholstery.html",
         "Marine Upholstery in Monroe, NC | Boat Seats and Canvas",
@@ -1797,8 +1620,9 @@ def build_contact():
       </div>
       <div class="infocol">
         <ul class="infolist">
-          <li><span class="k">Call the shop</span>
-            <span class="v"><a class="big" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></span></li>
+          <li><span class="k">Call or text the shop</span>
+            <span class="v"><a class="big" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
+              <a class="textlink" href="sms:{PHONE_TEL}">Text a photo of the job &rarr;</a></span></li>
           <li><span class="k">Visit</span>
             <span class="v"><strong>4209 W Hwy 74</strong><br>Monroe, NC 28110<br>
               <a href="https://www.google.com/maps/search/?api=1&amp;query=4209+W+Hwy+74,+Monroe,+NC+28110"
@@ -3881,6 +3705,414 @@ def build_blog():
         write(po["slug"], ph)
 
 
+# ============================================================== LANDING PAGES
+#
+# The paid-search pages. One per ad group in `c:\Claude Code\att_ads`, all built
+# from landing_page() in build_landing.py — read that module's docstring before
+# editing any of this, especially the five rules at the bottom of it.
+#
+# PHOTO RULE, restated because it is the one that bites: every caption and every
+# alt below was written by OPENING the photograph at full size, never from its
+# filename. The filenames in this repo demonstrably lie — `g13-sound-deadening-
+# before-carpet` is a finished headliner, `shot-204-black-seat-torn-foam-out` and
+# `shot-214-black-seat-finished` sound like a matched pair and are two different
+# vehicles (204 is a GM bench torn open to the foam, 214 is a finished bucket
+# seat off another car). The before/after captions say so.
+LANDINGS = [
+    # ---------------------------------------------------------------- HEADLINERS
+    # This is `_draft-headliner.html` at DRAFT v15, unchanged in substance. The
+    # <title> and meta description are the ones the page was already indexed
+    # under, not the draft's placeholder.
+    #
+    # PHOTOS, all opened at full size: `shot-050` is a finished light-grey
+    # headliner in a coupe (it IS a Porsche — the crest is on the headrest — but
+    # no caption on this site names a make). `shot-152` is an SUV with the board
+    # out and the bare roof showing. `shot-208-top-frame-and-headliner` was
+    # REJECTED: despite the filename there is no headliner in it, it is the
+    # underside of a raised convertible top. `headliner-install` is the known
+    # duplicate Cadillac exterior — never use it.
+    #
+    # NOTHING HERE CLAIMS A TURNAROUND OR A PRICE. Neither is verified, and both
+    # are still open questions with the owner.
+    {
+        "slug": "headliner-replacement.html",
+        "title": "Headliner Replacement in Monroe, NC | Sagging Headliner Repair",
+        "desc": ("Headliner replacement in Monroe, NC. Sagging and drooping headliners "
+                 "recovered with new foam-backed fabric. Free estimates — (980) 385-8101."),
+        "eyebrow": "Headliners",
+        "h1": "Your headliner is sagging because the foam died, not the glue.",
+        "lead": ("That is why pins and spray adhesive keep letting go. We take the board "
+                 "out, strip the crumbling foam back, and fit new foam-backed fabric that "
+                 "stays up."),
+        "hero": ("shot-050-porsche-headliner-finished",
+                 "A finished headliner, fitted taut across the roof of a coupe"),
+        "argument": {
+            "label": "Why it sags",
+            "h2": "The fabric is fine. What failed is behind it.",
+            "sub": ("Every headliner is fabric bonded to a thin layer of foam, and that "
+                    "foam is glued to a moulded board. Heat and age turn the foam to "
+                    "powder. The fabric has nothing left to hold on to, so it drops away "
+                    "from the board in sheets."),
+            "pull": ("Carolina summers make it happen faster.",
+                     "A closed car in July gets hot enough to age that foam years ahead "
+                     "of schedule."),
+            "myth_title": "Why the quick fixes fail",
+            "myths": [
+                ("Spray adhesive", "bonds fabric to powder. There is nothing solid "
+                                   "underneath for it to grip."),
+                ("Twist pins", "hold the fabric up in spots and leave dimples between "
+                               "them &mdash; and marks in the fabric when they come out."),
+                ("Steam and re-glue", "does not stop the foam breaking down, so the same "
+                                      "thing happens again."),
+                ("Replacing the whole board", "is usually unnecessary. Yours is almost "
+                                              "always sound."),
+            ],
+        },
+        "steps": {
+            "label": "What we do",
+            "h2": "The repair that actually lasts",
+            "sub": ("The board comes out of the car. That is the difference between a "
+                    "headliner that is fixed and one that is patched."),
+            "cards": [
+                ("shot-152-rear-headliner-frame",
+                 "An SUV with the headliner board removed, bare roof and wiring visible",
+                 "68%", "The board comes out",
+                 ["Out of the car, not worked around",
+                  "Trim taken off rather than cut past",
+                  "Roof left bare and checked over"]),
+                ("headliner-board-out-foam-degraded",
+                 "A headliner board on the shop bench, stripped back to the substrate",
+                 "52%", "Stripped back on the bench",
+                 ["Old fabric and dead foam scraped off",
+                  "Board cleaned down to a sound surface",
+                  "Sunroof and light cutouts kept true"]),
+                ("headliner-old-fabric-and-foam-on-bench",
+                 "New grey foam-backed fabric being laid onto the stripped headliner board",
+                 "58%", "New material goes on",
+                 ["Fresh foam-backed headliner fabric",
+                  "Bonded across the whole board at once",
+                  "Colour matched to your interior"]),
+            ],
+        },
+        # VERIFIED 2026-08-09 by opening every photo: there is NO same-car
+        # before/after in the 16-photo headliner batch. The jobs cluster into four
+        # separate vehicles and not one has both ends photographed. Card 1 is
+        # therefore TWO DIFFERENT CARS and its caption says so; card 2 is the only
+        # genuinely matched pair in the set. Do not relabel either as one car.
+        "pairs": [
+            ("headliner-sagging-board-exposed",
+             "A headliner come away at the rear corner, exposing the roof structure",
+             "shot-050-porsche-headliner-finished",
+             "A finished headliner fitted taut across the roof of a coupe",
+             "Come away at the rear corner &middot; finished on another car"),
+            ("headliner-board-out-foam-degraded",
+             "A headliner board out of the car on the bench, stripped to the substrate",
+             "headliner-old-fabric-and-foam-on-bench",
+             "New grey foam-backed fabric being laid onto the same stripped board",
+             "The same board &mdash; stripped, then recovered"),
+        ],
+        "work": {
+            "label": "Out of this shop",
+            "h2": "Headliners out of this shop",
+            "sub": ("Real jobs, photographed on the bench and in the car at "
+                    "4209 W Hwy 74."),
+            "photos": [
+                ("headliner-sagging-second-angle",
+                 "A sagging headliner photographed from a second angle"),
+                ("headliner-suv-bows-exposed",
+                 "An SUV roof with the headliner out and the bows exposed"),
+                ("headliner-suv-hatch-open-liner-out",
+                 "An SUV with the hatch open and the headliner removed"),
+                ("headliner-cream-panel-on-table",
+                 "A cream headliner panel on the shop table"),
+                ("headliner-finished-with-sunroof-opening",
+                 "A finished headliner with the sunroof opening trimmed"),
+                ("headliner-finished-sunroof-grab-handle",
+                 "A finished headliner around the sunroof and grab handle"),
+                ("headliner-finished-over-windscreen",
+                 "A finished light grey headliner above the windscreen"),
+                ("headliner-finished-rear-quarter",
+                 "A finished headliner at the rear quarter and grab handle"),
+            ],
+        },
+        "review_taglines": {
+            "Robert Danneman": "Headliner replacement",
+            "Charles Monk": "Headliner replacement",
+            "Ozzie Pagan": "Sunroof shade",
+            "Lauren Corgan": "Drove an hour",
+            "charmaine sealey": "Repeat customer",
+        },
+        "faq": {
+            "label": "Before you call",
+            "h2": "Answers first",
+            "items": [
+                ("My headliner is sagging. Can it just be glued back up?",
+                 "Almost never for long. The fabric is separating because the foam bonded "
+                 "to its back has turned to powder &mdash; there is nothing solid left for "
+                 "glue to hold to. Pins and spray adhesive buy a little time and usually "
+                 "leave marks in the fabric. Recovering the board is the repair that lasts."),
+                ("Do you replace the whole roof lining or just the fabric?",
+                 "The board itself is almost always sound and gets reused. What gets "
+                 "replaced is the foam-backed fabric bonded to it. We only quote a new "
+                 "board if yours is warped or broken."),
+                ("Can you match it to the rest of my interior?",
+                 "Usually. We will show you material against your own trim before you "
+                 "decide. On an interior that has faded over the years, the honest answer "
+                 "is that a brand-new match can look newer than everything around it, and "
+                 "we will say so."),
+                ("Can you quote from a photo?",
+                 "Yes. Send a photo of the sagging area along with the year, make and "
+                 "model, and we will give you an estimate by email. Some jobs need an "
+                 "in-person look before we commit to a number, and we will tell you if "
+                 "yours is one of them."),
+                ("Do you do modern cars, or only classics?",
+                 "Both. Sagging headliners are common on cars from the mid-1990s onward, "
+                 "and that is a lot of what comes through the shop alongside the "
+                 "restoration work."),
+            ],
+        },
+        "extra": {
+            "label": "Worth reading first",
+            "h2": "If you would rather try it yourself",
+            "sub": ("We have written up the honest version &mdash; what the DIY fixes "
+                    "actually do, and when they will not hold."),
+            "links": [
+                ("blog-how-to-fix-a-sagging-headliner.html",
+                 "How to fix a sagging headliner"),
+                ("blog-headliner-replacement-cost.html",
+                 "What headliner replacement costs"),
+            ],
+        },
+        "form": {
+            "big": "Send us a photo of it",
+            "p": ("A picture of the sagging area plus the year, make and model is usually "
+                  "enough for an estimate by email."),
+            "why": ["Free, and no obligation",
+                    "Nobody will chase you afterwards",
+                    "If yours needs an in-person look, we will say so"],
+            "subject": "HEADLINER estimate request from autotopsandtrim.com",
+            "placeholder": ("Sagging headliner, where it has come away, anything else in "
+                            "the interior&hellip;"),
+            "filenote": "A picture or two of the sagging area helps a lot.",
+        },
+    },
+
+    # ------------------------------------------------------ AUTO UPHOLSTERY
+    # THE BIG ONE: 33 keywords and 10,040 local searches a month, 60% of the whole
+    # campaign's volume on one page. Keyword set is in keywords_verified.py under
+    # "Auto Upholstery & Interiors".
+    #
+    # The intent behind those 33 terms is overwhelmingly REPAIR, not restoration:
+    # "car upholstery repair near me", "fix leather car seat", "torn leather car
+    # seat repair", "auto seat repair", "car seat fix". The old service page led
+    # with full classic interiors, which is the smallest slice of the demand. This
+    # one leads with a torn seat and keeps the restoration work as the closer.
+    #
+    # THE FURNITURE TRAP: bare "upholstery shop near me" and friends are FURNITURE
+    # searches (Ahrefs parent_topic) — 47,500/mo of pure waste — and are in
+    # REJECTED in keywords_verified.py. Never widen this page's copy toward plain
+    # "upholstery" to chase them.
+    #
+    # PHOTOS, every one opened at full size on 2026-08-09:
+    #   shot-113 ... a seat cushion stripped to the burlap over its springs, the
+    #                cotton padding disintegrated, on a stool in the bay
+    #   shot-176 ... a black bench seat with red piping on the shop bench, the
+    #                stripped base and tools on the table in front of it
+    #   shot-030 ... two finished burgundy pleated cushions resting on the body of
+    #                a classic car in the shop, waiting to go back in
+    #   ba-seats-* . THE ONE GENUINE MATCHED PAIR on this project: the same two
+    #                bucket seats against the same wall, one split open and duct-
+    #                taped, then both recovered in new burgundy vinyl
+    #   shot-204 ... a GM bench with the cover split open and yellow foam exposed
+    #   shot-214 ... a finished black pleated BUCKET seat — a DIFFERENT vehicle
+    #                from 204. The caption says so.
+    # The eight strip photos are the ones already eye-verified in the map above
+    # GALLERY, with their verified captions.
+    {
+        "slug": "auto-upholstery.html",
+        "title": "Auto Upholstery in Monroe, NC | Car Seat and Interior Repair",
+        "desc": ("Auto upholstery shop in Monroe, NC. Torn and split car seats repaired, "
+                 "leather and vinyl recovered, carpet, door panels and classic car "
+                 "interior restoration. Free estimates — (980) 385-8101."),
+        "eyebrow": "Auto upholstery",
+        "h1": "A torn car seat is rarely just a torn cover.",
+        "lead": ("By the time the vinyl or the leather splits, the foam under it has "
+                 "already collapsed and the burlap under that has rotted. We take the "
+                 "seat apart, rebuild what is holding you up, and recover it."),
+        "hero": ("seat-rebuild-after",
+                 "A finished black bench seat with red stitching, outside the Monroe shop"),
+        "argument": {
+            "label": "Why it splits",
+            "h2": "The cover is the last thing to go, not the first.",
+            "sub": ("Under the leather or the vinyl there is foam, and under the foam "
+                    "there is burlap stretched over springs. Heat, damp and thirty years "
+                    "of getting in and out break those down first. The cover then has "
+                    "nothing holding its shape, so it stretches, splits along a seam and "
+                    "tears open at the bolster you slide across twice a day."),
+            "pull": ("It is nearly always the driver's seat, and nearly always the "
+                     "outer bolster.",
+                     "That is the corner your whole weight lands on, every time you "
+                     "get in."),
+            "myth_title": "Why the quick fixes fail",
+            "myths": [
+                ("Slip-on seat covers", "hide a split for a while and slide about on it. "
+                                        "Nothing underneath is any better for it."),
+                ("Leather repair kits", "fill a tear with a coloured compound that sits "
+                                        "on foam which has already given way. It shows, "
+                                        "and it goes again."),
+                ("Stitching the split shut", "pulls the tear wider, because the material "
+                                             "either side has stretched and there is "
+                                             "nothing firm left behind it."),
+                ("A used seat from a breaker", "is the same age as yours with the same "
+                                               "foam in it. You have bought somebody "
+                                               "else's problem."),
+            ],
+        },
+        "steps": {
+            "label": "What we do",
+            "h2": "Stripped to the frame, then rebuilt",
+            "sub": ("The seat comes out and it comes apart. That is the difference "
+                    "between a seat that is repaired and a seat that has been covered up."),
+            "cards": [
+                ("shot-113-seat-rotted-to-the-burlap",
+                 "A car seat cushion stripped back to the burlap and springs, the old "
+                 "padding fallen apart",
+                 "40%", "Stripped back to the frame",
+                 ["Cover and dead padding come off",
+                  "Burlap and springs uncovered and checked",
+                  "Broken springs and frames repaired, not padded over"]),
+                ("shot-176-black-seat-red-piping-bench",
+                 "A black bench seat with red piping on the shop bench, its stripped base "
+                 "and tools on the table",
+                 "35%", "Rebuilt on the bench",
+                 ["New foam cut and shaped to the original profile",
+                  "Panels cut and sewn to the car's own pattern",
+                  "Custom stitch spacing and piping where you want it"]),
+                ("shot-030-finished-seats-on-the-car",
+                 "Two finished burgundy pleated seat cushions resting on the car, ready "
+                 "to be fitted",
+                 "55%", "Recovered and refitted",
+                 ["Leather, vinyl or cloth, chosen with you first",
+                  "Fitted taut, with no pull marks at the seams",
+                  "Back in the car and checked on its runners"]),
+            ],
+        },
+        "pairs": [
+            ("ba-seats-before-torn-buckets",
+             "Two bucket seats before recovering, one split open across the back and "
+             "taped, its cushion torn to the foam",
+             "ba-seats-after-recovered-buckets",
+             "The same two bucket seats recovered in new burgundy pleated vinyl",
+             "The same pair of seats &mdash; taped and split, then recovered"),
+            ("shot-204-black-seat-torn-foam-out",
+             "A black bench seat with the cover split open and the yellow foam exposed",
+             "shot-214-black-seat-finished",
+             "A finished black pleated bucket seat",
+             "Split open to the foam &middot; a finished seat off another car"),
+        ],
+        "work": {
+            "label": "Out of this shop",
+            "h2": "Interiors out of this shop",
+            "sub": ("Real jobs, photographed on the bench and in the car at "
+                    "4209 W Hwy 74, Monroe."),
+            "photos": [
+                ("gallery-header-photo-wide",
+                 "A red Ford F1 pickup at the shop with its finished black bench seat "
+                 "on the driveway beside it"),
+                ("g19-mercedes-gla-interior-work",
+                 "That pickup's cab, with the rebuilt black seat and red stitching"),
+                ("g09-truck-cab-black-seat-red-stitch",
+                 "The same cab &mdash; dash, gauges and the finished seat"),
+                ("g08-cushion-and-armrest-trimmed",
+                 "A classic Chevrolet interior, black bench with red piping and red and "
+                 "black door panels"),
+                ("g11-carpet-fitted-and-trimmed",
+                 "The same Chevrolet with the door open and new carpet fitted"),
+                ("g12-shift-boot-and-carpet-detail",
+                 "A shift boot stitched in red on new black carpet"),
+                ("g10-bel-air-new-carpet-going-in",
+                 "That Chevrolet's dash with the new black carpet going in"),
+                ("marine-canvas-cushions",
+                 "The rear bench seat inside a classic red coupe"),
+            ],
+        },
+        # Robert Danneman's review names the two jobs it names — a headliner and
+        # the centre console leather. It may not be labelled anything else.
+        # Charles Monk's text does not name a job, but the two photographs he
+        # attached to it are a headliner before and after, which is what the label
+        # rests on. Everyone else falls through to "Google review".
+        "review_taglines": {
+            "Robert Danneman": "Headliner and console leather",
+            "Charles Monk": "Headliner replacement",
+            "Ozzie Pagan": "Sunroof shade",
+            "Lauren Corgan": "Drove an hour",
+            "charmaine sealey": "Repeat customer",
+        },
+        "faq": {
+            "label": "Before you call",
+            "h2": "Answers first",
+            "items": [
+                ("Can you repair one torn seat, or do I have to do the whole interior?",
+                 "One seat is fine, and it is a great deal of what comes through the shop. "
+                 "Plenty of our work is a single split driver's seat in a car that is "
+                 "otherwise good. You do not need a full restoration to come and see us."),
+                ("Can a leather car seat be repaired, or does it have to be recovered?",
+                 "It depends where the damage is. A small burn or a split in a flat panel "
+                 "can sometimes be repaired so you would not find it. A rip across the "
+                 "bolster you slide over usually cannot, because that panel has stretched "
+                 "and the foam under it has gone &mdash; that one gets a new panel. We "
+                 "will tell you which yours is before we quote it."),
+                ("Do you use leather, or vinyl?",
+                 "Both, and cloth. Modern automotive vinyl wears extremely well and is "
+                 "often the right call on a daily driver; leather is worth it where the "
+                 "car warrants it. We put samples in front of you and tell you what each "
+                 "one will do in a car that sits out in the Carolina sun."),
+                ("How much does it cost to reupholster car seats?",
+                 "It comes down to how many seats, the material you choose, and what we "
+                 "find when the cover comes off. Repairing one panel and rebuilding a "
+                 "seat with new foam and springs are very different numbers. The estimate "
+                 "is free and itemised, so you can see which part of it is the cover and "
+                 "which part is what was underneath it."),
+                ("Do you work on modern cars, or only classics?",
+                 "Both. A late-model seat with a split bolster is routine work here, and "
+                 "so is a full classic car interior restoration built to your own spec. "
+                 "The shop has been doing both in Monroe since 1989."),
+            ],
+        },
+        "extra": {
+            "label": "Worth reading first",
+            "h2": "If you would rather understand the job first",
+            "sub": ("We have written the honest version of what these repairs involve, "
+                    "and what moves the price."),
+            "links": [
+                ("blog-torn-car-seat-repair.html", "Torn car seat repair"),
+                ("blog-leather-car-seat-repair.html", "Leather car seat repair"),
+                ("blog-cost-to-reupholster-car-seats.html",
+                 "What reupholstering seats costs"),
+            ],
+        },
+        "form": {
+            "big": "Send us a photo of it",
+            "p": ("A picture of the tear or the worn panel, plus the year, make and "
+                  "model, is usually enough for an estimate by email."),
+            "why": ["Free, and no obligation",
+                    "Nobody will chase you afterwards",
+                    "If yours needs an in-person look, we will say so"],
+            "subject": "AUTO UPHOLSTERY estimate request from autotopsandtrim.com",
+            "placeholder": ("Torn driver's seat, worn leather, carpet, door "
+                            "panels&hellip;"),
+            "filenote": "A picture or two of the damage helps a lot.",
+        },
+    },
+]
+
+
+def build_landings():
+    for cfg in LANDINGS:
+        _lb_reset()
+        landing_page(cfg, REVIEWS, pages)
+
+
 # ============================================================== SITEMAP / ROBOTS
 def build_meta():
     _lb_reset()
@@ -3902,6 +4134,7 @@ if __name__ == "__main__":
     build_home()
     build_services_index()
     build_services()
+    build_landings()
     build_gallery()
     build_process()
     build_before_after()
