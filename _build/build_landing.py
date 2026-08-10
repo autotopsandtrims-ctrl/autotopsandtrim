@@ -487,11 +487,24 @@ LANDING_CSS = """<style>
   .lp .band h2{margin-bottom:11px}
   .lp .band .sub{font-size:15.5px}
 
-  /* the argument */
-  .lp .arg{gap:22px}
-  .lp .pull{margin:20px 0;padding-left:16px}
-  .lp .myth{padding:18px 18px}
-  .lp .myth li{font-size:15px}
+  /* SECTION SPACING. 42px top and bottom was making consecutive bands feel
+     crammed on a phone even though the desktop rhythm was fine. Nudged up so
+     each section reads as a separate idea — the content inside gets TIGHTER
+     below, which is the right trade: less air inside, more air between. */
+  .lp .band{padding:clamp(52px,9vw,72px) 0}
+
+  /* "WHY THEY FAIL", compacted. Same words, less swiping — the section is the
+     page's price defence and people bounce off a wall of prose on a phone.
+     Line-height and the gaps do the work; nothing is cut. */
+  .lp .arg{gap:15px}
+  .lp .arg p{font-size:15.5px;line-height:1.5;margin-bottom:11px}
+  .lp .pull{margin:13px 0;padding:3px 0 3px 13px;border-left-width:3px}
+  .lp .pull b{font-size:18px;line-height:1.25}
+  .lp .pull span{font-size:14.5px;line-height:1.45}
+  .lp .myth{padding:14px 15px}
+  .lp .myth h4{font-size:11px;margin-bottom:9px}
+  .lp .myth ul{gap:9px}
+  .lp .myth li{font-size:14.5px;line-height:1.45;gap:9px}
 
   /* step cards: shorter photo, tighter body */
   .lp .card .shot{height:200px}
@@ -787,7 +800,7 @@ def landing_page(cfg, reviews, pages=None):
   <div class="wrap">
     {shead(n, ba.get("label", "Before and after"))}
     <h2>{ba.get("h2", "The work, either side of the job")}</h2>
-    <p class="sub">{ba.get("sub", "Photographed at the shop in Monroe. Drag a finger across to see the rest.")}</p>
+    <p class="sub">{ba.get("sub", "Every photograph was taken at the shop in Monroe.")}</p>
     <div class="pairs">
 {cards_html}    </div>
   </div>
@@ -800,8 +813,12 @@ def landing_page(cfg, reviews, pages=None):
     tiles = "".join(
         f'      <figure>{img(p, alt, STRIP_SIZES, ratio=False)}</figure>\n'
         for p, alt in w["photos"])
+    # `tint`, not plain. Before/after sits on white directly above this, so two
+    # white bands ran together and read as one long section with a stray heading
+    # in the middle. The page alternates tint/white the whole way down; this was
+    # the one place the alternation broke after before/after became its own band.
     h += f"""
-<section class="band">
+<section class="band tint">
   <div class="wrap">
     {shead(n, w["label"])}
     <h2>{w["h2"]}</h2>

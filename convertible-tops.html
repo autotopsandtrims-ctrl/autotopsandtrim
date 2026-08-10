@@ -460,11 +460,24 @@
   .lp .band h2{margin-bottom:11px}
   .lp .band .sub{font-size:15.5px}
 
-  /* the argument */
-  .lp .arg{gap:22px}
-  .lp .pull{margin:20px 0;padding-left:16px}
-  .lp .myth{padding:18px 18px}
-  .lp .myth li{font-size:15px}
+  /* SECTION SPACING. 42px top and bottom was making consecutive bands feel
+     crammed on a phone even though the desktop rhythm was fine. Nudged up so
+     each section reads as a separate idea — the content inside gets TIGHTER
+     below, which is the right trade: less air inside, more air between. */
+  .lp .band{padding:clamp(52px,9vw,72px) 0}
+
+  /* "WHY THEY FAIL", compacted. Same words, less swiping — the section is the
+     page's price defence and people bounce off a wall of prose on a phone.
+     Line-height and the gaps do the work; nothing is cut. */
+  .lp .arg{gap:15px}
+  .lp .arg p{font-size:15.5px;line-height:1.5;margin-bottom:11px}
+  .lp .pull{margin:13px 0;padding:3px 0 3px 13px;border-left-width:3px}
+  .lp .pull b{font-size:18px;line-height:1.25}
+  .lp .pull span{font-size:14.5px;line-height:1.45}
+  .lp .myth{padding:14px 15px}
+  .lp .myth h4{font-size:11px;margin-bottom:9px}
+  .lp .myth ul{gap:9px}
+  .lp .myth li{font-size:14.5px;line-height:1.45;gap:9px}
 
   /* step cards: shorter photo, tighter body */
   .lp .card .shot{height:200px}
@@ -629,7 +642,7 @@
   <div class="wrap">
     <div class="shead"><span class="n">04</span><span class="dash"></span><span class="lab">Before and after</span></div>
     <h2>The work, either side of the job</h2>
-    <p class="sub">Photographed at the shop in Monroe. Drag a finger across to see the rest.</p>
+    <p class="sub">Every photograph was taken at the shop in Monroe.</p>
     <div class="pairs">
       <figure class="pair"><span class="pair-shots"><span class="pair-shot"><span class="pair-tag">Before</span><img src="assets/shot-087-old-black-top-faded-3024.webp" srcset="assets/shot-087-old-black-top-faded-480.webp 480w, assets/shot-087-old-black-top-faded-800.webp 800w, assets/shot-087-old-black-top-faded-1400.webp 1400w, assets/shot-087-old-black-top-faded-3024.webp 3024w" sizes="(min-width:760px) 25vw, 50vw" width="3024" height="4032" alt="A faded, worn black convertible top before replacement" loading="lazy" decoding="async"></span><span class="pair-shot"><span class="pair-tag after">After</span><img src="assets/shot-089-new-black-top-side-3024.webp" srcset="assets/shot-089-new-black-top-side-480.webp 480w, assets/shot-089-new-black-top-side-800.webp 800w, assets/shot-089-new-black-top-side-1400.webp 1400w, assets/shot-089-new-black-top-side-3024.webp 3024w" sizes="(min-width:760px) 25vw, 50vw" width="3024" height="4032" alt="The same car with its new black top fitted" loading="lazy" decoding="async"></span><span class="pair-arrow" aria-hidden="true">&rarr;</span></span><figcaption>The same car &mdash; faded, then re-topped</figcaption></figure>
       <figure class="pair"><span class="pair-shots"><span class="pair-shot"><span class="pair-tag">Before</span><img src="assets/ba-galaxie-before-frame-and-material-3024.webp" srcset="assets/ba-galaxie-before-frame-and-material-480.webp 480w, assets/ba-galaxie-before-frame-and-material-800.webp 800w, assets/ba-galaxie-before-frame-and-material-1400.webp 1400w, assets/ba-galaxie-before-frame-and-material-3024.webp 3024w" sizes="(min-width:760px) 25vw, 50vw" width="3024" height="4032" alt="A classic convertible with the top frame bare and the new material ready" loading="lazy" decoding="async"></span><span class="pair-shot"><span class="pair-tag after">After</span><img src="assets/ba-galaxie-after-new-top-fitted-3024.webp" srcset="assets/ba-galaxie-after-new-top-fitted-480.webp 480w, assets/ba-galaxie-after-new-top-fitted-800.webp 800w, assets/ba-galaxie-after-new-top-fitted-1400.webp 1400w, assets/ba-galaxie-after-new-top-fitted-3024.webp 3024w" sizes="(min-width:760px) 25vw, 50vw" width="3024" height="4032" alt="The same car with the finished top fitted and the window in" loading="lazy" decoding="async"></span><span class="pair-arrow" aria-hidden="true">&rarr;</span></span><figcaption>Bare frame to finished top, one car</figcaption></figure>
@@ -637,7 +650,7 @@
   </div>
 </section>
 
-<section class="band">
+<section class="band tint">
   <div class="wrap">
     <div class="shead"><span class="n">05</span><span class="dash"></span><span class="lab">Out of this shop</span></div>
     <h2>Tops out of this shop</h2>
