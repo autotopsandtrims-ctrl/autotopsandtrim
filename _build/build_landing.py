@@ -328,11 +328,14 @@ LANDING_CSS = """<style>
    On mobile these rules do not apply and the three children stack in DOM order —
    formside, form, map — which is the order the page actually wants. */
 @media(min-width:940px){
-  .lp .formwrap{grid-template-columns:.85fr 1.15fr;gap:52px}
+  .lp .formwrap{grid-template-columns:.85fr 1.15fr;gap:52px;row-gap:22px}
   .lp .formwrap > .formside{grid-column:1;grid-row:1}
-  .lp .formwrap > .quote{grid-column:2;grid-row:1/span 2}
-  .lp .formwrap > .mapblock{grid-column:1;grid-row:2;margin-top:-30px}
+  .lp .formwrap > .quote{grid-column:2;grid-row:1/span 3}
+  .lp .formwrap > .orcall{grid-column:1;grid-row:2}
+  .lp .formwrap > .mapblock{grid-column:1;grid-row:3}
 }
+/* Mobile stacks these in DOM order: intro, form, "or skip the form", map. */
+.lp .formwrap > .orcall{margin-top:0}
 .lp .formside .big{font-size:clamp(26px,3.6vw,36px);font-weight:800;letter-spacing:-.03em;
   line-height:1.1;color:#fff;margin-bottom:14px}
 .lp .formside p{color:#B9CBDC;font-size:16.5px;margin-bottom:22px;max-width:44ch}
@@ -448,7 +451,11 @@ LANDING_CSS = """<style>
      pushed below the fold and the shot read as "cut off" because all a visitor
      saw was foreground. 3:2 crops it to a landscape band, and the 42% vertical
      origin keeps the CAR in frame instead of centring on the driveway. */
-  .lp .hero-media img{aspect-ratio:3/2;height:auto;object-position:center 42%}
+  /* 4:3, which is the source photos' own ratio — so nothing is cropped and the
+     whole vehicle stays in frame. 3:2 was trimming the top and bottom to save
+     35px of height, and losing part of the car to save 35px is a bad trade on a
+     page selling the look of the finished job. */
+  .lp .hero-media img{aspect-ratio:4/3;height:auto;object-position:center 45%}
 
   /* Both hero CTAs on ONE row. `flex-wrap:wrap` plus `flex:1 1 auto` let them
      wrap into two full-width slabs the moment the text was wider than the row,
@@ -461,18 +468,21 @@ LANDING_CSS = """<style>
   /* TRUST STRIP: four across, not a 2x2 block. Type scales with the viewport so
      nothing is clipped — the labels wrap onto a second line on a narrow phone,
      which is fine; cropping would not be. */
+  /* Centred, and sized so the HEADLINE figure never wraps — "Within 1 hour"
+     breaking onto two lines was what made the row look ragged, because the four
+     cells then had different heights and nothing lined up. The small label is
+     allowed to wrap onto a second line; that reads as a caption and stays tidy
+     because everything is centred. */
   .lp .trust .wrap{grid-template-columns:repeat(4,1fr)}
-  .lp .trust .t{padding:13px 9px;gap:2px}
-  .lp .trust .big{font-size:clamp(12.5px,3.3vw,17px);line-height:1.15;
-    letter-spacing:-.01em}
-  .lp .trust .sm{font-size:clamp(8px,2.05vw,10.5px);letter-spacing:.045em;
-    line-height:1.25;color:#9DB8D0}
+  .lp .trust .t{padding:14px 6px;gap:3px;align-items:center;text-align:center}
+  .lp .trust .big{font-size:clamp(11px,2.95vw,15px);line-height:1.15;
+    letter-spacing:-.015em;white-space:nowrap;justify-content:center}
+  .lp .trust .sm{font-size:clamp(7.5px,1.95vw,10px);letter-spacing:.03em;
+    line-height:1.3;color:#9DB8D0;text-wrap:balance}
 
-  /* BEFORE / AFTER: it shares a section with the service cards, so on a phone it
-     ran straight on from them and read as more of the same block. It is a
-     different idea and needs to look like one — a rule and real air above it. */
-  .lp .pairs{margin-top:clamp(30px,7vw,44px);padding-top:clamp(26px,6vw,38px);
-    border-top:1px solid var(--rule)}
+  /* (The old rule-and-margin hack that separated .pairs from the service cards
+     is gone — before/after is its own <section> now, so the band's own padding
+     and the tint/white alternation do the separating properly.) */
 
   .lp .band h2{margin-bottom:11px}
   .lp .band .sub{font-size:15.5px}
@@ -736,8 +746,31 @@ def landing_page(cfg, reviews, pages=None):
         cards += (f'      <div class="card">\n        {card_shot(i, photo, alt, focus)}\n'
                   f'        <div class="body"><h3>{title}</h3>'
                   f'<ul>{bullets(items)}</ul></div>\n      </div>\n')
-    pairdeck = ""
+    h += f"""
+<section class="band tint">
+  <div class="wrap">
+    {shead(n, s["label"])}
+    <h2>{s["h2"]}</h2>
+    <p class="sub">{s["sub"]}</p>
+    <div class="cards">
+{cards}    </div>
+  </div>
+</section>
+"""
+
+    # ---- 3b. BEFORE AND AFTER --------------------------------------------
+    # Its OWN numbered section, matching the home page's `before-after` band,
+    # instead of being tacked onto the end of the "what we do" band. It was
+    # sharing that section, so on a phone it ran straight on from the service
+    # cards and read as more of the same block rather than a different idea.
+    #
+    # The heading deliberately does NOT claim these are the same vehicle. The
+    # 2026-08-05 caption audit established that several pairs in the library are
+    # two different cars, and each figcaption already says so where that is true.
+    # A section headline promising "the same car, before and after" would make
+    # every one of those captions a contradiction.
     if cfg.get("pairs"):
+        n += 1
         cards_html = ""
         for before, b_alt, after, a_alt, cap in cfg["pairs"]:
             cards_html += (
@@ -748,16 +781,16 @@ def landing_page(cfg, reviews, pages=None):
                 f'{img(after, a_alt, PAIR_SIZES, ratio=False)}</span>'
                 f'<span class="pair-arrow" aria-hidden="true">&rarr;</span></span>'
                 f'<figcaption>{cap}</figcaption></figure>\n')
-        pairdeck = f'    <div class="pairs">\n{cards_html}    </div>\n'
-    h += f"""
-<section class="band tint">
+        ba = cfg.get("ba", {})
+        h += f"""
+<section class="band ba-band" id="before-after">
   <div class="wrap">
-    {shead(n, s["label"])}
-    <h2>{s["h2"]}</h2>
-    <p class="sub">{s["sub"]}</p>
-    <div class="cards">
-{cards}    </div>
-{pairdeck}  </div>
+    {shead(n, ba.get("label", "Before and after"))}
+    <h2>{ba.get("h2", "The work, either side of the job")}</h2>
+    <p class="sub">{ba.get("sub", "Photographed at the shop in Monroe. Drag a finger across to see the rest.")}</p>
+    <div class="pairs">
+{cards_html}    </div>
+  </div>
 </section>
 """
 
@@ -875,18 +908,24 @@ def landing_page(cfg, reviews, pages=None):
         <!-- DRAFT v16. sms: carries NO body param on purpose — iOS wants &body=,
              Android wants ?body=, and getting it wrong breaks the link on one of
              them. A bare sms: link opens a blank message to the shop on both. -->
-        <div class="orcall">
-          <div class="lbl">Or skip the form</div>
-          <a class="contactline" href="tel:{PHONE_TEL}">
-            <span class="ci">&#9742;</span>
-            <span><b>{PHONE_DISPLAY}</b><em>Call the shop</em></span></a>
-          <a class="contactline" href="sms:{PHONE_TEL}">
-            <span class="ci">&#9993;</span>
-            <span><b>Text a photo</b><em>Same number &middot; send a picture of the job</em></span></a>
-        </div>
       </div>
 
       {landing_form(fm["subject"], fm["placeholder"], fm["filenote"])}
+
+      <!-- "Or skip the form" MOVED OUT of .formside 2026-08-10, same reasoning as
+           the map. On a phone the column collapses, so offering the shortcut
+           BEFORE the form meant the page talked you out of the form before you
+           had seen it. After the form it reads as the fallback it actually is:
+           "still here? just call or text a photo." Desktop is pinned below. -->
+      <div class="orcall">
+        <div class="lbl">Or skip the form</div>
+        <a class="contactline" href="tel:{PHONE_TEL}">
+          <span class="ci">&#9742;</span>
+          <span><b>{PHONE_DISPLAY}</b><em>Call the shop</em></span></a>
+        <a class="contactline" href="sms:{PHONE_TEL}">
+          <span class="ci">&#9993;</span>
+          <span><b>Text a photo</b><em>Same number &middot; send a picture of the job</em></span></a>
+      </div>
 
       <!-- Same Google Maps embed as the contact page.
            MOVED OUT of .formside 2026-08-10. It used to sit inside the left
