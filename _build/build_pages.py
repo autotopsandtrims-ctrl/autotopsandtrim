@@ -664,52 +664,6 @@ def service_page(slug, title, desc, eyebrow, h1, intro, hero_photo, sections,
 
 def build_services():
     _lb_reset()
-    service_page(
-        "convertible-tops.html",
-        "Convertible Top Replacement in Monroe, NC | Auto Tops and Trim",
-        "Convertible top replacement in Monroe, NC. Vinyl and canvas tops, heated glass "
-        "or plastic rear windows, frame and pad repair. Free estimates — (980) 385-8101.",
-        "Convertible tops", "Convertible top replacement in Monroe, NC",
-        "A new top is really three jobs: the fabric, the window, and whatever needs "
-        "repairing on the frame underneath. We quote all three.",
-        # Was `convertible-top-replacement-and-finish` — a 297x396 master, soft on
-        # any desktop, and the shop's retired phone number is legible on the sign
-        # behind the car. This one is 3024x4032 and has no signage in frame.
-        "convertible-top-blue-galaxie-finished",
-        [("Materials", ["Quality vinyl — holds up well in Carolina sun",
-                        "Canvas cloth — correct on a classic, ages gracefully",
-                        "Samples shown in the shop before you decide"]),
-         ("Windows", ["Heated glass rear windows",
-                      "Plastic curtain replacement",
-                      "Often the reason the top failed first"]),
-         ("The frame underneath", ["Collapsed pad replacement",
-                                   "Bent bow straightening",
-                                   "Checked before we quote, not after"])],
-        # Dropped g05 (it is a Cadillac front end, not a cloth top) and g17
-        # (a duplicate of g16, and the top is stowed in it anyway).
-        ["convertible-top-tan-on-black-camaro", "convertible-top-tan-side-view",
-         "g01-camaro-ss-new-convertible-top", "automotive-interior-restoration-detail",
-         "automotive-ford-galaxie-top-after", "g18-camaro-ss-profile"],
-        [("How much does a convertible top replacement cost?",
-          "It depends on three things: the material you choose, whether the rear window is "
-          "heated glass or plastic, and the condition of the frame and pads underneath. Most "
-          "quotes people bring us from elsewhere only cover the fabric. We give you an itemized "
-          "estimate covering all three, at no cost."),
-         ("Can you quote from a photo?",
-          "Yes &mdash; send photos over and we will get an estimate back to you. On a convertible "
-          "top we will usually want to see the car before the number is final, because a photo "
-          "cannot show collapsed pads or bent bows, and a new top fitted over a bad frame will "
-          "never sit right. The estimate is free either way."),
-         ("Vinyl or canvas — which should I pick?",
-          "Vinyl costs less up front and handles the sun here very well. Canvas cloth costs more, "
-          "looks correct on a classic, and ages more gracefully. We keep both in the shop so you "
-          "can see and feel the difference before deciding."),
-         ("How long does it take?",
-          "Most tops are a few days once the material is in hand. Frame or pad repair adds time. "
-          "We will give you a realistic window with the estimate.")],
-        ["Tan top fitted to a black convertible", "Tan top — side view",
-         "Camaro SS — new convertible top", "Burgundy cloth top — rear window",
-         "Ford Galaxie — top fitted", "Camaro SS — profile"])
 
     # VINYL TOPS — new 2026-08-07 with the services restructure. It is the second
     # item on the owner's business card and the site had no page for it at all.
@@ -724,65 +678,6 @@ def build_services():
     # the copy and the captions say "top" and never "vinyl" about THAT car. The
     # service is vinyl and padded tops; the photos are not used to claim a
     # material nobody has confirmed.
-    service_page(
-        "vinyl-tops.html",
-        "Vinyl Top Replacement in Monroe, NC | Auto Tops and Trim",
-        "Vinyl and padded top replacement in Monroe, NC. Rotted, peeling or faded roof "
-        "coverings stripped, padding replaced and re-covered. Free estimates — (980) 385-8101.",
-        "Vinyl tops", "Vinyl and padded top replacement",
-        "When a vinyl roof goes, it usually goes at the seams and the rear first — and "
-        "what is underneath matters more than what you can see.",
-        "vinyl-top-burgundy-finished-in-the-bay",
-        [("What we re-cover", ["Full vinyl roofs", "Landau and half tops",
-                               "Padded tops and cabriolet-style roofs",
-                               "Rear quarter and opera window surrounds"]),
-         ("What comes off first", ["Roof mouldings and trim removed, not cut around",
-                                   "Old covering and padding stripped back to the roof skin",
-                                   "The skin checked for rust before anything new goes on",
-                                   "Trim refitted once the new top is on"]),
-         ("Choosing the material", ["Grained vinyl in a range of colours",
-                                    "Matched to your paint or your interior",
-                                    "Samples laid on the car before you decide",
-                                    "Free, itemised estimate"])],
-        # The remaining two masters. Three of the six vinyl photos carry the
-        # before/after band above and the sixth is the hero, so nothing on this
-        # page is shown twice.
-        ["vinyl-top-after-burgundy-fitted", "vinyl-top-before-peeling-at-rear"],
-        [("Can a vinyl top be repaired, or does the whole thing come off?",
-          "A lifting edge or an open seam can sometimes be re-bonded. Once the material has "
-          "gone hard, split across the top, or rotted where water has sat, it is a recover — "
-          "patching it there only hides what is happening underneath. Bring it by and we will "
-          "tell you honestly which one you have."),
-         ("Is there rust under my vinyl top?",
-          "Often there is some, and it is the real reason not to leave a failed top on the car. "
-          "The padding under a vinyl roof holds water against the roof skin, so it rots from "
-          "underneath long before it looks bad from the pavement. We strip the roof back and "
-          "look at the metal before we quote the new covering, not after."),
-         ("Is a vinyl top the same job as a convertible top?",
-          "No. A vinyl top is a covering bonded to a fixed steel roof; a convertible top is "
-          "fabric over a folding frame with a rear window in it. We do both, and they are "
-          "priced completely differently. If your roof does not fold, this is the right page — "
-          "if it does, see <a href=\"convertible-tops.html\">convertible tops</a>."),
-         ("Can you match the colour to my paint or my interior?",
-          "That is usually where the job starts. Grained vinyl comes in a wide colour range and "
-          "we will lay samples on the car in daylight before anything is ordered — a colour that "
-          "looks right indoors can read completely differently against your paint outside."),
-         ("How long does it take?",
-          "It depends on what is under the old top. Stripping, cleaning and re-covering a sound "
-          "roof is a straightforward job; rust or a damaged skin adds time, and we will tell you "
-          "that when we have the old covering off rather than spring it on you later.")],
-        ["New top fitted over the roof and rear quarter",
-         "Another car in with the covering lifted and peeling at the rear"],
-        lead_html=ba_band(
-            [("vinyl-top-before-roof-covering-rotted", "Before",
-              "Old roof covering rotted through to the padding"),
-             ("vinyl-top-roof-stripped-trim-removed", "Stripped",
-              "Covering off and roof mouldings removed, ready for the new top"),
-             ("vinyl-top-after-opera-window-detail", "After",
-              "The finished top wrapped around the rear window")],
-            lead="The same car, photographed at three stages in the Monroe shop. "
-                 "The middle picture is the part of the job nobody sees and the part "
-                 "that decides how long the new top lasts."))
 
     # ------------------------------------------------------------------
     # auto-upholstery.html and headliner-replacement.html are NOT built here.
@@ -799,6 +694,15 @@ def build_services():
     # writer here — two builders for one slug means last-one-wins and a
     # duplicate entry in sitemap.xml.
     # ------------------------------------------------------------------
+    # convertible-tops.html, vinyl-tops.html and sunroof-shade-repair.html are
+    # NOT built here either — all three are paid landing pages now, built by
+    # build_landings(). Same reasoning as the note above.
+    #
+    # The sunroof page CHANGED SCOPE when it converted. It was shade-only; the
+    # owner interview established he does the whole unit — cables, motors,
+    # tracks, drains — and refits the original. It is still NOT sunroof
+    # installation, which he declines and which is negated campaign-wide.
+
     service_page(
         "marine-upholstery.html",
         "Marine Upholstery in Monroe, NC | Boat Seats and Canvas",
@@ -931,82 +835,6 @@ def build_services():
 </section>
 """
 
-    service_page(
-        "sunroof-shade-repair.html",
-        "Sunroof Shade Repair in Monroe, NC | Auto Tops and Trim",
-        "Sagging or torn sunroof shade? We recover the sliding sunshade panel in Monroe, NC "
-        "instead of replacing the whole assembly. Free estimates — (980) 385-8101.",
-        "Sunroof shades", "Sunroof shade repair in Monroe, NC",
-        "When the sliding shade over your sunroof sags, tears or stops retracting, the fabric "
-        "is usually the only thing that has failed. We recover the panel you already have.",
-        # HERO MUST BE FINISHED WORK. It used to be `sunroof-shade-fabric-failed`
-        # — a shade whose fabric has broken up and is flaking off the panel. That
-        # is the problem this page sells the cure for, and leading with it made
-        # the page look like a picture of a bad job. Swapped 2026-08-09 on the
-        # user's instruction: broken shades belong in the copy, not the hero.
-        #
-        # This one is `04-headliners/045__AFTER__...`, a confirmed AFTER: a
-        # finished light-grey headliner with the sliding shade intact and closed
-        # across the opening, vents and daylight above it.
-        #
-        # ⚠️ HONEST LIMIT, do not paper over it: there is NO photograph anywhere
-        # in the 283-photo batch of a RECOVERED sunroof shade. Folder
-        # 06-sunroof-shade holds exactly two files and both are BEFORE
-        # (217/218, "shade-board-foam-degraded"). So this page can show finished
-        # interiors with sound shades and the panel out in the shop, but nothing
-        # here may be captioned as a shade this shop recovered. If the owner ever
-        # supplies a true after, it becomes the hero and a ba_band() goes in.
-        "shot-045-finished-with-sunroof-opening",
-        [("What we repair", ["Sagging or drooping shade fabric",
-                             "Torn, split or stained shade panels",
-                             "Fabric that has come unbonded from the slider",
-                             "Shades that no longer slide or retract cleanly"]),
-         ("How we approach it", ["The existing panel is recovered where it is sound",
-                                 "Material matched to your headliner in the shop",
-                                 "You are welcome to watch the work",
-                                 "Quoted from photos or in person, free of charge"]),
-         ("Worth knowing", ["A dealer often quotes the whole sunroof cassette",
-                            "The shade is trim work — it is what this shop does",
-                            "Bring the vehicle by; we will tell you what it needs",
-                            "Customers drive in from Charlotte and Union County"])],
-        # Was the second broken-fabric shot. Now three photographs of sound work,
-        # every one of them the shop's own. Captions describe ONLY what is in
-        # frame — none of them claims a recovered shade, because none of them is
-        # one (see the hero note above).
-        ["shot-046-finished-sunroof-grab-handle",
-         "sunroof-glass-open-in-the-shop",
-         "shot-065-cream-board-light-cutout"],
-        [("My sunroof shade is sagging. Can it be fixed, or do I need a whole new sunroof?",
-          "In most cases the sunroof itself is fine and only the shade fabric has failed. The "
-          "fabric is bonded to a thin sliding panel, and over years of Carolina heat that bond "
-          "lets go and the material droops or tears. Recovering that panel is upholstery work. "
-          "Bring it by and we will tell you honestly which one you are looking at."),
-         ("The dealer quoted me for the entire sunroof assembly. Why is your quote different?",
-          "Because they are usually quoting a different job. Replacing the whole cassette means "
-          "new hardware, glass mechanism and labour. If the mechanism still works and only the "
-          "shade has failed, that is a trim repair, not an assembly replacement. We will look at "
-          "it and tell you which is actually needed."),
-         ("Can you match the material to the rest of my headliner?",
-          "That is the goal, and we keep material in the shop so you can see and feel it against "
-          "your own headliner before deciding. On an older interior that has faded, an exact match "
-          "is not always possible — we will show you the closest options rather than promise one."),
-         ("How long does it take, and do I need an appointment?",
-          "It depends on the vehicle and how the shade is mounted, so we will give you a realistic "
-          "window with the free estimate. Calling ahead on "
-          f"{PHONE_DISPLAY} is the surest way to catch us with time to look at it."),
-         ("Can you quote it from a photo?",
-          "Yes. Send photos of the shade and we will come back to you with an estimate. We may "
-          "still want to look at it in person before confirming, because a photo will not show "
-          "whether the slider and the mechanism are still sound, and that is the part that "
-          "decides whether this is a simple recover or a bigger job. The estimate is free "
-          "either way.")],
-        # gallery_caps — one per photo above, same order. These describe ONLY
-        # what is in frame. Nothing here says "recovered shade": no such
-        # photograph exists (see the hero note).
-        ["Finished headliner and a sound sliding shade across the opening",
-         "Sunroof panel out, on a car in the shop",
-         "A freshly covered board on the bench, cut for its openings"],
-        extra_html=sunroof_voices)
 
 
 # ============================================================== SERVICES INDEX
@@ -4118,6 +3946,489 @@ LANDINGS = [
             "placeholder": ("Torn driver's seat, worn leather, carpet, door "
                             "panels&hellip;"),
             "filenote": "A picture or two of the damage helps a lot.",
+        },
+    },
+
+    # ---------------------------------------------------------- SUNROOF REPAIR
+    # 17 keywords, 2,570/mo, and the highest max CPC in the account at $3.75.
+    # WIDENED from the old shade-only page. The owner interview settled it: he
+    # takes the whole cassette OUT of the car, rebuilds it and refits the
+    # ORIGINAL — cables, motors, tracks, drains, and the sliding shade. No new
+    # part is sold. That is the argument, and no competitor page says it.
+    #
+    # NOT INSTALLATION. He can cut a roof and fit one; he does not want to and
+    # would refer it out. Those 18 keywords are held in keywords_verified.py and
+    # negated campaign-wide. Nothing on this page may invite that work.
+    #
+    # ⚠️ PHOTO LIMIT, recorded here so nobody papers over it later: there is NO
+    # photograph anywhere in the 283-photo batch of a RECOVERED sunroof shade.
+    # The shade folder holds exactly two files and BOTH are before shots. So this
+    # page carries NO before/after deck — a pair deck here would have to invent
+    # one. It shows the mechanism open on the bench and finished interiors with
+    # sound shades, and nothing is captioned as a shade this shop recovered.
+    # The day a true after exists, it becomes the hero and the deck goes in.
+    {
+        "slug": "sunroof-shade-repair.html",
+        "title": "Sunroof Repair in Monroe, NC | Leaks, Cables, Motors and Shades",
+        "desc": ("Sunroof repair in Monroe, NC. Stuck, leaking or noisy sunroofs rebuilt — "
+                 "cables, tracks, drains and sagging sunshades. We refit your original. "
+                 "Free estimates — (980) 385-8101."),
+        "eyebrow": "Sunroof repair",
+        "h1": "A stuck sunroof is usually the cables, not the motor.",
+        "lead": ("We take the whole unit out of the car, rebuild it on the bench and refit "
+                 "the one you already have. You are not buying a new sunroof."),
+        # Hero must be FINISHED work — a broken shade as the hero made the page
+        # look like a picture of a bad job. This is a confirmed after: a finished
+        # light-grey headliner with the sliding shade closed across the opening.
+        "hero": ("shot-045-finished-with-sunroof-opening",
+                 "A finished headliner with the sliding shade closed across the sunroof "
+                 "opening"),
+        "argument": {
+            "label": "Why it sticks",
+            "h2": "The part that fails is the cheapest part in there.",
+            "sub": ("A sunroof runs on two nylon-coated cables in guide tracks, pushed by a "
+                    "small motor. The cables dry out, fray and jump their track, and the "
+                    "plastic shoes they run in break up. The motor is usually fine and so is "
+                    "the glass. What you hear as a dead sunroof is nearly always the drive "
+                    "cables and the guides."),
+            "pull": ("We rebuild your unit and put it back.",
+                     "Nothing is cut and no new assembly is sold. The sunroof that comes out "
+                     "is the one that goes back in."),
+            "myth_title": "What the quick answers get wrong",
+            "myths": [
+                ("A new motor", "is the usual first guess and rarely the fix. If it hums and "
+                                "nothing moves, the cables have already let go."),
+                ("Sealing around the glass", "does not stop most leaks. A sunroof is designed "
+                                             "to let water in — it drains away down four "
+                                             "tubes, and blocked tubes are what puts water on "
+                                             "your headliner."),
+                ("A used assembly from a breaker", "is the same age as yours with the same "
+                                                   "dried-out cables in it."),
+                ("Bolting it shut for good", "is what a lot of places will suggest. We would "
+                                             "rather fix the mechanism."),
+            ],
+        },
+        "steps": {
+            "label": "What we do",
+            "h2": "Out of the car, rebuilt on the bench",
+            "sub": ("The cassette comes out so the tracks, cables, drains and shade can be "
+                    "worked on properly — then your original goes back in."),
+            "cards": [
+                ("sunroof-glass-open-in-the-shop",
+                 "A sunroof opened up in the shop with the panel slid back and the guide "
+                 "track exposed",
+                 "50%", "We open it up",
+                 ["Panel and trim off, not worked around",
+                  "Tracks, cables and guides exposed",
+                  "All four drain tubes checked and cleared"]),
+                ("sunroof-shade-fabric-failed",
+                 "A sunroof shade panel with the fabric broken up and flaking off the board",
+                 "45%", "What usually turns up",
+                 ["Cable sheathing dried out and frayed",
+                  "Guide shoes cracked or missing",
+                  "Shade fabric perished off its panel"]),
+                ("shot-046-finished-sunroof-grab-handle",
+                 "A finished headliner and trim around the sunroof opening and grab handle",
+                 "55%", "Back in and trimmed",
+                 ["Your original unit refitted, not replaced",
+                  "Runs checked through the full travel",
+                  "Headliner and trim put back properly"]),
+            ],
+        },
+        # NO "pairs" KEY ON PURPOSE. See the photo-limit note above.
+        "work": {
+            "label": "Out of this shop",
+            "h2": "Sunroofs and shades through this shop",
+            "sub": ("Photographed at 4209 W Hwy 74, Monroe. The shop has more sunroof work "
+                    "than it has pictures of it — these are the jobs that got photographed."),
+            "photos": [
+                ("sunroof-shade-fabric-failed-wide",
+                 "A sunroof shade panel with the fabric perished, photographed wide"),
+                ("headliner-finished-with-sunroof-opening",
+                 "A finished headliner trimmed around the sunroof opening"),
+                ("headliner-finished-sunroof-grab-handle",
+                 "A finished headliner around the sunroof surround and grab handle"),
+                ("headliner-finished-over-windscreen",
+                 "A finished light grey headliner above the windscreen"),
+            ],
+        },
+        # Ozzie Pagan's review IS a sunroof shade job and Lauren Corgan's names a
+        # sunroof, so this page can lead with both honestly.
+        "review_taglines": {
+            "Ozzie Pagan": "Sunroof shade",
+            "Lauren Corgan": "Drove an hour for a sunroof",
+            "Robert Danneman": "Headliner and console leather",
+            "Charles Monk": "Headliner replacement",
+            "charmaine sealey": "Repeat customer",
+        },
+        "faq": {
+            "label": "Before you call",
+            "h2": "Answers first",
+            "items": [
+                ("My sunroof is stuck open. Can you get it shut today?",
+                 "Usually, yes — getting it closed and safe is the first thing we do, and "
+                 "that part is often quick. Whether the full repair is finished the same day "
+                 "depends on what has broken. Jobs here run from about an hour to a full day."),
+                ("Do you replace the whole sunroof?",
+                 "No, and that is the point of bringing it here. We take your unit out, "
+                 "rebuild it and refit the original — cables, guides, tracks and motor. A "
+                 "dealer will often quote the entire cassette instead."),
+                ("Water is coming in around my sunroof. Is the seal gone?",
+                 "Probably not. A sunroof is built to let water past the glass and drain it "
+                 "away through tubes in each corner. When those block, the water backs up and "
+                 "comes out at the headliner. We clear the drains and find out where it is "
+                 "actually getting in before quoting a seal."),
+                ("Can you fix the sliding shade as well?",
+                 "Yes. When the fabric on the sliding sunshade sags or breaks up, we recover "
+                 "the panel you already have and match the material to your headliner. It is "
+                 "trim work, which is what this shop does."),
+                ("Do you install new sunroofs?",
+                 "No. Cutting a roof for a sunroof that was never there is not work we take "
+                 "on, and we will point you to someone who does rather than take it half-"
+                 "heartedly. Repairing, rebuilding and resealing a sunroof the car already "
+                 "has is very much our work."),
+            ],
+        },
+        "form": {
+            "big": "Tell us what it is doing",
+            "p": ("What it does when you press the switch, plus the year, make and model, is "
+                  "usually enough for us to tell you what is likely wrong."),
+            "why": ["Free, and no obligation",
+                    "Nobody will chase you afterwards",
+                    "If it needs to come in to be diagnosed, we will say so"],
+            "subject": "SUNROOF estimate request from autotopsandtrim.com",
+            "placeholder": ("Stuck open, will not close, leaking at the headliner, grinding "
+                            "noise, sagging shade&hellip;"),
+            "filenote": "A short video of what it does is even better than a photo.",
+        },
+    },
+
+    # -------------------------------------------------------- CONVERTIBLE TOPS
+    # Only 600/mo, but it carries the TOP BID in the account at $4.00, because
+    # the owner says tops pay most and he wants the work. Everything here is from
+    # the owner interview: he BUYS AND OWNS his materials (Stayfast, vinyl,
+    # cloth), the heated glass rear window comes with the top, he does frames,
+    # pads and bows, he does Jeep soft tops, and he quotes by calling the top
+    # manufacturer and adding his labour.
+    {
+        "slug": "convertible-tops.html",
+        "title": "Convertible Top Replacement in Monroe, NC | Auto Tops and Trim",
+        "desc": ("Convertible top replacement in Monroe, NC. Cloth and vinyl tops, heated "
+                 "glass rear windows, frames, pads and bows. Jeep soft tops too. "
+                 "Free estimates — (980) 385-8101."),
+        "eyebrow": "Convertible tops",
+        "h1": "A new top is three jobs, and most quotes only cover one.",
+        "lead": ("The fabric, the rear window, and the frame underneath it. We look at all "
+                 "three before we give you a number, because the frame is what decides how "
+                 "long the new top lasts."),
+        "hero": ("convertible-top-blue-galaxie-finished",
+                 "A finished tan convertible top fitted on a blue classic, outside the shop"),
+        "argument": {
+            "label": "Why they fail",
+            "h2": "The fabric is what you see. The frame is what killed it.",
+            "sub": ("Pads collapse, bows bend and the tension goes out of the frame. Once "
+                    "that happens the new fabric is stretched over a shape that is no longer "
+                    "right, so it wears through at the same corners and the rear window "
+                    "cracks again. Fitting a top to a tired frame is why some tops last "
+                    "fifteen years and some last three."),
+            "pull": ("We own the material we fit.",
+                     "Stayfast cloth, vinyl and canvas bought in by this shop — not ordered "
+                     "in blind against whatever a supplier has that week."),
+            "myth_title": "What a cheap quote leaves out",
+            "myths": [
+                ("The pads and bows", "are the part nobody itemises, and the part that "
+                                      "decides whether the new top sits right."),
+                ("The rear window", "is often the reason the top failed first. On ours the "
+                                    "heated glass window comes with the top."),
+                ("Trim and mouldings", "get cut around instead of taken off, and you can see "
+                                       "it afterwards at every edge."),
+                ("Rust under the seals", "gets covered rather than dealt with. We will not "
+                                         "put a new top over rust."),
+            ],
+        },
+        "steps": {
+            "label": "What we do",
+            "h2": "Old top off, frame sorted, new top fitted",
+            "sub": ("The frame gets looked at with the old material off, which is the only "
+                    "point in the job where you can actually see it."),
+            "cards": [
+                ("shot-171-old-top-removed",
+                 "A convertible with the old top off, the new top laid out on the rear deck "
+                 "and the fasteners set aside",
+                 "48%", "The old top comes off",
+                 ["Mouldings and trim removed, not cut past",
+                  "Fasteners kept and bagged, not replaced with screws",
+                  "Tack strips and channels cleaned back"]),
+                ("shot-060-stripped-top-frame-bare",
+                 "A classic convertible with its top frame stripped down to the bare bows",
+                 "42%", "The frame comes down to bare bows",
+                 ["Collapsed pads replaced",
+                  "Bent bows straightened and alignment checked",
+                  "Corrosion dealt with before anything new goes on"]),
+                ("shot-120-new-top-clamped-and-taped",
+                 "A new black top fitted to the car and taped along the belt line while the "
+                 "adhesive sets",
+                 "52%", "New top fitted and set",
+                 ["Cloth, vinyl or canvas, chosen with you first",
+                  "Heated glass rear window fitted with the top",
+                  "Held and taped while it sets so it pulls up tight"]),
+            ],
+        },
+        # Two of the project's verified matched pairs — same car both ends, each
+        # confirmed by opening both photographs.
+        "pairs": [
+            ("shot-087-old-black-top-faded",
+             "A faded, worn black convertible top before replacement",
+             "shot-089-new-black-top-side",
+             "The same car with its new black top fitted",
+             "The same car &mdash; faded, then re-topped"),
+            ("ba-galaxie-before-frame-and-material",
+             "A classic convertible with the top frame bare and the new material ready",
+             "ba-galaxie-after-new-top-fitted",
+             "The same car with the finished top fitted and the window in",
+             "Bare frame to finished top, one car"),
+        ],
+        "work": {
+            "label": "Out of this shop",
+            "h2": "Tops out of this shop",
+            "sub": "Real cars, photographed in the bay and on the lot at 4209 W Hwy 74, Monroe.",
+            "photos": [
+                ("g01-camaro-ss-new-convertible-top",
+                 "A black and yellow Camaro convertible with its new black top up"),
+                ("g18-camaro-ss-profile",
+                 "The same Camaro in profile by the fence"),
+                ("convertible-top-tan-on-black-camaro",
+                 "A tan convertible top fitted on a black Camaro"),
+                ("shot-141-tan-top-on-black-car",
+                 "A tan top on a black car, finished"),
+                ("shot-209-white-300zx-black-top",
+                 "A white sports car with a new black top fitted"),
+                ("shot-198-brown-top-rear-quarter",
+                 "A brown top seen from the rear quarter"),
+                ("shot-110-top-down-boot-cover",
+                 "A finished top folded down under its boot cover"),
+                ("automotive-ford-galaxie-top-after",
+                 "A blue Ford Galaxie convertible with its tan top up"),
+            ],
+        },
+        "review_taglines": {
+            "Robert Danneman": "Headliner and console leather",
+            "Charles Monk": "Headliner replacement",
+            "Ozzie Pagan": "Sunroof shade",
+            "Lauren Corgan": "Drove an hour",
+            "charmaine sealey": "Repeat customer",
+        },
+        "faq": {
+            "label": "Before you call",
+            "h2": "Answers first",
+            "items": [
+                ("How much does a convertible top cost?",
+                 "It comes down to three things: the material, whether the rear window is "
+                 "heated glass or plastic, and what the frame and pads underneath need. We "
+                 "quote by calling the top manufacturer for your exact car and adding our "
+                 "labour, so the number is built from your vehicle rather than an average. "
+                 "The estimate is free and itemised across all three."),
+                ("Cloth or vinyl — which should I have?",
+                 "Vinyl holds up well in Carolina sun and is usually the sensible choice on a "
+                 "daily driver. Cloth, Stayfast in particular, is correct on most classics and "
+                 "ages more gracefully. We keep material here and will put it on the car in "
+                 "daylight before you decide, because colours read completely differently "
+                 "outdoors."),
+                ("Does the rear window come with it?",
+                 "Yes. A heated glass rear window comes as part of the top on nearly "
+                 "everything we fit. In years of doing this only one car — a Mercedes — has "
+                 "needed a window built specially."),
+                # This one exists because people genuinely ask it, and because
+                # "ragtop repair" and "convertible roof repair near me" are both
+                # live keywords whose words appeared nowhere on the page. It
+                # answers the question honestly AND routes the fixed-roof half of
+                # the confusion to the vinyl tops page, which is the other side of
+                # the "vinyl top" overlap noted in campaign_spec's AMBIGUOUS list.
+                ("Is a ragtop the same thing as a convertible top?",
+                 "Yes. Ragtop, soft top and convertible roof all mean the same job: fabric "
+                 "over a folding frame with a rear window in it. If your roof folds down, you "
+                 "are on the right page. If it is a covering bonded to a fixed steel roof "
+                 "that does not fold, that is a vinyl top — we do those too, and they are "
+                 "priced completely differently."),
+                ("Do you do Jeep soft tops?",
+                 "Yes, those are routine here alongside the classics and the late-model "
+                 "convertibles."),
+                ("What if there is rust under the old top?",
+                 "We deal with it here rather than sending it out, and we will not fit a new "
+                 "top over rust. Water sits in the channels and around the seals, so that is "
+                 "exactly where it turns up. You will be told what we find with the old top "
+                 "off, before the new one is ordered."),
+            ],
+        },
+        "form": {
+            "big": "Send us a photo of the car",
+            "p": ("A picture with the top up, plus the year, make and model, is usually "
+                  "enough to get you a number."),
+            "why": ["Free, and itemised across fabric, window and frame",
+                    "Nobody will chase you afterwards",
+                    "We will tell you if the frame needs looking at in person"],
+            "subject": "CONVERTIBLE TOP estimate request from autotopsandtrim.com",
+            "placeholder": ("Top up or down, the rear window, anything you have noticed about "
+                            "the frame or the way it folds&hellip;"),
+            "filenote": "One photo with the top up and one of the rear window helps most.",
+        },
+    },
+
+    # --------------------------------------------------------------- VINYL TOPS
+    # The smallest group at 30/mo. It gets a page anyway because the searches
+    # that do happen are dead-specific and there is almost nothing to compete
+    # with. Owner facts: the red top IS vinyl, he does all top types, he handles
+    # rust himself rather than sending it out, and he will not put a top over
+    # rust.
+    #
+    # "vinyl top" is deliberately NOT negated out of the Convertible Tops ad
+    # group — see AMBIGUOUS in campaign_spec.py. A convertible top is often made
+    # of vinyl, and that overlap is honest rather than a routing mistake.
+    {
+        "slug": "vinyl-tops.html",
+        "title": "Vinyl Top Replacement in Monroe, NC | Landau and Padded Roofs",
+        "desc": ("Vinyl and padded top replacement in Monroe, NC. Peeling, split or rotted "
+                 "roof coverings stripped back, rust dealt with and re-covered. "
+                 "Free estimates — (980) 385-8101."),
+        "eyebrow": "Vinyl tops",
+        "h1": "A vinyl top fails from underneath, where you cannot see it.",
+        "lead": ("The padding under the covering holds water against the roof skin. By the "
+                 "time the vinyl splits at a seam, the question is not the vinyl — it is what "
+                 "the water has been doing to the metal."),
+        "hero": ("vinyl-top-burgundy-finished-in-the-bay",
+                 "A finished burgundy vinyl top fitted on a car in the shop bay"),
+        "argument": {
+            "label": "Why they go",
+            "h2": "The covering is the symptom. The padding is the cause.",
+            "sub": ("A vinyl roof is a covering bonded over padding on a steel roof. The "
+                    "padding soaks up water and holds it against the metal, so the roof rots "
+                    "from underneath while the top still looks passable from the pavement. "
+                    "The split you can see at the seam is usually the last thing to happen, "
+                    "not the first."),
+            "pull": ("We will not put a new top over rust.",
+                     "And we deal with the rust here rather than sending the car out and "
+                     "adding somebody else's markup to your bill."),
+            "myth_title": "Why patching it does not hold",
+            "myths": [
+                ("Re-gluing a lifting edge", "can buy a season if the material is still soft. "
+                                             "Once it has gone hard, it is a recover."),
+                ("A patch over the split", "hides the one place you could have seen what the "
+                                           "water was doing underneath."),
+                ("Leaving it because it is only cosmetic", "is how a covering problem becomes "
+                                                           "a roof skin problem."),
+                ("Cutting around the mouldings", "leaves an edge you will notice every time "
+                                                 "you walk up to the car."),
+            ],
+        },
+        "steps": {
+            "label": "What we do",
+            "h2": "Stripped to the metal, then re-covered",
+            "sub": ("The same car at three stages. The middle picture is the part nobody "
+                    "sees and the part that decides how long the new top lasts."),
+            "cards": [
+                ("vinyl-top-before-roof-covering-rotted",
+                 "A vinyl roof covering rotted through to the padding underneath",
+                 "50%", "What comes off",
+                 ["Old covering and padding stripped back",
+                  "Mouldings and trim removed, not cut around",
+                  "The roof skin uncovered so it can be seen"]),
+                ("vinyl-top-roof-stripped-trim-removed",
+                 "The same roof stripped bare with the mouldings removed, ready for the new "
+                 "top",
+                 "48%", "The metal gets checked",
+                 ["Rust found and dealt with here, not sent out",
+                  "Skin cleaned back to a sound surface",
+                  "No new top goes on until it is right"]),
+                ("vinyl-top-after-opera-window-detail",
+                 "The finished vinyl top wrapped around the opera window on the same car",
+                 "50%", "New covering fitted",
+                 ["Grained vinyl matched to your paint or interior",
+                  "Wrapped properly around opera windows and quarters",
+                  "Mouldings refitted once the top is on"]),
+            ],
+        },
+        "pairs": [
+            ("vinyl-top-before-roof-covering-rotted",
+             "A vinyl roof covering rotted through to the padding",
+             "vinyl-top-burgundy-finished-in-the-bay",
+             "The same car with the finished burgundy vinyl top fitted",
+             "The same car &mdash; rotted through, then re-covered"),
+            ("vinyl-top-before-peeling-at-rear",
+             "Another car with the vinyl covering lifting and peeling at the rear",
+             "vinyl-top-after-burgundy-fitted",
+             "A finished vinyl top over the roof and rear quarter",
+             "Peeling at the rear &middot; a finished top on another car"),
+        ],
+        "work": {
+            "label": "Out of this shop",
+            "h2": "Vinyl and padded tops out of this shop",
+            "sub": ("Photographed in the bay at 4209 W Hwy 74, Monroe. Full vinyl roofs, "
+                    "landau and half tops, and padded cabriolet-style roofs."),
+            # FOUR TILES, not eight. There are only six vinyl-top photographs in
+            # the whole catalogue and two of them are already the step cards
+            # above, so a longer strip would have to repeat one — which dupcheck
+            # correctly failed on. Four fills the desktop row exactly. This is a
+            # photo shortage, not a layout choice: more vinyl jobs shot means a
+            # longer strip here and nothing else to change.
+            "photos": [
+                ("vinyl-top-after-burgundy-fitted",
+                 "A finished burgundy vinyl top over the roof and rear quarter"),
+                ("vinyl-top-before-peeling-at-rear",
+                 "A vinyl covering lifting and peeling at the rear"),
+                ("process-materials-vinyl-and-fabric-rolls",
+                 "Rolls of vinyl and top material kept at the shop"),
+                ("shot-275-hand-holding-vinyl-sample",
+                 "A vinyl sample held up against the car before the colour is chosen"),
+            ],
+        },
+        "review_taglines": {
+            "Robert Danneman": "Headliner and console leather",
+            "Charles Monk": "Headliner replacement",
+            "Ozzie Pagan": "Sunroof shade",
+            "Lauren Corgan": "Drove an hour",
+            "charmaine sealey": "Repeat customer",
+        },
+        "faq": {
+            "label": "Before you call",
+            "h2": "Answers first",
+            "items": [
+                ("Is a vinyl top the same job as a convertible top?",
+                 "No. A vinyl top is a covering bonded to a fixed steel roof; a convertible "
+                 "top is fabric over a folding frame with a rear window in it. We do both and "
+                 "they are priced completely differently. If your roof does not fold, this is "
+                 "the right page — if it does, see our convertible tops page."),
+                ("Is there rust under my vinyl top?",
+                 "Often there is some, and it is the real reason not to leave a failed top on "
+                 "the car. We strip the roof back and look at the metal before quoting the "
+                 "covering, not after — and we handle the rust here rather than sending it "
+                 "out. We will not fit a new top over it."),
+                ("Can a vinyl top be repaired instead of replaced?",
+                 "A lifting edge or an open seam can sometimes be re-bonded while the material "
+                 "is still soft. Once it has gone hard, split across the top, or rotted where "
+                 "water has been sitting, it is a recover. Bring it by and we will tell you "
+                 "honestly which one you have."),
+                ("Can you match the colour to my paint?",
+                 "That is usually where the job starts. Grained vinyl comes in a wide colour "
+                 "range and we will lay samples on the car in daylight before anything is "
+                 "ordered, because a colour that looks right indoors can read completely "
+                 "differently against your paint outside."),
+                ("How long does it take?",
+                 "It depends on what is under the old covering. A sound roof stripped and "
+                 "re-covered is straightforward; rust or a damaged skin adds time. We will "
+                 "tell you that with the old top off rather than spring it on you later."),
+            ],
+        },
+        "form": {
+            "big": "Send us a photo of the roof",
+            "p": ("A picture of the roof and anywhere it has lifted or split, plus the year, "
+                  "make and model, is usually enough for an estimate."),
+            "why": ["Free, and no obligation",
+                    "Nobody will chase you afterwards",
+                    "If the metal needs looking at in person, we will say so"],
+            "subject": "VINYL TOP estimate request from autotopsandtrim.com",
+            "placeholder": ("Where it has lifted or split, any bubbling around the rear "
+                            "window or the mouldings&hellip;"),
+            "filenote": "A photo of the roof and one of the rear window edge helps most.",
         },
     },
 ]
