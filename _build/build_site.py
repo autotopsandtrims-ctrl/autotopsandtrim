@@ -132,13 +132,10 @@ NAV = [
 # old "four trades under one roof — automotive, marine, aviation, motorcycle"
 # framing was the outlier and is gone from the ordering everywhere.
 #
-# Marine, aviation and motorcycle stay live and stay listed, but LAST — they are
-# demoted into a "We also work on" band on the home page and the services index.
-#
 # URLS ARE FROZEN. `auto-upholstery.html` is labelled "Vehicle Interiors" and
 # keeps its filename: it is indexed, internally linked from a dozen blog posts,
 # and renaming the file would 404 every one of them for no SEO gain.
-SERVICES = [
+ALL_SERVICES = [
     ("convertible-tops.html", "Convertible Tops"),
     ("vinyl-tops.html", "Vinyl Tops"),
     # LABEL IS "SUNROOFS" — the word on the business card. The file name stays
@@ -154,6 +151,38 @@ SERVICES = [
     ("aviation-upholstery.html", "Aviation Upholstery"),
     ("motorcycle-seats.html", "Motorcycle Seats"),
 ]
+
+# ---- PAUSED TRADES -------------------------------------------------------
+# Marine, aviation and motorcycle, paused 2026-08-09 on the owner's call: he is
+# not pushing them until he has photographs for them. This is the ONE switch —
+# it drives the footer Services list, the schema's makesOffer, the sitemap and
+# the robots tag on those three pages.
+#
+# IT DOES NOT TOUCH the "We also work on" band, deliberately. That band stays,
+# because it shows the shop still does this work, and its tiles are not links —
+# so it advertises range without routing anyone to a paused page. The SELECTION
+# is paused, the evidence of range is not. See also_band() in build_pages.py.
+#
+# He DOES all three. Aviation is the weakest of the claims (283 photos of real
+# work contain zero aircraft), marine has three real photographs and motorcycle
+# none — which is exactly why their stock images were pulled from the gallery
+# and the service pages in the first place. Pausing is the honest position:
+# nothing on the site now advertises a trade it cannot show.
+#
+# THE PAGES ARE STILL BUILT AND STILL REACHABLE — nothing 404s, and the marine
+# call-to-action at the foot of five published blog posts still lands somewhere
+# real. They are noindex,follow while paused, so they are not competing in
+# search for work he does not want to quote yet, and link equity still flows.
+#
+# TO BRING ONE BACK: delete its line here. That is the whole operation.
+PAUSED_SERVICES = {
+    "marine-upholstery.html",
+    "aviation-upholstery.html",
+    "motorcycle-seats.html",
+}
+
+# What the site actually links to. Everything reading SERVICES gets the live set.
+SERVICES = [s for s in ALL_SERVICES if s[0] not in PAUSED_SERVICES]
 
 # Social accounts, all on the same handle. In the footer and in the schema's
 # `sameAs`, which is how Google ties the profiles to the business. Icons are
@@ -174,8 +203,12 @@ SCHEMA = {
     "@context": "https://schema.org",
     "@type": "AutoRepair",
     "name": "Auto Tops and Trim",
+    # The trailing "Boat, aircraft and motorcycle upholstery too." came out when
+    # those three were paused — the description is the business's own claim about
+    # what it sells, and it should not advertise a trade the site has stopped
+    # listing. Put it back with them.
     "description": ("Convertible tops, vinyl tops, sunroofs and vehicle interiors in "
-                    "Monroe, NC since 1989. Boat, aircraft and motorcycle upholstery too."),
+                    "Monroe, NC since 1989."),
     "url": SITE,
     "telephone": PHONE_DISPLAY,
     "email": EMAIL,
@@ -204,13 +237,15 @@ SCHEMA = {
         {"@type": "OpeningHoursSpecification",
          "dayOfWeek": "Saturday", "opens": "11:00", "closes": "17:00"},
     ],
+    # Driven off SERVICES so a paused trade cannot keep being offered in the
+    # structured data after it has been pulled from the site. Schema that claims
+    # a service the site no longer lists is the kind of mismatch that is worth
+    # nothing at best. "Sunroofs" is spelled out here because the schema is read
+    # by machines, not by someone who has seen the business card.
     "makesOffer": [
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": n}}
-        # Same order as SERVICES, for the same reason: the card first, the three
-        # secondary trades last.
-        for n in ["Convertible Tops", "Vinyl Tops",
-                  "Sunroof Shade Repair", "Vehicle Interiors",
-                  "Marine Upholstery", "Aviation Upholstery", "Motorcycle Upholstery"]
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name":
+            {"Sunroofs": "Sunroof Shade Repair"}.get(label, label)}}
+        for _slug, label in SERVICES
     ],
 }
 
@@ -228,6 +263,13 @@ def faq_schema(faqs):
 
 
 def head(title, desc, path, extra_schema=None, faqs=None, preload="", extra_head=""):
+    # A paused trade should not be competing in search for work the owner is not
+    # ready to quote. `follow` and not `noindex,nofollow`: the page still passes
+    # link equity on to the pages that ARE live, and the five marine blog posts
+    # that link into it keep working. Reversible the moment the trade comes back —
+    # it is derived from PAUSED_SERVICES, not written on the page.
+    robots = ('<meta name="robots" content="noindex,follow">\n'
+              if path in PAUSED_SERVICES else "")
     # Canonical must point at the clean URL Vercel actually serves, not the .html
     # file, or every page would declare a canonical that immediately redirects.
     canonical = SITE + public_path(path)
@@ -247,7 +289,7 @@ def head(title, desc, path, extra_schema=None, faqs=None, preload="", extra_head
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<link rel="canonical" href="{canonical}">
+{robots}<link rel="canonical" href="{canonical}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="website">
@@ -323,15 +365,47 @@ def header(active):
 FOOT_EXTRA = []
 
 
+def split_callbar():
+    """The two-button call / text-a-photo sticky bar. PAID LANDING PAGES ONLY.
+
+    Scoped to the ad pages on the owner's call 2026-08-09. It shipped sitewide
+    first and was pulled back the same day, for a reason worth keeping:
+
+      On an ORGANIC page the alternative to a text is the contact FORM — name,
+      phone, email, vehicle. Offering a text there trades a complete, attributable
+      lead for an unidentified photo from an unknown number. It downgrades.
+
+      On a PAID page the alternative is losing the visitor entirely. They arrived
+      from an ad, they are standing next to the car with the camera already open,
+      and the form is eight fields. There a text rescues a click that is already
+      paid for. It upgrades.
+
+    Same component either way — `.callbar.split` lives in assets/site.css, and
+    `.callbar` stays on the wrapper so site.css keeps owning position, z-index,
+    the hide-above-1000px rule, the safe-area padding and the .site-foot
+    clearance. Only WHERE it is emitted changed.
+
+    (980) 385-8101 receives picture messages — confirmed by the owner. Call stays
+    the wider half: it is the only conversion Google can track. `sms:` carries no
+    body param on purpose — iOS wants &body=, Android wants ?body=, and one
+    syntax breaks the other.
+    """
+    return f"""<div class="callbar split">
+  <a class="cb cb-call" href="tel:{PHONE_TEL}">
+    <span class="callbar-ic" aria-hidden="true">&#9742;</span>Call {PHONE_DISPLAY}</a>
+  <a class="cb cb-text" href="sms:{PHONE_TEL}">
+    <span class="callbar-ic" aria-hidden="true">&#9993;</span>Text a photo</a>
+</div>"""
+
+
 def footer(lightbox="", callbar=None):
     """Closes <main>, then the footer.
 
-    `callbar` replaces the sticky mobile bar's MARKUP only. It keeps the
-    `.callbar` class, so site.css keeps owning the bar's position, z-index, the
-    hide-above-1000px rule and the .site-foot padding that clears it — a landing
-    page that invented its own fixed bar would have to re-derive all four and
-    would drift the day any of them changes. The landing pages pass a two-button
-    call/text split; everything else gets the single call link below.
+    `callbar` replaces the sticky mobile bar's MARKUP only, keeping the
+    `.callbar` class so site.css still owns position, z-index, the
+    hide-above-1000px rule and the .site-foot padding that clears it. The paid
+    landing pages pass split_callbar(); every other page gets the single call
+    link, which is the default.
 
     `lightbox` is emitted AFTER </main> on purpose. <main> carries the `pagein`
     animation, and an ancestor running a transform-affecting animation becomes the
@@ -351,27 +425,12 @@ def footer(lightbox="", callbar=None):
         f'<li><a href="{url}" target="_blank" rel="noopener" aria-label="{name}">'
         f'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="{path}"/></svg>'
         f'</a></li>' for name, url, path in SOCIALS)
-    # SPLIT CALL / TEXT, sitewide, 2026-08-09.
-    #
-    # (980) 385-8101 receives picture messages — confirmed by the owner. The
-    # whole site's ask is "send us a photo of the job", and until now the only
-    # way to do that was an eight-field form. Someone reading this on a phone is
-    # standing next to the car with the camera already open; a text is a few
-    # seconds, the form is not.
-    #
-    # `.callbar` is kept on the WRAPPER so site.css keeps owning position,
-    # z-index, the hide-above-1000px rule, the safe-area padding and the
-    # .site-foot clearance. `.split` only changes the internal layout.
-    #
-    # Call stays the wider half: it is the only conversion Google can track, so
-    # it should not lose the emphasis. sms: carries no body param on purpose —
-    # iOS wants &body=, Android wants ?body=, and one syntax breaks the other.
-    bar = callbar if callbar is not None else f"""<div class="callbar split">
-  <a class="cb cb-call" href="tel:{PHONE_TEL}">
-    <span class="callbar-ic" aria-hidden="true">&#9742;</span>Call {PHONE_DISPLAY}</a>
-  <a class="cb cb-text" href="sms:{PHONE_TEL}">
-    <span class="callbar-ic" aria-hidden="true">&#9993;</span>Text a photo</a>
-</div>"""
+    # CALL ONLY is the site default. The text-a-photo half is PAID-TRAFFIC ONLY —
+    # see split_callbar() and the note on it.
+    bar = callbar if callbar is not None else f"""<a class="callbar" href="tel:{PHONE_TEL}">
+  <span class="callbar-ic" aria-hidden="true">&#9742;</span>
+  Call {PHONE_DISPLAY} &middot; Free Estimate
+</a>"""
     return f"""</main>
 {lightbox}
 <footer class="site-foot">

@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import (  # noqa: E402
     IMAGES, SITE, PHONE_DISPLAY, PHONE_TEL, EMAIL, OUT, REPLY_PROMISE,
     img, has, head, header, footer, cta, shead, quote_form, write, NAV, SERVICES, SCHEMA,
-    preload_image, public_path,
+    preload_image, public_path, PAUSED_SERVICES,
 )
 from build_landing import landing_page  # noqa: E402
 
@@ -242,6 +242,20 @@ def also_band(label="We also work on",
 
     Unnumbered on purpose: every other band carries a section number, so an
     unnumbered one reads as secondary, which is what this band is.
+
+    THIS BAND SURVIVES THE PAUSE, on the user's call 2026-08-09. Marine, aviation
+    and motorcycle are in PAUSED_SERVICES — unlinked from the footer, noindexed
+    and out of the sitemap — but this band stays exactly as it is, because it
+    shows the shop still DOES that work. That is not a contradiction: the tiles
+    are not links, so nothing here promotes a paused page or sends a visitor to
+    one. What is paused is the SELECTION; what stays is the evidence of range.
+
+    So do not "tidy" this by filtering it against PAUSED_SERVICES. That was tried
+    on 2026-08-09 and reverted the same day.
+
+    ⚠️ The card count is load-bearing — `.also-col:nth-child(N)` in site.css sets
+    the arc and there is a five-card override, so all five tiles have to stay
+    together or the fan needs retuning.
     """
     cols = "".join(
         f'<figure class="also-col">{img(photo, "", QUARTER)}'
@@ -1620,9 +1634,17 @@ def build_contact():
       </div>
       <div class="infocol">
         <ul class="infolist">
-          <li><span class="k">Call or text the shop</span>
-            <span class="v"><a class="big" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>
-              <a class="textlink" href="sms:{PHONE_TEL}">Text a photo of the job &rarr;</a></span></li>
+          <!-- Deliberately NO "text a photo" link here (reverted 2026-08-09).
+               On a paid landing page the alternative to a text is losing the
+               visitor, so it rescues a lead. On THIS page the alternative is the
+               form beside it: someone who navigated to Contact has already
+               decided to reach out. A text here would trade a name, phone,
+               email, year/make/model and a description for an unidentified
+               photo. Cannibalisation, not incrementality.
+               The sticky mobile bar still offers text, which is correct - that
+               is a utility, not the designed path on this page. -->
+          <li><span class="k">Call the shop</span>
+            <span class="v"><a class="big" href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></span></li>
           <li><span class="k">Visit</span>
             <span class="v"><strong>4209 W Hwy 74</strong><br>Monroe, NC 28110<br>
               <a href="https://www.google.com/maps/search/?api=1&amp;query=4209+W+Hwy+74,+Monroe,+NC+28110"
@@ -1775,7 +1797,7 @@ POSTS = [
         "cat": "Marine", "publish": "2026-08-04", "read": "4 min read",
         # Was the unverified runabout-cockpit stock shot — off the site entirely
         # as of the 2026-08-07 restructure.
-        "photo": "upholstery-materials-and-marine-project-parts",
+        "photo": "shot-032-white-helm-seat-angle",
         "title": "Marine vinyl vs. automotive leather: what belongs on a boat",
         "seo_title": "Marine Vinyl vs Leather: What Belongs on a Boat | Auto Tops and Trim",
         "meta": "Why marine grade vinyl outlasts leather on the water — UV, mildew and "
@@ -2061,7 +2083,7 @@ POSTS = [
     {
         "slug": "blog-how-to-clean-boat-seats.html",
         "cat": "Marine", "publish": "2026-08-06", "read": "5 min read",
-        "photo": "boat-upholstery-projects-at-the-shop",
+        "photo": "boat-cockpit-cream-and-grey",
         "title": "How to clean boat seats without wrecking them",
         "seo_title": "How to Clean Boat Seats (Vinyl) the Right Way | Auto Tops and Trim",
         "meta": "How to clean vinyl boat seats safely — what to use, what quietly destroys the "
@@ -2820,7 +2842,7 @@ POSTS = [
         "cat": "Marine", "publish": "2026-08-10", "read": "5 min read",
         # NOT marine-boat-cushions-canvas or g22 — both are the same photograph as
         # marine-seating-and-interior-upholstery (see the duplicate map above GALLERY).
-        "photo": "boat-upholstery-projects-at-the-shop",
+        "photo": "boat-on-the-trailer-at-the-shop",
         "title": "Bimini top replacement: measuring, bows and fabric choice",
         "seo_title": "Bimini Top Replacement: Bows, Measuring and Fabric | Auto Tops and Trim",
         "meta": "Replacing a bimini top — how bow count and frame width decide fit, which fabric "
@@ -3871,18 +3893,21 @@ LANDINGS = [
                  "restoration work."),
             ],
         },
-        "extra": {
-            "label": "Worth reading first",
-            "h2": "If you would rather try it yourself",
-            "sub": ("We have written up the honest version &mdash; what the DIY fixes "
-                    "actually do, and when they will not hold."),
-            "links": [
-                ("blog-how-to-fix-a-sagging-headliner.html",
-                 "How to fix a sagging headliner"),
-                ("blog-headliner-replacement-cost.html",
-                 "What headliner replacement costs"),
-            ],
-        },
+        # NO "extra" BAND. Removed 2026-08-09.
+        #
+        # This is a PAID landing page. Every click costs about $2.50, and this
+        # band offered that visitor a button reading "How to fix a sagging
+        # headliner" — paying to hand someone instructions for not hiring us.
+        # It was also two heavy black buttons and a whole extra band of scroll
+        # sitting between the FAQ and the form.
+        #
+        # The internal-link value is real but small, and those posts already
+        # rank on their own; they do not need a paid page feeding them. If the
+        # link is wanted for SEO it belongs inline inside a FAQ answer, not as
+        # buttons competing with the form.
+        #
+        # The `extra` band still exists in build_landing.py for any page that
+        # genuinely wants it — this page just does not pass one.
         "form": {
             "big": "Send us a photo of it",
             "p": ("A picture of the sagging area plus the year, make and model is usually "
@@ -4079,18 +4104,9 @@ LANDINGS = [
                  "The shop has been doing both in Monroe since 1989."),
             ],
         },
-        "extra": {
-            "label": "Worth reading first",
-            "h2": "If you would rather understand the job first",
-            "sub": ("We have written the honest version of what these repairs involve, "
-                    "and what moves the price."),
-            "links": [
-                ("blog-torn-car-seat-repair.html", "Torn car seat repair"),
-                ("blog-leather-car-seat-repair.html", "Leather car seat repair"),
-                ("blog-cost-to-reupholster-car-seats.html",
-                 "What reupholstering seats costs"),
-            ],
-        },
+        # NO "extra" BAND — same reasoning as the headliner page above. Paid
+        # traffic should not be offered three buttons out to blog posts before
+        # it reaches the form.
         "form": {
             "big": "Send us a photo of it",
             "p": ("A picture of the tear or the worn panel, plus the year, make and "
@@ -4118,11 +4134,14 @@ def build_meta():
     _lb_reset()
     # Clean URLs here too — a sitemap listing .html would hand Google a list of
     # URLs that all redirect, and the canonicals point elsewhere.
+    # Paused trades stay out: a sitemap entry is a request to index, and those
+    # three pages carry noindex. Asking Google to crawl a page that tells it not
+    # to index is a contradiction, and Search Console reports it as one.
     urls = "".join(
         f"<url><loc>{SITE}{public_path(pg)}</loc>"
         f"<changefreq>monthly</changefreq>"
         f"<priority>{'1.0' if pg == 'index.html' else '0.8'}</priority></url>"
-        for pg in pages)
+        for pg in pages if pg not in PAUSED_SERVICES)
     write("sitemap.xml",
           '<?xml version="1.0" encoding="UTF-8"?>\n'
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'

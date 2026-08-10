@@ -46,7 +46,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import (  # noqa: E402
     PHONE_DISPLAY, PHONE_TEL, REPLY_PROMISE, FORM_ENDPOINT, FORM_ACCEPTS_FILES,
-    img, head, header, footer, preload_image, write,
+    img, head, header, footer, preload_image, write, split_callbar,
 )
 
 HERO_SIZES = "(min-width:900px) 46vw, 100vw"
@@ -100,8 +100,21 @@ LANDING_CSS = """<style>
 .lp .btn:hover{transform:translateY(-1px)}
 .lp .btn-primary{background:var(--btn);color:#fff}
 .lp .btn-primary:hover{background:#17497a}
-.lp .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
-.lp .btn-ghost:hover{background:rgba(255,255,255,.1)}
+/* btn-ghost DEFAULTS TO DARK TEXT, exactly as it does in site.css.
+   This was `color:#fff` unscoped, which is correct in the hero and invisible
+   everywhere else — the "See the full gallery" button under the photo strip sits
+   on a WHITE band and was rendering white-on-white. It was in the DOM the whole
+   time, which is why grepping the HTML kept saying it was present.
+   site.css line ~197 does exactly this: dark by default, white only on a dark
+   surface. Same lesson as the review marquee's edge mask — a component has to
+   carry the surface it was designed for. */
+.lp .btn-ghost{background:transparent;color:var(--ink);
+  border-color:rgba(42,46,51,.25)}
+.lp .btn-ghost:hover{background:rgba(42,46,51,.06)}
+.lp .hero .btn-ghost,.lp .dark .btn-ghost,.lp .on-dark .btn-ghost,
+.lp .cta .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45)}
+.lp .hero .btn-ghost:hover,.lp .dark .btn-ghost:hover,
+.lp .on-dark .btn-ghost:hover,.lp .cta .btn-ghost:hover{background:rgba(255,255,255,.1)}
 .lp .btn-dark{background:var(--ink);color:#fff}
 .lp .btnrow{display:flex;flex-wrap:wrap;gap:12px}
 
@@ -390,25 +403,12 @@ LANDING_CSS = """<style>
 .lp .cta .micro{margin-top:20px;font-size:11.5px;letter-spacing:.14em;
   text-transform:uppercase;font-weight:700;color:#7F97AE}
 
-/* ---------- STICKY BAR, SPLIT (DRAFT v16) ---------------------------------
-   NOT scoped under .lp: the bar is emitted outside <main>, because <main>
-   carries the pagein animation and a transform-animated ancestor becomes the
-   containing block for position:fixed children — that is what stranded this bar
-   once already.
-   It keeps the .callbar class so site.css still owns where it sits, its z-index,
-   the hide-above-1000px rule and the .site-foot padding that clears it. Only the
-   split is added here. Someone reading this on a phone already has the camera in
-   their hand and the car in front of them. Call stays the wider half — it is the
-   tracked conversion. */
-.callbar-split{padding:0;gap:0;align-items:stretch}
-.callbar-split .cb{flex:1;display:flex;align-items:center;justify-content:center;
-  padding:15px 10px calc(15px + env(safe-area-inset-bottom));
-  color:#fff;font-weight:800;text-decoration:none;font-size:15.5px;letter-spacing:-.01em}
-.callbar-split .cb.call{flex:1.35}
-/* #16344F is the site's --blue-deep. Hard-coded because this rule lives outside
-   .lp, where the landing tokens are not in scope. */
-.callbar-split .cb.text{background:#16344F;box-shadow:inset 1px 0 0 rgba(255,255,255,.14)}
-.callbar-split .cb:active{filter:brightness(1.12)}
+/* NO STICKY-BAR RULES HERE. The split call/text bar is the SITE's component now
+   — `.callbar.split` in assets/site.css, emitted by footer() on every page.
+   This block used to carry a second implementation of it and that was a bug
+   waiting to happen: same component, two class names, two sets of mobile tuning,
+   and only the landing pages getting the second one. If the bar needs changing,
+   change it in site.css and every page moves together. */
 
 /* ==========================================================================
    MOBILE PASS  (< 900px)
@@ -717,7 +717,11 @@ def landing_page(cfg, reviews, pages=None):
     <div class="strip">
 {tiles}    </div>
     <div class="btnrow" style="margin-top:28px;justify-content:center">
-      <a class="btn btn-dark" href="gallery.html">See more of our work</a>
+      <!-- btn-ghost, not btn-dark. This matches the home page's own recent-work
+           CTA exactly ("See the full gallery"), which is a transparent button
+           with a hairline border. A black slab pulled more attention than a
+           secondary link deserves, and competed with the blue Call button. -->
+      <a class="btn btn-ghost" href="gallery.html">See the full gallery</a>
     </div>
   </div>
 </section>
@@ -730,8 +734,19 @@ def landing_page(cfg, reviews, pages=None):
     # than volume. See the module docstring, rule 1.
     n += 1
     tags = cfg["review_taglines"]
+    # DARK BAND, not tint. Changed 2026-08-09.
+    #
+    # The review cards are #2F343A. On a light tint band their edges cut hard
+    # against near-white as they scroll off, which reads as a bright fringe at
+    # both sides — the exact thing the user kept flagging. Removing the site's
+    # edge mask helped but could not fix it, because the mask was never the
+    # cause: the CONTEXT was. The site's own review marquee sits on a dark band,
+    # which is why it looks right there and wrong here.
+    #
+    # Same lesson as the mask and the pair deck: copy the component AND the
+    # surface it was designed for, not just its CSS.
     h += f"""
-<section class="band tint">
+<section class="band dark on-dark">
   <div class="wrap">
     {shead(n, "From customers")}
     <h2>Nobody has ever left this shop a bad review</h2>
@@ -823,10 +838,13 @@ def landing_page(cfg, reviews, pages=None):
 """
 
     h += "</div>\n"
-    h += footer(callbar=f"""<div class="callbar callbar-split">
-  <a class="cb call" href="tel:{PHONE_TEL}">&#9742;&nbsp; Call {PHONE_DISPLAY}</a>
-  <a class="cb text" href="sms:{PHONE_TEL}">&#9993;&nbsp; Text a photo</a>
-</div>""")
+    # The split call / text-a-photo bar, which ONLY the paid landing pages get.
+    # The markup and the reasoning both live in split_callbar() in build_site.py,
+    # and the styling is `.callbar.split` in site.css — this passes the site's
+    # component through rather than defining a second one, which is what it used
+    # to do (same bar, different class names, different mobile tuning, and only
+    # these two pages getting the fork).
+    h += footer(callbar=split_callbar())
     if pages is not None:
         pages.append(slug)
     return write(slug, h)

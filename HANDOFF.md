@@ -1,4 +1,100 @@
-# Auto Tops and Trim — Handoff
+# Auto Tops and Trim - Handoff
+
+**Last updated: 2026-08-09**
+
+---
+
+## STATE AS OF 2026-08-09 - READ THIS BEFORE THE OLDER SECTIONS BELOW
+
+Several things further down this file are now WRONG. Corrections first.
+
+### Corrections to older sections
+- **The apex TLS blocker is FIXED.** Open item 1 below still describes it as
+  broken. It is not - one A record, valid cert, 308 to www.
+- **The Vercel preview URL below is DEAD.** It 404s on `/vinyl-tops`, a page
+  that has been live for days, so it is pinned to an old deployment and is no
+  longer tracking `rebuild`. **There is currently no way to review a production
+  change before it ships.** This needs fixing in the Vercel dashboard.
+- **"Only 7 of the 283 photos adopted" is stale.** 14 headliner photos were
+  imported 2026-08-09 (HEIC converted, variants built, images.json rebuilt),
+  on top of others adopted since.
+- **The reply promise is now ONE HOUR**, scoped to shop hours, not one business
+  day. Set in `REPLY_PROMISE` in `_build/build_site.py` and nowhere else.
+
+### NEW: there is now a landing-page generator
+`_build/build_landing.py` builds a conversion-focused page type for the Google
+Ads campaign. **Two pages are already converted to it:**
+
+- `headliner-replacement.html`
+- `auto-upholstery.html`
+
+Structure: hero -> trust strip -> the argument -> 3 step cards with photos ->
+before/after `.pair` deck -> photo strip -> sliding reviews on a DARK band ->
+FAQ -> inline form + map -> split call/text sticky bar. Full mobile pass.
+
+Three pages still to convert: **sunroof**, **convertible tops**, **vinyl tops**.
+
+**`_draft-headliner.html` is a STALE PROTOTYPE.** It predates the generator, is
+git-excluded, and caused real confusion by looking nothing like the finished
+page. Delete it.
+
+### RULES FOR THESE PAGES - learned the hard way, all four from user corrections
+1. **Replicate the site's components AND the surface they were designed for.**
+   The review marquee's edge mask only works on a DARK band. The before/after
+   had to become the site's own `.pair` deck. Buttons use `btn-ghost` exactly as
+   the home page does.
+2. **`.lp .btn-ghost` must default to DARK text.** It was `color:#fff` unscoped,
+   which is right in the hero and invisible everywhere else - the "See the full
+   gallery" button rendered white-on-white for hours while grep kept reporting
+   it present. **Grepping the HTML does not prove anyone can see it.**
+3. **Never surface a review count.** "9 reviews" and "two of them are
+   headliners" were both cut. Use "nobody has ever left this shop a bad review" -
+   true, because 5.0 across nine means every one is five stars.
+4. **Never deny an accusation nobody made.** "Nothing bought, nothing written by
+   us" and "nothing here is a stock photo" were both cut.
+Also: no links out to blog posts on a paid page; do not repeat information
+between bands; captions come from opening the photo, never the filename.
+
+### Text-a-photo route, shipped sitewide
+The shop's number receives picture messages. The sticky mobile bar is now split
+call/text on every page (`.callbar.split` in site.css, markup in
+`build_site.footer()`). **Deliberately NOT on the contact page** - there the
+alternative to a text is the form, so it would downgrade a complete lead into an
+unidentified photo. On a paid landing page the alternative is losing the visitor.
+
+### OWNER INTERVIEW 2026-08-09 - verified facts for page copy
+- **Sunroof: he takes the unit OUT of the car, rebuilds it and refits the
+  original.** No new part sold. He does cables, motors, the mechanical side.
+- **He does NOT want sunroof INSTALLATION** (fitting one to a car with none).
+  He can, he would refer it out. Do not build a page for it.
+- **Turnaround: one hour to a full day.** Verified - this can go on the pages.
+- **Convertible tops: he buys and owns his materials** (Stayfast, vinyl, cloth).
+  Heated glass comes with the top; one Mercedes needed a special build. He does
+  frames, pads, bows and fabric. He does Jeep soft tops. He quotes by calling the
+  top manufacturer and adding his labour.
+- **The red vinyl top IS vinyl.** This resolves the old caption flag on
+  vinyl-tops.html. He handles rust himself and will not put a top over rust.
+- **Auto upholstery: everything inside the car**, single seats or whole
+  interiors. **Most of the work is old classic cars.**
+- **He takes commercial work from new car dealers.** Nothing on the site says so.
+- **No price ranges** - it varies and he will not give one.
+- **Marine and motorcycle: he DOES both.** He used to run a marine shop and does
+  motorcycle seats often. The only blocker is photos - 3 marine, 0 motorcycle.
+- Christmas is slow. He wants card payments and is losing business without them.
+
+### Photo reality
+**There is no same-car before/after anywhere in the 283 photos.** Four separate
+jobs, none with both ends. Getting one job shot end to end is the single
+strongest asset any of these pages could carry.
+Coverage: interiors 85 · convertible tops 62 · customer vehicles 42 ·
+headliners 16 · vinyl 14 · carpet 14 · marine 3 · sunroof shade 2.
+
+### The ads project lives outside this repo
+`c:\Claude Code\att_ads` - keywords, ad copy, and three validators that must all
+pass before anything is created in the Google Ads account. Full state is at the
+top of `c:\Claude Code\.claude\CHECKPOINT.md`.
+
+---
 
 Read this first in a new chat. Everything needed to continue is in this repo.
 
