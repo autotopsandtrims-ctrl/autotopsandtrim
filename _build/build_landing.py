@@ -46,6 +46,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import (  # noqa: E402
     PHONE_DISPLAY, PHONE_TEL, REPLY_PROMISE, FORM_ENDPOINT, FORM_ACCEPTS_FILES,
+    SITE, THANKS_PAGE,
     img, head, header, footer, preload_image, write, split_callbar,
 )
 
@@ -322,7 +323,16 @@ LANDING_CSS = """<style>
 
 /* ---------- 9. FORM ---------- */
 .lp .formwrap{display:grid;gap:34px;grid-template-columns:1fr;align-items:start}
-@media(min-width:940px){.lp .formwrap{grid-template-columns:.85fr 1.15fr;gap:52px}}
+/* Desktop is PINNED so pulling the map out of .formside changed nothing here:
+   formside top-left, form down the right, map under formside exactly as before.
+   On mobile these rules do not apply and the three children stack in DOM order —
+   formside, form, map — which is the order the page actually wants. */
+@media(min-width:940px){
+  .lp .formwrap{grid-template-columns:.85fr 1.15fr;gap:52px}
+  .lp .formwrap > .formside{grid-column:1;grid-row:1}
+  .lp .formwrap > .quote{grid-column:2;grid-row:1/span 2}
+  .lp .formwrap > .mapblock{grid-column:1;grid-row:2;margin-top:-30px}
+}
 .lp .formside .big{font-size:clamp(26px,3.6vw,36px);font-weight:800;letter-spacing:-.03em;
   line-height:1.1;color:#fff;margin-bottom:14px}
 .lp .formside p{color:#B9CBDC;font-size:16.5px;margin-bottom:22px;max-width:44ch}
@@ -370,14 +380,17 @@ LANDING_CSS = """<style>
 .lp .quote input:focus,.lp .quote textarea:focus{outline:none;border-color:var(--blue);
   box-shadow:0 0 0 3px rgba(47,111,176,.16)}
 .lp .quote textarea{resize:vertical;min-height:96px}
-/* SITE VALUES. Both stack to one column by default and only split at 560px.
-   Forcing .f3 to three columns at every width put Year / Make / Model side by
-   side on a 360px phone at about 100px each. */
+/* Split EARLY. These used to hold at one column until 560px, which meant a
+   430px phone (iPhone 16 Pro Max) stacked all eight fields into one column and
+   the form ran to roughly three full screens of scrolling — the single biggest
+   mobile complaint on this page.
+   The old note warned that three columns at 360px gives ~100px each. True, so
+   .f3 waits for 400px (~118px a column, fine for Year / Make / Model, which take
+   4-10 characters) while .f2 splits at 380px (~170px a column). Below that a
+   phone really is too narrow and they stack, which is correct. */
 .lp .f2,.lp .f3{display:grid;gap:13px;grid-template-columns:1fr}
-@media(min-width:560px){
-  .lp .f2{grid-template-columns:1fr 1fr}
-  .lp .f3{grid-template-columns:repeat(3,1fr)}
-}
+@media(min-width:380px){.lp .f2{grid-template-columns:1fr 1fr}}
+@media(min-width:400px){.lp .f3{grid-template-columns:repeat(3,1fr)}}
 .lp .filefield input[type=file]{font:inherit;font-size:14px;font-weight:400;
   padding:11px;border:1.5px dashed var(--rule);border-radius:var(--r-ctl);
   background:var(--tint2);width:100%;cursor:pointer}
@@ -430,6 +443,37 @@ LANDING_CSS = """<style>
   .lp .btnrow{gap:10px}
   .lp .btn{padding:13px 18px;font-size:15.5px;flex:1 1 auto;min-width:0}
 
+  /* HERO PHOTO. It had no aspect ratio on a phone, so it rendered at the
+     source's own proportions and ate most of the first screen — the h1 was
+     pushed below the fold and the shot read as "cut off" because all a visitor
+     saw was foreground. 3:2 crops it to a landscape band, and the 42% vertical
+     origin keeps the CAR in frame instead of centring on the driveway. */
+  .lp .hero-media img{aspect-ratio:3/2;height:auto;object-position:center 42%}
+
+  /* Both hero CTAs on ONE row. `flex-wrap:wrap` plus `flex:1 1 auto` let them
+     wrap into two full-width slabs the moment the text was wider than the row,
+     which at 430px it always is. Pinning nowrap + `flex:1 1 0` makes them share
+     the width equally, and the font scales down rather than wrapping. */
+  .lp .hero .btnrow{flex-wrap:nowrap}
+  .lp .hero .btnrow .btn{flex:1 1 0;white-space:nowrap;padding:13px 8px;
+    font-size:clamp(12px,3.15vw,15.5px)}
+
+  /* TRUST STRIP: four across, not a 2x2 block. Type scales with the viewport so
+     nothing is clipped — the labels wrap onto a second line on a narrow phone,
+     which is fine; cropping would not be. */
+  .lp .trust .wrap{grid-template-columns:repeat(4,1fr)}
+  .lp .trust .t{padding:13px 9px;gap:2px}
+  .lp .trust .big{font-size:clamp(12.5px,3.3vw,17px);line-height:1.15;
+    letter-spacing:-.01em}
+  .lp .trust .sm{font-size:clamp(8px,2.05vw,10.5px);letter-spacing:.045em;
+    line-height:1.25;color:#9DB8D0}
+
+  /* BEFORE / AFTER: it shares a section with the service cards, so on a phone it
+     ran straight on from them and read as more of the same block. It is a
+     different idea and needs to look like one — a rule and real air above it. */
+  .lp .pairs{margin-top:clamp(30px,7vw,44px);padding-top:clamp(26px,6vw,38px);
+    border-top:1px solid var(--rule)}
+
   .lp .band h2{margin-bottom:11px}
   .lp .band .sub{font-size:15.5px}
 
@@ -449,16 +493,28 @@ LANDING_CSS = """<style>
   .lp .strip{gap:9px}
   .lp .strip figure:nth-child(n+7){display:none}
 
-  /* form */
-  .lp .quote{padding:20px 18px 22px;gap:12px}
-  .lp .quote label{font-size:12.5px;gap:5px}
+  /* FORM. Compacted hard — this was the worst offender on the page, running to
+     roughly three screens of scrolling. The pairing of fields (.f2/.f3 above)
+     does most of the work; these tighten what is left. Input font stays 16px
+     because anything smaller makes iOS zoom the page on focus. */
+  .lp .quote{padding:18px 16px 20px;gap:10px}
+  .lp .quote label{font-size:12px;gap:4px}
   .lp .quote input[type=text],.lp .quote input[type=tel],.lp .quote input[type=email],
-  .lp .quote textarea{padding:11px 12px;font-size:16px}   /* 16px stops iOS zooming */
-  .lp .quote textarea{min-height:88px}
-  .lp .quote .send{padding:15px;font-size:16px}
+  .lp .quote textarea{padding:9px 11px;font-size:16px}   /* 16px stops iOS zooming */
+  .lp .quote textarea{min-height:74px}
+  .lp .f2,.lp .f3{gap:9px}
+  .lp .quote .send{padding:14px;font-size:16px;margin-top:2px}
+  .lp .quote .consent{font-size:12.5px;gap:9px}
+  .lp .quote .fieldnote{font-size:11.5px}
+  .lp .quote .promise{font-size:12.5px;margin-top:8px}
   .lp .formside .big{margin-bottom:11px}
   .lp .formside p{margin-bottom:18px;font-size:15.5px}
-  .lp .mapwrap iframe{height:180px}
+  .lp .formside .why{margin-bottom:20px;gap:9px}
+
+  /* Map now sits at the very bottom of the section, after the form. */
+  .lp .mapblock{margin-top:4px}
+  .lp .mapwrap{margin-top:0}
+  .lp .mapwrap iframe{height:170px}
 
   /* FAQ */
   .lp summary{font-size:15.5px;padding:16px 34px 16px 0}
@@ -570,6 +626,9 @@ def landing_form(subject, placeholder, filenote):
         </label>""" if FORM_ACCEPTS_FILES else ""
     return f"""<form class="quote" action="{FORM_ENDPOINT}" method="post"{enctype}>
         <input type="hidden" name="_subject" value="{subject}">
+        <!-- Formspree redirects here on success; that page fires the Google Ads
+             conversion. See TRACKED_PAGES in build_site.py. -->
+        <input type="hidden" name="_next" value="{SITE}/{THANKS_PAGE[:-5]}">
         <div class="hp" aria-hidden="true">
           <label>Leave this field empty
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
@@ -765,10 +824,14 @@ def landing_page(cfg, reviews, pages=None):
     # ---- 6. FAQ -----------------------------------------------------------
     n += 1
     f = cfg["faq"]
+    # FAQ starts fully CLOSED. The first item used to be forced open, which on a
+    # phone pushed the rest of the list down and made the section read as longer
+    # than it is. Closed, every question is visible at once — which is the point
+    # of an accordion.
     items = "".join(
-        f'<details{" open" if i == 0 else ""}><summary>{q}</summary>'
+        f'<details><summary>{q}</summary>'
         f'<div class="ans">{a}</div></details>'
-        for i, (q, a) in enumerate(f["items"]))
+        for q, a in f["items"])
     h += f"""
 <section class="band">
   <div class="wrap narrow">
@@ -821,8 +884,18 @@ def landing_page(cfg, reviews, pages=None):
             <span class="ci">&#9993;</span>
             <span><b>Text a photo</b><em>Same number &middot; send a picture of the job</em></span></a>
         </div>
+      </div>
 
-        <!-- Same Google Maps embed as the contact page. -->
+      {landing_form(fm["subject"], fm["placeholder"], fm["filenote"])}
+
+      <!-- Same Google Maps embed as the contact page.
+           MOVED OUT of .formside 2026-08-10. It used to sit inside the left
+           column, which on a phone (one column) put a 210px map BETWEEN the
+           "text a photo" links and the form — so the map interrupted the exact
+           path the page is trying to push people down. As its own grid child it
+           falls naturally last on mobile, and desktop is pinned back to column 1
+           row 2 below so the two-column layout is unchanged. -->
+      <div class="mapblock">
         <div class="mapwrap">
           <iframe title="Map to Auto Tops and Trim, {ADDRESS}" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -830,8 +903,6 @@ def landing_page(cfg, reviews, pages=None):
         </div>
         <p class="maplbl"><a href="https://www.google.com/maps/search/?api=1&amp;query={MAP_Q}">{ADDRESS}</a><br>{HOURS_LINE}</p>
       </div>
-
-      {landing_form(fm["subject"], fm["placeholder"], fm["filenote"])}
     </div>
   </div>
 </section>

@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_site import (  # noqa: E402
     IMAGES, SITE, PHONE_DISPLAY, PHONE_TEL, EMAIL, OUT, REPLY_PROMISE,
     img, has, head, header, footer, cta, shead, quote_form, write, NAV, SERVICES, SCHEMA,
-    preload_image, public_path, PAUSED_SERVICES,
+    preload_image, public_path, PAUSED_SERVICES, THANKS_PAGE,
 )
 from build_landing import landing_page  # noqa: E402
 
@@ -4440,6 +4440,175 @@ def build_landings():
         landing_page(cfg, REVIEWS, pages)
 
 
+def build_privacy():
+    """The privacy policy.
+
+    Written from what the site ACTUALLY does, not from a template: the form
+    fields in quote_form()/landing_form(), Formspree as the processor, Google
+    Workspace for the mail, the Google Ads conversion tag on TRACKED_PAGES, and
+    the SMS consent checkbox. If any of those change, this page changes with it —
+    a policy describing things the site does not do is worse than none, because
+    it is a published claim that is not true.
+
+    Deliberately NOT in TRACKED_PAGES: a privacy policy carrying advertising
+    cookies is a bad look and there is nothing to measure here.
+    """
+    _lb_reset()
+    p = "privacy.html"
+    h = head("Privacy Policy | Auto Tops and Trim, Monroe NC",
+             "How Auto Tops and Trim in Monroe, NC collects, uses and protects the "
+             "information you send through our website, including quote requests, "
+             "photos and text message consent.", p)
+    h += header("")
+    h += f"""<section class="hero">
+  <div class="wrap">
+    <div class="stack">{shead("", "Privacy")}
+      <h1>Privacy Policy</h1>
+      <p class="lead">This explains what we collect when you contact us, why we
+         collect it, and what we do with it. Last updated 10 August 2026.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap stack">
+    <div class="stack">{shead("01", "Who we are")}
+      <p>Auto Tops and Trim, 4209 W Hwy 74, Monroe, NC 28110.
+         Telephone <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a>.
+         Email <a href="mailto:{EMAIL}">{EMAIL}</a>.
+         This policy covers {SITE}.</p></div>
+
+    <div class="stack">{shead("02", "What we collect")}
+      <p>We only collect what you choose to send us. If you fill in a quote or
+         estimate form on this site, that is:</p>
+      <ul class="ticks">
+        <li>Your first and last name</li>
+        <li>Your phone number and email address</li>
+        <li>Your vehicle year, make and model</li>
+        <li>A description of the work you need</li>
+        <li>Any photographs you choose to attach</li>
+        <li>Whether you agreed to receive text messages about your estimate</li>
+      </ul>
+      <p>You can call the shop instead and send us nothing at all. Only the name,
+         phone, email and description are required on the form &mdash; the vehicle
+         details and photographs are optional, though they usually let us quote
+         without you bringing the vehicle in.</p>
+      <p><b>A note on photographs.</b> Pictures of a vehicle often show a licence
+         plate, a driveway or a house. We use them to prepare your quote. We do not
+         publish a customer's photograph on this website or anywhere else without
+         asking that customer first.</p></div>
+
+    <div class="stack">{shead("03", "Why we collect it and what we do with it")}
+      <p>To reply to you with an estimate and to carry out work you ask us to do.
+         That is the whole purpose. We do not sell your information, we do not rent
+         it, and we do not pass it to anyone for their own marketing.</p></div>
+
+    <div class="stack">{shead("04", "Who processes it for us")}
+      <ul class="ticks">
+        <li><b>Formspree</b> receives and stores submissions from our forms, and
+            emails them to us. Their privacy policy is at
+            <a href="https://formspree.io/legal/privacy-policy" rel="nofollow noopener"
+               target="_blank">formspree.io/legal/privacy-policy</a>.</li>
+        <li><b>Google Workspace</b> hosts the email account those messages arrive in.</li>
+        <li><b>Vercel</b> hosts this website and keeps standard server logs.</li>
+        <li><b>Google Ads</b> measures which adverts lead to enquiries. See below.</li>
+      </ul></div>
+
+    <div class="stack">{shead("05", "Text messages")}
+      <p>The text message box on our forms is optional and is never ticked for you.
+         If you tick it, you are agreeing to let us text you about your estimate.
+         Message and data rates may apply. Reply <b>STOP</b> to any message and we
+         will stop texting you. Consent to texts is not a condition of getting a
+         quote or having work done.</p></div>
+
+    <div class="stack">{shead("06", "Cookies and advertising")}
+      <p>Most of this website uses no cookies and no tracking scripts at all. On the
+         pages we advertise, and on the confirmation page shown after a form is sent,
+         we use Google Ads conversion tracking. It tells us that an advert led to an
+         enquiry. It does not tell us who you are, and we do not use it to build a
+         profile of you.</p>
+      <p>You can control or block these cookies in your browser settings, and you can
+         review Google's own handling of this data at
+         <a href="https://policies.google.com/technologies/partner-sites"
+            rel="nofollow noopener" target="_blank">policies.google.com/technologies/partner-sites</a>.
+         Blocking them does not stop you using this site or contacting us.</p></div>
+
+    <div class="stack">{shead("07", "How long we keep it")}
+      <p>We keep enquiries and job records for as long as we need them to serve you
+         and to keep proper business records. If you would like your enquiry deleted,
+         ask us and we will delete it.</p></div>
+
+    <div class="stack">{shead("08", "Your choices")}
+      <p>You can ask us what we hold about you, ask us to correct it, or ask us to
+         delete it. You can withdraw text message consent at any time by replying
+         STOP. To do any of these, call
+         <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a> or email
+         <a href="mailto:{EMAIL}">{EMAIL}</a>.</p></div>
+
+    <div class="stack">{shead("09", "Children")}
+      <p>This site is for our customers and is not directed at children, and we do
+         not knowingly collect information from them.</p></div>
+
+    <div class="stack">{shead("10", "Changes")}
+      <p>If we change how we handle your information we will update this page and
+         change the date at the top of it.</p></div>
+  </div>
+</section>
+"""
+    h += footer()
+    pages.append(p)
+    return write(p, h)
+
+
+def build_thanks():
+    """Where Formspree lands the visitor after a successful submit.
+
+    This page is the entire form-conversion mechanism. `head()` gives it the
+    Google tag AND the conversion event automatically because its slug is in
+    TRACKED_PAGES — nothing about the tracking is written here, so this page
+    cannot drift from the rule.
+
+    It is deliberately plain and deliberately useful: it repeats the reply
+    promise so the visitor knows what happens next, and offers the phone number
+    for anyone who would rather not wait. A dead-end "thanks!" page wastes the
+    one moment the visitor is most engaged.
+    """
+    _lb_reset()
+    p = THANKS_PAGE
+    h = head("Thank you | Auto Tops and Trim, Monroe NC",
+             "Your estimate request has been sent. We reply to every request "
+             "within one hour during shop hours.", p)
+    h += header("contact.html")
+    h += f"""<section class="hero">
+  <div class="wrap">
+    <div class="stack">{shead("", "Request sent")}
+      <h1>Thanks &mdash; we have your request</h1>
+      <p class="lead">{REPLY_PROMISE}. If you sent photos, they came through with it,
+         and that is usually enough for us to give you a number without you bringing
+         the vehicle in.</p>
+      <div class="btnrow">
+        <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a>
+        <a class="btn btn-ghost" href="before-after.html">See our work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap stack">
+    <div class="center stack">{shead("01", "What happens next", center=True)}
+      <h2>We read it, then we call you</h2>
+      <p class="lead">Every request is read by the shop, not a call centre. If we need
+         another photo or a measurement to quote it properly, we will ask &mdash; we would
+         rather ask than guess at a price.</p></div>
+  </div>
+</section>
+"""
+    h += footer()
+    pages.append(p)
+    return write(p, h)
+
+
 # ============================================================== SITEMAP / ROBOTS
 def build_meta():
     _lb_reset()
@@ -4452,7 +4621,10 @@ def build_meta():
         f"<url><loc>{SITE}{public_path(pg)}</loc>"
         f"<changefreq>monthly</changefreq>"
         f"<priority>{'1.0' if pg == 'index.html' else '0.8'}</priority></url>"
-        for pg in pages if pg not in PAUSED_SERVICES)
+        # THANKS_PAGE is excluded for the same reason it is noindex: it exists
+        # only as a post-submit redirect target, and a sitemap entry is a request
+        # to index a page that says not to.
+        for pg in pages if pg not in PAUSED_SERVICES and pg != THANKS_PAGE)
     write("sitemap.xml",
           '<?xml version="1.0" encoding="UTF-8"?>\n'
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
@@ -4471,6 +4643,8 @@ if __name__ == "__main__":
     build_about()
     build_careers()
     build_contact()
+    build_privacy()
+    build_thanks()
     build_blog()
     build_meta()
     print(f"pages written: {len(pages)}")

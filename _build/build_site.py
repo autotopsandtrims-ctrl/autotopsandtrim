@@ -184,6 +184,82 @@ PAUSED_SERVICES = {
 # What the site actually links to. Everything reading SERVICES gets the live set.
 SERVICES = [s for s in ALL_SERVICES if s[0] not in PAUSED_SERVICES]
 
+# ===========================================================================
+# GOOGLE ADS CONVERSION TRACKING — a deliberately SHORT list of pages
+#
+# The site is zero-JavaScript by design and stays that way everywhere except
+# the pages below. This is the one exception, and it is derived from a set for
+# the same reason PAUSED_SERVICES is: so the rule lives in one place instead of
+# being written onto individual pages where it will drift.
+#
+# WHY THESE PAGES AND NOT JUST THE THANK-YOU PAGE.
+# Attribution is a cookie chain. Auto-tagging appends `gclid` to the URL of
+# whatever page the ad click lands on; the tag ON THAT PAGE writes the `_gcl_aw`
+# first-party cookie; the tag on the thank-you page reads that cookie and credits
+# the campaign. Without the tag on the LANDING page the cookie is never written,
+# and the thank-you page fires a conversion with nothing to attribute it to —
+# which is worse than no tracking, because unattributed conversions still look
+# like data.
+#
+# So the rule is: every page a paid click can LAND on, plus the page that
+# confirms the conversion. That is the five ad-group landing pages AND the two
+# sitelink destinations that are not landing pages:
+#     "See Our Work"    -> before-after
+#     "Get an Estimate" -> contact          (this one carries a form)
+# Miss those two and sitelink traffic converts invisibly.
+#
+# Calls need NOTHING here. The call asset routes through a Google forwarding
+# number, so Google is a participant in the call and measures it end to end.
+# It is only the form that Google cannot see, because that posts straight from
+# the visitor's browser to Formspree with Google nowhere in the path.
+#
+# IF A SITELINK URL CHANGES, CHANGE THIS SET. campaign_spec.SITELINKS is the
+# source of truth for where paid traffic can arrive.
+# ===========================================================================
+GOOGLE_ADS_ID = "AW-18371601012"
+GOOGLE_ADS_FORM_LABEL = "AW-18371601012/5jAWCLHB_t4cEPTEobhE"
+THANKS_PAGE = "thanks.html"
+
+TRACKED_PAGES = {
+    # the five ad groups' landing pages
+    "auto-upholstery",
+    "headliner-replacement",
+    "sunroof-shade-repair",
+    "convertible-tops",
+    "vinyl-tops",
+    # sitelink destinations that are not landing pages
+    "before-after",
+    "contact",
+    # the conversion page itself
+    "thanks",
+}
+
+# Google's own global site tag, taken verbatim from the conversion action's
+# tag_snippets rather than hand-written.
+GOOGLE_TAG = f"""<!-- Google tag (gtag.js) — Google Ads conversion tracking.
+     ONLY on pages in TRACKED_PAGES. The rest of the site is zero-JavaScript. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={GOOGLE_ADS_ID}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', '{GOOGLE_ADS_ID}');
+</script>
+"""
+
+# Fires on LOAD of the thank-you page. Google's generated snippet wraps this in
+# gtag_report_conversion() for click-triggered conversions; a thank-you page is
+# reached by redirect, so the event fires directly. The send_to value is Google's
+# verbatim and is the part that must not be retyped.
+GOOGLE_TAG_FORM_CONVERSION = f"""<script>
+  gtag('event', 'conversion', {{
+      'send_to': '{GOOGLE_ADS_FORM_LABEL}',
+      'value': 1.0,
+      'currency': 'USD'
+  }});
+</script>
+"""
+
 # Social accounts, all on the same handle. In the footer and in the schema's
 # `sameAs`, which is how Google ties the profiles to the business. Icons are
 # inline SVG paths — no icon font, no external request, and they inherit
@@ -268,8 +344,12 @@ def head(title, desc, path, extra_schema=None, faqs=None, preload="", extra_head
     # link equity on to the pages that ARE live, and the five marine blog posts
     # that link into it keep working. Reversible the moment the trade comes back —
     # it is derived from PAUSED_SERVICES, not written on the page.
+    # The thank-you page is noindex for its own reason: it is reachable only by
+    # redirect after a submit, it has no standalone value in search, and if it
+    # ever ranked, someone could land on it directly and fire a conversion that
+    # never happened.
     robots = ('<meta name="robots" content="noindex,follow">\n'
-              if path in PAUSED_SERVICES else "")
+              if path in PAUSED_SERVICES or path == THANKS_PAGE else "")
     # Canonical must point at the clean URL Vercel actually serves, not the .html
     # file, or every page would declare a canonical that immediately redirects.
     canonical = SITE + public_path(path)
@@ -282,6 +362,14 @@ def head(title, desc, path, extra_schema=None, faqs=None, preload="", extra_head
     else:
         doc = base
     schema = json.dumps(doc, separators=(",", ":"))
+    # The tag is derived from TRACKED_PAGES, never passed in per page, so a new
+    # page cannot accidentally acquire or lose tracking. Every page in the site
+    # goes through this one function, including the landing pages, which import
+    # head() from here.
+    slug = path[:-5] if path.endswith(".html") else path
+    if slug in TRACKED_PAGES:
+        extra_head = GOOGLE_TAG + (
+            GOOGLE_TAG_FORM_CONVERSION if slug == "thanks" else "") + extra_head
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -467,7 +555,8 @@ def footer(lightbox="", callbar=None):
     </div>
   </div>
   <div class="foot-bar">
-    <p>&copy; 2026 Auto Tops and Trim. All rights reserved.</p>
+    <p>&copy; 2026 Auto Tops and Trim. All rights reserved.
+       &middot; <a href="privacy.html">Privacy Policy</a></p>
   </div>
 </footer>
 {bar}
@@ -517,6 +606,10 @@ def quote_form(which="contact"):
   </label>""" if FORM_ACCEPTS_FILES else ""
     return f"""<form class="quote" action="{FORM_ENDPOINT}" method="post"{enctype}>
   <input type="hidden" name="_subject" value="New estimate request from autotopsandtrim.com">
+  <!-- Formspree redirects here after a successful submit. That page carries the
+       conversion event, and is how a form lead becomes a measurable conversion
+       without a line of JavaScript on the form itself. -->
+  <input type="hidden" name="_next" value="{SITE}/{THANKS_PAGE[:-5]}">
   <!-- Honeypot. Formspree silently discards any submission where `_gotcha` is
        filled: a bot scraping the HTML fills every field it finds, a person never
        sees this one. No JavaScript, so the zero-JS guarantee holds.
