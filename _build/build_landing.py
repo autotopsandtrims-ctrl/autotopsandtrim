@@ -196,14 +196,21 @@ LANDING_CSS = """<style>
 @media(min-width:760px){.lp .cards{grid-template-columns:repeat(3,1fr)}}
 .lp .card{background:#fff;border:1px solid var(--rule);border-radius:var(--r-card);
   display:flex;flex-direction:column;overflow:hidden}
-/* These are phone photos, mostly PORTRAIT, and the subject is rarely dead centre.
-   A 4/3 landscape crop threw away the whole frame and left sky and a door. Fixed
-   height plus a per-card object-position (emitted inline by card_shot(), so the
-   template stays reusable instead of hard-coding :nth-child rules) lands each
-   one on its actual subject. */
+/* These are phone photos, mostly PORTRAIT (3000x4000), and the card box used to
+   be a fixed 250px landscape slot filled with object-fit:cover. Do the sums and
+   that showed about HALF of each photograph on desktop and roughly a THIRD on a
+   phone — the owner's words were "super zoomed in, it's hard to really see
+   anything", and he was right.
+   Square box + contain shows the WHOLE frame with the least wasted space: a 3:4
+   photo in a 1:1 box leaves a narrow band of tint down each side, where the same
+   photo in the old 430x200 slot would have left almost nothing but bars. The
+   tint background was already here, so the letterbox reads as deliberate.
+   NOTE: object-position (emitted inline per card by card_shot()) no longer does
+   anything, because nothing is being cropped. Left in place so the template
+   keeps working if this ever goes back to cover. */
 .lp .card .shot{position:relative;line-height:0;background:var(--tint);
-  height:250px;overflow:hidden}
-.lp .card .shot img{width:100%;height:100%;object-fit:cover;object-position:center}
+  aspect-ratio:1/1;height:auto;overflow:hidden}
+.lp .card .shot img{width:100%;height:100%;object-fit:contain;object-position:center}
 .lp .card .shot .step{position:absolute;left:14px;top:14px;z-index:2;
   width:38px;height:38px;border-radius:50%;background:var(--btn);color:#fff;
   display:flex;align-items:center;justify-content:center;
@@ -230,7 +237,12 @@ LANDING_CSS = """<style>
 .lp .pair-shots{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:3px;
   border-radius:9px;overflow:hidden;background:var(--rule)}
 .lp .pair-shot{position:relative;display:block;min-width:0}
-.lp .pair-shot img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:0;
+/* contain, for the same reason as the cards and the strip — these are portrait
+   phone photos and a square cover-crop removed a quarter of every frame. On a
+   before/after card that matters more than anywhere else on the page: the crop
+   can take out the exact corner the photograph was taken to show. */
+.lp .pair-shot{background:var(--tint)}
+.lp .pair-shot img{width:100%;aspect-ratio:1/1;object-fit:contain;border-radius:0;
   transition:transform .45s ease}
 .lp .pair:hover .pair-shot:nth-child(2) img{transform:scale(1.06)}
 .lp .pair-tag{position:absolute;top:7px;left:7px;z-index:2;padding:4px 8px;
@@ -256,7 +268,11 @@ LANDING_CSS = """<style>
 @media(min-width:700px){.lp .strip{grid-template-columns:repeat(4,1fr)}}
 .lp .strip figure{margin:0;border-radius:var(--r-card);overflow:hidden;
   border:1px solid var(--rule);background:var(--tint);line-height:0}
-.lp .strip img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform .3s ease}
+/* Same reasoning as the step cards: these are portrait phone photos and a square
+   cover-crop was cutting a quarter off the top and bottom of every one. contain
+   keeps the whole frame; the tint on the figure carries the thin side bars. */
+.lp .strip figure{background:var(--tint)}
+.lp .strip img{width:100%;aspect-ratio:1/1;object-fit:contain;transition:transform .3s ease}
 .lp .strip figure:hover img{transform:scale(1.04)}
 .lp .card h3{font-size:19px}
 .lp .card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
@@ -506,8 +522,8 @@ LANDING_CSS = """<style>
   .lp .myth ul{gap:9px}
   .lp .myth li{font-size:14.5px;line-height:1.45;gap:9px}
 
-  /* step cards: shorter photo, tighter body */
-  .lp .card .shot{height:200px}
+  /* step cards: the photo is now a square that scales with the card width, so
+     there is no fixed height to shrink. Only the body tightens. */
   .lp .card .body{padding:18px 18px 20px;gap:11px}
   .lp .card li{font-size:14.5px}
 
@@ -550,7 +566,6 @@ LANDING_CSS = """<style>
 /* very narrow phones */
 @media (max-width:400px){
   .lp .hero h1{font-size:29px}
-  .lp .card .shot{height:180px}
   .lp .quote{padding:17px 15px 19px}
   .lp .trust .t{padding:14px 15px}
   .lp .trust .big{font-size:17.5px}
