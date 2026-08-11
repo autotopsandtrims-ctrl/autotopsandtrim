@@ -2724,7 +2724,17 @@ POSTS = [
     },
     {
         "slug": "blog-boat-seat-repair.html",
-        "cat": "Marine", "publish": "2026-08-11", "read": "5 min read",
+        # HELD 2026-08-11. Was due to publish today and did, automatically, on the
+        # date gate. Pulled back for a PHOTO reason, not a copy reason — the piece
+        # itself is finished and good.
+        # It shares `upholstery-materials-and-marine-project-parts` with the marine
+        # buying guide and one already-published post, so three cards on the blog
+        # index carried the identical thumbnail and dupcheck failed. That photo is
+        # also, per the verified-content map, "a weathered outdoor table with trim
+        # panels and a spray can — nothing identifies them as marine".
+        # Marine is also currently in PAUSED_SERVICES.
+        # TO PUBLISH: give it a photo of real marine work and set the date to today.
+        "cat": "Marine", "publish": "2099-01-01", "read": "5 min read",
         # Was the unverified runabout-cockpit stock shot (removed 2026-08-07).
         "photo": "upholstery-materials-and-marine-project-parts",
         "title": "Boat seat repair: tears, seams and the foam nobody checks",
@@ -2779,7 +2789,10 @@ POSTS = [
     },
     {
         "slug": "blog-marine-vinyl-buying-guide.html",
-        "cat": "Marine", "publish": "2026-08-11", "read": "6 min read",
+        # HELD 2026-08-11, same reason as blog-boat-seat-repair: it is the second
+        # of the three posts sharing one generic photo. Copy is finished.
+        # TO PUBLISH: give it its own marine photo and set the date to today.
+        "cat": "Marine", "publish": "2099-01-01", "read": "6 min read",
         # NOT marine-canvas-cushions — despite the name that photo is a classic car
         # rear bench seat, not marine at all.
         "photo": "upholstery-materials-and-marine-project-parts",
@@ -2837,7 +2850,16 @@ POSTS = [
     },
     {
         "slug": "blog-sunroof-shade-repair-cost.html",
-        "cat": "Sunroof Shades", "publish": "2026-08-11", "read": "4 min read",
+        # HELD 2026-08-11 — this one is a FACTUAL problem, not just a duplicate.
+        # Its photo `g13-sound-deadening-before-carpet` is, per the verified-content
+        # map above GALLERY, "that F1's finished black HEADLINER, visors and mirror.
+        # The opposite of its filename." So an article about SUNROOF SHADES was
+        # illustrated with a HEADLINER. That is the same mistake the 2026-08-05
+        # caption audit corrected nine times: the photo was chosen off the filename.
+        # There is no correct substitute — the 2026-08-10 image-asset pass confirmed
+        # there is NO verified sunroof photograph anywhere in the 327.
+        # TO PUBLISH: shoot a sunroof shade job, then set the date to today.
+        "cat": "Sunroof Shades", "publish": "2099-01-01", "read": "4 min read",
         "photo": "g13-sound-deadening-before-carpet",
         "title": "Sunroof shade repair: why recovering beats replacing the assembly",
         "seo_title": "Sunroof Shade Repair Cost: Recover, Don't Replace | Auto Tops and Trim",
