@@ -496,15 +496,30 @@ def build_home():
 
          If you swap a photo here, check its ratio in _build/images.json first and
          keep the tall/wide rhythm, or the gap comes straight back. -->
+    <!-- REFRESHED 2026-08-11 with the owner's own photographs, mixing convertible
+         tops and interiors so the strip shows range rather than one kind of job.
+         Eight tiles became twelve.
+
+         THE TALL/WIDE RHYTHM IS STILL LOAD-BEARING — see the note above. Only two
+         photographs in the entire new set are landscape (au-shop-10 and
+         au-shop-11, both 0.75); everything else the owner sent is 1.33 portrait.
+         So positions 2 and 5 MUST stay landscape or the columns unbalance and the
+         gap comes back. Position 5 keeps the 1969 Cadillac for exactly that
+         reason — using both new landscapes at 2 and 5 would have put two similar
+         red interiors opposite each other. -->
     <div class="masonry">{masonry_tiles([
-        ('g01-camaro-ss-new-convertible-top', 'Camaro SS — new convertible top', 'Automotive'),
-        ('classic-interior-finished', 'Cadillac convertible — finished interior', 'Automotive'),
-        ('g09-truck-cab-black-seat-red-stitch', 'Truck cab — black seat, red stitch', 'Automotive'),
-        ('g08-cushion-and-armrest-trimmed', 'Classic Chevrolet — bench seat and door panels', 'Automotive'),
+        ('ct-shop-04', 'Blue classic convertible — new black top', 'Convertible tops'),
+        ('au-shop-10', 'Convertible interior recovered in red', 'Interiors'),
+        ('au-shop-03', 'Tan quilted leather seats and door cards', 'Interiors'),
+        ('ct-shop-07', 'Camaro — tan top on black with yellow stripes', 'Convertible tops'),
         ('g15-1969-cadillac-profile', '1969 Cadillac — profile', 'Automotive'),
-        ('g12-shift-boot-and-carpet-detail', 'Shift boot and carpet detail', 'Automotive'),
-        ('convertible-top-replacement-and-finish', 'Corvette — new convertible top', 'Automotive'),
-        ('g13-sound-deadening-before-carpet', 'Ford F1 — headliner fitted and finished', 'Automotive'),
+        ('au-shop-12', 'Bench seat in black with blue accent panels', 'Interiors'),
+        ('ct-shop-01', 'Burgundy top on a cream classic', 'Convertible tops'),
+        ('au-shop-04', 'Black and magenta bucket seats', 'Interiors'),
+        ('ct-shop-11', 'Corvette — new black top', 'Convertible tops'),
+        ('au-shop-14', 'Modern truck cab retrimmed', 'Interiors'),
+        ('ct-shop-08', 'Camaro convertible — new black top', 'Convertible tops'),
+        ('au-shop-17', 'Bench seat with red and blue piping', 'Interiors'),
     ])}</div>
     <div class="btnrow" style="justify-content:center"><a class="btn btn-ghost" href="gallery.html">See the full gallery</a></div>
   </div>
