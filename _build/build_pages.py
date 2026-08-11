@@ -2850,17 +2850,16 @@ POSTS = [
     },
     {
         "slug": "blog-sunroof-shade-repair-cost.html",
-        # HELD 2026-08-11 — this one is a FACTUAL problem, not just a duplicate.
-        # Its photo `g13-sound-deadening-before-carpet` is, per the verified-content
-        # map above GALLERY, "that F1's finished black HEADLINER, visors and mirror.
-        # The opposite of its filename." So an article about SUNROOF SHADES was
-        # illustrated with a HEADLINER. That is the same mistake the 2026-08-05
-        # caption audit corrected nine times: the photo was chosen off the filename.
-        # There is no correct substitute — the 2026-08-10 image-asset pass confirmed
-        # there is NO verified sunroof photograph anywhere in the 327.
-        # TO PUBLISH: shoot a sunroof shade job, then set the date to today.
-        "cat": "Sunroof Shades", "publish": "2099-01-01", "read": "4 min read",
-        "photo": "g13-sound-deadening-before-carpet",
+        # RELEASED 2026-08-11. Held earlier the same day because its photo was
+        # `g13-sound-deadening-before-carpet`, which the verified-content map
+        # records as a finished HEADLINER — "the opposite of its filename" — so a
+        # sunroof-shade article was illustrated with a headliner, the same mistake
+        # the 2026-08-05 caption audit corrected nine times. There was no correct
+        # substitute at the time: no sunroof photograph existed in the library.
+        # The owner supplied one on 2026-08-11, so it now carries an actual
+        # sunroof shot instead of a borrowed headliner.
+        "cat": "Sunroof Shades", "publish": "2026-08-11", "read": "4 min read",
+        "photo": "ba-sunroof-shade-after",
         "title": "Sunroof shade repair: why recovering beats replacing the assembly",
         "seo_title": "Sunroof Shade Repair Cost: Recover, Don't Replace | Auto Tops and Trim",
         "meta": "A sagging or torn sunroof sunshade rarely needs a new sunroof assembly. What "
@@ -4005,6 +4004,21 @@ LANDINGS = [
         "hero": ("shot-045-finished-with-sunroof-opening",
                  "A finished headliner with the sliding shade closed across the sunroof "
                  "opening"),
+        # Added 2026-08-11. This was the ONLY landing page without a before/after
+        # section — it had zero pairs while the other four had two each. Supplied
+        # by the owner as before.jpg / after.jpg and placed in those slots on his
+        # instruction. Wording is kept deliberately plain: it does not name the
+        # vehicle, and it does not claim whether the shade was recovered or the
+        # assembly replaced, because neither is established by the photographs.
+        # If the owner confirms which it was, tighten the caption then — that
+        # distinction is the whole argument of the sunroof blog post.
+        "pairs": [
+            ("ba-sunroof-shade-before",
+             "A sunroof shade before the repair",
+             "ba-sunroof-shade-after",
+             "The sunroof shade after the repair",
+             "Sunroof shade &middot; before and after"),
+        ],
         "argument": {
             "label": "Why it sticks",
             "h2": "The part that fails is the cheapest part in there.",
