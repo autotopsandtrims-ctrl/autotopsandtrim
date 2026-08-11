@@ -3853,68 +3853,84 @@ LANDINGS = [
             "sub": ("The seat comes out and it comes apart. That is the difference "
                     "between a seat that is repaired and a seat that has been covered up."),
             "cards": [
-                ("shot-113-seat-rotted-to-the-burlap",
-                 "A car seat cushion stripped back to the burlap and springs, the old "
-                 "padding fallen apart",
+                # Owner-supplied 2026-08-11, folder "Stripped to the frame, then
+                # rebuilt". Own au- basenames so they stay exclusive to this ad page.
+                ("au-step-01",
+                 "A seat stripped back to its frame, the rotted burlap and old padding "
+                 "hanging off the springs",
                  "40%", "Stripped back to the frame",
                  ["Cover and dead padding come off",
                   "Burlap and springs uncovered and checked",
                   "Broken springs and frames repaired, not padded over"]),
-                ("shot-176-black-seat-red-piping-bench",
-                 "A black bench seat with red piping on the shop bench, its stripped base "
-                 "and tools on the table",
+                ("au-step-02",
+                 "A bench seat recovered in black on the shop table, the new panels "
+                 "pulled taut over the rebuilt base",
                  "35%", "Rebuilt on the bench",
                  ["New foam cut and shaped to the original profile",
                   "Panels cut and sewn to the car's own pattern",
                   "Custom stitch spacing and piping where you want it"]),
-                ("shot-030-finished-seats-on-the-car",
-                 "Two finished burgundy pleated seat cushions resting on the car, ready "
-                 "to be fitted",
+                ("au-step-03",
+                 "A finished bench seat recovered in red, outside the shop",
                  "55%", "Recovered and refitted",
                  ["Leather, vinyl or cloth, chosen with you first",
                   "Fitted taut, with no pull marks at the seams",
                   "Back in the car and checked on its runners"]),
             ],
         },
+        # Owner-supplied 2026-08-11, folder "before and afters". Both are genuinely
+        # the SAME seats photographed twice, which the old pair 2 was not — its
+        # caption had to admit "a finished seat off another car". Exclusive au-
+        # basenames so the gallery and home page are untouched.
         "pairs": [
-            ("ba-seats-before-torn-buckets",
-             "Two bucket seats before recovering, one split open across the back and "
-             "taped, its cushion torn to the foam",
-             "ba-seats-after-recovered-buckets",
-             "The same two bucket seats recovered in new burgundy pleated vinyl",
-             "The same pair of seats &mdash; taped and split, then recovered"),
-            ("shot-204-black-seat-torn-foam-out",
-             "A black bench seat with the cover split open and the yellow foam exposed",
-             "shot-214-black-seat-finished",
-             "A finished black pleated bucket seat",
-             "Split open to the foam &middot; a finished seat off another car"),
+            ("au-ba-before1",
+             "A red bench seat in pieces on the workbench with the old covers off",
+             "au-ba-after1",
+             "The same bench recovered in new red material on the shop table",
+             "The same bench &mdash; stripped, then recovered in red"),
+            ("au-ba-before2",
+             "Two burgundy bucket seats, one split open down the side with the "
+             "padding showing through",
+             "au-ba-after2",
+             "The same two bucket seats recovered in burgundy",
+             "The same two seats &mdash; split and worn, then rebuilt"),
         ],
         "work": {
             "label": "Out of this shop",
             "h2": "Interiors out of this shop",
             "sub": ("Real jobs, photographed on the bench and in the car at "
                     "4209 W Hwy 74, Monroe."),
+            # Owner-supplied 2026-08-11, folder "Interiors out of this shop".
+            # Twelve of the seventeen he sent, not all of them: the strip is a
+            # four-column grid, so twelve fills three clean rows where thirteen
+            # leaves a single dangling tile. Ordered for VARIETY rather than by
+            # filename, because mobile hides everything past the sixth tile
+            # (.lp .strip figure:nth-child(n+7)) — so the first six have to carry
+            # the range on their own. The whole set is exclusive to this ad page.
             "photos": [
-                # `gallery-header-photo-wide` REMOVED 2026-08-11. It is the red F1
-                # with the bench seat on the driveway — the same scene as this
-                # page's new owner-supplied hero, so the page showed it twice.
-                # dupcheck cannot catch that: two different files, one subject.
-                # It is still live on gallery and index, where it is not repeated.
-                ("g19-mercedes-gla-interior-work",
-                 "That pickup's cab, with the rebuilt black seat and red stitching"),
-                ("g09-truck-cab-black-seat-red-stitch",
-                 "The same cab &mdash; dash, gauges and the finished seat"),
-                ("g08-cushion-and-armrest-trimmed",
-                 "A classic Chevrolet interior, black bench with red piping and red and "
-                 "black door panels"),
-                ("g11-carpet-fitted-and-trimmed",
-                 "The same Chevrolet with the door open and new carpet fitted"),
-                ("g12-shift-boot-and-carpet-detail",
-                 "A shift boot stitched in red on new black carpet"),
-                ("g10-bel-air-new-carpet-going-in",
-                 "That Chevrolet's dash with the new black carpet going in"),
-                ("marine-canvas-cushions",
-                 "The rear bench seat inside a classic red coupe"),
+                ("au-shop-03",
+                 "Tan quilted leather seats with black inserts and matching door cards"),
+                ("au-shop-01",
+                 "A cream leather front seat fitted in the car"),
+                ("au-shop-10",
+                 "The red interior of a convertible, front and rear seats recovered"),
+                ("au-shop-12",
+                 "A black bench seat with blue accent panels, finished outside the shop"),
+                ("au-shop-04",
+                 "A pair of black and magenta bucket seats on the driveway"),
+                ("au-shop-09",
+                 "A black bench seat with red piping, photographed in the shop"),
+                ("au-shop-07",
+                 "Dark pleated door trim and seats inside a red classic"),
+                ("au-shop-05",
+                 "A two-tone red bench seat finished and out on the driveway"),
+                ("au-shop-14",
+                 "A modern truck cab with its seats and console retrimmed"),
+                ("au-shop-06",
+                 "Purple and black seats laid out on the bench outside"),
+                ("au-shop-16",
+                 "The cab of a red pickup with its rebuilt seat fitted"),
+                ("au-shop-17",
+                 "A black bench seat with red and blue piping on the shop table"),
             ],
         },
         # Robert Danneman's review names the two jobs it names — a headliner and
@@ -4217,41 +4233,67 @@ LANDINGS = [
                   "Held and taped while it sets so it pulls up tight"]),
             ],
         },
-        # Two of the project's verified matched pairs — same car both ends, each
-        # confirmed by opening both photographs.
+        # Owner-supplied 2026-08-11, folder "before and after". Three pairs now
+        # instead of two, on exclusive ct- basenames so nothing here is shared
+        # with the gallery or the home page.
+        #
+        # Pair 3's "after" has the top DOWN, so the new top is folded and not on
+        # show. Its caption therefore does not claim you can see the new top —
+        # it says the car is finished and back out, which is what the photograph
+        # actually shows.
         "pairs": [
-            ("shot-087-old-black-top-faded",
-             "A faded, worn black convertible top before replacement",
-             "shot-089-new-black-top-side",
-             "The same car with its new black top fitted",
-             "The same car &mdash; faded, then re-topped"),
-            ("ba-galaxie-before-frame-and-material",
-             "A classic convertible with the top frame bare and the new material ready",
-             "ba-galaxie-after-new-top-fitted",
-             "The same car with the finished top fitted and the window in",
-             "Bare frame to finished top, one car"),
+            ("ct-ba-before1",
+             "A red convertible in the shop with the old top off, laid back over the "
+             "rear deck",
+             "ct-ba-after1",
+             "A new black top fitted, seen from the rear quarter",
+             "Old top off &middot; new black top fitted"),
+            ("ct-ba-before2",
+             "A red convertible in the bay with the top out and the frame exposed",
+             "ct-ba-after2",
+             "The same car finished on the driveway outside the shop",
+             "Frame bare in the bay &middot; finished on the driveway"),
+            ("ct-ba-before3",
+             "A blue classic convertible in the shop with the top deck stripped",
+             "ct-ba-after3",
+             "The same blue classic back outside, finished, with the top down",
+             "Stripped in the shop &middot; finished and back out"),
         ],
         "work": {
             "label": "Out of this shop",
             "h2": "Tops out of this shop",
             "sub": "Real cars, photographed in the bay and on the lot at 4209 W Hwy 74, Monroe.",
+            # Owner-supplied 2026-08-11, folder "Tops out of this shop". Twelve of
+            # the thirteen sent — ct-shop-06 is dropped as a near-duplicate of
+            # ct-shop-05 (the same tan top, one frame apart), and two near-identical
+            # tiles in a twelve-tile grid read as a mistake. Twelve also fills the
+            # four-column grid in three clean rows. Mobile hides everything past
+            # the sixth tile, so the first six are ordered to carry the range.
             "photos": [
-                ("g01-camaro-ss-new-convertible-top",
-                 "A black and yellow Camaro convertible with its new black top up"),
-                ("g18-camaro-ss-profile",
-                 "The same Camaro in profile by the fence"),
-                ("convertible-top-tan-on-black-camaro",
-                 "A tan convertible top fitted on a black Camaro"),
-                ("shot-141-tan-top-on-black-car",
-                 "A tan top on a black car, finished"),
-                ("shot-209-white-300zx-black-top",
-                 "A white sports car with a new black top fitted"),
-                ("shot-198-brown-top-rear-quarter",
-                 "A brown top seen from the rear quarter"),
-                ("shot-110-top-down-boot-cover",
-                 "A finished top folded down under its boot cover"),
-                ("automotive-ford-galaxie-top-after",
-                 "A blue Ford Galaxie convertible with its tan top up"),
+                ("ct-shop-04",
+                 "A blue classic convertible with its new black top, on the shop driveway"),
+                ("ct-shop-07",
+                 "A black Camaro with yellow stripes and a tan convertible top"),
+                ("ct-shop-01",
+                 "A burgundy top fitted on a cream classic, seen from the rear quarter"),
+                ("ct-shop-08",
+                 "A black Camaro convertible with a new black top"),
+                ("ct-shop-11",
+                 "A red Corvette with a new black top outside the shop"),
+                ("ct-shop-12",
+                 "A burgundy convertible with a black top on the driveway"),
+                ("ct-shop-02",
+                 "A red convertible with its new black top, photographed in the bay"),
+                ("ct-shop-03",
+                 "A blue Camaro convertible parked outside the Monroe shop"),
+                ("ct-shop-05",
+                 "A tan convertible top with its glass rear window"),
+                ("ct-shop-09",
+                 "The black Camaro convertible in profile"),
+                ("ct-shop-10",
+                 "A convertible in the bay with the new top taped while it sets"),
+                ("ct-shop-13",
+                 "The yellow-striped Camaro from the rear, tan top fitted"),
             ],
         },
         "review_taglines": {
