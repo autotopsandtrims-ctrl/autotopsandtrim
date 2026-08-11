@@ -174,16 +174,20 @@
    that showed about HALF of each photograph on desktop and roughly a THIRD on a
    phone — the owner's words were "super zoomed in, it's hard to really see
    anything", and he was right.
-   Square box + contain shows the WHOLE frame with the least wasted space: a 3:4
-   photo in a 1:1 box leaves a narrow band of tint down each side, where the same
-   photo in the old 430x200 slot would have left almost nothing but bars. The
-   tint background was already here, so the letterbox reads as deliberate.
-   NOTE: object-position (emitted inline per card by card_shot()) no longer does
-   anything, because nothing is being cropped. Left in place so the template
-   keeps working if this ever goes back to cover. */
+   The fix is the BOX, not the fit. `contain` was tried and rejected: it shows the
+   whole frame but letterboxes it, and the owner does not want borders anywhere.
+   `cover` is exactly "zoom out as far as you can without a border appearing" —
+   it scales the image to the smallest size that still fills the box. So keep
+   cover and make the box SQUARE instead of a 250px landscape slot:
+
+     old 430x200 slot, 3:4 photo, cover  ->  about 35% of the frame visible
+     1:1 box,          3:4 photo, cover  ->  about 75% visible, still no borders
+
+   object-position (emitted inline per card by card_shot()) therefore still does
+   its job of landing each crop on the actual subject. */
 .lp .card .shot{position:relative;line-height:0;background:var(--tint);
   aspect-ratio:1/1;height:auto;overflow:hidden}
-.lp .card .shot img{width:100%;height:100%;object-fit:contain;object-position:center}
+.lp .card .shot img{width:100%;height:100%;object-fit:cover;object-position:center}
 .lp .card .shot .step{position:absolute;left:14px;top:14px;z-index:2;
   width:38px;height:38px;border-radius:50%;background:var(--btn);color:#fff;
   display:flex;align-items:center;justify-content:center;
@@ -210,12 +214,9 @@
 .lp .pair-shots{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:3px;
   border-radius:9px;overflow:hidden;background:var(--rule)}
 .lp .pair-shot{position:relative;display:block;min-width:0}
-/* contain, for the same reason as the cards and the strip — these are portrait
-   phone photos and a square cover-crop removed a quarter of every frame. On a
-   before/after card that matters more than anywhere else on the page: the crop
-   can take out the exact corner the photograph was taken to show. */
-.lp .pair-shot{background:var(--tint)}
-.lp .pair-shot img{width:100%;aspect-ratio:1/1;object-fit:contain;border-radius:0;
+/* Square + cover, same as the cards and the strip. contain was tried and pulled:
+   it letterboxed every pair, and no borders is the rule. */
+.lp .pair-shot img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:0;
   transition:transform .45s ease}
 .lp .pair:hover .pair-shot:nth-child(2) img{transform:scale(1.06)}
 .lp .pair-tag{position:absolute;top:7px;left:7px;z-index:2;padding:4px 8px;
@@ -241,11 +242,10 @@
 @media(min-width:700px){.lp .strip{grid-template-columns:repeat(4,1fr)}}
 .lp .strip figure{margin:0;border-radius:var(--r-card);overflow:hidden;
   border:1px solid var(--rule);background:var(--tint);line-height:0}
-/* Same reasoning as the step cards: these are portrait phone photos and a square
-   cover-crop was cutting a quarter off the top and bottom of every one. contain
-   keeps the whole frame; the tint on the figure carries the thin side bars. */
-.lp .strip figure{background:var(--tint)}
-.lp .strip img{width:100%;aspect-ratio:1/1;object-fit:contain;transition:transform .3s ease}
+/* Square + cover. contain was tried here too and reverted — no borders anywhere
+   on this site. A 1:1 cover crop takes a quarter off a portrait phone photo,
+   which is the least a full-bleed tile can take. */
+.lp .strip img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform .3s ease}
 .lp .strip figure:hover img{transform:scale(1.04)}
 .lp .card h3{font-size:19px}
 .lp .card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
