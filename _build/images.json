@@ -9246,5 +9246,47 @@
     "file": "au-shop-17-1400.webp"
    }
   ]
+ },
+ "sr-bench-01": {
+  "w": 3000,
+  "h": 4000,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "sr-bench-01-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "sr-bench-01-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "sr-bench-01-1400.webp"
+   }
+  ]
+ },
+ "sr-bench-02": {
+  "w": 3000,
+  "h": 4000,
+  "variants": [
+   {
+    "w": 480,
+    "h": 640,
+    "file": "sr-bench-02-480.webp"
+   },
+   {
+    "w": 800,
+    "h": 1067,
+    "file": "sr-bench-02-800.webp"
+   },
+   {
+    "w": 1400,
+    "h": 1867,
+    "file": "sr-bench-02-1400.webp"
+   }
+  ]
  }
 }

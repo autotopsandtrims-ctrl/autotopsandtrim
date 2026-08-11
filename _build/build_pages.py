@@ -4073,15 +4073,20 @@ LANDINGS = [
             "sub": ("The cassette comes out so the tracks, cables, drains and shade can be "
                     "worked on properly — then your original goes back in."),
             "cards": [
-                ("sunroof-glass-open-in-the-shop",
-                 "A sunroof opened up in the shop with the panel slid back and the guide "
-                 "track exposed",
+                # Owner-supplied 2026-08-11, folder "Out of the car, rebuilt on the
+                # bench" — the exact name of this section's h2. The photo that used
+                # to sit here, `sunroof-glass-open-in-the-shop`, was not discarded:
+                # it moved down into the strip below, on the owner's instruction.
+                ("sr-bench-01",
+                 "A sunroof assembly lifted out of the car, its frame, shade and "
+                 "fixings exposed",
                  "50%", "We open it up",
                  ["Panel and trim off, not worked around",
                   "Tracks, cables and guides exposed",
                   "All four drain tubes checked and cleared"]),
-                ("sunroof-shade-fabric-failed",
-                 "A sunroof shade panel with the fabric broken up and flaking off the board",
+                ("sr-bench-02",
+                 "Looking up through the roof opening from inside the car with the "
+                 "sunroof unit out and its cable hanging free",
                  "45%", "What usually turns up",
                  ["Cable sheathing dried out and frayed",
                   "Guide shoes cracked or missing",
@@ -4094,15 +4099,22 @@ LANDINGS = [
                   "Headliner and trim put back properly"]),
             ],
         },
-        # NO "pairs" KEY ON PURPOSE. See the photo-limit note above.
+        # (This used to read "NO pairs KEY ON PURPOSE" — true when no sunroof
+        # before/after photograph existed anywhere in the library. The owner
+        # supplied one on 2026-08-11 and the pairs key above is now populated.)
         "work": {
             "label": "Out of this shop",
             "h2": "Sunroofs and shades through this shop",
             "sub": ("Photographed at 4209 W Hwy 74, Monroe. The shop has more sunroof work "
                     "than it has pictures of it — these are the jobs that got photographed."),
+            # Changed 2026-08-11 on the owner's instruction. The perished-shade
+            # wide shot was dropped from the head of this strip, and the sunroof
+            # opened up in the shop moved down here from the first "what we do"
+            # card, whose slot his own bench photograph now fills.
             "photos": [
-                ("sunroof-shade-fabric-failed-wide",
-                 "A sunroof shade panel with the fabric perished, photographed wide"),
+                ("sunroof-glass-open-in-the-shop",
+                 "A sunroof opened up in the shop with the panel slid back and the "
+                 "guide track exposed"),
                 ("headliner-finished-with-sunroof-opening",
                  "A finished headliner trimmed around the sunroof opening"),
                 ("headliner-finished-sunroof-grab-handle",
