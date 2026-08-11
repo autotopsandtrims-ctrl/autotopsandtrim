@@ -3813,8 +3813,13 @@ LANDINGS = [
         "lead": ("By the time the vinyl or the leather splits, the foam under it has "
                  "already collapsed and the burlap under that has rotted. We take the "
                  "seat apart, rebuild what is holding you up, and recover it."),
-        "hero": ("seat-rebuild-after",
-                 "A finished black bench seat with red stitching, outside the Monroe shop"),
+        # Owner-supplied hero, 2026-08-11. Given its OWN basename rather than
+        # overwriting `seat-rebuild-after`, because that photo is also used on
+        # gallery, services, the blog index and blog-torn-car-seat-repair — a
+        # blanket replace would have silently changed five pages to fix one.
+        "hero": ("hero-auto-upholstery-f1-and-bench",
+                 "A red Ford F1 pickup outside the Monroe shop with a finished black "
+                 "bench seat, red stitching, on the driveway beside it"),
         "argument": {
             "label": "Why it splits",
             "h2": "The cover is the last thing to go, not the first.",
@@ -3890,9 +3895,11 @@ LANDINGS = [
             "sub": ("Real jobs, photographed on the bench and in the car at "
                     "4209 W Hwy 74, Monroe."),
             "photos": [
-                ("gallery-header-photo-wide",
-                 "A red Ford F1 pickup at the shop with its finished black bench seat "
-                 "on the driveway beside it"),
+                # `gallery-header-photo-wide` REMOVED 2026-08-11. It is the red F1
+                # with the bench seat on the driveway — the same scene as this
+                # page's new owner-supplied hero, so the page showed it twice.
+                # dupcheck cannot catch that: two different files, one subject.
+                # It is still live on gallery and index, where it is not repeated.
                 ("g19-mercedes-gla-interior-work",
                  "That pickup's cab, with the rebuilt black seat and red stitching"),
                 ("g09-truck-cab-black-seat-red-stitch",
