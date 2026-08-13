@@ -3728,10 +3728,26 @@ LANDINGS = [
             "Lauren Corgan": "Drove an hour",
             "charmaine sealey": "Repeat customer",
         },
+        "area": {
+            "h2": "Monroe, and an easy run from Charlotte",
+            "blurb": ("A headliner is a half-day of bench work &mdash; the board comes out "
+                      "of the car, gets stripped and recovered, and goes back in &mdash; so "
+                      "the car comes to us. We are on W Hwy 74 west of downtown Monroe. "
+                      "Cars come out to us from Charlotte and the rest of Mecklenburg, from "
+                      "all over Union County, and from Rock Hill and Fort Mill across the "
+                      "state line."),
+        },
         "faq": {
             "label": "Before you call",
             "h2": "Answers first",
             "items": [
+                ("Do you do headliner replacement near Charlotte?",
+                 "The work is done at the shop in Monroe, at 4209 W Hwy 74, which is a "
+                 "straight run east out of Charlotte on 74. We recover headliners for "
+                 "cars from Charlotte and Mecklenburg County, the whole of Union County, "
+                 "Concord and Gastonia, and Rock Hill and Fort Mill in South Carolina. "
+                 "Send a photo of the sagging area first and we will quote it before you "
+                 "drive anywhere."),
                 ("My headliner is sagging. Can it just be glued back up?",
                  "Almost never for long. The fabric is separating because the foam bonded "
                  "to its back has turned to powder &mdash; there is nothing solid left for "
@@ -3960,10 +3976,27 @@ LANDINGS = [
             "Lauren Corgan": "Drove an hour",
             "charmaine sealey": "Repeat customer",
         },
+        "area": {
+            "h2": "The shop is on Highway 74 in Monroe",
+            "blurb": ("Seats have to come to us &mdash; interior work is bench work, and "
+                      "the seat comes out of the car and apart on the table. So it is "
+                      "worth knowing the run before you set off. We are on W Hwy 74 west "
+                      "of downtown Monroe, straight out from Charlotte, and people come "
+                      "to us from across Union and Mecklenburg County and down over the "
+                      "South Carolina line. One customer drove an hour to get here."),
+        },
         "faq": {
             "label": "Before you call",
             "h2": "Answers first",
             "items": [
+                ("Do you do auto upholstery near Charlotte, or only in Monroe?",
+                 "The shop is in Monroe, at 4209 W Hwy 74, and that is where the work is "
+                 "done &mdash; a seat has to come out and come apart on the bench. But "
+                 "Monroe is a straight run out of Charlotte, and a good deal of what we "
+                 "trim comes from Charlotte, the rest of Union and Mecklenburg County, "
+                 "Concord, Gastonia, and Rock Hill and Fort Mill over the SC line. If you "
+                 "are further out than that, send photos first and we will tell you "
+                 "honestly whether the drive is worth it before you make it."),
                 ("Can you repair one torn seat, or do I have to do the whole interior?",
                  "One seat is fine, and it is a great deal of what comes through the shop. "
                  "Plenty of our work is a single split driver's seat in a car that is "
@@ -4147,10 +4180,25 @@ LANDINGS = [
             "Charles Monk": "Headliner replacement",
             "charmaine sealey": "Repeat customer",
         },
+        "area": {
+            "h2": "Where to bring it, and how far people come",
+            "blurb": ("A stuck or leaking sunroof is not something to drive around with "
+                      "for a week, so the useful thing to know is where we are: 4209 W "
+                      "Hwy 74, west of downtown Monroe. Cars come to us from Charlotte "
+                      "and Mecklenburg County, across Union County, from Concord and "
+                      "Gastonia, and from Rock Hill and Fort Mill over the SC line."),
+        },
         "faq": {
             "label": "Before you call",
             "h2": "Answers first",
             "items": [
+                ("Do you fix sunroofs near Charlotte, or do I need to come to Monroe?",
+                 "The repair is done at the shop in Monroe, at 4209 W Hwy 74 &mdash; the "
+                 "unit has to come out to be rebuilt properly. It is a straight run out "
+                 "of Charlotte on 74, and we take sunroof work from Charlotte and "
+                 "Mecklenburg County, all of Union County, Concord, Gastonia, and Rock "
+                 "Hill and Fort Mill in South Carolina. Call first if it is stuck open "
+                 "&mdash; getting it closed and safe is usually quick."),
                 ("My sunroof is stuck open. Can you get it shut today?",
                  "Usually, yes — getting it closed and safe is the first thing we do, and "
                  "that part is often quick. Whether the full repair is finished the same day "
@@ -4330,10 +4378,26 @@ LANDINGS = [
             "Lauren Corgan": "Drove an hour",
             "charmaine sealey": "Repeat customer",
         },
+        "area": {
+            "h2": "People drive a long way for a top, and we know why",
+            "blurb": ("There are not many shops left that still cut and fit a top by hand, "
+                      "so this is the one job customers travel for &mdash; one of the "
+                      "reviews above is from someone who drove an hour. We are at 4209 W "
+                      "Hwy 74 in Monroe, out from Charlotte, and tops come to us from "
+                      "across Union and Mecklenburg County, Concord, Gastonia, and Rock "
+                      "Hill and Fort Mill in South Carolina."),
+        },
         "faq": {
             "label": "Before you call",
             "h2": "Answers first",
             "items": [
+                ("Do you do convertible tops near Charlotte?",
+                 "Yes &mdash; the shop is in Monroe at 4209 W Hwy 74, a straight run out "
+                 "of Charlotte on 74, and Charlotte cars are a regular part of the "
+                 "convertible work here. We also take tops from the rest of Union and "
+                 "Mecklenburg County, Concord, Gastonia, and Rock Hill and Fort Mill over "
+                 "the SC line. People do travel for this one: a top is cut and fitted by "
+                 "hand and there are not many shops still doing it."),
                 ("How much does a convertible top cost?",
                  "It comes down to three things: the material, whether the rear window is "
                  "heated glass or plastic, and what the frame and pads underneath need. We "
@@ -4500,10 +4564,25 @@ LANDINGS = [
             "Lauren Corgan": "Drove an hour",
             "charmaine sealey": "Repeat customer",
         },
+        "area": {
+            "h2": "Monroe, NC — and worth the drive for this one",
+            "blurb": ("A vinyl top is specialist work: the old covering comes off, the "
+                      "steel underneath gets checked for rust, and the new material is "
+                      "bonded and trimmed by hand. Very few shops still take it on, so "
+                      "cars come to us at 4209 W Hwy 74 in Monroe from Charlotte and "
+                      "Mecklenburg County, all over Union County, Concord and Gastonia, "
+                      "and from Rock Hill and Fort Mill in South Carolina."),
+        },
         "faq": {
             "label": "Before you call",
             "h2": "Answers first",
             "items": [
+                ("Where are you, and do you cover Charlotte?",
+                 "The shop is at 4209 W Hwy 74 in Monroe, NC, straight out from Charlotte "
+                 "on 74. We take vinyl top work from Charlotte and Mecklenburg County, "
+                 "the whole of Union County, Concord and Gastonia, and Rock Hill and Fort "
+                 "Mill across the South Carolina line. Send a photo of the roof and we "
+                 "will tell you what it needs before you drive over."),
                 ("Is a vinyl top the same job as a convertible top?",
                  "No. A vinyl top is a covering bonded to a fixed steel roof; a convertible "
                  "top is fabric over a folding frame with a rear window in it. We do both and "

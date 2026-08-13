@@ -154,6 +154,51 @@ LANDING_CSS = """<style>
 .lp .trust .sm{font-size:12px;letter-spacing:.1em;text-transform:uppercase;
   font-weight:700;color:#93AFC9}
 
+/* ---------- 2b. HERE-LINE — the above-the-fold answer to "near me" ----------
+   Added 2026-08-13. Every one of the six keywords Google throttled for low
+   Quality Score is a "near me" search, and all six scored BELOW AVERAGE on
+   landing page experience. The page carried the address in section 08 and the
+   footer only, so someone who searched "auto upholstery near me" had to scroll
+   the whole argument before the page told them where the shop is. This puts
+   town, service area and hours in the hero, above the fold, where the query
+   asked the question. It is text, not a second map — the one map on the page
+   stays where it is, in the estimate section at the bottom. */
+.lp .heregeo{display:flex;flex-wrap:wrap;align-items:center;gap:9px 16px;
+  margin:0 0 22px;font-size:14.5px;color:#C9D6E4;line-height:1.45}
+.lp .heregeo .pin{display:inline-flex;align-items:center;gap:7px;font-weight:700;
+  color:#fff}
+.lp .heregeo .pin svg{width:15px;height:15px;fill:var(--blue-lt);flex:none}
+.lp .heregeo .sep{width:4px;height:4px;border-radius:50%;
+  background:rgba(255,255,255,.34);flex:none}
+@media(max-width:560px){.lp .heregeo .sep{display:none}
+  .lp .heregeo{flex-direction:column;align-items:flex-start;gap:5px}}
+
+/* ---------- SERVICE AREA band ----------
+   The towns are NOT a marketing wish-list. They are exactly the eight locations
+   `GEO_BID_UP` in att_ads/campaign_spec.py bids up, each one already resolved
+   against the Google Ads API and name-checked. Anything else here would be a
+   claim the campaign does not actually back with money. */
+.lp .area{display:grid;gap:26px;grid-template-columns:1fr;align-items:start}
+@media(min-width:900px){.lp .area{grid-template-columns:1.02fr .98fr;gap:48px}}
+.lp .towns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);
+  border-radius:var(--r-card);overflow:hidden}
+@media(min-width:620px){.lp .towns{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.lp .towns span{background:#fff;padding:13px 14px;font-size:14.5px;
+  font-weight:700;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.lp .towns span::before{content:"";width:5px;height:5px;border-radius:50%;
+  background:var(--blue-lt);flex:none}
+.lp .areacard{background:var(--tint);border-radius:var(--r-card);padding:22px 24px}
+.lp .areacard dl{margin:0;display:grid;grid-template-columns:auto 1fr;
+  gap:10px 18px;font-size:15.5px}
+.lp .areacard dt{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:700;color:var(--blue);padding-top:3px;white-space:nowrap}
+.lp .areacard dd{margin:0;font-weight:600;color:var(--ink)}
+.lp .areacard dd a{font-weight:700;text-decoration:none}
+.lp .areacard dd a:hover{text-decoration:underline}
+@media(max-width:420px){.lp .areacard dl{grid-template-columns:1fr;gap:3px 0}
+  .lp .areacard dd{margin-bottom:11px}}
+
 /* ---------- generic bands ---------- */
 /* Site's band rhythm: shrinks properly on a phone instead of carrying desktop
    padding down. Was a flat 62px. */
@@ -592,8 +637,83 @@ TRUST = [
 
 ADDRESS = "4209 W Hwy 74, Monroe, NC 28110"
 MAP_Q = "4209+W+Hwy+74,+Monroe,+NC+28110"
+MAP_LINK = f"https://www.google.com/maps/search/?api=1&amp;query={MAP_Q}"
 HOURS_LINE = ("Mon&ndash;Fri 9:00&ndash;7:00 &middot; Sat 11:00&ndash;5:00 "
               "&middot; Sun closed")
+
+# The service area, copied from GEO_BID_UP in att_ads/campaign_spec.py — the
+# eight locations the campaign actually bids UP, every geo constant already
+# resolved against the API and name-checked there.
+#
+# NOT a wish-list of nearby towns. If a place is not in that list the campaign
+# does not pay extra to be seen in it, and printing it here would be the page
+# claiming a reach the money does not back. Add a town HERE only when it is
+# added THERE.
+SERVICE_AREA = [
+    "Monroe, NC",
+    "Union County, NC",
+    "Charlotte, NC",
+    "Mecklenburg County, NC",
+    "Concord, NC",
+    "Gastonia, NC",
+    "Rock Hill, SC",
+    "Fort Mill, SC",
+]
+
+PIN_SVG = ('<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+           '<path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z'
+           'm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>')
+
+
+def heregeo():
+    """The above-the-fold local answer, in the hero.
+
+    Town, service area and hours as TEXT. A "near me" search is asking one
+    question before it asks anything else — where are you — and until now this
+    page answered it in section 08 and the footer.
+    """
+    sep = '<span class="sep"></span>'
+    return (f'<p class="heregeo">'
+            f'<span class="pin">{PIN_SVG}Monroe, NC</span>{sep}'
+            f'<span>Serving Charlotte, Union County and the SC border towns</span>'
+            f'{sep}<span>{HOURS_LINE}</span></p>')
+
+
+def area_section(num, cfg):
+    """The SERVICE AREA band. Original, page-specific, verifiable local content.
+
+    `blurb` is per-page so this is not the same paragraph stamped onto five
+    pages — duplicate boilerplate across five landing pages is worth less than
+    nothing to a landing-page-experience score.
+    """
+    towns = "".join(f"<span>{t}</span>" for t in SERVICE_AREA)
+    return f"""
+<section class="band" id="service-area">
+  <div class="wrap">
+    {shead(num, "Service area")}
+    <div class="area">
+      <div>
+        <h2>{cfg["area"]["h2"]}</h2>
+        <p class="sub">{cfg["area"]["blurb"]}</p>
+        <div class="btnrow" style="margin-top:24px">
+          <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a>
+          <a class="btn btn-ghost" href="{MAP_LINK}">Get directions</a>
+        </div>
+      </div>
+      <div>
+        <div class="towns">{towns}</div>
+        <div class="areacard" style="margin-top:18px">
+          <dl>
+            <dt>Shop</dt><dd><a href="{MAP_LINK}">{ADDRESS}</a></dd>
+            <dt>Hours</dt><dd>{HOURS_LINE}</dd>
+            <dt>Phone</dt><dd><a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+"""
 
 
 def initials(name):
@@ -721,6 +841,7 @@ def landing_page(cfg, reviews, pages=None):
       {shead(n, cfg["eyebrow"])}
       <h1>{cfg["h1"]}</h1>
       <p class="lead">{cfg["lead"]}</p>
+      {heregeo()}
       <div class="btnrow">
         <a class="btn btn-primary" href="tel:{PHONE_TEL}">Call {PHONE_DISPLAY}</a>
         <a class="btn btn-ghost" href="#estimate">Send photos for a quote</a>
@@ -886,7 +1007,15 @@ def landing_page(cfg, reviews, pages=None):
 </section>
 """
 
-    # ---- 6. FAQ -----------------------------------------------------------
+    # ---- 6. SERVICE AREA --------------------------------------------------
+    # Placed AFTER the reviews and BEFORE the FAQ deliberately: proof first,
+    # then where we are, then the questions that follow from it — and the FAQ
+    # below now opens with a service-area question, so the two read as one
+    # thought rather than the location being stranded on its own.
+    n += 1
+    h += area_section(n, cfg)
+
+    # ---- 7. FAQ -----------------------------------------------------------
     n += 1
     f = cfg["faq"]
     # FAQ starts fully CLOSED. The first item used to be forced open, which on a
@@ -907,7 +1036,7 @@ def landing_page(cfg, reviews, pages=None):
 </section>
 """
 
-    # ---- 7. optional extra band (internal links) --------------------------
+    # ---- 8. optional extra band (internal links) --------------------------
     if cfg.get("extra"):
         n += 1
         e = cfg["extra"]
@@ -924,7 +1053,7 @@ def landing_page(cfg, reviews, pages=None):
 </section>
 """
 
-    # ---- 8. FORM — on the page, not a click away --------------------------
+    # ---- 9. FORM — on the page, not a click away --------------------------
     n += 1
     fm = cfg["form"]
     why = "".join(f'<li><span class="sq"></span>{x}</li>' for x in fm["why"])

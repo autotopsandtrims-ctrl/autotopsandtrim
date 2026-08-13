@@ -303,7 +303,26 @@ SCHEMA = {
         "ratingValue": "5.0",
         "reviewCount": "9",
     },
-    "areaServed": ["Monroe NC", "Charlotte NC", "Union County NC"],
+    # The EIGHT locations the Google Ads campaign actually bids up, copied from
+    # GEO_BID_UP in att_ads/campaign_spec.py, where every geo constant was
+    # resolved against the API and name-checked. Was three entries; the campaign
+    # has been paying a premium in Concord, Gastonia, Rock Hill and Fort Mill
+    # since launch while the structured data said we did not serve them.
+    #
+    # Keep this in step with GEO_BID_UP. A town belongs here when the campaign
+    # bids on it, not because it sounds nearby.
+    "areaServed": [
+        {"@type": "City", "name": "Monroe", "addressRegion": "NC"},
+        {"@type": "AdministrativeArea", "name": "Union County", "addressRegion": "NC"},
+        {"@type": "City", "name": "Charlotte", "addressRegion": "NC"},
+        {"@type": "AdministrativeArea", "name": "Mecklenburg County", "addressRegion": "NC"},
+        {"@type": "City", "name": "Concord", "addressRegion": "NC"},
+        {"@type": "City", "name": "Gastonia", "addressRegion": "NC"},
+        {"@type": "City", "name": "Rock Hill", "addressRegion": "SC"},
+        {"@type": "City", "name": "Fort Mill", "addressRegion": "SC"},
+    ],
+    "hasMap": ("https://www.google.com/maps/search/?api=1"
+               "&query=4209+W+Hwy+74,+Monroe,+NC+28110"),
     # How Google ties the social profiles to this business
     "sameAs": [url for _, url, _ in SOCIALS],
     "openingHoursSpecification": [
